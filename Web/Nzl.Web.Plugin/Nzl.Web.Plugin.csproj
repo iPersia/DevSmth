@@ -51,10 +51,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Nzl.Web.Interface\Nzl.Web.Interface.csproj">
-      <Project>{30B2DE94-CA85-4FFC-97BA-4E681E807400}</Project>
-      <Name>Nzl.Web.Interface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Nzl.Web.Rss\Nzl.Web.Rss.csproj">
       <Project>{C5CD7FF9-FB2D-47E1-966B-E46F169DA312}</Project>
       <Name>Nzl.Web.Rss</Name>

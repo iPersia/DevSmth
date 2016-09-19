@@ -59,14 +59,6 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Nzl.Web.Core\Nzl.Web.Core.csproj">
-      <Project>{87C3C98E-3F1A-4BAF-968B-53F5AF6231AE}</Project>
-      <Name>Nzl.Web.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Nzl.Web.Interface\Nzl.Web.Interface.csproj">
-      <Project>{30B2DE94-CA85-4FFC-97BA-4E681E807400}</Project>
-      <Name>Nzl.Web.Interface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Nzl.Web.Util\Nzl.Web.Util.csproj">
       <Project>{6CBA8F35-E6F4-4A6D-876F-38EA9DE4649A}</Project>
       <Name>Nzl.Web.Util</Name>

@@ -3,6 +3,7 @@
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Containers;
     using Nzl.Smth.Loaders;
@@ -17,17 +18,17 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnDeleteLinkClicked;
+        public event HyperlinkClickEventHandler OnDeleteLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnReferLinkClicked;
+        public event HyperlinkClickEventHandler OnReferLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnUserLinkClicked;
+        public event HyperlinkClickEventHandler OnUserLinkClicked;
         #endregion
 
         #region variable
@@ -92,7 +93,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReplyControlContainer_OnDeleteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReplyControlContainer_OnDeleteLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnDeleteLinkClicked != null)
             {
@@ -105,7 +106,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReplyControlContainer_OnReplyLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReplyControlContainer_OnReplyLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnReferLinkClicked != null)
             {
@@ -118,7 +119,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReplyControlContainer_OnUserLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReplyControlContainer_OnUserLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnUserLinkClicked != null)
             {

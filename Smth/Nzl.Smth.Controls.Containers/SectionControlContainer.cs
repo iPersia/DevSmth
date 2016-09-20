@@ -55,7 +55,7 @@
         {
             InitializeComponent();
             this.btnRefresh.Left = this.panelMenu.Width / 2 - this.btnRefresh.Width / 2;
-            this.linklblPrevious.LinkClicked += LinklblPrevious_LinkClicked;
+            this.linklblPrevious.HyperlinkClick += LinklblPrevious_LinkClicked;
             this.linklblPrevious.LostFocus += LinklblPrevious_LostFocus;
             this.SetBaseUrl(@"http://m.newsmth.net/section");
             this.Text = "Section navigation";
@@ -217,12 +217,12 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LinklblPrevious_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinklblPrevious_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             this.SetUrlInfo(false);
-            if (e.Link != null && e.Link.LinkData != null)
+            if (string.IsNullOrEmpty(e.Link) == false)
             {
-                this.SetBaseUrl(e.Link.LinkData.ToString());
+                this.SetBaseUrl(e.Link);
                 this.FetchPage();
             }
         }
@@ -251,15 +251,13 @@
                 ///Previous
                 string url = CommonUtil.GetMatch(@"<div class=\Wsec sp\W><a href=\W(?'SectionUrl'.+)\W>上一层</a>", wp.Html, "SectionUrl");
                 this.linklblPrevious.Text = "Previous";
-                this.linklblPrevious.Links.Clear();
                 if (string.IsNullOrEmpty(url) == false)
                 {
-                    this.linklblPrevious.Links.Add(0, this.linklblPrevious.Text.Length, Configuration.BaseUrl + url);
+                    this.linklblPrevious.Text = ControlUtil.GetHyperlinkText(this.linklblPrevious.Text, Configuration.BaseUrl + url);
                 }
 
                 ///Section name.
                 this.linklblSectionName.Text = CommonUtil.GetMatch(@"<div class=\Wmenu sp\W><a [^>]+>首页</a>\|(?'SectionName'[^<]+)</div>", wp.Html, "SectionName");
-                this.linklblSectionName.Links.Clear();
                 if (this._parentControl != null)
                 {
                     this._parentControl.Text = this.linklblSectionName.Text;

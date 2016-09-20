@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
-            this.linklblBoard = new System.Windows.Forms.LinkLabel();
-            this.lblReplies = new System.Windows.Forms.Label();
-            this.linklblTop = new System.Windows.Forms.LinkLabel();
-            this.lblIndex = new System.Windows.Forms.Label();
+            this.linklblBoard = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.lblReplies = new DevExpress.XtraEditors.LabelControl();
+            this.linklblTop = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.lblIndex = new DevExpress.XtraEditors.LabelControl();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,9 +109,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Label lblIndex;
-        private System.Windows.Forms.LinkLabel linklblTop;
-        private System.Windows.Forms.Label lblReplies;
-        private System.Windows.Forms.LinkLabel linklblBoard;
+        private DevExpress.XtraEditors.LabelControl lblIndex;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblTop;
+        private DevExpress.XtraEditors.LabelControl lblReplies;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblBoard;
     }
 }

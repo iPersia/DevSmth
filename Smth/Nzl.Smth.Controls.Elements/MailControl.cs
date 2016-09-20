@@ -2,6 +2,7 @@
 {
     using System;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Web.Util;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Datas;
@@ -14,17 +15,17 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnMailLinkClicked;
+        public event HyperlinkClickEventHandler OnMailLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnDeleteLinkClicked;
+        public event HyperlinkClickEventHandler OnDeleteLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnUserLinkClicked;
+        public event HyperlinkClickEventHandler OnUserLinkClicked;
 
         #region Properties
         /// <summary>
@@ -46,9 +47,9 @@
         {
             InitializeComponent();
             this.Height = MailControl.ControlHeight;
-            this.linklblAuthor.LinkClicked += linklblAuthor_LinkClicked;
-            this.linklblTitle.LinkClicked += linklblTitle_LinkClicked;
-            this.linklblDelete.LinkClicked += LinklblDelete_LinkClicked;
+            this.linklblAuthor.HyperlinkClick += linklblAuthor_LinkClicked;
+            this.linklblTitle.HyperlinkClick += linklblTitle_LinkClicked;
+            this.linklblDelete.HyperlinkClick += LinklblDelete_LinkClicked;
         }        
 
         /// <summary>
@@ -80,7 +81,7 @@
         {
             set
             {
-                this.linklblTitle.LinkColor = value;
+                this.linklblTitle.ForeColor = value;
             }
         }
 
@@ -89,7 +90,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblAuthor_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnUserLinkClicked != null)
             {
@@ -102,7 +103,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblTitle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblTitle_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnMailLinkClicked != null)
             {
@@ -115,7 +116,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LinklblDelete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinklblDelete_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnDeleteLinkClicked != null)
             {

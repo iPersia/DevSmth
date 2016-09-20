@@ -36,7 +36,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.scContainer = new System.Windows.Forms.SplitContainer();
             this.panelUp = new System.Windows.Forms.Panel();
-            this.lblNote = new System.Windows.Forms.Label();
+            this.lblNote = new DevExpress.XtraEditors.LabelControl();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
             this.scContainer.Panel1.SuspendLayout();
@@ -176,6 +176,6 @@
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.CheckBox ckbSave;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lblNote;
+        private DevExpress.XtraEditors.LabelControl lblNote;
     }
 }

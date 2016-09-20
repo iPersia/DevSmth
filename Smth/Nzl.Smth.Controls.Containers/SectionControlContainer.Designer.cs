@@ -33,8 +33,8 @@
             this.scContainer = new System.Windows.Forms.SplitContainer();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
-            this.linklblSectionName = new System.Windows.Forms.LinkLabel();
-            this.linklblPrevious = new System.Windows.Forms.LinkLabel();
+            this.linklblSectionName = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblPrevious = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
             this.scContainer.Panel1.SuspendLayout();
@@ -150,8 +150,8 @@
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.SplitContainer scContainer;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.LinkLabel linklblPrevious;
-        private System.Windows.Forms.LinkLabel linklblSectionName;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblPrevious;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblSectionName;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }

@@ -4,6 +4,7 @@ namespace Nzl.Smth.Controls.Elements
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Datas;
 
@@ -22,12 +23,12 @@ namespace Nzl.Smth.Controls.Elements
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopLinkClicked;
+        public event HyperlinkClickEventHandler OnTopLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopBoardLinkClicked;
+        public event HyperlinkClickEventHandler OnTopBoardLinkClicked;
         #endregion
 
         #region Ctor.
@@ -38,8 +39,8 @@ namespace Nzl.Smth.Controls.Elements
         {
             InitializeComponent();
             this.Height = ControlHeight;
-            this.linklblTop.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblTop_LinkClicked);
-            this.linklblBoard.LinkClicked += LinklblBoard_LinkClicked;
+            this.linklblTop.HyperlinkClick += new HyperlinkClickEventHandler(linklblTop_LinkClicked);
+            this.linklblBoard.HyperlinkClick += LinklblBoard_LinkClicked;
         }
 
         /// <summary>
@@ -53,9 +54,7 @@ namespace Nzl.Smth.Controls.Elements
             {
                 this.lblIndex.Text = topic.Sequence.ToString("00");
                 this.linklblTop.Text = "";
-                this.linklblTop.Text = topic.Title;
-                this.linklblTop.Links.Clear();
-                this.linklblTop.Links.Add(0, this.linklblTop.Text.Length, topic.Uri);
+                this.linklblTop.Text = ControlUtil.GetHyperlinkText(topic.Title, topic.Uri);
                 if (topic.Replies > 0)
                 {
                     this.lblReplies.Visible = true;
@@ -70,8 +69,7 @@ namespace Nzl.Smth.Controls.Elements
                 //string boardName = Boards.Instance.GetBoardName(topic.Board);
                 //this.linklblBoard.Text = string.IsNullOrEmpty(boardName) ? topic.Board : boardName;
                 this.linklblBoard.Text = topic.Board;
-                this.linklblBoard.Links.Clear();
-                this.linklblBoard.Links.Add(0, this.linklblBoard.Text.Length, topic.Board);
+                this.linklblBoard.Text = ControlUtil.GetHyperlinkText(topic.Board, topic.Board);
             }
         }
 
@@ -112,7 +110,7 @@ namespace Nzl.Smth.Controls.Elements
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblTop_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblTop_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnTopLinkClicked != null)
             {
@@ -125,7 +123,7 @@ namespace Nzl.Smth.Controls.Elements
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LinklblBoard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinklblBoard_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnTopBoardLinkClicked != null)
             {

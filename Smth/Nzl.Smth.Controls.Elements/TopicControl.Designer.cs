@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panelSubject = new System.Windows.Forms.Panel();
-            this.lblReplies = new System.Windows.Forms.Label();
-            this.linklblLastID = new System.Windows.Forms.LinkLabel();
-            this.linklblCreateID = new System.Windows.Forms.LinkLabel();
-            this.lblLastDT = new System.Windows.Forms.Label();
-            this.lblCreateDT = new System.Windows.Forms.Label();
-            this.linklblTopic = new System.Windows.Forms.LinkLabel();
+            this.lblReplies = new DevExpress.XtraEditors.LabelControl();
+            this.linklblLastID = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblCreateID = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.lblLastDT = new DevExpress.XtraEditors.LabelControl();
+            this.lblCreateDT = new DevExpress.XtraEditors.LabelControl();
+            this.linklblTopic = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panelSubject.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +72,6 @@
             this.linklblLastID.TabIndex = 4;
             this.linklblLastID.TabStop = true;
             this.linklblLastID.Text = "LastID";
-            this.linklblLastID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // linklblCreateID
             // 
@@ -84,7 +83,6 @@
             this.linklblCreateID.TabIndex = 3;
             this.linklblCreateID.TabStop = true;
             this.linklblCreateID.Text = "ZZZZZZZZZZZZZ";
-            this.linklblCreateID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblLastDT
             // 
@@ -95,7 +93,6 @@
             this.lblLastDT.Size = new System.Drawing.Size(80, 12);
             this.lblLastDT.TabIndex = 2;
             this.lblLastDT.Text = "00:00:00";
-            this.lblLastDT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCreateDT
             // 
@@ -118,7 +115,6 @@
             this.linklblTopic.TabIndex = 0;
             this.linklblTopic.TabStop = true;
             this.linklblTopic.Text = "Topic";
-            this.linklblTopic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TopicControl
             // 
@@ -136,11 +132,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panelSubject;
-        private System.Windows.Forms.LinkLabel linklblTopic;
-        private System.Windows.Forms.Label lblCreateDT;
-        private System.Windows.Forms.LinkLabel linklblLastID;
-        private System.Windows.Forms.LinkLabel linklblCreateID;
-        private System.Windows.Forms.Label lblLastDT;
-        private System.Windows.Forms.Label lblReplies;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblTopic;
+        private DevExpress.XtraEditors.LabelControl lblCreateDT;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblLastID;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblCreateID;
+        private DevExpress.XtraEditors.LabelControl lblLastDT;
+        private DevExpress.XtraEditors.LabelControl lblReplies;
     }
 }

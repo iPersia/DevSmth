@@ -5,6 +5,8 @@
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Controls.Elements;
@@ -24,27 +26,27 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopicCreateIDLinkClicked;
+        public event HyperlinkClickEventHandler OnTopicCreateIDLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopicLastIDLinkClicked;
+        public event HyperlinkClickEventHandler OnTopicLastIDLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopicLinkClicked;
+        public event HyperlinkClickEventHandler OnTopicLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnPostLinkClicked;
+        public event HyperlinkClickEventHandler OnPostLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnNewClicked;
+        public event HyperlinkClickEventHandler OnNewClicked;
 
         /// <summary>
         /// 
@@ -396,17 +398,19 @@
         /// <param name="e"></param>
         private void btnNew_Click(object sender, EventArgs e)
         {
-            if (this.OnNewClicked != null)
+            SimpleButton sb = sender as SimpleButton;
+            if (this.OnNewClicked != null && sb != null)
             {
-                LinkLabel.Link link = new LinkLabel.Link(0, 1, Configs.Configuration.BaseUrl + "/article/" + this.Board + "/post");
-                LinkLabelLinkClickedEventArgs lllce = new LinkLabelLinkClickedEventArgs(link);
-                this.OnNewClicked(sender, lllce);
-                if (lllce.Link.Tag != null)
+                sb.Tag = null;
+                HyperlinkClickEventArgs hcea = new HyperlinkClickEventArgs();
+                hcea.Link = Configs.Configuration.BaseUrl + "/article/" + this.Board + "/post";
+                this.OnNewClicked(sender, hcea);
+                if (sb.Tag != null)
                 {
-                    string postString = lllce.Link.Tag.ToString();
+                    string postString = sb.Tag.ToString();
                     if (string.IsNullOrEmpty(postString) == false)
                     {
-                        PostLoader pl = new PostLoader(lllce.Link.LinkData.ToString(), postString);
+                        PostLoader pl = new PostLoader(hcea.Link, postString);
                         pl.ErrorAccured += PostLoader_ErrorAccured;
                         pl.Succeeded += NewTopic_Succeeded;
                         pl.Failed += NewTopic_Failed;
@@ -414,7 +418,7 @@
                     }
                 }
 
-                lllce.Link.Tag = null;
+                sb.Tag = null;
             }
         }
 
@@ -493,9 +497,9 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TopicControl_OnPostLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void TopicControl_OnPostLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
                 if (this.OnPostLinkClicked != null)
@@ -510,9 +514,9 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TopicControl_OnTopicLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void TopicControl_OnTopicLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
                 if (this.OnTopicLinkClicked != null)
@@ -527,9 +531,9 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TopicControl_OnCreateIDLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void TopicControl_OnCreateIDLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
                 if (this.OnTopicCreateIDLinkClicked != null)
@@ -544,9 +548,9 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TopicControl_OnLastIDLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void TopicControl_OnLastIDLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
                 if (this.OnTopicLastIDLinkClicked != null)

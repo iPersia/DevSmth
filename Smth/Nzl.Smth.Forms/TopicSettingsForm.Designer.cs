@@ -34,9 +34,9 @@
             this.ckbAutoUpdating = new System.Windows.Forms.CheckBox();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.gpAutoUpdating = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label2 = new DevExpress.XtraEditors.LabelControl();
             this.cmbInterval = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.gpBrowseMode.SuspendLayout();
             this.gpAutoUpdating.SuspendLayout();
             this.SuspendLayout();
@@ -173,8 +173,8 @@
         private System.Windows.Forms.CheckBox ckbAutoUpdating;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private System.Windows.Forms.GroupBox gpAutoUpdating;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.LabelControl label1;
+        private DevExpress.XtraEditors.LabelControl label2;
         private System.Windows.Forms.ComboBox cmbInterval;
     }
 }

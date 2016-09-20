@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.linklblID = new System.Windows.Forms.LinkLabel();
+            this.linklblID = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panel = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.linklblDelete = new System.Windows.Forms.LinkLabel();
-            this.linklblEdit = new System.Windows.Forms.LinkLabel();
-            this.linklblMail = new System.Windows.Forms.LinkLabel();
-            this.linklblNew = new System.Windows.Forms.LinkLabel();
-            this.linklblSubjectLast = new System.Windows.Forms.LinkLabel();
-            this.linklblSubjectNext = new System.Windows.Forms.LinkLabel();
-            this.linklblLast = new System.Windows.Forms.LinkLabel();
-            this.linklblNext = new System.Windows.Forms.LinkLabel();
-            this.linklblBoard = new System.Windows.Forms.LinkLabel();
-            this.linklblSource = new System.Windows.Forms.LinkLabel();
-            this.linklblSubjectExpand = new System.Windows.Forms.LinkLabel();
-            this.linklblHost = new System.Windows.Forms.LinkLabel();
-            this.linklblExpand = new System.Windows.Forms.LinkLabel();
-            this.lblSubject = new System.Windows.Forms.Label();
-            this.linklblTransfer = new System.Windows.Forms.LinkLabel();
-            this.lblDateTime = new System.Windows.Forms.Label();
-            this.linklblReply = new System.Windows.Forms.LinkLabel();
-            this.lblCopy = new System.Windows.Forms.LinkLabel();
+            this.linklblDelete = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblEdit = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblMail = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblNew = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblSubjectLast = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblSubjectNext = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblLast = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblNext = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblBoard = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblSource = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblSubjectExpand = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblHost = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblExpand = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.lblSubject = new DevExpress.XtraEditors.LabelControl();
+            this.linklblTransfer = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.lblDateTime = new DevExpress.XtraEditors.LabelControl();
+            this.linklblReply = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.lblCopy = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.richtxtContent = new Nzl.Controls.RichTextBoxEx();
             this.panel.SuspendLayout();
             this.panelTitle.SuspendLayout();
@@ -64,9 +64,8 @@
             this.linklblID.TabIndex = 1;
             this.linklblID.TabStop = true;
             this.linklblID.Text = "IDIDIDIDIDID";
-            this.linklblID.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.linklblID.Visible = false;
-            this.linklblID.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblID_LinkClicked);
+            this.linklblID.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblID_LinkClicked);
             // 
             // panel
             // 
@@ -121,9 +120,8 @@
             this.linklblDelete.TabIndex = 23;
             this.linklblDelete.TabStop = true;
             this.linklblDelete.Text = "Delete";
-            this.linklblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblDelete.Visible = false;
-            this.linklblDelete.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblDelete_LinkClicked);
+            this.linklblDelete.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblDelete_LinkClicked);
             // 
             // linklblEdit
             // 
@@ -136,9 +134,8 @@
             this.linklblEdit.TabIndex = 22;
             this.linklblEdit.TabStop = true;
             this.linklblEdit.Text = "Edit";
-            this.linklblEdit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblEdit.Visible = false;
-            this.linklblEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblEdit_LinkClicked);
+            this.linklblEdit.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblEdit_LinkClicked);
             // 
             // linklblMail
             // 
@@ -151,9 +148,8 @@
             this.linklblMail.TabIndex = 21;
             this.linklblMail.TabStop = true;
             this.linklblMail.Text = "Mail";
-            this.linklblMail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblMail.Visible = false;
-            this.linklblMail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblMail_LinkClicked);
+            this.linklblMail.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblMail_LinkClicked);
             // 
             // linklblNew
             // 
@@ -166,9 +162,8 @@
             this.linklblNew.TabIndex = 20;
             this.linklblNew.TabStop = true;
             this.linklblNew.Text = "New";
-            this.linklblNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblNew.Visible = false;
-            this.linklblNew.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblNew_LinkClicked);
+            this.linklblNew.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblNew_LinkClicked);
             // 
             // linklblSubjectLast
             // 
@@ -180,9 +175,8 @@
             this.linklblSubjectLast.TabIndex = 19;
             this.linklblSubjectLast.TabStop = true;
             this.linklblSubjectLast.Text = "Subject Last";
-            this.linklblSubjectLast.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblSubjectLast.Visible = false;
-            this.linklblSubjectLast.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblSubjectLast_LinkClicked);
+            this.linklblSubjectLast.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblSubjectLast_LinkClicked);
             // 
             // linklblSubjectNext
             // 
@@ -194,9 +188,8 @@
             this.linklblSubjectNext.TabIndex = 18;
             this.linklblSubjectNext.TabStop = true;
             this.linklblSubjectNext.Text = "Subject Next";
-            this.linklblSubjectNext.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblSubjectNext.Visible = false;
-            this.linklblSubjectNext.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblSubjectNext_LinkClicked);
+            this.linklblSubjectNext.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblSubjectNext_LinkClicked);
             // 
             // linklblLast
             // 
@@ -208,9 +201,8 @@
             this.linklblLast.TabIndex = 17;
             this.linklblLast.TabStop = true;
             this.linklblLast.Text = "Last";
-            this.linklblLast.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblLast.Visible = false;
-            this.linklblLast.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblLast_LinkClicked);
+            this.linklblLast.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblLast_LinkClicked);
             // 
             // linklblNext
             // 
@@ -222,9 +214,8 @@
             this.linklblNext.TabIndex = 16;
             this.linklblNext.TabStop = true;
             this.linklblNext.Text = "Next";
-            this.linklblNext.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblNext.Visible = false;
-            this.linklblNext.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblNext_LinkClicked);
+            this.linklblNext.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblNext_LinkClicked);
             // 
             // linklblBoard
             // 
@@ -236,9 +227,8 @@
             this.linklblBoard.TabIndex = 15;
             this.linklblBoard.TabStop = true;
             this.linklblBoard.Text = "Board";
-            this.linklblBoard.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblBoard.Visible = false;
-            this.linklblBoard.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblBoard_LinkClicked);
+            this.linklblBoard.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblBoard_LinkClicked);
             // 
             // linklblSource
             // 
@@ -250,9 +240,8 @@
             this.linklblSource.TabIndex = 14;
             this.linklblSource.TabStop = true;
             this.linklblSource.Text = "Source";
-            this.linklblSource.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblSource.Visible = false;
-            this.linklblSource.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblSource_LinkClicked);
+            this.linklblSource.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblSource_LinkClicked);
             // 
             // linklblSubjectExpand
             // 
@@ -264,9 +253,8 @@
             this.linklblSubjectExpand.TabIndex = 13;
             this.linklblSubjectExpand.TabStop = true;
             this.linklblSubjectExpand.Text = "Subject";
-            this.linklblSubjectExpand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblSubjectExpand.Visible = false;
-            this.linklblSubjectExpand.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblSubjectExpand_LinkClicked);
+            this.linklblSubjectExpand.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblSubjectExpand_LinkClicked);
             // 
             // linklblHost
             // 
@@ -278,9 +266,8 @@
             this.linklblHost.TabIndex = 12;
             this.linklblHost.TabStop = true;
             this.linklblHost.Text = "Host";
-            this.linklblHost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblHost.Visible = false;
-            this.linklblHost.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblHost_LinkClicked);
+            this.linklblHost.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblHost_LinkClicked);
             // 
             // linklblExpand
             // 
@@ -292,9 +279,8 @@
             this.linklblExpand.TabIndex = 11;
             this.linklblExpand.TabStop = true;
             this.linklblExpand.Text = "Expand";
-            this.linklblExpand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblExpand.Visible = false;
-            this.linklblExpand.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblExpand_LinkClicked);
+            this.linklblExpand.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblExpand_LinkClicked);
             // 
             // lblSubject
             // 
@@ -305,7 +291,6 @@
             this.lblSubject.Size = new System.Drawing.Size(47, 12);
             this.lblSubject.TabIndex = 9;
             this.lblSubject.Text = "Subject";
-            this.lblSubject.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblSubject.Visible = false;
             // 
             // linklblTransfer
@@ -319,9 +304,8 @@
             this.linklblTransfer.TabIndex = 8;
             this.linklblTransfer.TabStop = true;
             this.linklblTransfer.Text = "Transfer";
-            this.linklblTransfer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblTransfer.Visible = false;
-            this.linklblTransfer.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblTransfer_LinkClicked);
+            this.linklblTransfer.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblTransfer_LinkClicked);
             // 
             // lblDateTime
             // 
@@ -333,7 +317,6 @@
             this.lblDateTime.Size = new System.Drawing.Size(119, 12);
             this.lblDateTime.TabIndex = 3;
             this.lblDateTime.Text = "2016-09-07 16:02:25";
-            this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblDateTime.Visible = false;
             // 
             // linklblReply
@@ -347,9 +330,8 @@
             this.linklblReply.TabIndex = 6;
             this.linklblReply.TabStop = true;
             this.linklblReply.Text = "Reply";
-            this.linklblReply.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linklblReply.Visible = false;
-            this.linklblReply.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblReply_LinkClicked);
+            this.linklblReply.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblReply_LinkClicked);
             // 
             // lblCopy
             // 
@@ -362,8 +344,7 @@
             this.lblCopy.TabIndex = 5;
             this.lblCopy.TabStop = true;
             this.lblCopy.Text = "Copy";
-            this.lblCopy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCopy.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCopy_LinkClicked);
+            this.lblCopy.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.lblCopy_LinkClicked);
             // 
             // richtxtContent
             // 
@@ -398,28 +379,28 @@
         }
 
         #endregion
-        private System.Windows.Forms.LinkLabel linklblID;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblID;
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Label lblDateTime;
+        private DevExpress.XtraEditors.LabelControl lblDateTime;
         //private System.Windows.Forms.RichTextBox richtxtContent;
         private Nzl.Controls.RichTextBoxEx richtxtContent;
-        private System.Windows.Forms.LinkLabel lblCopy;
-        private System.Windows.Forms.LinkLabel linklblReply;
-        private System.Windows.Forms.LinkLabel linklblTransfer;
+        private DevExpress.XtraEditors.HyperlinkLabelControl lblCopy;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblReply;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblTransfer;
         private System.Windows.Forms.Panel panelTitle;
-        private System.Windows.Forms.Label lblSubject;
-        private System.Windows.Forms.LinkLabel linklblExpand;
-        private System.Windows.Forms.LinkLabel linklblHost;
-        private System.Windows.Forms.LinkLabel linklblSubjectExpand;
-        private System.Windows.Forms.LinkLabel linklblSource;
-        private System.Windows.Forms.LinkLabel linklblBoard;
-        private System.Windows.Forms.LinkLabel linklblLast;
-        private System.Windows.Forms.LinkLabel linklblNext;
-        private System.Windows.Forms.LinkLabel linklblSubjectLast;
-        private System.Windows.Forms.LinkLabel linklblSubjectNext;
-        private System.Windows.Forms.LinkLabel linklblNew;
-        private System.Windows.Forms.LinkLabel linklblMail;
-        private System.Windows.Forms.LinkLabel linklblDelete;
-        private System.Windows.Forms.LinkLabel linklblEdit;
+        private DevExpress.XtraEditors.LabelControl lblSubject;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblExpand;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblHost;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblSubjectExpand;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblSource;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblBoard;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblLast;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblNext;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblSubjectLast;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblSubjectNext;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblNew;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblMail;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblDelete;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblEdit;
     }
 }

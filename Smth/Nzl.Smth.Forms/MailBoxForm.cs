@@ -2,6 +2,8 @@
 {
     using System;
     using System.Windows.Forms;
+    using DevExpress.Utils;
+    using DevExpress.XtraEditors;
 
     public partial class MailBoxForm : BaseForm
     {
@@ -60,12 +62,12 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MbcMailBox_OnUserLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void MbcMailBox_OnUserLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
-                UserForm form  = new UserForm(e.Link.LinkData.ToString());
+                UserForm form  = new UserForm(e.Link);
                 form.StartPosition = FormStartPosition.CenterParent;
                 this.HideWhenDeactivate = false;
                 form.ShowDialog(this._parentForm);
@@ -79,18 +81,18 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MbcMailBox_OnMailLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void MbcMailBox_OnMailLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
-            if (linkLabel != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
                 this._mailDetailForm.StartPosition = FormStartPosition.CenterParent;
-                this._mailDetailForm.Url = e.Link.LinkData.ToString();
+                this._mailDetailForm.Url = e.Link;
                 this.HideWhenDeactivate = false;
                 this._mailDetailForm.ShowDialog(this._parentForm);
-                e.Link.Tag = this._mailDetailForm.Tag;
+                hlc.Tag = this._mailDetailForm.Tag;
                 this._mailDetailForm.Tag = null;
-                e.Link.Visited = true;
+                //e.Link.Visited = true;
                 this.Focus();
                 this.HideWhenDeactivate = true;
             }
@@ -124,12 +126,12 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MbcMailBox_OnDeleteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void MbcMailBox_OnDeleteLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
-            if (linkLabel != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                if (string.IsNullOrEmpty(e.Link.LinkData.ToString()) == false)
+                if (string.IsNullOrEmpty(e.Link) == false)
                 {
                     MessageForm form = new MessageForm("Confirm", "Do you want to delete this mail?");
                     form.StartPosition = FormStartPosition.CenterParent;
@@ -137,8 +139,8 @@
                     this.HideWhenDeactivate = false;
                     if (form.ShowDialog(this._parentForm) == DialogResult.OK)
                     {
-                        e.Link.Tag = "Yes";
-                        e.Link.Visited = true;
+                        hlc.Tag = "Yes";
+                        //e.Link.Visited = true;
                     }
 
                     this.Focus();

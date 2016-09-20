@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
@@ -26,17 +27,17 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnReplyLinkClicked;
+        public event HyperlinkClickEventHandler OnReplyLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnUserLinkClicked;
+        public event HyperlinkClickEventHandler OnUserLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnDeleteLinkClicked;
+        public event HyperlinkClickEventHandler OnDeleteLinkClicked;
         #endregion
 
         #region Variable
@@ -204,7 +205,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReplyControl_OnUserLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReplyControl_OnUserLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnUserLinkClicked != null)
             {
@@ -217,7 +218,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReplyControl_OnReplyLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReplyControl_OnReplyLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnReplyLinkClicked != null)
             {
@@ -230,7 +231,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReplyControl_OnDeleteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReplyControl_OnDeleteLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnDeleteLinkClicked != null)
             {

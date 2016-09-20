@@ -4,6 +4,7 @@ namespace Nzl.Smth.Controls.Elements
     using System;
     using System.Text;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Datas;
 
@@ -22,22 +23,22 @@ namespace Nzl.Smth.Controls.Elements
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnUserLinkClicked;
+        public event HyperlinkClickEventHandler OnUserLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnReplyLinkClicked;
+        public event HyperlinkClickEventHandler OnReplyLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTransferLinkClicked;
+        public event HyperlinkClickEventHandler OnTransferLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnDeleteLinkClicked;
+        public event HyperlinkClickEventHandler OnDeleteLinkClicked;
         #endregion
 
         #region Ctor.
@@ -47,10 +48,10 @@ namespace Nzl.Smth.Controls.Elements
         public MailDetailControl()
         {
             InitializeComponent();
-            this.linklblID.LinkClicked += LinklblID_LinkClicked;
-            this.linklblReply.LinkClicked += LinklblReply_LinkClicked;
-            this.linklblDelete.LinkClicked += LinklblDelete_LinkClicked;
-            this.linklblTransfer.LinkClicked += LinklblTransfer_LinkClicked;
+            this.linklblID.HyperlinkClick += LinklblID_LinkClicked;
+            this.linklblReply.HyperlinkClick += LinklblReply_LinkClicked;
+            this.linklblDelete.HyperlinkClick += LinklblDelete_LinkClicked;
+            this.linklblTransfer.HyperlinkClick += LinklblTransfer_LinkClicked;
         }
         #endregion
 
@@ -74,8 +75,7 @@ namespace Nzl.Smth.Controls.Elements
                     if (string.IsNullOrEmpty(mail.DeleteUrl) == false)
                     {
                         this.linklblDelete.Visible = true;
-                        this.linklblDelete.Links.Clear();
-                        this.linklblDelete.Links.Add(0, this.linklblDelete.Text.Length, mail.DeleteUrl);
+                        this.linklblDelete.Text = ControlUtil.GetHyperlinkText(this.linklblDelete.Text, mail.DeleteUrl);
                     }
 
                     ///ID url.
@@ -83,9 +83,7 @@ namespace Nzl.Smth.Controls.Elements
                     if (string.IsNullOrEmpty(mail.Author) == false)
                     {
                         this.linklblID.Text = mail.Author;
-                        this.linklblID.Visible = true;
-                        this.linklblID.Links.Clear();
-                        this.linklblID.Links.Add(0, this.linklblID.Text.Length, mail.Author);
+                        this.linklblID.Text = ControlUtil.GetHyperlinkText(mail.Author, mail.Author);
                     }
 
                     ///Reply url.
@@ -93,8 +91,7 @@ namespace Nzl.Smth.Controls.Elements
                     if (string.IsNullOrEmpty(mail.ReplyUrl) == false)
                     {
                         this.linklblReply.Visible = true;
-                        this.linklblReply.Links.Clear();
-                        this.linklblReply.Links.Add(0, this.linklblReply.Text.Length, mail.ReplyUrl);
+                        this.linklblReply.Text = ControlUtil.GetHyperlinkText(this.linklblReply.Text, mail.ReplyUrl);
                         this.linklblReply.Tag = mail;
                     }
 
@@ -103,8 +100,7 @@ namespace Nzl.Smth.Controls.Elements
                     if (string.IsNullOrEmpty(mail.TransferUrl) == false)
                     {
                         this.linklblTransfer.Visible = true;
-                        this.linklblTransfer.Links.Clear();
-                        this.linklblTransfer.Links.Add(0, this.linklblTransfer.Text.Length, mail.TransferUrl);
+                        this.linklblTransfer.Text = ControlUtil.GetHyperlinkText(this.linklblTransfer.Text, mail.TransferUrl);
                     }
 
                     ///Content.
@@ -150,7 +146,7 @@ namespace Nzl.Smth.Controls.Elements
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LinklblTransfer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinklblTransfer_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnTransferLinkClicked != null)
             {
@@ -163,7 +159,7 @@ namespace Nzl.Smth.Controls.Elements
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LinklblDelete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinklblDelete_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnDeleteLinkClicked != null)
             {
@@ -176,7 +172,7 @@ namespace Nzl.Smth.Controls.Elements
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LinklblReply_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinklblReply_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnReplyLinkClicked != null)
             {
@@ -189,7 +185,7 @@ namespace Nzl.Smth.Controls.Elements
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LinklblID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LinklblID_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnUserLinkClicked != null)
             {

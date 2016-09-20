@@ -126,7 +126,9 @@
 
 	36、去除不需要的Project.
 
-
+	37、Common_OnThreadMailLinkClicked
+	    Common_OnThreadEditLinkClicked
+		MbcMailBox_OnMailLinkClicked
 
 经验
 

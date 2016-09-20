@@ -32,11 +32,11 @@
             this.ckbBackup = new System.Windows.Forms.CheckBox();
             this.btnSend = new DevExpress.XtraEditors.SimpleButton();
             this.richtxtContent = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label3 = new DevExpress.XtraEditors.LabelControl();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label2 = new DevExpress.XtraEditors.LabelControl();
             this.txtSendTo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -152,11 +152,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.LabelControl label1;
         private System.Windows.Forms.TextBox txtSendTo;
         private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private DevExpress.XtraEditors.LabelControl label2;
+        private DevExpress.XtraEditors.LabelControl label3;
         private System.Windows.Forms.RichTextBox richtxtContent;
         private DevExpress.XtraEditors.SimpleButton btnSend;
         private System.Windows.Forms.CheckBox ckbBackup;

@@ -5,6 +5,8 @@
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
@@ -26,17 +28,17 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnMailLinkClicked;
+        public event HyperlinkClickEventHandler OnMailLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnDeleteLinkClicked;
+        public event HyperlinkClickEventHandler OnDeleteLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnUserLinkClicked;
+        public event HyperlinkClickEventHandler OnUserLinkClicked;
 
         /// <summary>
         /// 
@@ -385,7 +387,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Tc_OnUserLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Tc_OnUserLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnUserLinkClicked != null)
             {
@@ -398,21 +400,23 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Tc_OnDeleteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Tc_OnDeleteLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnDeleteLinkClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnDeleteLinkClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnDeleteLinkClicked(sender, e);
-                if (e.Link.Tag != null && e.Link.Tag.ToString() == "Yes")
+                if (hlc.Tag != null && hlc.Tag.ToString() == "Yes")
                 {
-                    PostLoader pl = new PostLoader(e.Link.LinkData.ToString());
+                    PostLoader pl = new PostLoader(e.Link);
                     pl.ErrorAccured += PostLoader_ErrorAccured;
                     pl.Succeeded += MailDelete_Succeeded;
                     pl.Failed += MailDelete_Failed;
                     pl.Start();
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -431,14 +435,16 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Tc_OnMailLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Tc_OnMailLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnMailLinkClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnMailLinkClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnMailLinkClicked(sender, e);
-                if (e.Link.Tag != null)
+                if (hlc.Tag != null)
                 {
-                    string infor = e.Link.Tag.ToString();
+                    string infor = hlc.Tag.ToString();
                     ///Deleting mail.
                     if (infor.Contains("ConfirmToDelete"))
                     {
@@ -460,7 +466,7 @@
                     }
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 

@@ -5,6 +5,8 @@ namespace Nzl.Smth.Controls.Containers
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Windows.Forms;
+    using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using Nzl.Recycling;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
@@ -28,52 +30,52 @@ namespace Nzl.Smth.Controls.Containers
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnExpandClicked;
+        public event HyperlinkClickEventHandler OnExpandClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnSubjectExpandClicked;
+        public event HyperlinkClickEventHandler OnSubjectExpandClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnEditClicked;
+        public event HyperlinkClickEventHandler OnEditClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnReplyClicked;
+        public event HyperlinkClickEventHandler OnReplyClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTransferClicked;
+        public event HyperlinkClickEventHandler OnTransferClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnBoardClicked;
+        public event HyperlinkClickEventHandler OnBoardClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnDeleteClicked;
+        public event HyperlinkClickEventHandler OnDeleteClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnNewClicked;
+        public event HyperlinkClickEventHandler OnNewClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnMailClicked;
+        public event HyperlinkClickEventHandler OnMailClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnUserClicked;
+        public event HyperlinkClickEventHandler OnUserClicked;
 
         /// <summary>
         /// 
@@ -274,17 +276,19 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnEditClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnEditClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnEditClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnEditClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnEditClicked(sender, e);
-                if (e.Link.Tag != null)
+                if (hlc.Tag != null)
                 {
-                    string postString = e.Link.Tag.ToString();
+                    string postString = hlc.Tag.ToString();
                     if (string.IsNullOrEmpty(postString) == false)
                     {
-                        PostLoader pl = new PostLoader(e.Link.LinkData.ToString(), postString);
+                        PostLoader pl = new PostLoader(e.Link, postString);
                         pl.ErrorAccured += PostLoader_ErrorAccured;
                         pl.Succeeded += ThreadEdit_Succeeded;
                         pl.Failed += ThreadEdit_Failed;
@@ -292,7 +296,7 @@ namespace Nzl.Smth.Controls.Containers
                     }
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -325,21 +329,23 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnDeleteClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnDeleteClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnDeleteClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnDeleteClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnDeleteClicked(sender, e);
-                if (e.Link.Tag != null && e.Link.Tag.ToString() == "Yes")
+                if (hlc.Tag != null && hlc.Tag.ToString() == "Yes")
                 {
-                    PostLoader pl = new PostLoader(e.Link.LinkData.ToString());
+                    PostLoader pl = new PostLoader(e.Link);
                     pl.ErrorAccured += PostLoader_ErrorAccured;
                     pl.Succeeded += ThreadDelete_Succeeded;
                     pl.Failed += ThreadDelete_Failed;
                     pl.Start();
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -372,7 +378,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnUserClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnUserClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnUserClicked != null)
             {
@@ -385,7 +391,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnTransferClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnTransferClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnTransferClicked != null)
             {
@@ -411,10 +417,10 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnSubjectNextClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnSubjectNextClicked(object sender, HyperlinkClickEventArgs e)
         {
             this.SetUrlInfo(false);
-            this.SetBaseUrl(e.Link.LinkData.ToString());
+            this.SetBaseUrl(e.Link);
             this.FetchPage();
         }
 
@@ -423,10 +429,10 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnSubjectLastClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnSubjectLastClicked(object sender, HyperlinkClickEventArgs e)
         {
             this.SetUrlInfo(false);
-            this.SetBaseUrl(e.Link.LinkData.ToString());
+            this.SetBaseUrl(e.Link);
             this.FetchPage();
         }
 
@@ -435,7 +441,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnSubjectExpandClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnSubjectExpandClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnSubjectExpandClicked != null)
             {
@@ -448,10 +454,10 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnSourceClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnSourceClicked(object sender, HyperlinkClickEventArgs e)
         {
             this.SetUrlInfo(false);
-            this.SetBaseUrl(e.Link.LinkData.ToString());
+            this.SetBaseUrl(e.Link);
             this.FetchPage();
         }
 
@@ -460,17 +466,19 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnReplyClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnReplyClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnReplyClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnReplyClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnReplyClicked(sender, e);
-                if (e.Link.Tag != null)
+                if (hlc.Tag != null)
                 {
-                    string postString = e.Link.Tag.ToString();
+                    string postString = hlc.Tag.ToString();
                     if (string.IsNullOrEmpty(postString) == false)
                     {
-                        PostLoader pl = new PostLoader(e.Link.LinkData.ToString(), postString);
+                        PostLoader pl = new PostLoader(e.Link, postString);
                         pl.ErrorAccured += PostLoader_ErrorAccured;
                         pl.Succeeded += ThreadReply_Succeeded;
                         pl.Failed += ThreadReply_Failed;
@@ -478,7 +486,7 @@ namespace Nzl.Smth.Controls.Containers
                     }
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -511,10 +519,10 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnNextClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnNextClicked(object sender, HyperlinkClickEventArgs e)
         {
             this.SetUrlInfo(false);
-            this.SetBaseUrl(e.Link.LinkData.ToString());
+            this.SetBaseUrl(e.Link);
             this.FetchPage();
         }
 
@@ -523,17 +531,19 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnNewClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnNewClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnNewClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnNewClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnNewClicked(sender, e);
-                if (e.Link.Tag != null)
+                if (hlc.Tag != null)
                 {
-                    string postString = e.Link.Tag as string;
+                    string postString = hlc.Tag as string;
                     if (string.IsNullOrEmpty(postString) == false)
                     {
-                        PostLoader pl = new PostLoader(e.Link.LinkData.ToString(), postString);
+                        PostLoader pl = new PostLoader(e.Link, postString);
                         pl.ErrorAccured += PostLoader_ErrorAccured;
                         pl.Succeeded += New_Succeeded;
                         pl.Failed += New_Failed;
@@ -541,7 +551,7 @@ namespace Nzl.Smth.Controls.Containers
                     }
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -572,14 +582,16 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnMailClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnMailClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnMailClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnMailClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnMailClicked(sender, e);
-                if (e.Link.Tag != null)
+                if (hlc.Tag != null)
                 {
-                    string postString = e.Link.Tag as string;
+                    string postString = hlc.Tag as string;
                     if (string.IsNullOrEmpty(postString) == false)
                     {
                         PostLoader pl = new PostLoader(Configuration.SendMailUrl, postString);
@@ -590,7 +602,7 @@ namespace Nzl.Smth.Controls.Containers
                     }
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -621,10 +633,10 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnLastClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnLastClicked(object sender, HyperlinkClickEventArgs e)
         {
             this.SetUrlInfo(false);
-            this.SetBaseUrl(e.Link.LinkData.ToString());
+            this.SetBaseUrl(e.Link);
             this.FetchPage();
         }
 
@@ -633,10 +645,10 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnHostClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnHostClicked(object sender, HyperlinkClickEventArgs e)
         {
             this.SetUrlInfo(false);
-            this.SetBaseUrl(e.Link.LinkData.ToString());
+            this.SetBaseUrl(e.Link);
             this.FetchPage();
         }
 
@@ -645,7 +657,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnExpandClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnExpandClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnExpandClicked != null)
             {
@@ -658,7 +670,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnBoardClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferDetailControl_OnBoardClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnBoardClicked != null)
             {

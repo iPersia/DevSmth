@@ -2,6 +2,8 @@
 {
     using System;
     using System.Windows.Forms;
+    using DevExpress.Utils;
+    using DevExpress.XtraEditors;
 
     public partial class ReferForm : BaseForm
     {
@@ -15,7 +17,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnReferClicked;
+        public event HyperlinkClickEventHandler OnReferClicked;
 
         /// <summary>
         /// 
@@ -58,12 +60,12 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferControl_OnUserLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferControl_OnUserLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
-                UserForm form  = new UserForm(e.Link.LinkData.ToString());
+                UserForm form  = new UserForm(e.Link);
                 form.StartPosition = FormStartPosition.CenterParent;
                 this.HideWhenDeactivate = false;
                 form.ShowDialog(this._parentForm);
@@ -77,31 +79,31 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferControl_OnReferLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ReferControl_OnReferLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnReferClicked != null)
             {
                 this.OnReferClicked(sender, e);
             }
 
-            //LinkLabel linkLabel = sender as LinkLabel;
+            //HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             //if (linkLabel != null)
             //{
             //    //this._mailDetailForm.StartPosition = FormStartPosition.CenterParent;
-            //    //this._mailDetailForm.Url = e.Link.LinkData.ToString();
+            //    //this._mailDetailForm.Url = e.Link;
             //    //this.HideWhenDeactivate = false;
             //    //this._mailDetailForm.ShowDialog(this._parentForm);
-            //    //e.Link.Tag = this._mailDetailForm.Tag;                
-            //    //e.Link.Visited = true;
+            //    //hlc.Tag = this._mailDetailForm.Tag;                
+            //    ////e.Link.Visited = true;
             //    //this._mailDetailForm.Tag = null;
             //    //this.Focus();
             //    //this.HideWhenDeactivate = true;
 
-            //    this._postForm.Url = e.Link.LinkData.ToString();
+            //    this._postForm.Url = e.Link;
             //    this._postForm.StartPosition = FormStartPosition.CenterParent;
             //    this.HideWhenDeactivate = false;
             //    this._postForm.ShowDialog(this._parentForm);
-            //    e.Link.Visited = true;
+            //    //e.Link.Visited = true;
             //    this.Focus();
             //    this.HideWhenDeactivate = true;
             //}

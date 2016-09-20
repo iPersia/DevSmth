@@ -6,6 +6,8 @@
     using System.Drawing;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
+    using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using Nzl.Web.Util;
     using Nzl.Web.Page;
     using Nzl.Smth.Datas;
@@ -73,7 +75,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Mdcc_OnMailTransferLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Mdcc_OnMailTransferLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
         }
 
@@ -82,9 +84,9 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Mdcc_OnMailReplyLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Mdcc_OnMailReplyLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
                 Mail mail = linkLabel.Tag as Mail;
@@ -97,7 +99,7 @@
                     if (newMailForm.ShowDialog(this) == DialogResult.OK)
                     {
                         this.Tag = "ReplyMail" + newMailForm.GetPostString();
-                        e.Link.Visited = true;
+                        //e.Link.Visited = true;
                         this.Close();
                     }
                 }
@@ -109,20 +111,20 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Mdcc_OnMailDeleteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Mdcc_OnMailDeleteLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
-                if (string.IsNullOrEmpty(e.Link.LinkData.ToString()) == false)
+                if (string.IsNullOrEmpty(e.Link) == false)
                 {
                     MessageForm form = new MessageForm("Confirm", "Do you want to delete this mail?");
                     form.StartPosition = FormStartPosition.CenterParent;
                     this.Tag = null;
                     if (form.ShowDialog(this) == DialogResult.OK)
                     {
-                        this.Tag = "ConfirmToDelete" + e.Link.LinkData.ToString();
-                        e.Link.Visited = true;
+                        this.Tag = "ConfirmToDelete" + e.Link;
+                        //e.Link.Visited = true;
                         this.Close();
                     }
                 }
@@ -134,12 +136,12 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Mdcc_OnMailAuthorLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Mdcc_OnMailAuthorLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
-                UserForm userForm = new UserForm(e.Link.LinkData.ToString());
+                UserForm userForm = new UserForm(e.Link);
                 userForm.StartPosition = FormStartPosition.CenterParent;
                 userForm.ShowDialog(this);
             }

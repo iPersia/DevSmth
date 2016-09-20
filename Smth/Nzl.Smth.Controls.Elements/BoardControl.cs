@@ -38,7 +38,7 @@
                 this.linklblBoard.HyperlinkClick -= new DevExpress.Utils.HyperlinkClickEventHandler(linklblBoard_HyperlinkClick);
                 this.linklblBoard.Text = ControlUtil.GetHyperlinkText(board.Name, board.Code);
                 this.linklblBoard.Tag = "Board";
-                //this.linklblBoard.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblBorS_LinkClicked);
+                //this.linklblBoard.HyperlinkClick += new HyperlinkClickEventHandler(linklblBorS_LinkClicked);
                 //this.linklblBoard.Text = board.Name;
                 //LinkLabel.Link link = new LinkLabel.Link(0, this.linklblBoard.Text.Length, board.Code);
                 //link.Tag = "Board";
@@ -60,7 +60,7 @@
         ///// </summary>
         ///// <param name="sender"></param>
         ///// <param name="e"></param>
-        //private void linklblBorS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //private void linklblBorS_LinkClicked(object sender, HyperlinkClickEventArgs e)
         //{
         //    if (this.OnLinkClicked != null)
         //    {

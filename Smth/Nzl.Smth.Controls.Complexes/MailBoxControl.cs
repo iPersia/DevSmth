@@ -3,6 +3,7 @@
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Containers;
@@ -16,17 +17,17 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnMailLinkClicked;
+        public event HyperlinkClickEventHandler OnMailLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnDeleteLinkClicked;
+        public event HyperlinkClickEventHandler OnDeleteLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnUserLinkClicked;
+        public event HyperlinkClickEventHandler OnUserLinkClicked;
 
         /// <summary>
         /// 
@@ -120,7 +121,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Xbc_OnUserLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Xbc_OnUserLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnUserLinkClicked != null)
             {
@@ -133,7 +134,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Xbc_OnMailLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Xbc_OnMailLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnMailLinkClicked != null)
             {
@@ -159,7 +160,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Xbc_OnDeleteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Xbc_OnDeleteLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnDeleteLinkClicked != null)
             {

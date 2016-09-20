@@ -6,6 +6,7 @@ namespace Nzl.Smth.Controls.Containers
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Datas;
@@ -28,22 +29,22 @@ namespace Nzl.Smth.Controls.Containers
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnMailAuthorLinkClicked;
+        public event HyperlinkClickEventHandler OnMailAuthorLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnMailReplyLinkClicked;
+        public event HyperlinkClickEventHandler OnMailReplyLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnMailTransferLinkClicked;
+        public event HyperlinkClickEventHandler OnMailTransferLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnMailDeleteLinkClicked;
+        public event HyperlinkClickEventHandler OnMailDeleteLinkClicked;
         #endregion
 
         #region variable
@@ -217,7 +218,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Mdc_OnUserLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Mdc_OnUserLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnMailAuthorLinkClicked != null)
             {
@@ -230,7 +231,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Mdc_OnTransferLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Mdc_OnTransferLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnMailTransferLinkClicked != null)
             {
@@ -243,7 +244,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Mdc_OnReplyLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Mdc_OnReplyLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnMailReplyLinkClicked != null)
             {
@@ -256,7 +257,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Mdc_OnDeleteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Mdc_OnDeleteLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnMailDeleteLinkClicked != null)
             {

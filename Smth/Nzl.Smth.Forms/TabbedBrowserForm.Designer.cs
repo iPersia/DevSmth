@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabbedBrowserForm));
-            this.tcTopics = new System.Windows.Forms.TabControl();
+            this.tcTopics = new DevExpress.XtraTab.XtraTabControl();
             this.scBrowser = new System.Windows.Forms.SplitContainer();
-            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelMenu = new DevExpress.XtraEditors.XtraPanel();
             this.btnRefer = new DevExpress.XtraEditors.SimpleButton();
-            this.linklblUserID = new System.Windows.Forms.LinkLabel();
+            this.linklblUserID = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.btnMessge = new DevExpress.XtraEditors.SimpleButton();
             this.btnLoadTop = new DevExpress.XtraEditors.SimpleButton();
             this.btnLogon = new DevExpress.XtraEditors.SimpleButton();
@@ -42,7 +42,7 @@
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnBoardNavi = new DevExpress.XtraEditors.SimpleButton();
             this.btnSettings = new DevExpress.XtraEditors.SimpleButton();
-            this.panelContainer = new System.Windows.Forms.Panel();
+            this.panelContainer = new DevExpress.XtraEditors.XtraPanel();
             ((System.ComponentModel.ISupportInitialize)(this.scBrowser)).BeginInit();
             this.scBrowser.Panel1.SuspendLayout();
             this.scBrowser.Panel2.SuspendLayout();
@@ -56,10 +56,10 @@
             this.tcTopics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcTopics.Location = new System.Drawing.Point(0, 0);
             this.tcTopics.Name = "tcTopics";
-            this.tcTopics.SelectedIndex = 0;
+            ///this.tcTopics.SelectedIndex = 0;
             this.tcTopics.Size = new System.Drawing.Size(1174, 817);
             this.tcTopics.TabIndex = 0;
-            this.tcTopics.SelectedIndexChanged += new System.EventHandler(this.tcTopics_SelectedIndexChanged);
+            ///this.tcTopics.SelectedIndexChanged += new System.EventHandler(this.tcTopics_SelectedIndexChanged);
             this.tcTopics.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tcTopics_MouseDoubleClick);
             // 
             // scBrowser
@@ -115,7 +115,6 @@
             // linklblUserID
             // 
             this.linklblUserID.AutoSize = true;
-            this.linklblUserID.LinkArea = new System.Windows.Forms.LinkArea(0, 0);
             this.linklblUserID.Location = new System.Drawing.Point(14, 10);
             this.linklblUserID.Name = "linklblUserID";
             this.linklblUserID.Size = new System.Drawing.Size(62, 14);
@@ -236,11 +235,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tcTopics;
-        //private Nzl.Controls.TabControlEx tcTopics;
+        private DevExpress.XtraTab.XtraTabControl tcTopics;
         private System.Windows.Forms.SplitContainer scBrowser;
-        private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Panel panelContainer;
+        private DevExpress.XtraEditors.XtraPanel panelMenu;
+        private DevExpress.XtraEditors.XtraPanel panelContainer;
         private DevExpress.XtraEditors.SimpleButton btnSettings;
         private DevExpress.XtraEditors.SimpleButton btnClear;        
         private DevExpress.XtraEditors.SimpleButton btnLoadTop;
@@ -250,7 +248,7 @@
         private DevExpress.XtraEditors.SimpleButton btnFavor;
         private DevExpress.XtraEditors.SimpleButton btnBoardNavi;
         private DevExpress.XtraEditors.SimpleButton btnRefer;
-        private System.Windows.Forms.LinkLabel linklblUserID;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblUserID;
         
     }
 }

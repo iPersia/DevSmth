@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Controls.Elements;
@@ -21,12 +22,12 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopLinkClicked;
+        public event HyperlinkClickEventHandler OnTopLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopBoardLinkClicked;
+        public event HyperlinkClickEventHandler OnTopBoardLinkClicked;
         #endregion
 
         #region variable
@@ -213,13 +214,13 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TopControl_OnTopLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void TopControl_OnTopLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             LinkLabel linklbl = sender as LinkLabel;
             if (linklbl != null && this.OnTopLinkClicked != null)
             {
                 this.OnTopLinkClicked(sender, e);
-                e.Link.Visited = true;
+                //e.Link.Visited = true;
             }
         }
 
@@ -228,13 +229,13 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void TopControl_OnTopBoardLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void TopControl_OnTopBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             LinkLabel linklbl = sender as LinkLabel;
             if (linklbl != null && this.OnTopBoardLinkClicked != null)
             {
                 this.OnTopBoardLinkClicked(sender, e);
-                e.Link.Visited = true;
+                //e.Link.Visited = true;
             }
         }
         #endregion

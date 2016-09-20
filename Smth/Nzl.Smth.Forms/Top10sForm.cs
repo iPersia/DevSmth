@@ -2,6 +2,7 @@
 {
     using System;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth.Controls.Complexes;
 
     /// <summary>
@@ -18,12 +19,12 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopLinkClicked;
+        public event HyperlinkClickEventHandler OnTopLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopBoardLinkClicked;
+        public event HyperlinkClickEventHandler OnTopBoardLinkClicked;
         #endregion
 
         /// <summary>
@@ -58,7 +59,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Tbc_OnTopBoardLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Tbc_OnTopBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnTopBoardLinkClicked != null)
             {
@@ -71,7 +72,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Tbc_OnTopLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Tbc_OnTopLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnTopLinkClicked != null)
             {

@@ -32,10 +32,10 @@
             this.btnSubmit = new DevExpress.XtraEditors.SimpleButton();
             this.panel = new System.Windows.Forms.Panel();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.ckbSendMail = new System.Windows.Forms.CheckBox();
             this.txtContent = new System.Windows.Forms.RichTextBox();
-            this.lblContent = new System.Windows.Forms.Label();
+            this.lblContent = new DevExpress.XtraEditors.LabelControl();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,10 +137,10 @@
 
         private DevExpress.XtraEditors.SimpleButton btnSubmit;
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Label lblContent;
+        private DevExpress.XtraEditors.LabelControl lblContent;
         private System.Windows.Forms.RichTextBox txtContent;
         private System.Windows.Forms.CheckBox ckbSendMail;
         private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.Label lblTitle;
+        private DevExpress.XtraEditors.LabelControl lblTitle;
     }
 }

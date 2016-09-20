@@ -6,6 +6,8 @@ namespace Nzl.Smth.Controls.Containers
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using Nzl.Recycling;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
@@ -33,22 +35,22 @@ namespace Nzl.Smth.Controls.Containers
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnThreadUserLinkClicked;
+        public event HyperlinkClickEventHandler OnThreadUserLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnThreadQueryTypeLinkClicked;
+        public event HyperlinkClickEventHandler OnThreadQueryTypeLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnThreadReplyLinkClicked;
+        public event HyperlinkClickEventHandler OnThreadReplyLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopicReplyLinkClicked;
+        public event HyperlinkClickEventHandler OnTopicReplyLinkClicked;
 
         /// <summary>
         /// 
@@ -58,27 +60,27 @@ namespace Nzl.Smth.Controls.Containers
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnBoardLinkClicked;
+        public event HyperlinkClickEventHandler OnBoardLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnThreadMailLinkClicked;
+        public event HyperlinkClickEventHandler OnThreadMailLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnThreadTransferLinkClicked;
+        public event HyperlinkClickEventHandler OnThreadTransferLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnThreadEditLinkClicked;
+        public event HyperlinkClickEventHandler OnThreadEditLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnThreadDeleteLinkClicked;
+        public event HyperlinkClickEventHandler OnThreadDeleteLinkClicked;
 
         /// <summary>
         /// 
@@ -199,8 +201,8 @@ namespace Nzl.Smth.Controls.Containers
                 this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
                 this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
                 this.btnOpenInBrowser.Click += new System.EventHandler(this.btnOpenInBrowser_Click);
-                this.linklblReply.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblReply_LinkClicked);
-                this.linklblBoard.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblBoard_LinkClicked);
+                this.linklblReply.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblReply_LinkClicked);
+                this.linklblBoard.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblBoard_LinkClicked);
             }
 
             ///Initialize settings.
@@ -348,13 +350,13 @@ namespace Nzl.Smth.Controls.Containers
             if (ctl != null && item != null)
             {
                 ctl.Name = "tc" + item.ID;
-                ctl.OnUserLinkClicked += new LinkLabelLinkClickedEventHandler(ThreadControl_OnUserClicked);
-                ctl.OnQueryTypeLinkClicked += new LinkLabelLinkClickedEventHandler(ThreadControl_OnQueryTypeLinkClicked);
-                ctl.OnEditLinkClicked += new LinkLabelLinkClickedEventHandler(ThreadControl_OnEditLinkClicked);
-                ctl.OnDeleteLinkClicked += new LinkLabelLinkClickedEventHandler(ThreadControl_OnDeleteLinkClicked);
-                ctl.OnReplyLinkClicked += new LinkLabelLinkClickedEventHandler(ThreadControl_OnReplyLinkClicked);
-                ctl.OnMailLinkClicked += new LinkLabelLinkClickedEventHandler(ThreadControl_OnMailLinkClicked);
-                ctl.OnTransferLinkClicked += new LinkLabelLinkClickedEventHandler(ThreadControl_OnTransferLinkClicked);
+                ctl.OnUserLinkClicked += new HyperlinkClickEventHandler(ThreadControl_OnUserClicked);
+                ctl.OnQueryTypeLinkClicked += new HyperlinkClickEventHandler(ThreadControl_OnQueryTypeLinkClicked);
+                ctl.OnEditLinkClicked += new HyperlinkClickEventHandler(ThreadControl_OnEditLinkClicked);
+                ctl.OnDeleteLinkClicked += new HyperlinkClickEventHandler(ThreadControl_OnDeleteLinkClicked);
+                ctl.OnReplyLinkClicked += new HyperlinkClickEventHandler(ThreadControl_OnReplyLinkClicked);
+                ctl.OnMailLinkClicked += new HyperlinkClickEventHandler(ThreadControl_OnMailLinkClicked);
+                ctl.OnTransferLinkClicked += new HyperlinkClickEventHandler(ThreadControl_OnTransferLinkClicked);
                 ctl.OnTextBoxLinkClicked += ThreadControl_OnTextBoxLinkClicked;
                 ctl.OnTextBoxMouseWheel += this.Container_MouseWheel;
                 if (string.IsNullOrEmpty(this._targetUserID) == false)
@@ -373,13 +375,13 @@ namespace Nzl.Smth.Controls.Containers
             base.RecylingControl(ctl);
             if (ctl != null)
             {
-                ctl.OnUserLinkClicked -= new LinkLabelLinkClickedEventHandler(ThreadControl_OnUserClicked);
-                ctl.OnQueryTypeLinkClicked -= new LinkLabelLinkClickedEventHandler(ThreadControl_OnQueryTypeLinkClicked);
-                ctl.OnEditLinkClicked -= new LinkLabelLinkClickedEventHandler(ThreadControl_OnEditLinkClicked);
-                ctl.OnDeleteLinkClicked -= new LinkLabelLinkClickedEventHandler(ThreadControl_OnDeleteLinkClicked);
-                ctl.OnReplyLinkClicked -= new LinkLabelLinkClickedEventHandler(ThreadControl_OnReplyLinkClicked);
-                ctl.OnMailLinkClicked -= new LinkLabelLinkClickedEventHandler(ThreadControl_OnMailLinkClicked);
-                ctl.OnTransferLinkClicked -= new LinkLabelLinkClickedEventHandler(ThreadControl_OnTransferLinkClicked);
+                ctl.OnUserLinkClicked -= new HyperlinkClickEventHandler(ThreadControl_OnUserClicked);
+                ctl.OnQueryTypeLinkClicked -= new HyperlinkClickEventHandler(ThreadControl_OnQueryTypeLinkClicked);
+                ctl.OnEditLinkClicked -= new HyperlinkClickEventHandler(ThreadControl_OnEditLinkClicked);
+                ctl.OnDeleteLinkClicked -= new HyperlinkClickEventHandler(ThreadControl_OnDeleteLinkClicked);
+                ctl.OnReplyLinkClicked -= new HyperlinkClickEventHandler(ThreadControl_OnReplyLinkClicked);
+                ctl.OnMailLinkClicked -= new HyperlinkClickEventHandler(ThreadControl_OnMailLinkClicked);
+                ctl.OnTransferLinkClicked -= new HyperlinkClickEventHandler(ThreadControl_OnTransferLinkClicked);
                 ctl.OnTextBoxLinkClicked -= ThreadControl_OnTextBoxLinkClicked;
                 ctl.OnTextBoxMouseWheel -= this.Container_MouseWheel;
             }
@@ -707,15 +709,17 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblReply_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblReply_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnTopicReplyLinkClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnTopicReplyLinkClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnTopicReplyLinkClicked(sender, e);
-                if (e.Link.Tag != null)
+                if (hlc.Tag != null)
                 {
-                    string postString = e.Link.Tag.ToString();
-                    e.Link.Tag = null;
+                    string postString = hlc.Tag.ToString();
+                    hlc.Tag = null;
                     if (string.IsNullOrEmpty(postString) == false)
                     {
                         PostLoader pl = new PostLoader(this._postUrl, postString);
@@ -726,7 +730,7 @@ namespace Nzl.Smth.Controls.Containers
                     }
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -769,7 +773,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblBoard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblBoard_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnBoardLinkClicked != null)
             {
@@ -782,7 +786,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ThreadControl_OnUserClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ThreadControl_OnUserClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnThreadUserLinkClicked != null)
             {
@@ -795,7 +799,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ThreadControl_OnQueryTypeLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ThreadControl_OnQueryTypeLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnThreadQueryTypeLinkClicked != null)
             {
@@ -808,17 +812,19 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ThreadControl_OnReplyLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ThreadControl_OnReplyLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnThreadReplyLinkClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnThreadReplyLinkClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnThreadReplyLinkClicked(sender, e);
-                if (e.Link.Tag != null)
+                if (hlc.Tag != null)
                 {
-                    string postString = e.Link.Tag.ToString();                    
+                    string postString = hlc.Tag.ToString();                    
                     if (string.IsNullOrEmpty(postString) == false)
                     {
-                        PostLoader pl = new PostLoader(e.Link.LinkData.ToString(), postString);
+                        PostLoader pl = new PostLoader(e.Link, postString);
                         pl.ErrorAccured += PostLoader_ErrorAccured;
                         pl.Succeeded += ThreadReply_Succeeded;
                         pl.Failed += ThreadReply_Failed;
@@ -826,7 +832,7 @@ namespace Nzl.Smth.Controls.Containers
                     }
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -835,14 +841,16 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ThreadControl_OnMailLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ThreadControl_OnMailLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnThreadMailLinkClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnThreadMailLinkClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnThreadMailLinkClicked(sender, e);
-                if (e.Link.Tag != null)
+                if (hlc.Tag != null)
                 {
-                    string postString = e.Link.Tag as string;
+                    string postString = hlc.Tag as string;
                     if (string.IsNullOrEmpty(postString) == false)
                     {
                         PostLoader pl = new PostLoader(Configuration.SendMailUrl, postString);
@@ -853,7 +861,7 @@ namespace Nzl.Smth.Controls.Containers
                     }                    
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -884,7 +892,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ThreadControl_OnTransferLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ThreadControl_OnTransferLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnThreadTransferLinkClicked != null)
             {
@@ -897,17 +905,19 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ThreadControl_OnEditLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ThreadControl_OnEditLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnThreadEditLinkClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnThreadEditLinkClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnThreadEditLinkClicked(sender, e);
-                if (e.Link.Tag != null)
+                if (hlc.Tag != null)
                 {
-                    string postString = e.Link.Tag.ToString();                    
+                    string postString = hlc.Tag.ToString();                    
                     if (string.IsNullOrEmpty(postString) == false)
                     {
-                        PostLoader pl = new PostLoader(e.Link.LinkData.ToString(), postString);
+                        PostLoader pl = new PostLoader(e.Link, postString);
                         pl.ErrorAccured += PostLoader_ErrorAccured;
                         pl.Succeeded += ThreadEdit_Succeeded;
                         pl.Failed += ThreadEdit_Failed;
@@ -915,7 +925,7 @@ namespace Nzl.Smth.Controls.Containers
                     }
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -948,21 +958,23 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ThreadControl_OnDeleteLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ThreadControl_OnDeleteLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnThreadDeleteLinkClicked != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (this.OnThreadDeleteLinkClicked != null && hlc != null)
             {
+                hlc.Tag = null;
                 this.OnThreadDeleteLinkClicked(sender, e);
-                if (e.Link.Tag != null && e.Link.Tag.ToString() == "Yes")
+                if (hlc.Tag != null && hlc.Tag.ToString() == "Yes")
                 {
-                    PostLoader pl = new PostLoader(e.Link.LinkData.ToString());
+                    PostLoader pl = new PostLoader(e.Link);
                     pl.ErrorAccured += PostLoader_ErrorAccured;
                     pl.Succeeded += ThreadDelete_Succeeded;
                     pl.Failed += ThreadDelete_Failed;
                     pl.Start();
                 }
 
-                e.Link.Tag = null;
+                hlc.Tag = null;
             }
         }
 
@@ -1042,8 +1054,7 @@ namespace Nzl.Smth.Controls.Containers
                 this._postUrl = Configuration.BaseUrl + this._postUrl;
 
                 this.linklblReply.Visible = string.IsNullOrEmpty(this._targetUserID);
-                this.linklblReply.Links.Clear();
-                this.linklblReply.Links.Add(0, 5, this._postUrl);
+                this.linklblReply.Text = ControlUtil.GetHyperlinkText(this.linklblReply.Text, this._postUrl);
             }
 
             string board = SmthUtil.GetBoard(wp);
@@ -1054,8 +1065,7 @@ namespace Nzl.Smth.Controls.Containers
                 string chnBoardName = board.Replace("(" + engBoardName + ")", "");
                 this.linklblBoard.Visible = true;
                 this.linklblBoard.Text = chnBoardName;
-                this.linklblBoard.Links.Clear();
-                this.linklblBoard.Links.Add(0, board.Length, engBoardName);
+                this.linklblBoard.Text = ControlUtil.GetHyperlinkText(this.linklblBoard.Text, engBoardName);
             }
 
             this.linklblReply.Visible = LogStatus.Instance.IsLogin && string.IsNullOrEmpty(this._targetUserID);

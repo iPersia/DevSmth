@@ -30,12 +30,12 @@
         {
             this.scContainer = new System.Windows.Forms.SplitContainer();
             this.panelUp = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.linklblDelete = new System.Windows.Forms.LinkLabel();
-            this.linklblID = new System.Windows.Forms.LinkLabel();
-            this.linklblTransfer = new System.Windows.Forms.LinkLabel();
-            this.lblDateTime = new System.Windows.Forms.Label();
-            this.linklblReply = new System.Windows.Forms.LinkLabel();
+            this.lblTitle = new DevExpress.XtraEditors.LabelControl();
+            this.linklblDelete = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblID = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblTransfer = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.lblDateTime = new DevExpress.XtraEditors.LabelControl();
+            this.linklblReply = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panelDown = new System.Windows.Forms.Panel();
             this.richtxtContent = new Nzl.Controls.RichTextBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
@@ -102,7 +102,6 @@
             this.linklblDelete.TabIndex = 11;
             this.linklblDelete.TabStop = true;
             this.linklblDelete.Text = "Delete";
-            this.linklblDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // linklblID
             // 
@@ -114,7 +113,6 @@
             this.linklblID.TabIndex = 2;
             this.linklblID.TabStop = true;
             this.linklblID.Text = "IDIDIDIDIDID";
-            this.linklblID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // linklblTransfer
             // 
@@ -126,7 +124,6 @@
             this.linklblTransfer.TabIndex = 10;
             this.linklblTransfer.TabStop = true;
             this.linklblTransfer.Text = "Transfer";
-            this.linklblTransfer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDateTime
             // 
@@ -147,7 +144,6 @@
             this.linklblReply.TabIndex = 9;
             this.linklblReply.TabStop = true;
             this.linklblReply.Text = "Reply";
-            this.linklblReply.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelDown
             // 
@@ -193,12 +189,12 @@
 
         #endregion
         private Nzl.Controls.RichTextBoxEx richtxtContent;
-        private System.Windows.Forms.LinkLabel linklblDelete;
-        private System.Windows.Forms.LinkLabel linklblTransfer;
-        private System.Windows.Forms.LinkLabel linklblReply;
-        private System.Windows.Forms.Label lblDateTime;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.LinkLabel linklblID;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblDelete;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblTransfer;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblReply;
+        private DevExpress.XtraEditors.LabelControl lblDateTime;
+        private DevExpress.XtraEditors.LabelControl lblTitle;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblID;
         private System.Windows.Forms.SplitContainer scContainer;
         private System.Windows.Forms.Panel panelUp;
         private System.Windows.Forms.Panel panelDown;

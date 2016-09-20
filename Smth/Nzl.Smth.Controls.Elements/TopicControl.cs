@@ -1,6 +1,7 @@
 ﻿namespace Nzl.Smth.Controls.Elements
 {
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Datas;
     using Nzl.Web.Util;
@@ -13,22 +14,22 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnPostLinkClicked;
+        public event HyperlinkClickEventHandler OnPostLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopicLinkClicked;
+        public event HyperlinkClickEventHandler OnTopicLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnCreateIDLinkClicked;
+        public event HyperlinkClickEventHandler OnCreateIDLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnLastIDLinkClicked;
+        public event HyperlinkClickEventHandler OnLastIDLinkClicked;
 
         /// <summary>
         /// Ctor.
@@ -36,9 +37,9 @@
         public TopicControl()
         {
             InitializeComponent();
-            this.linklblTopic.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblTopic_LinkClicked);
-            this.linklblCreateID.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblCreateID_LinkClicked);
-            this.linklblLastID.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblLastID_LinkClicked);
+            this.linklblTopic.HyperlinkClick += new HyperlinkClickEventHandler(linklblTopic_LinkClicked);
+            this.linklblCreateID.HyperlinkClick += new HyperlinkClickEventHandler(linklblCreateID_LinkClicked);
+            this.linklblLastID.HyperlinkClick += new HyperlinkClickEventHandler(linklblLastID_LinkClicked);
         }
         
         /// <summary>
@@ -85,7 +86,7 @@
         {
             set
             {
-                this.linklblTopic.LinkColor = value;
+                this.linklblTopic.ForeColor = value;
             }
         }
 
@@ -95,7 +96,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblTopic_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblTopic_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.Data.Type == TopicBrowserType.Subject)
             {
@@ -118,7 +119,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblCreateID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblCreateID_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnCreateIDLinkClicked != null)
             {
@@ -131,7 +132,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblLastID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblLastID_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnLastIDLinkClicked != null)
             {

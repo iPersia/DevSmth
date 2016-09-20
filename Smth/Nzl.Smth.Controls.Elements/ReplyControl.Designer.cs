@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.linklblAuthor = new System.Windows.Forms.LinkLabel();
-            this.lblDT = new System.Windows.Forms.Label();
+            this.linklblAuthor = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.lblDT = new DevExpress.XtraEditors.LabelControl();
             this.panel = new System.Windows.Forms.Panel();
-            this.linklblDelete = new System.Windows.Forms.LinkLabel();
-            this.linklblTitle = new System.Windows.Forms.LinkLabel();
+            this.linklblDelete = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.linklblTitle = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +45,6 @@
             this.linklblAuthor.TabIndex = 3;
             this.linklblAuthor.TabStop = true;
             this.linklblAuthor.Text = "Author";
-            this.linklblAuthor.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblDT
             // 
@@ -79,8 +78,7 @@
             this.linklblDelete.TabIndex = 4;
             this.linklblDelete.TabStop = true;
             this.linklblDelete.Text = "Delete";
-            this.linklblDelete.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.linklblDelete.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblDelete_LinkClicked);
+            this.linklblDelete.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblDelete_LinkClicked);
             // 
             // linklblTitle
             // 
@@ -109,10 +107,10 @@
 
         #endregion
 
-        private System.Windows.Forms.LinkLabel linklblAuthor;
-        private System.Windows.Forms.Label lblDT;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblAuthor;
+        private DevExpress.XtraEditors.LabelControl lblDT;
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.LinkLabel linklblTitle;
-        private System.Windows.Forms.LinkLabel linklblDelete;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblTitle;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblDelete;
     }
 }

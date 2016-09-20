@@ -30,25 +30,25 @@
         {
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.gpAutoUpdating = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label6 = new DevExpress.XtraEditors.LabelControl();
             this.cmbNewMailCheckingInterval = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new DevExpress.XtraEditors.LabelControl();
+            this.label4 = new DevExpress.XtraEditors.LabelControl();
             this.cmbTop10sLoadingInterval = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new DevExpress.XtraEditors.LabelControl();
+            this.label2 = new DevExpress.XtraEditors.LabelControl();
             this.cmbSectionTopUpdatingInterval = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new DevExpress.XtraEditors.LabelControl();
+            this.label9 = new DevExpress.XtraEditors.LabelControl();
             this.cmbBaseControlLocationMargin = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new DevExpress.XtraEditors.LabelControl();
+            this.label11 = new DevExpress.XtraEditors.LabelControl();
             this.cmbBaseControlContainerLocationMargin = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.label12 = new DevExpress.XtraEditors.LabelControl();
             this.gpAutoUpdating.SuspendLayout();
             this.panelContainer.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -244,7 +244,6 @@
             this.label7.Size = new System.Drawing.Size(300, 23);
             this.label7.TabIndex = 10;
             this.label7.Text = "UI settings take effect need restart the App.";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
@@ -337,24 +336,24 @@
         #endregion
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private System.Windows.Forms.GroupBox gpAutoUpdating;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.LabelControl label1;
+        private DevExpress.XtraEditors.LabelControl label2;
         private System.Windows.Forms.ComboBox cmbSectionTopUpdatingInterval;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.LabelControl label3;
+        private DevExpress.XtraEditors.LabelControl label4;
         private System.Windows.Forms.ComboBox cmbTop10sLoadingInterval;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.LabelControl label5;
+        private DevExpress.XtraEditors.LabelControl label6;
         private System.Windows.Forms.ComboBox cmbNewMailCheckingInterval;
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label9;
+        private DevExpress.XtraEditors.LabelControl label9;
         private System.Windows.Forms.ComboBox cmbBaseControlLocationMargin;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private DevExpress.XtraEditors.LabelControl label10;
+        private DevExpress.XtraEditors.LabelControl label11;
         private System.Windows.Forms.ComboBox cmbBaseControlContainerLocationMargin;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.LabelControl label12;
+        private DevExpress.XtraEditors.LabelControl label7;
         private DevExpress.XtraEditors.SimpleButton btnClearCache;
     }
 }

@@ -3,6 +3,7 @@
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Containers;
 
@@ -15,12 +16,12 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopLinkClicked;
+        public event HyperlinkClickEventHandler OnTopLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTopBoardLinkClicked;
+        public event HyperlinkClickEventHandler OnTopBoardLinkClicked;
         #endregion
 
         #region Variable
@@ -117,7 +118,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SectionTopsControl_OnTopLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void SectionTopsControl_OnTopLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             LinkLabel linklbl = sender as LinkLabel;
             if (linklbl != null && this.OnTopLinkClicked != null)
@@ -131,7 +132,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SectionTopsControl_OnTopBoardLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void SectionTopsControl_OnTopBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             LinkLabel linklbl = sender as LinkLabel;
             if (linklbl != null && this.OnTopBoardLinkClicked != null)

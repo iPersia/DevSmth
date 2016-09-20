@@ -1,6 +1,7 @@
 ﻿namespace Nzl.Smth.Controls.Base
 {
     using System.Windows.Forms;
+    using DevExpress.XtraEditors;
     using Nzl.Recycling;
     using Nzl.Smth.Datas;
 
@@ -49,7 +50,7 @@
         /// </summary>
         /// <param name="lbl"></param>
         /// <param name="url"></param>
-        protected void InitializeLabel(Label lbl, string text)
+        protected void InitializeLabel(LabelControl lbl, string text)
         {
             if (lbl != null)
             {
@@ -62,7 +63,7 @@
         /// </summary>
         /// <param name="lbl"></param>
         /// <param name="url"></param>
-        protected void InitializeLinkLabel(LinkLabel lbl, string url)
+        protected void InitializeLinkLabel(DevExpress.XtraEditors.HyperlinkLabelControl lbl, string url)
         {
             this.InitializeLinkLabel(lbl, lbl != null ? lbl.Text : "", url);
         }
@@ -72,17 +73,15 @@
         /// </summary>
         /// <param name="lbl"></param>
         /// <param name="url"></param>
-        protected void InitializeLinkLabel(LinkLabel lbl, string text, string url)
+        protected void InitializeLinkLabel(DevExpress.XtraEditors.HyperlinkLabelControl lbl, string text, string url)
         {
             if (lbl != null)
             {
                 lbl.Visible = false;
-                lbl.Text = text;
-                lbl.Links.Clear();
                 if (string.IsNullOrEmpty(url) == false)
                 {
                     lbl.Visible = true;
-                    lbl.Links.Add(0, lbl.Text.Length, url);
+                    lbl.Text = "<href=" + url + ">" + text + "</href>";
                 }
             }
         }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Web.Util;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Datas;
@@ -14,17 +15,17 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnReplyLinkClicked;
+        public event HyperlinkClickEventHandler OnReplyLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnUserLinkClicked;
+        public event HyperlinkClickEventHandler OnUserLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnDeleteLinkClicked;
+        public event HyperlinkClickEventHandler OnDeleteLinkClicked;
 
         /// <summary>
         /// Ctor.
@@ -32,8 +33,8 @@
         public ReplyControl()
         {
             InitializeComponent();
-            this.linklblAuthor.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblAuthor_LinkClicked);
-            this.linklblTitle.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblTitle_LinkClicked);
+            this.linklblAuthor.HyperlinkClick += new HyperlinkClickEventHandler(linklblAuthor_LinkClicked);
+            this.linklblTitle.HyperlinkClick += new HyperlinkClickEventHandler(linklblTitle_LinkClicked);
         }
 
         public override void Initialize(Reply refer)
@@ -42,11 +43,9 @@
             if (refer != null)
             {
                 this.linklblTitle.Text = CommonUtil.ReplaceSpecialChars(refer.Title);
-                this.linklblTitle.Links.Clear();
-                this.linklblTitle.Links.Add(0, this.linklblTitle.Text.Length, refer.Url);
+                this.linklblTitle.Text = ControlUtil.GetHyperlinkText(this.linklblTitle.Text, refer.Url);
                 this.linklblAuthor.Text = refer.Author;
-                this.linklblAuthor.Links.Clear();
-                this.linklblAuthor.Links.Add(0, refer.Author.Length, refer.Author);
+                this.linklblAuthor.Text = ControlUtil.GetHyperlinkText(this.linklblAuthor.Text, refer.Author);
                 this.lblDT.Text = refer.DateTime;
             }
         }
@@ -58,7 +57,7 @@
         {
             set
             {
-                this.linklblTitle.LinkColor = value;
+                //this.linklblTitle.LinkColor = value;
             }
         }
 
@@ -67,7 +66,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblAuthor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblAuthor_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnUserLinkClicked != null)
             {
@@ -80,7 +79,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblTitle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblTitle_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnReplyLinkClicked != null)
             {
@@ -93,7 +92,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblDelete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblDelete_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnDeleteLinkClicked != null)
             {

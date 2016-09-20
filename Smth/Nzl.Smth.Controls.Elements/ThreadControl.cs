@@ -4,6 +4,8 @@
     using System.Drawing;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
+    using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using Nzl.Smth.Controls.Base;    
     using Nzl.Smth.Datas;
     using Nzl.Smth.Utils;
@@ -18,37 +20,37 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnUserLinkClicked;
+        public event HyperlinkClickEventHandler OnUserLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnQueryTypeLinkClicked;
+        public event HyperlinkClickEventHandler OnQueryTypeLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnReplyLinkClicked;
+        public event HyperlinkClickEventHandler OnReplyLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnMailLinkClicked;
+        public event HyperlinkClickEventHandler OnMailLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnTransferLinkClicked;
+        public event HyperlinkClickEventHandler OnTransferLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnEditLinkClicked;
+        public event HyperlinkClickEventHandler OnEditLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnDeleteLinkClicked;
+        public event HyperlinkClickEventHandler OnDeleteLinkClicked;
 
         /// <summary>
         /// 
@@ -68,13 +70,13 @@
         public ThreadControl()
         {
             InitializeComponent();
-            this.linklblID.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblID_LinkClicked);
-            this.linklblQuryType.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblQuryType_LinkClicked);
-            this.linklblReply.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblReply_LinkClicked);
-            this.linklblMail.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblMail_LinkClicked);
-            this.linklblTransfer.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblTransfer_LinkClicked);
-            this.linklblEdit.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblEdit_LinkClicked);
-            this.linklblDelete.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblDelete_LinkClicked);
+            this.linklblID.HyperlinkClick += new HyperlinkClickEventHandler(linklblID_LinkClicked);
+            this.linklblQuryType.HyperlinkClick += new HyperlinkClickEventHandler(linklblQuryType_LinkClicked);
+            this.linklblReply.HyperlinkClick += new HyperlinkClickEventHandler(linklblReply_LinkClicked);
+            this.linklblMail.HyperlinkClick += new HyperlinkClickEventHandler(linklblMail_LinkClicked);
+            this.linklblTransfer.HyperlinkClick += new HyperlinkClickEventHandler(linklblTransfer_LinkClicked);
+            this.linklblEdit.HyperlinkClick += new HyperlinkClickEventHandler(linklblEdit_LinkClicked);
+            this.linklblDelete.HyperlinkClick += new HyperlinkClickEventHandler(linklblDelete_LinkClicked);
             this.richtxtContent.MouseWheel += new MouseEventHandler(richtxtContent_MouseWheel);
 
             System.Drawing.Font currentFont = this.richtxtContent.SelectionFont;
@@ -215,7 +217,6 @@
                     this.linklblReply.Visible = false;
                     this.linklblQuryType.Visible = false;
                     this.linklblTransfer.Visible = false;
-                    this.linklblID.Links.Clear();
                 }
             }
         }
@@ -227,7 +228,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblID_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblID_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnUserLinkClicked != null)
             {
@@ -240,7 +241,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblQuryType_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblQuryType_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnQueryTypeLinkClicked != null)
             {
@@ -253,7 +254,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblReply_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblReply_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnReplyLinkClicked != null)
             {
@@ -268,7 +269,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblMail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblMail_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnMailLinkClicked != null)
             {
@@ -283,7 +284,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblTransfer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblTransfer_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnTransferLinkClicked != null)
             {
@@ -296,7 +297,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblEdit_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnEditLinkClicked != null)
             {
@@ -311,7 +312,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void linklblDelete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linklblDelete_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnDeleteLinkClicked != null)
             {
@@ -360,15 +361,15 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lblCopy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lblCopy_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
                 this.richtxtContent.SelectAll();
                 Clipboard.SetData(DataFormats.Rtf, this.richtxtContent.SelectedRtf);
                 this.richtxtContent.DeselectAll();
-                e.Link.Visited = true;
+                //e.Link.Visited = true;
             }
         }
         #endregion

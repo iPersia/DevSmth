@@ -6,7 +6,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class WebBrowserForm : Form
+    public partial class WebBrowserForm : BaseForm
     {
         /// <summary>
         /// 
@@ -19,6 +19,7 @@
         WebBrowserForm()
         {
             InitializeComponent();
+            this.HideWhenDeactivate = false;
         }
 
         /// <summary>

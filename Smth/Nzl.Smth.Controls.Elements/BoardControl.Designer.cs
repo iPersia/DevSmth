@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.panel = new System.Windows.Forms.Panel();
-            this.lblType = new System.Windows.Forms.Label();
-            this.linklblBoard = new System.Windows.Forms.LinkLabel();
+            this.lblType = new DevExpress.XtraEditors.LabelControl();
+            this.linklblBoard = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.checkButton1 = new DevExpress.XtraEditors.CheckButton();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel
             // 
+            this.panel.Controls.Add(this.checkButton1);
             this.panel.Controls.Add(this.lblType);
             this.panel.Controls.Add(this.linklblBoard);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -65,6 +67,14 @@
             this.linklblBoard.TabStop = true;
             this.linklblBoard.Text = "Board";
             // 
+            // checkButton1
+            // 
+            this.checkButton1.Location = new System.Drawing.Point(180, 0);
+            this.checkButton1.Name = "checkButton1";
+            this.checkButton1.Size = new System.Drawing.Size(141, 23);
+            this.checkButton1.TabIndex = 2;
+            this.checkButton1.Text = "checkButton1";
+            // 
             // BoardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -81,7 +91,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.LinkLabel linklblBoard;
-        private System.Windows.Forms.Label lblType;
+        private DevExpress.XtraEditors.HyperlinkLabelControl linklblBoard;
+        private DevExpress.XtraEditors.LabelControl lblType;
+        private DevExpress.XtraEditors.CheckButton checkButton1;
     }
 }

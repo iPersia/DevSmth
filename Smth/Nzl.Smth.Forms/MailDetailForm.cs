@@ -14,7 +14,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class MailDetailForm : Form
+    public partial class MailDetailForm : BaseForm
     {
         #region variable
         /// <summary>
@@ -45,6 +45,8 @@
             this.Size = new Size(this._mccContainer.Width + this.Width - this.panelContainer.Width + 2,
                                  this._mccContainer.Height + this.Height - this.panelContainer.Height + 2);
             this.panelContainer.Controls.Add(this._mccContainer);
+
+            this.HideWhenDeactivate = false;
 
             ///First loading.
             this._mccContainer.CreateControl();

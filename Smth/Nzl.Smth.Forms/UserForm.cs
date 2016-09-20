@@ -14,7 +14,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class UserForm : Form
+    public partial class UserForm : BaseForm
     {
         /// <summary>
         /// 
@@ -27,6 +27,7 @@
         public UserForm()
         {
             InitializeComponent();
+            this.HideWhenDeactivate = false;
         }
 
         /// <summary>

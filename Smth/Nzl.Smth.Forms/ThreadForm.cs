@@ -14,7 +14,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class ThreadForm : Form
+    public partial class ThreadForm : BaseForm
     {
         /// <summary>
         /// 
@@ -23,6 +23,7 @@
         {
             InitializeComponent();
             this.panel.Width = this.Width - 12;
+            this.HideWhenDeactivate = false;
         }
 
         /// <summary>

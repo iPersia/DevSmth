@@ -4,8 +4,9 @@
     using System.Windows.Forms;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Logger;
+    using DevExpress.XtraEditors;
 
-    public partial class MainForm : Form
+    public partial class MainForm : BaseForm
     {
         #region Variable
         /// <summary>

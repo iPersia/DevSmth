@@ -6,7 +6,8 @@
     /// <summary>
     /// 
     /// </summary>
-    public class BaseForm : Form
+    public class BaseForm : DevExpress.XtraEditors.XtraForm
+    ///public class BaseForm : Form
     {
         #region variable
         /// <summary>

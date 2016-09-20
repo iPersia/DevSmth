@@ -9,7 +9,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class NewThreadForm : Form
+    public partial class NewThreadForm : BaseForm
     {
         /// <summary>
         /// 
@@ -27,6 +27,7 @@
         NewThreadForm()
         {
             InitializeComponent();
+            this.HideWhenDeactivate = false;
         }
 
         /// <summary>

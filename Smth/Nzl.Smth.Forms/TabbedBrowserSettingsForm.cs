@@ -7,7 +7,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class TabbedBrowserSettingsForm : Form
+    public partial class TabbedBrowserSettingsForm : BaseForm
     {
         #region Singleton
         /// <summary>
@@ -22,6 +22,7 @@
         TabbedBrowserSettingsForm()
         {
             InitializeComponent();
+            this.HideWhenDeactivate = false;
         }
 
         /// <summary>

@@ -2,9 +2,11 @@
 {
     using System;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Datas;
     using Nzl.Smth.Utils;
+    
 
     /// <summary>
     /// Class.
@@ -33,14 +35,19 @@
             base.Initialize(board);
             if (board != null)
             {
-                this.linklblBoard.LinkClicked -= new LinkLabelLinkClickedEventHandler(linklblBorS_LinkClicked);
-                this.linklblBoard.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblBorS_LinkClicked);
-                this.linklblBoard.Text = board.Name;
-                LinkLabel.Link link = new LinkLabel.Link(0, this.linklblBoard.Text.Length, board.Code);
-                link.Tag = "Board";
-                this.linklblBoard.Links.Clear();
-                this.linklblBoard.Links.Add(link);
+                this.linklblBoard.HyperlinkClick -= new DevExpress.Utils.HyperlinkClickEventHandler(linklblBoard_HyperlinkClick);
+                //this.linklblBoard.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblBorS_LinkClicked);
+                //this.linklblBoard.Text = board.Name;
+                //LinkLabel.Link link = new LinkLabel.Link(0, this.linklblBoard.Text.Length, board.Code);
+                //link.Tag = "Board";
+                //this.linklblBoard.Links.Clear();
+                //this.linklblBoard.Links.Add(link);
             }
+        }
+
+        private  void linklblBoard_HyperlinkClick(object sender, HyperlinkClickEventArgs e)
+        {
+
         }
 
         /// <summary>

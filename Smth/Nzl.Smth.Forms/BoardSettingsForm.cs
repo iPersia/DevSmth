@@ -7,7 +7,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class BoardSettingsForm : Form
+    public partial class BoardSettingsForm : BaseForm
     {
         #region variable
         /// <summary>
@@ -23,6 +23,7 @@
         public BoardSettingsForm()
         {
             InitializeComponent();
+            this.HideWhenDeactivate = false;
         }
         #endregion
 

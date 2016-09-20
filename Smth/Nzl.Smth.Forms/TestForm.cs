@@ -10,7 +10,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class TestForm : Form
+    public partial class TestForm : BaseForm
     {
         /// <summary>
         /// Ctor.
@@ -18,6 +18,7 @@
         public TestForm()
         {
             InitializeComponent();
+            this.HideWhenDeactivate = false;
         }
 
         /// <summary>

@@ -6,7 +6,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class MessageForm : Form
+    public partial class MessageForm : BaseForm
     {
         /// <summary>
         /// Ctor.
@@ -14,6 +14,7 @@
         public MessageForm()
         {
             InitializeComponent();
+            this.HideWhenDeactivate = false;
         }
 
         /// <summary>

@@ -1,14 +1,18 @@
 ﻿namespace Nzl.Smth.Controls.Base
 {
+    using System;
     using System.Windows.Forms;
     using DevExpress.XtraEditors;
+    using DevExpress.XtraEditors.Drawing;
+    using DevExpress.XtraEditors.ViewInfo;
     using Nzl.Recycling;
     using Nzl.Smth.Datas;
 
     /// <summary>
     /// 
     /// </summary>
-    public class BaseControl<TBaseData> : UserControl, IRecycled
+    //public class BaseControl<TBaseData> : DevExpress.Utils.Controls.ControlBase, IRecycled
+    public class BaseControl<TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
         where TBaseData : BaseData
     {
         /// <summary>

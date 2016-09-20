@@ -187,5 +187,16 @@
                 }
             }
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="hyperlink"></param>
+        /// <returns></returns>
+        public static string GetHyperlinkText(string text, string hyperlink)
+        {
+            return "<href=" + hyperlink  + ">" + text + "</href>";
+        }
     }
 }

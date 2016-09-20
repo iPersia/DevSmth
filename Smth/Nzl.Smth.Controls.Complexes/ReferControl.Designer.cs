@@ -31,7 +31,7 @@
             this.tcRefer = new System.Windows.Forms.TabControl();
             this.scContainer = new System.Windows.Forms.SplitContainer();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnReadAll = new System.Windows.Forms.Button();
+            this.btnReadAll = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
             this.scContainer.Panel1.SuspendLayout();
             this.scContainer.Panel2.SuspendLayout();
@@ -86,7 +86,6 @@
             this.btnReadAll.Size = new System.Drawing.Size(75, 23);
             this.btnReadAll.TabIndex = 0;
             this.btnReadAll.Text = "Read all";
-            this.btnReadAll.UseVisualStyleBackColor = true;
             this.btnReadAll.Click += new System.EventHandler(this.btnReadAll_Click);
             // 
             // ReferControl
@@ -110,6 +109,6 @@
         private System.Windows.Forms.TabControl tcRefer;
         private System.Windows.Forms.SplitContainer scContainer;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnReadAll;
+        private DevExpress.XtraEditors.SimpleButton btnReadAll;
     }
 }

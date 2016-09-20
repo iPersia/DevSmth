@@ -30,20 +30,20 @@
         {
             this.panel = new System.Windows.Forms.Panel();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.btnOpenInBrowser = new System.Windows.Forms.Button();
+            this.btnOpenInBrowser = new DevExpress.XtraEditors.SimpleButton();
             this.scContainer = new System.Windows.Forms.SplitContainer();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.linklblBoard = new System.Windows.Forms.LinkLabel();
             this.linklblReply = new System.Windows.Forms.LinkLabel();
-            this.btnSettings = new System.Windows.Forms.Button();
-            this.btnGo = new System.Windows.Forms.Button();
+            this.btnSettings = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGo = new DevExpress.XtraEditors.SimpleButton();
             this.txtGoTo = new System.Windows.Forms.TextBox();
             this.lblPage = new System.Windows.Forms.Label();
-            this.btnLast = new System.Windows.Forms.Button();
-            this.btnFirst = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnLast = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFirst = new DevExpress.XtraEditors.SimpleButton();
+            this.btnNext = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
             this.scContainer.Panel1.SuspendLayout();
@@ -75,15 +75,12 @@
             // btnOpenInBrowser
             // 
             this.btnOpenInBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenInBrowser.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnOpenInBrowser.Location = new System.Drawing.Point(735, 1);
             this.btnOpenInBrowser.Name = "btnOpenInBrowser";
             this.btnOpenInBrowser.Size = new System.Drawing.Size(33, 23);
             this.btnOpenInBrowser.TabIndex = 8;
             this.btnOpenInBrowser.TabStop = false;
             this.btnOpenInBrowser.Text = "OiB";
-            this.btnOpenInBrowser.UseCompatibleTextRendering = true;
-            this.btnOpenInBrowser.UseVisualStyleBackColor = true;
             // 
             // scContainer
             // 
@@ -130,15 +127,12 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnRefresh.Location = new System.Drawing.Point(273, 1);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(56, 23);
             this.btnRefresh.TabIndex = 18;
             this.btnRefresh.TabStop = false;
             this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseCompatibleTextRendering = true;
-            this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // linklblBoard
             // 
@@ -166,28 +160,22 @@
             // btnSettings
             // 
             this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnSettings.Location = new System.Drawing.Point(651, 1);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(75, 23);
             this.btnSettings.TabIndex = 11;
             this.btnSettings.TabStop = false;
             this.btnSettings.Text = "Setting";
-            this.btnSettings.UseCompatibleTextRendering = true;
-            this.btnSettings.UseVisualStyleBackColor = true;
             // 
             // btnGo
             // 
             this.btnGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGo.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnGo.Location = new System.Drawing.Point(806, 1);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(30, 23);
             this.btnGo.TabIndex = 10;
             this.btnGo.TabStop = false;
             this.btnGo.Text = "Go";
-            this.btnGo.UseCompatibleTextRendering = true;
-            this.btnGo.UseVisualStyleBackColor = true;
             // 
             // txtGoTo
             // 
@@ -214,51 +202,39 @@
             // 
             // btnLast
             // 
-            this.btnLast.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnLast.Location = new System.Drawing.Point(223, 1);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(45, 23);
             this.btnLast.TabIndex = 7;
             this.btnLast.TabStop = false;
             this.btnLast.Text = "Last";
-            this.btnLast.UseCompatibleTextRendering = true;
-            this.btnLast.UseVisualStyleBackColor = true;
             // 
             // btnFirst
             // 
-            this.btnFirst.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnFirst.Location = new System.Drawing.Point(11, 1);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(45, 23);
             this.btnFirst.TabIndex = 6;
             this.btnFirst.TabStop = false;
             this.btnFirst.Text = "First";
-            this.btnFirst.UseCompatibleTextRendering = true;
-            this.btnFirst.UseVisualStyleBackColor = true;
             // 
             // btnNext
             // 
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnNext.Location = new System.Drawing.Point(173, 1);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(45, 23);
             this.btnNext.TabIndex = 3;
             this.btnNext.TabStop = false;
             this.btnNext.Text = "Next";
-            this.btnNext.UseCompatibleTextRendering = true;
-            this.btnNext.UseVisualStyleBackColor = true;
             // 
             // btnPrev
             // 
-            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnPrev.Location = new System.Drawing.Point(61, 1);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(45, 23);
             this.btnPrev.TabIndex = 0;
             this.btnPrev.TabStop = false;
             this.btnPrev.Text = "Prev";
-            this.btnPrev.UseCompatibleTextRendering = true;
-            this.btnPrev.UseVisualStyleBackColor = true;
             // 
             // ThreadControlContainer
             // 
@@ -283,19 +259,19 @@
 
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Panel panelContainer;
-        private System.Windows.Forms.Button btnOpenInBrowser;
+        private DevExpress.XtraEditors.SimpleButton btnOpenInBrowser;
         private System.Windows.Forms.SplitContainer scContainer;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnGo;
+        private DevExpress.XtraEditors.SimpleButton btnGo;
         private System.Windows.Forms.TextBox txtGoTo;
         private System.Windows.Forms.Label lblPage;
-        private System.Windows.Forms.Button btnLast;
-        private System.Windows.Forms.Button btnFirst;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnPrev;
-        private System.Windows.Forms.Button btnSettings;
+        private DevExpress.XtraEditors.SimpleButton btnLast;
+        private DevExpress.XtraEditors.SimpleButton btnFirst;
+        private DevExpress.XtraEditors.SimpleButton btnNext;
+        private DevExpress.XtraEditors.SimpleButton btnPrev;
+        private DevExpress.XtraEditors.SimpleButton btnSettings;
         private System.Windows.Forms.LinkLabel linklblReply;
         private System.Windows.Forms.LinkLabel linklblBoard;
-        private System.Windows.Forms.Button btnRefresh;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }

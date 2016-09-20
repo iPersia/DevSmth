@@ -6,6 +6,7 @@
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using System.Reflection;
+    using DevExpress.Utils;
     using Nzl.Dispatcher;
     using Nzl.Hook;
     using Nzl.Recycling;
@@ -723,12 +724,12 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FavorForm_OnBoardLinkLableClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void FavorForm_OnBoardLinkLableClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linkLabel = sender as LinkLabel;
+            DevExpress.XtraEditors.LabelControl linkLabel = sender as DevExpress.XtraEditors.LabelControl;
             if (linkLabel != null)
             {
-                TabbedBrowserForm.Instance.AddBoard(e.Link.LinkData.ToString(), TopicBrowserType.Subject, linkLabel.Text);
+                TabbedBrowserForm.Instance.AddBoard(e.Link, TopicBrowserType.Subject, linkLabel.Text);
             }
         }
 

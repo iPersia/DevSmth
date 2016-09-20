@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.btnLogon = new System.Windows.Forms.Button();
+            this.btnLogout = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLogon = new DevExpress.XtraEditors.SimpleButton();
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.ckbSave = new System.Windows.Forms.CheckBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -67,7 +67,6 @@
             this.btnLogout.Size = new System.Drawing.Size(75, 23);
             this.btnLogout.TabIndex = 12;
             this.btnLogout.Text = "Sign out";
-            this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnLogon
@@ -77,7 +76,6 @@
             this.btnLogon.Size = new System.Drawing.Size(128, 23);
             this.btnLogon.TabIndex = 11;
             this.btnLogon.Text = "Sign in";
-            this.btnLogon.UseVisualStyleBackColor = true;
             this.btnLogon.Click += new System.EventHandler(this.btnLogon_Click);
             // 
             // txtUserID
@@ -173,8 +171,8 @@
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.SplitContainer scContainer;
         private System.Windows.Forms.Panel panelUp;
-        private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Button btnLogon;
+        private DevExpress.XtraEditors.SimpleButton btnLogout;
+        private DevExpress.XtraEditors.SimpleButton btnLogon;
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.CheckBox ckbSave;
         private System.Windows.Forms.TextBox txtPassword;

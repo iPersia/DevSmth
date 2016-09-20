@@ -2,14 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Controls.Elements;
     using Nzl.Smth.Datas;
     using Nzl.Web.Page;
     using Nzl.Smth.Utils;
-    using Nzl.Smth.Logger;
 
     /// <summary>
     /// 
@@ -20,7 +19,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnBoardLinkClicked;
+        public event HyperlinkClickEventHandler OnBoardLinkClicked;
         #endregion
 
         #region variable
@@ -103,7 +102,7 @@
             if (ctl != null && item != null)
             {
                 ctl.Name = "bc" + item.Code;
-                ctl.OnLinkClicked += Bc_OnLinkClicked;
+                ctl.OnBoardClicked += Bc_OnLinkClicked;
             }
         }
 
@@ -124,7 +123,7 @@
             base.RecylingControl(ctl);
             if (ctl != null)
             {
-                ctl.OnLinkClicked -= Bc_OnLinkClicked;
+                ctl.OnBoardClicked -= Bc_OnLinkClicked;
             }
         }
         #endregion
@@ -135,7 +134,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Bc_OnLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Bc_OnLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnBoardLinkClicked != null)
             {

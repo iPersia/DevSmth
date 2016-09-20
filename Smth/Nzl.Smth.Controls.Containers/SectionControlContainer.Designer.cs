@@ -32,7 +32,7 @@
             this.panel = new System.Windows.Forms.Panel();
             this.scContainer = new System.Windows.Forms.SplitContainer();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.linklblSectionName = new System.Windows.Forms.LinkLabel();
             this.linklblPrevious = new System.Windows.Forms.LinkLabel();
             this.panelContainer.SuspendLayout();
@@ -103,7 +103,6 @@
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // linklblSectionName
@@ -153,6 +152,6 @@
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.LinkLabel linklblPrevious;
         private System.Windows.Forms.LinkLabel linklblSectionName;
-        private System.Windows.Forms.Button btnRefresh;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btnSendMail = new System.Windows.Forms.Button();
+            this.btnSendMail = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtUser = new System.Windows.Forms.RichTextBox();
             this.bgwFetchPage = new System.ComponentModel.BackgroundWorker();
@@ -71,7 +71,6 @@
             this.btnSendMail.Size = new System.Drawing.Size(100, 23);
             this.btnSendMail.TabIndex = 0;
             this.btnSendMail.Text = "Send Mail";
-            this.btnSendMail.UseVisualStyleBackColor = true;
             this.btnSendMail.Click += new System.EventHandler(this.btnSendMail_Click);
             // 
             // panel1
@@ -123,7 +122,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.RichTextBox txtUser;
-        private System.Windows.Forms.Button btnSendMail;
+        private DevExpress.XtraEditors.SimpleButton btnSendMail;
         private System.Windows.Forms.Panel panel1;
         private System.ComponentModel.BackgroundWorker bgwFetchPage;
     }

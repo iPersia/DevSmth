@@ -1,6 +1,7 @@
 ﻿namespace Nzl.Smth.Forms
 {
     using System.Windows.Forms;
+    using DevExpress.Utils;
 
     /// <summary>
     /// Class.
@@ -17,7 +18,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnBoardLinkLableClicked;
+        public event HyperlinkClickEventHandler OnBoardLinkLableClicked;
 
         /// <summary>
         /// 
@@ -39,7 +40,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SncSection_OnBoardLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void SncSection_OnBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnBoardLinkLableClicked != null)
             {

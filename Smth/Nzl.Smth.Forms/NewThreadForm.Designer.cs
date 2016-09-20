@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewThreadForm));
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnSubmit = new DevExpress.XtraEditors.SimpleButton();
             this.panel = new System.Windows.Forms.Panel();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -48,7 +48,6 @@
             this.btnSubmit.Size = new System.Drawing.Size(100, 23);
             this.btnSubmit.TabIndex = 4;
             this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // panel
@@ -136,7 +135,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnSubmit;
+        private DevExpress.XtraEditors.SimpleButton btnSubmit;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Label lblContent;
         private System.Windows.Forms.RichTextBox txtContent;

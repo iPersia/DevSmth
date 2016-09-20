@@ -32,7 +32,7 @@
             this.rbNoTops = new System.Windows.Forms.RadioButton();
             this.gpBrowseMode = new System.Windows.Forms.GroupBox();
             this.ckbAutoUpdating = new System.Windows.Forms.CheckBox();
-            this.btnOK = new System.Windows.Forms.Button();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.gpAutoUpdating = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbInterval = new System.Windows.Forms.ComboBox();
@@ -98,7 +98,6 @@
             this.btnOK.TabIndex = 4;
             this.btnOK.TabStop = false;
             this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // gpAutoUpdating
@@ -233,7 +232,7 @@
         private System.Windows.Forms.RadioButton rbNoTops;
         private System.Windows.Forms.GroupBox gpBrowseMode;
         private System.Windows.Forms.CheckBox ckbAutoUpdating;
-        private System.Windows.Forms.Button btnOK;
+        private DevExpress.XtraEditors.SimpleButton btnOK;
         private System.Windows.Forms.GroupBox gpAutoUpdating;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

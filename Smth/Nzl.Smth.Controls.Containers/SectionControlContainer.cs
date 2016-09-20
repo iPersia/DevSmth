@@ -2,8 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Drawing;
     using System.Windows.Forms;
+    using DevExpress.Utils;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Controls.Elements;
@@ -27,12 +27,12 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnBoardLinkClicked;
+        public event HyperlinkClickEventHandler OnBoardLinkClicked;
 
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnSectionLinkClicked;
+        public event HyperlinkClickEventHandler OnSectionLinkClicked;
         #endregion
 
         #region variable
@@ -192,9 +192,9 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Sc_OnLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Sc_OnLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            this.SetBaseUrl(SmthUtil.GetSectionUrl(e.Link.LinkData.ToString()));
+            this.SetBaseUrl(SmthUtil.GetSectionUrl(e.Link));
             this.SetUrlInfo(false);            
             this.FetchPage();
         }
@@ -204,7 +204,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Bc_OnLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Bc_OnLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
             if (this.OnBoardLinkClicked != null)
             {

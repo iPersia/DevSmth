@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOK = new System.Windows.Forms.Button();
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.gpAutoUpdating = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbNewMailCheckingInterval = new System.Windows.Forms.ComboBox();
@@ -40,7 +40,7 @@
             this.cmbSectionTopUpdatingInterval = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.btnClearCache = new System.Windows.Forms.Button();
+            this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,7 +63,6 @@
             this.btnOK.TabIndex = 4;
             this.btnOK.TabStop = false;
             this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // gpAutoUpdating
@@ -219,7 +218,6 @@
             this.btnClearCache.TabIndex = 7;
             this.btnClearCache.TabStop = false;
             this.btnClearCache.Text = "Clear cache";
-            this.btnClearCache.UseVisualStyleBackColor = true;
             this.btnClearCache.Click += new System.EventHandler(this.btnClearCache_Click);
             // 
             // groupBox1
@@ -337,7 +335,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnOK;
+        private DevExpress.XtraEditors.SimpleButton btnOK;
         private System.Windows.Forms.GroupBox gpAutoUpdating;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -357,6 +355,6 @@
         private System.Windows.Forms.ComboBox cmbBaseControlContainerLocationMargin;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnClearCache;
+        private DevExpress.XtraEditors.SimpleButton btnClearCache;
     }
 }

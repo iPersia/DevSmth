@@ -32,7 +32,7 @@
             this.panel = new System.Windows.Forms.Panel();
             this.scContainer = new System.Windows.Forms.SplitContainer();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
             this.scContainer.Panel1.SuspendLayout();
@@ -97,7 +97,6 @@
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // BoardControlContainer
@@ -123,6 +122,6 @@
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.SplitContainer scContainer;
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btnRefresh;
+        private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }

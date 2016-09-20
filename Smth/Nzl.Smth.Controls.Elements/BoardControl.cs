@@ -16,7 +16,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkLabelLinkClickedEventHandler OnLinkClicked;
+        public event HyperlinkClickEventHandler OnBoardClicked;
 
         /// <summary>
         /// Ctor.
@@ -36,6 +36,8 @@
             if (board != null)
             {
                 this.linklblBoard.HyperlinkClick -= new DevExpress.Utils.HyperlinkClickEventHandler(linklblBoard_HyperlinkClick);
+                this.linklblBoard.Text = ControlUtil.GetHyperlinkText(board.Name, board.Code);
+                this.linklblBoard.Tag = "Board";
                 //this.linklblBoard.LinkClicked += new LinkLabelLinkClickedEventHandler(linklblBorS_LinkClicked);
                 //this.linklblBoard.Text = board.Name;
                 //LinkLabel.Link link = new LinkLabel.Link(0, this.linklblBoard.Text.Length, board.Code);
@@ -47,20 +49,23 @@
 
         private  void linklblBoard_HyperlinkClick(object sender, HyperlinkClickEventArgs e)
         {
-
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void linklblBorS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (this.OnLinkClicked != null)
+            if (this.OnBoardClicked != null)
             {
-                this.OnLinkClicked(sender, e);
+                this.OnBoardClicked(sender, e);
             }
         }
+
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void linklblBorS_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //    if (this.OnLinkClicked != null)
+        //    {
+        //        this.OnLinkClicked(sender, e);
+        //    }
+        //}
     }
 }

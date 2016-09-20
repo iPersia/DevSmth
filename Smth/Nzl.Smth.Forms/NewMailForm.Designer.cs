@@ -30,7 +30,7 @@
         {
             this.panel = new System.Windows.Forms.Panel();
             this.ckbBackup = new System.Windows.Forms.CheckBox();
-            this.btnSend = new System.Windows.Forms.Button();
+            this.btnSend = new DevExpress.XtraEditors.SimpleButton();
             this.richtxtContent = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -76,7 +76,6 @@
             this.btnSend.Size = new System.Drawing.Size(100, 23);
             this.btnSend.TabIndex = 4;
             this.btnSend.Text = "Send";
-            this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // richtxtContent
@@ -159,7 +158,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox richtxtContent;
-        private System.Windows.Forms.Button btnSend;
+        private DevExpress.XtraEditors.SimpleButton btnSend;
         private System.Windows.Forms.CheckBox ckbBackup;
     }
 }

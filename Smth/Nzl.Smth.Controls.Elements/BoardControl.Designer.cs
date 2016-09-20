@@ -30,14 +30,12 @@
         {
             this.panel = new System.Windows.Forms.Panel();
             this.lblType = new DevExpress.XtraEditors.LabelControl();
-            this.linklblBoard = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.checkButton1 = new DevExpress.XtraEditors.CheckButton();
+            this.linklblBoard = new DevExpress.XtraEditors.LabelControl();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel
             // 
-            this.panel.Controls.Add(this.checkButton1);
             this.panel.Controls.Add(this.lblType);
             this.panel.Controls.Add(this.linklblBoard);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -48,32 +46,24 @@
             // 
             // lblType
             // 
-            this.lblType.AutoSize = true;
-            this.lblType.Font = new System.Drawing.Font("宋体", 9F);
+            this.lblType.Appearance.Font = new System.Drawing.Font("宋体", 9F);
+            this.lblType.Appearance.Options.UseFont = true;
             this.lblType.Location = new System.Drawing.Point(12, 6);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(29, 12);
+            this.lblType.Size = new System.Drawing.Size(24, 12);
             this.lblType.TabIndex = 1;
             this.lblType.Text = "版面";
             // 
             // linklblBoard
             // 
-            this.linklblBoard.AutoSize = true;
-            this.linklblBoard.Font = new System.Drawing.Font("宋体", 9F);
+            this.linklblBoard.Appearance.Font = new System.Drawing.Font("宋体", 9F);
+            this.linklblBoard.Appearance.Options.UseFont = true;
             this.linklblBoard.Location = new System.Drawing.Point(48, 6);
             this.linklblBoard.Name = "linklblBoard";
-            this.linklblBoard.Size = new System.Drawing.Size(35, 12);
+            this.linklblBoard.Size = new System.Drawing.Size(30, 12);
             this.linklblBoard.TabIndex = 0;
             this.linklblBoard.TabStop = true;
             this.linklblBoard.Text = "Board";
-            // 
-            // checkButton1
-            // 
-            this.checkButton1.Location = new System.Drawing.Point(180, 0);
-            this.checkButton1.Name = "checkButton1";
-            this.checkButton1.Size = new System.Drawing.Size(141, 23);
-            this.checkButton1.TabIndex = 2;
-            this.checkButton1.Text = "checkButton1";
             // 
             // BoardControl
             // 
@@ -91,8 +81,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel;
-        private DevExpress.XtraEditors.HyperlinkLabelControl linklblBoard;
+        private DevExpress.XtraEditors.LabelControl linklblBoard;
         private DevExpress.XtraEditors.LabelControl lblType;
-        private DevExpress.XtraEditors.CheckButton checkButton1;
     }
 }

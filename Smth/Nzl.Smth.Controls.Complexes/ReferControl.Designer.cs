@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tcRefer = new System.Windows.Forms.TabControl();
-            this.scContainer = new System.Windows.Forms.SplitContainer();
-            this.panelMenu = new System.Windows.Forms.Panel();
+            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
+            this.panelMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnReadAll = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
             this.scContainer.Panel1.SuspendLayout();
@@ -51,11 +51,11 @@
             // scContainer
             // 
             this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.scContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
             this.scContainer.IsSplitterFixed = true;
             this.scContainer.Location = new System.Drawing.Point(0, 0);
             this.scContainer.Name = "scContainer";
-            this.scContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.scContainer.Horizontal = false;
             // 
             // scContainer.Panel1
             // 
@@ -65,8 +65,7 @@
             // 
             this.scContainer.Panel2.Controls.Add(this.tcRefer);
             this.scContainer.Size = new System.Drawing.Size(720, 560);
-            this.scContainer.SplitterDistance = 25;
-            this.scContainer.SplitterWidth = 1;
+            this.scContainer.SplitterPosition = 25;
             this.scContainer.TabIndex = 1;
             // 
             // panelMenu
@@ -107,8 +106,8 @@
         #endregion
 
         private System.Windows.Forms.TabControl tcRefer;
-        private System.Windows.Forms.SplitContainer scContainer;
-        private System.Windows.Forms.Panel panelMenu;
+        private DevExpress.XtraEditors.SplitContainerControl scContainer;
+        private DevExpress.XtraEditors.PanelControl panelMenu;
         private DevExpress.XtraEditors.SimpleButton btnReadAll;
     }
 }

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewThreadForm));
             this.btnSubmit = new DevExpress.XtraEditors.SimpleButton();
-            this.panel = new System.Windows.Forms.Panel();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.ckbSendMail = new System.Windows.Forms.CheckBox();
@@ -136,7 +136,7 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton btnSubmit;
-        private System.Windows.Forms.Panel panel;
+        private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.LabelControl lblContent;
         private System.Windows.Forms.RichTextBox txtContent;
         private System.Windows.Forms.CheckBox ckbSendMail;

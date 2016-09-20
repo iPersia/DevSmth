@@ -43,9 +43,9 @@
             this._updatingTimer.Start();
 
 #if (DEBUG)
-            this.scContainer.SplitterDistance = 360;
+            this.scContainer.SplitterPosition = 360;
 #else            
-            this.scContainer.SplitterDistance = 25;
+            this.scContainer.SplitterPosition = 25;
             this.scContainer.IsSplitterFixed = true;
             this.txtCache.ReadOnly = true;
 #endif

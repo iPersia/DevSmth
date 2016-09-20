@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.btnSendMail = new DevExpress.XtraEditors.SimpleButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1 = new DevExpress.XtraEditors.PanelControl();
             this.txtUser = new System.Windows.Forms.RichTextBox();
             this.bgwFetchPage = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -44,11 +44,11 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainer1.Horizontal = false;
             // 
             // splitContainer1.Panel1
             // 
@@ -59,8 +59,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
             this.splitContainer1.Size = new System.Drawing.Size(430, 334);
-            this.splitContainer1.SplitterDistance = 25;
-            this.splitContainer1.SplitterWidth = 1;
+            this.splitContainer1.SplitterPosition = 25;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.TabStop = false;
             // 
@@ -75,7 +74,7 @@
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.panel1.Controls.Add(this.txtUser);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -120,10 +119,10 @@
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainer1;
         private System.Windows.Forms.RichTextBox txtUser;
         private DevExpress.XtraEditors.SimpleButton btnSendMail;
-        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraEditors.PanelControl panel1;
         private System.ComponentModel.BackgroundWorker bgwFetchPage;
     }
 }

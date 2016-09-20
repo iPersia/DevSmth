@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelContainer = new System.Windows.Forms.Panel();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -57,6 +57,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelContainer;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
     }
 }

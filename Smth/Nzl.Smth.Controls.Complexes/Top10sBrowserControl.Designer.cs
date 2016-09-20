@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tcTop10s = new System.Windows.Forms.TabControl();
-            this.panelContainer = new System.Windows.Forms.Panel();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.panelContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +68,6 @@
         #endregion
 
         private System.Windows.Forms.TabControl tcTop10s;
-        private System.Windows.Forms.Panel panelContainer;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
     }
 }

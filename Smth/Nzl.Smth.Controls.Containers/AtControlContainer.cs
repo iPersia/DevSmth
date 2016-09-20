@@ -6,6 +6,7 @@
     using System.Drawing;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
@@ -82,7 +83,7 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        protected override Panel GetPanel()
+        protected override PanelControl GetPanel()
         {
             return this.panel;
         }
@@ -91,7 +92,7 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        protected override Panel GetPanelContainer()
+        protected override PanelControl GetPanelContainer()
         {
             return this.panelContainer;
         }

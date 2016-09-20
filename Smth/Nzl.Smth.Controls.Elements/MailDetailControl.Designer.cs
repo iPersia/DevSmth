@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.scContainer = new System.Windows.Forms.SplitContainer();
-            this.panelUp = new System.Windows.Forms.Panel();
+            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
+            this.panelUp = new DevExpress.XtraEditors.PanelControl();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.linklblDelete = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblID = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblTransfer = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.lblDateTime = new DevExpress.XtraEditors.LabelControl();
             this.linklblReply = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.panelDown = new System.Windows.Forms.Panel();
+            this.panelDown = new DevExpress.XtraEditors.PanelControl();
             this.richtxtContent = new Nzl.Controls.RichTextBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
             this.scContainer.Panel1.SuspendLayout();
@@ -49,11 +49,11 @@
             // scContainer
             // 
             this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.scContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
             this.scContainer.IsSplitterFixed = true;
             this.scContainer.Location = new System.Drawing.Point(0, 0);
             this.scContainer.Name = "scContainer";
-            this.scContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.scContainer.Horizontal = false;
             // 
             // scContainer.Panel1
             // 
@@ -63,8 +63,7 @@
             // 
             this.scContainer.Panel2.Controls.Add(this.panelDown);
             this.scContainer.Size = new System.Drawing.Size(600, 480);
-            this.scContainer.SplitterDistance = 59;
-            this.scContainer.SplitterWidth = 1;
+            this.scContainer.SplitterPosition = 59;
             this.scContainer.TabIndex = 13;
             this.scContainer.TabStop = false;
             // 
@@ -195,8 +194,8 @@
         private DevExpress.XtraEditors.LabelControl lblDateTime;
         private DevExpress.XtraEditors.LabelControl lblTitle;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblID;
-        private System.Windows.Forms.SplitContainer scContainer;
-        private System.Windows.Forms.Panel panelUp;
-        private System.Windows.Forms.Panel panelDown;
+        private DevExpress.XtraEditors.SplitContainerControl scContainer;
+        private DevExpress.XtraEditors.PanelControl panelUp;
+        private DevExpress.XtraEditors.PanelControl panelDown;
     }
 }

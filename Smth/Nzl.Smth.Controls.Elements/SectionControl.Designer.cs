@@ -28,7 +28,7 @@ namespace Nzl.Smth.Controls.Elements
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1 = new DevExpress.XtraEditors.PanelControl();
             this.lblType = new DevExpress.XtraEditors.LabelControl();
             this.linklblSection = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panel1.SuspendLayout();
@@ -81,7 +81,7 @@ namespace Nzl.Smth.Controls.Elements
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraEditors.PanelControl panel1;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblSection;
         private DevExpress.XtraEditors.LabelControl lblType;
     }

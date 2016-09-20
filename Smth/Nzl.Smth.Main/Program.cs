@@ -26,7 +26,7 @@
                 ///皮肤
                 DevExpress.UserSkins.BonusSkins.Register();
                 DevExpress.Skins.SkinManager.EnableFormSkins();
-                DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("Black");  // 设置皮肤样式
+                DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");  // 设置皮肤样式
                 //DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("Blue");  // 设置皮肤样式
 
                 ////应用程序的主入口点

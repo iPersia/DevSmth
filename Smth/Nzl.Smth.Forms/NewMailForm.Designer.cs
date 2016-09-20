@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel = new System.Windows.Forms.Panel();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
             this.ckbBackup = new System.Windows.Forms.CheckBox();
             this.btnSend = new DevExpress.XtraEditors.SimpleButton();
             this.richtxtContent = new System.Windows.Forms.RichTextBox();
@@ -151,7 +151,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel;
+        private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.LabelControl label1;
         private System.Windows.Forms.TextBox txtSendTo;
         private System.Windows.Forms.TextBox txtTitle;

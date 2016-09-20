@@ -6,6 +6,8 @@
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using System.ComponentModel;
+    using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using Nzl.Messaging;
     using Nzl.Recycling;
     using Nzl.Smth;
@@ -148,7 +150,7 @@
         {
             if (this.IsWorking == false)
             {
-                Panel baseControlContainer = this.GetPanel();
+                PanelControl baseControlContainer = this.GetPanel();
                 if (baseControlContainer != null)
                 {
                     foreach (Control ctl in baseControlContainer.Controls)
@@ -182,14 +184,14 @@
                 }
                 else
                 {
-                    throw new Exception("The panel or the panel container is null!");
+                    throw new Exception("The PanelControl or the PanelControl container is null!");
                 }
             }
 
             ///Set BorderStyle.
             this.BorderStyle = BorderStyle.None;
-            this.GetPanelContainer().BorderStyle = BorderStyle.FixedSingle;
-            this.GetPanel().BorderStyle = BorderStyle.FixedSingle;
+            this.GetPanelContainer().BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.GetPanel().BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
 
             ///Set location.
             this.GetPanel().Location = new Point(Configuration.BaseControlContainerLocationMargin,
@@ -223,7 +225,7 @@
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
-            Panel baseControlContainer = this.GetPanel();
+            PanelControl baseControlContainer = this.GetPanel();
             if (baseControlContainer != null)
             {
                 baseControlContainer.Width = this.Width
@@ -239,7 +241,7 @@
         /// <param name="e"></param>
         private void BaseContainer_SizeChanged(object sender, EventArgs e)
         {
-            Panel baseControlContainer = this.GetPanel();
+            PanelControl baseControlContainer = this.GetPanel();
             if (baseControlContainer != null)
             {
 #if (DEBUG)
@@ -259,7 +261,7 @@
         /// 
         /// </summary>
         /// <param name="baseUrl"></param>
-        protected virtual Panel GetPanel()
+        protected virtual PanelControl GetPanel()
         {
             return null;
         }
@@ -268,7 +270,7 @@
         /// 
         /// </summary>
         /// <param name="baseUrl"></param>
-        protected virtual Panel GetPanelContainer()
+        protected virtual PanelControl GetPanelContainer()
         {
             return null;
         }
@@ -351,7 +353,7 @@
         /// </summary>
         protected virtual void InitializeContainer(bool isAppend)
         {
-            Panel baseControlContainer = GetPanel();
+            PanelControl baseControlContainer = GetPanel();
             if (baseControlContainer != null)
             {
                 lock (baseControlContainer)
@@ -428,7 +430,7 @@
         /// <param name="ctl"></param>
         protected virtual void AddControl(TBaseControl ctl)
         {
-            Panel baseControlContainer = GetPanel();
+            PanelControl baseControlContainer = GetPanel();
             if (baseControlContainer != null)
             {
                 lock (baseControlContainer)
@@ -563,7 +565,7 @@
         {
             if (ctl != null)
             {
-                Panel baseControlContainer = this.GetPanel();
+                PanelControl baseControlContainer = this.GetPanel();
                 if (baseControlContainer != null)
                 {
                     int width = baseControlContainer.Width
@@ -618,9 +620,9 @@
         {
             try
             {
-                Panel panelContainer = this.GetPanelContainer();
-                Panel baseControlContainer = this.GetPanel();
-                int panelContainerHeight = panelContainer.Height; //panel容器高度
+                PanelControl panelContainer = this.GetPanelContainer();
+                PanelControl baseControlContainer = this.GetPanel();
+                int panelContainerHeight = panelContainer.Height; //PanelControl容器高度
 #if (X)
                 System.Diagnostics.Debug.WriteLine("---------------------***TopicForm_MouseWheel***---------------------");
                 System.Diagnostics.Debug.WriteLine("Sender is:" + sender.GetType().ToString());
@@ -629,7 +631,7 @@
                 if (this.GetPanel().Height > panelContainerHeight)
                 {
 #if (X)
-                    System.Diagnostics.Debug.WriteLine("oldYPos:" + this.panel.Location.Y);
+                    System.Diagnostics.Debug.WriteLine("oldYPos:" + this.PanelControl.Location.Y);
                     System.Diagnostics.Debug.WriteLine("Delta  :" + e.Delta);
 #endif
                     int boardMargin = this.GetPanelContainerBoarderMargin();
@@ -821,7 +823,7 @@
         /// <param name="text"></param>
         private void ShowInformationInPanel(string text)
         {
-            Panel baseControlContainer = this.GetPanel();
+            PanelControl baseControlContainer = this.GetPanel();
             if (baseControlContainer != null)
             {
                 Label lbl = new Label();
@@ -850,7 +852,7 @@
             }
             else
             {
-                Panel panelContainer = this.GetPanelContainer();
+                PanelControl panelContainer = this.GetPanelContainer();
                 if (panelContainer != null)
                 {
                     this._lblMessage.Hide();
@@ -885,7 +887,7 @@
         /// <returns></returns>
         protected int GetPanelContainerBoarderMargin()
         {
-            return this.GetPanelContainer().BorderStyle == BorderStyle.FixedSingle ? 2 : 0;
+            return this.GetPanelContainer().BorderStyle == DevExpress.XtraEditors.Controls.BorderStyles.Simple ? 2 : 0;
         }
 
         /// <summary>
@@ -894,7 +896,7 @@
         /// <returns></returns>
         protected int GetControlContainerBoarderMargin()
         {
-            return this.GetPanel().BorderStyle == BorderStyle.FixedSingle ? 2 : 0;
+            return this.GetPanel().BorderStyle == DevExpress.XtraEditors.Controls.BorderStyles.Simple ? 2 : 0;
         }
         #endregion
 

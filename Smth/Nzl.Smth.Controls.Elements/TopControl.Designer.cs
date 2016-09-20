@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel = new System.Windows.Forms.Panel();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
             this.linklblBoard = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.lblReplies = new DevExpress.XtraEditors.LabelControl();
             this.linklblTop = new DevExpress.XtraEditors.HyperlinkLabelControl();
@@ -108,7 +108,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel;
+        private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.LabelControl lblIndex;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblTop;
         private DevExpress.XtraEditors.LabelControl lblReplies;

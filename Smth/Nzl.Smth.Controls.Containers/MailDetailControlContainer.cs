@@ -7,6 +7,7 @@ namespace Nzl.Smth.Controls.Containers
     using System.Drawing;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Datas;
@@ -67,8 +68,8 @@ namespace Nzl.Smth.Controls.Containers
         {
             InitializeComponent();            
             this.Text = "Mail Detail";
-            this.panel.BorderStyle = BorderStyle.FixedSingle;
-            this.panelContainer.BorderStyle = BorderStyle.FixedSingle;
+            this.panel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.panelContainer.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.InitializeSize();
         }
 
@@ -147,7 +148,7 @@ namespace Nzl.Smth.Controls.Containers
         /// 
         /// </summary>
         /// <returns></returns>
-        protected override Panel GetPanel()
+        protected override PanelControl GetPanel()
         {
             return this.panel;
         }
@@ -156,7 +157,7 @@ namespace Nzl.Smth.Controls.Containers
         /// 
         /// </summary>
         /// <returns></returns>
-        protected override Panel GetPanelContainer()
+        protected override PanelControl GetPanelContainer()
         {
             return this.panelContainer;
         }

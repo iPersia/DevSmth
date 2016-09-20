@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelContainer = new System.Windows.Forms.Panel();
-            this.panel = new System.Windows.Forms.Panel();
-            this.scContainer = new System.Windows.Forms.SplitContainer();
-            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
+            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
+            this.panelMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.linklblSectionName = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblPrevious = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
-            this.scContainer.Panel1.SuspendLayout();
-            this.scContainer.Panel2.SuspendLayout();
             this.scContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelContainer
             // 
-            this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelContainer.Controls.Add(this.panel);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(317, 480);
+            this.panelContainer.Size = new System.Drawing.Size(317, 471);
             this.panelContainer.TabIndex = 0;
             // 
             // panel
             // 
-            this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel.Location = new System.Drawing.Point(3, 3);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(311, 100);
@@ -64,41 +63,32 @@
             // scContainer
             // 
             this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.scContainer.Horizontal = false;
+            this.scContainer.IsSplitterFixed = true;
             this.scContainer.Location = new System.Drawing.Point(0, 0);
             this.scContainer.Name = "scContainer";
-            this.scContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // scContainer.Panel1
-            // 
             this.scContainer.Panel1.Controls.Add(this.panelMenu);
-            this.scContainer.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            // 
-            // scContainer.Panel2
-            // 
             this.scContainer.Panel2.Controls.Add(this.panelContainer);
-            this.scContainer.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.scContainer.Size = new System.Drawing.Size(317, 506);
-            this.scContainer.SplitterDistance = 25;
-            this.scContainer.SplitterWidth = 1;
+            this.scContainer.SplitterPosition = 30;
             this.scContainer.TabIndex = 1;
-            this.scContainer.TabStop = false;
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.SystemColors.Window;
+            this.panelMenu.Appearance.BackColor = System.Drawing.SystemColors.Window;
+            this.panelMenu.Appearance.Options.UseBackColor = true;
             this.panelMenu.Controls.Add(this.btnRefresh);
             this.panelMenu.Controls.Add(this.linklblSectionName);
             this.panelMenu.Controls.Add(this.linklblPrevious);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(317, 25);
+            this.panelMenu.Size = new System.Drawing.Size(317, 30);
             this.panelMenu.TabIndex = 0;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(120, 1);
+            this.btnRefresh.Location = new System.Drawing.Point(120, 4);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(75, 23);
             this.btnRefresh.TabIndex = 2;
@@ -108,20 +98,23 @@
             // linklblSectionName
             // 
             this.linklblSectionName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linklblSectionName.Location = new System.Drawing.Point(188, 6);
+            this.linklblSectionName.Appearance.Options.UseTextOptions = true;
+            this.linklblSectionName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.linklblSectionName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.linklblSectionName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linklblSectionName.Location = new System.Drawing.Point(212, 9);
             this.linklblSectionName.Name = "linklblSectionName";
-            this.linklblSectionName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.linklblSectionName.Size = new System.Drawing.Size(120, 12);
+            this.linklblSectionName.Size = new System.Drawing.Size(100, 14);
             this.linklblSectionName.TabIndex = 1;
             this.linklblSectionName.TabStop = true;
             this.linklblSectionName.Text = "Section";
             // 
             // linklblPrevious
             // 
-            this.linklblPrevious.AutoSize = true;
-            this.linklblPrevious.Location = new System.Drawing.Point(11, 6);
+            this.linklblPrevious.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linklblPrevious.Location = new System.Drawing.Point(11, 9);
             this.linklblPrevious.Name = "linklblPrevious";
-            this.linklblPrevious.Size = new System.Drawing.Size(53, 12);
+            this.linklblPrevious.Size = new System.Drawing.Size(45, 14);
             this.linklblPrevious.TabIndex = 0;
             this.linklblPrevious.TabStop = true;
             this.linklblPrevious.Text = "Previous";
@@ -133,11 +126,12 @@
             this.Controls.Add(this.scContainer);
             this.Name = "SectionControlContainer";
             this.Size = new System.Drawing.Size(317, 506);
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
-            this.scContainer.Panel1.ResumeLayout(false);
-            this.scContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).EndInit();
             this.scContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -146,10 +140,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelContainer;
-        private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.SplitContainer scContainer;
-        private System.Windows.Forms.Panel panelMenu;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
+        private DevExpress.XtraEditors.PanelControl panel;
+        private DevExpress.XtraEditors.SplitContainerControl scContainer;
+        private DevExpress.XtraEditors.PanelControl panelMenu;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblPrevious;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblSectionName;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;

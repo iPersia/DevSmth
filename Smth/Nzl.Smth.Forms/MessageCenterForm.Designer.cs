@@ -30,10 +30,10 @@
         {
             this.bgwMessager = new System.ComponentModel.BackgroundWorker();
             this.txtMsg = new Nzl.Controls.RichTextBoxEx();
-            this.scContainer = new System.Windows.Forms.SplitContainer();
-            this.panelUp = new System.Windows.Forms.Panel();
+            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
+            this.panelUp = new DevExpress.XtraEditors.PanelControl();
             this.txtCache = new Nzl.Controls.RichTextBoxEx();
-            this.panelDown = new System.Windows.Forms.Panel();
+            this.panelDown = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
             this.scContainer.Panel1.SuspendLayout();
             this.scContainer.Panel2.SuspendLayout();
@@ -58,11 +58,10 @@
             // 
             // scContainer
             // 
-            this.scContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scContainer.Location = new System.Drawing.Point(0, 0);
             this.scContainer.Name = "scContainer";
-            this.scContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.scContainer.Horizontal = false;
             // 
             // scContainer.Panel1
             // 
@@ -72,8 +71,7 @@
             // 
             this.scContainer.Panel2.Controls.Add(this.panelDown);
             this.scContainer.Size = new System.Drawing.Size(784, 561);
-            this.scContainer.SplitterDistance = 240;
-            this.scContainer.SplitterWidth = 1;
+            this.scContainer.SplitterPosition = 240;
             this.scContainer.TabIndex = 1;
             // 
             // panelUp
@@ -133,9 +131,9 @@
 
         private Nzl.Controls.RichTextBoxEx txtMsg;
         private System.ComponentModel.BackgroundWorker bgwMessager;
-        private System.Windows.Forms.SplitContainer scContainer;
-        private System.Windows.Forms.Panel panelUp;
-        private System.Windows.Forms.Panel panelDown;
+        private DevExpress.XtraEditors.SplitContainerControl scContainer;
+        private DevExpress.XtraEditors.PanelControl panelUp;
+        private DevExpress.XtraEditors.PanelControl panelDown;
         private Nzl.Controls.RichTextBoxEx txtCache;
     }
 }

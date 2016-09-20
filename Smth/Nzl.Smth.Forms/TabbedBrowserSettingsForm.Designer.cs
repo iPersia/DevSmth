@@ -39,7 +39,7 @@
             this.label2 = new DevExpress.XtraEditors.LabelControl();
             this.cmbSectionTopUpdatingInterval = new System.Windows.Forms.ComboBox();
             this.label1 = new DevExpress.XtraEditors.LabelControl();
-            this.panelContainer = new System.Windows.Forms.Panel();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new DevExpress.XtraEditors.LabelControl();
@@ -345,7 +345,7 @@
         private DevExpress.XtraEditors.LabelControl label5;
         private DevExpress.XtraEditors.LabelControl label6;
         private System.Windows.Forms.ComboBox cmbNewMailCheckingInterval;
-        private System.Windows.Forms.Panel panelContainer;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.LabelControl label9;
         private System.Windows.Forms.ComboBox cmbBaseControlLocationMargin;

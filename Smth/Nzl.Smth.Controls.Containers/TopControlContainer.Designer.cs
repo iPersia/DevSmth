@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelContainer = new System.Windows.Forms.Panel();
-            this.panel = new System.Windows.Forms.Panel();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
             this.panelContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelContainer;
-        private System.Windows.Forms.Panel panel;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
+        private DevExpress.XtraEditors.PanelControl panel;
     }
 }

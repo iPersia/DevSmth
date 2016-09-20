@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelContainer = new System.Windows.Forms.Panel();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.btnLogout = new DevExpress.XtraEditors.SimpleButton();
             this.btnLogon = new DevExpress.XtraEditors.SimpleButton();
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.ckbSave = new System.Windows.Forms.CheckBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.scContainer = new System.Windows.Forms.SplitContainer();
-            this.panelUp = new System.Windows.Forms.Panel();
+            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
+            this.panelUp = new DevExpress.XtraEditors.PanelControl();
             this.lblNote = new DevExpress.XtraEditors.LabelControl();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
@@ -47,7 +47,7 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContainer.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.panelContainer.Controls.Add(this.btnLogout);
             this.panelContainer.Controls.Add(this.btnLogon);
             this.panelContainer.Controls.Add(this.txtUserID);
@@ -108,11 +108,11 @@
             // scContainer
             // 
             this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.scContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
             this.scContainer.IsSplitterFixed = true;
             this.scContainer.Location = new System.Drawing.Point(0, 0);
             this.scContainer.Name = "scContainer";
-            this.scContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.scContainer.Horizontal = false;
             // 
             // scContainer.Panel1
             // 
@@ -122,15 +122,14 @@
             // 
             this.scContainer.Panel2.Controls.Add(this.panelContainer);
             this.scContainer.Size = new System.Drawing.Size(265, 260);
-            this.scContainer.SplitterDistance = 25;
-            this.scContainer.SplitterWidth = 1;
+            this.scContainer.SplitterPosition = 25;
             this.scContainer.TabIndex = 2;
             this.scContainer.TabStop = false;
             // 
             // panelUp
             // 
             this.panelUp.BackColor = System.Drawing.SystemColors.Window;
-            this.panelUp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelUp.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.panelUp.Controls.Add(this.lblNote);
             this.panelUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelUp.Location = new System.Drawing.Point(0, 0);
@@ -168,9 +167,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelContainer;
-        private System.Windows.Forms.SplitContainer scContainer;
-        private System.Windows.Forms.Panel panelUp;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
+        private DevExpress.XtraEditors.SplitContainerControl scContainer;
+        private DevExpress.XtraEditors.PanelControl panelUp;
         private DevExpress.XtraEditors.SimpleButton btnLogout;
         private DevExpress.XtraEditors.SimpleButton btnLogon;
         private System.Windows.Forms.TextBox txtUserID;

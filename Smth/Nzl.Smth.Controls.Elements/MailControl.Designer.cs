@@ -30,7 +30,7 @@
         {
             this.linklblAuthor = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.lblDT = new DevExpress.XtraEditors.LabelControl();
-            this.panel = new System.Windows.Forms.Panel();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
             this.linklblDelete = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.lblIndex = new DevExpress.XtraEditors.LabelControl();
             this.linklblTitle = new DevExpress.XtraEditors.HyperlinkLabelControl();
@@ -123,7 +123,7 @@
 
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblAuthor;
         private DevExpress.XtraEditors.LabelControl lblDT;
-        private System.Windows.Forms.Panel panel;
+        private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblTitle;
         private DevExpress.XtraEditors.LabelControl lblIndex;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblDelete;

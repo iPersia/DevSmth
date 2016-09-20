@@ -30,8 +30,8 @@
         {
             this.lblFloor = new DevExpress.XtraEditors.LabelControl();
             this.linklblID = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.panel = new System.Windows.Forms.Panel();
-            this.panelTitle = new System.Windows.Forms.Panel();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
+            this.panelTitle = new DevExpress.XtraEditors.PanelControl();
             this.linklblEdit = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblDelete = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblTransfer = new DevExpress.XtraEditors.HyperlinkLabelControl();
@@ -71,7 +71,7 @@
             this.panel.AutoSize = true;
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel.BackColor = System.Drawing.SystemColors.Control;
-            this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.panel.Controls.Add(this.panelTitle);
             this.panel.Controls.Add(this.richtxtContent);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -235,7 +235,7 @@
 
         private DevExpress.XtraEditors.LabelControl lblFloor;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblID;
-        private System.Windows.Forms.Panel panel;
+        private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.LabelControl lblDateTime;
         //private System.Windows.Forms.RichTextBox richtxtContent;
         private Nzl.Controls.RichTextBoxEx richtxtContent;
@@ -246,6 +246,6 @@
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblTransfer;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblDelete;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblEdit;
-        private System.Windows.Forms.Panel panelTitle;
+        private DevExpress.XtraEditors.PanelControl panelTitle;
     }
 }

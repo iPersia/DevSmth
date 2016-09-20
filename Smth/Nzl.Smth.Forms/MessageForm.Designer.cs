@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageForm));
-            this.panel = new System.Windows.Forms.Panel();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.richtxtMessage = new System.Windows.Forms.RichTextBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.label1 = new DevExpress.XtraEditors.LabelControl();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1 = new DevExpress.XtraEditors.PanelControl();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -48,7 +48,7 @@
             // 
             this.panel.AutoSize = true;
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.panel.Controls.Add(this.btnCancel);
             this.panel.Controls.Add(this.btnOK);
             this.panel.Controls.Add(this.richtxtMessage);
@@ -95,11 +95,11 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainer1.Horizontal = false;
             // 
             // splitContainer1.Panel1
             // 
@@ -109,8 +109,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel);
             this.splitContainer1.Size = new System.Drawing.Size(302, 122);
-            this.splitContainer1.SplitterDistance = 25;
-            this.splitContainer1.SplitterWidth = 1;
+            this.splitContainer1.SplitterPosition = 25;
             this.splitContainer1.TabIndex = 3;
             this.splitContainer1.TabStop = false;
             // 
@@ -157,12 +156,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel;
+        private DevExpress.XtraEditors.PanelControl panel;
         private System.Windows.Forms.RichTextBox richtxtMessage;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainer1;
         private DevExpress.XtraEditors.LabelControl label1;
-        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraEditors.PanelControl panel1;
     }
 }

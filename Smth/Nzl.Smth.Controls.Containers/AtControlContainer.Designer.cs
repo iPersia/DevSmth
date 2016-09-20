@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.scContainer = new System.Windows.Forms.SplitContainer();
-            this.panelMenu = new System.Windows.Forms.Panel();
+            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
+            this.panelMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.btnOpenInBrower = new DevExpress.XtraEditors.SimpleButton();
             this.btnGo = new DevExpress.XtraEditors.SimpleButton();
@@ -39,41 +39,34 @@
             this.btnFirst = new DevExpress.XtraEditors.SimpleButton();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
-            this.panelContainer = new System.Windows.Forms.Panel();
-            this.panel = new System.Windows.Forms.Panel();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
-            this.scContainer.Panel1.SuspendLayout();
-            this.scContainer.Panel2.SuspendLayout();
             this.scContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
             this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.SuspendLayout();
             // 
             // scContainer
             // 
             this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.scContainer.Horizontal = false;
             this.scContainer.IsSplitterFixed = true;
             this.scContainer.Location = new System.Drawing.Point(0, 0);
             this.scContainer.Name = "scContainer";
-            this.scContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // scContainer.Panel1
-            // 
             this.scContainer.Panel1.Controls.Add(this.panelMenu);
-            // 
-            // scContainer.Panel2
-            // 
             this.scContainer.Panel2.Controls.Add(this.panelContainer);
             this.scContainer.Size = new System.Drawing.Size(720, 544);
-            this.scContainer.SplitterDistance = 25;
-            this.scContainer.SplitterWidth = 1;
+            this.scContainer.SplitterPosition = 25;
             this.scContainer.TabIndex = 3;
-            this.scContainer.TabStop = false;
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.SystemColors.Window;
+            this.panelMenu.Appearance.BackColor = System.Drawing.SystemColors.Window;
+            this.panelMenu.Appearance.Options.UseBackColor = true;
             this.panelMenu.Controls.Add(this.btnRefresh);
             this.panelMenu.Controls.Add(this.btnOpenInBrower);
             this.panelMenu.Controls.Add(this.btnGo);
@@ -102,7 +95,7 @@
             // btnOpenInBrower
             // 
             this.btnOpenInBrower.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenInBrower.Location = new System.Drawing.Point(610, 1);
+            this.btnOpenInBrower.Location = new System.Drawing.Point(1305, 1);
             this.btnOpenInBrower.Name = "btnOpenInBrower";
             this.btnOpenInBrower.Size = new System.Drawing.Size(32, 23);
             this.btnOpenInBrower.TabIndex = 16;
@@ -113,7 +106,7 @@
             // btnGo
             // 
             this.btnGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGo.Location = new System.Drawing.Point(679, 1);
+            this.btnGo.Location = new System.Drawing.Point(1374, 1);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(30, 23);
             this.btnGo.TabIndex = 10;
@@ -124,9 +117,9 @@
             // txtGoTo
             // 
             this.txtGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGoTo.Location = new System.Drawing.Point(648, 2);
+            this.txtGoTo.Location = new System.Drawing.Point(1343, 2);
             this.txtGoTo.Name = "txtGoTo";
-            this.txtGoTo.Size = new System.Drawing.Size(25, 21);
+            this.txtGoTo.Size = new System.Drawing.Size(25, 22);
             this.txtGoTo.TabIndex = 9;
             this.txtGoTo.TabStop = false;
             this.txtGoTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -136,10 +129,9 @@
             this.lblPage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPage.AutoSize = true;
             this.lblPage.Location = new System.Drawing.Point(116, 7);
             this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(47, 12);
+            this.lblPage.Size = new System.Drawing.Size(47, 14);
             this.lblPage.TabIndex = 8;
             this.lblPage.Text = "001/100";
             // 
@@ -185,18 +177,16 @@
             // 
             // panelContainer
             // 
-            this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelContainer.Controls.Add(this.panel);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(720, 518);
+            this.panelContainer.Size = new System.Drawing.Size(720, 514);
             this.panelContainer.TabIndex = 1;
             // 
             // panel
             // 
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel.Location = new System.Drawing.Point(4, 4);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(711, 100);
@@ -209,13 +199,14 @@
             this.Controls.Add(this.scContainer);
             this.Name = "AtControlContainer";
             this.Size = new System.Drawing.Size(720, 544);
-            this.scContainer.Panel1.ResumeLayout(false);
-            this.scContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).EndInit();
             this.scContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,7 +214,7 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton btnOpenInBrower;
-        private System.Windows.Forms.Panel panelMenu;
+        private DevExpress.XtraEditors.PanelControl panelMenu;
         private DevExpress.XtraEditors.SimpleButton btnGo;
         private System.Windows.Forms.TextBox txtGoTo;
         private DevExpress.XtraEditors.LabelControl lblPage;
@@ -231,9 +222,9 @@
         private DevExpress.XtraEditors.SimpleButton btnFirst;
         private DevExpress.XtraEditors.SimpleButton btnNext;
         private DevExpress.XtraEditors.SimpleButton btnPrev;
-        private System.Windows.Forms.SplitContainer scContainer;
-        private System.Windows.Forms.Panel panel;
-        private System.Windows.Forms.Panel panelContainer;
+        private DevExpress.XtraEditors.SplitContainerControl scContainer;
+        private DevExpress.XtraEditors.PanelControl panel;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
     }
 }

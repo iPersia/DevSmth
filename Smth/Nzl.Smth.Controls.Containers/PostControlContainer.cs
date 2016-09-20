@@ -159,7 +159,7 @@ namespace Nzl.Smth.Controls.Containers
         /// 
         /// </summary>
         /// <returns></returns>
-        protected override Panel GetPanel()
+        protected override PanelControl GetPanel()
         {
             return this.panel;
         }
@@ -168,7 +168,7 @@ namespace Nzl.Smth.Controls.Containers
         /// 
         /// </summary>
         /// <returns></returns>
-        protected override Panel GetPanelContainer()
+        protected override PanelControl GetPanelContainer()
         {
             return this.panelContainer;
         }

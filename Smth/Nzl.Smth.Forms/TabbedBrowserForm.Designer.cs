@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabbedBrowserForm));
             this.tcTopics = new DevExpress.XtraTab.XtraTabControl();
-            this.scBrowser = new System.Windows.Forms.SplitContainer();
-            this.panelMenu = new DevExpress.XtraEditors.XtraPanel();
+            this.scBrowser = new DevExpress.XtraEditors.SplitContainerControl();
+            this.panelMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnRefer = new DevExpress.XtraEditors.SimpleButton();
             this.linklblUserID = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.btnMessge = new DevExpress.XtraEditors.SimpleButton();
@@ -42,7 +42,7 @@
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnBoardNavi = new DevExpress.XtraEditors.SimpleButton();
             this.btnSettings = new DevExpress.XtraEditors.SimpleButton();
-            this.panelContainer = new DevExpress.XtraEditors.XtraPanel();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.scBrowser)).BeginInit();
             this.scBrowser.Panel1.SuspendLayout();
             this.scBrowser.Panel2.SuspendLayout();
@@ -65,11 +65,11 @@
             // scBrowser
             // 
             this.scBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scBrowser.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.scBrowser.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
             this.scBrowser.IsSplitterFixed = true;
             this.scBrowser.Location = new System.Drawing.Point(0, 0);
             this.scBrowser.Name = "scBrowser";
-            this.scBrowser.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.scBrowser.Horizontal = false;
             // 
             // scBrowser.Panel1
             // 
@@ -79,8 +79,7 @@
             // 
             this.scBrowser.Panel2.Controls.Add(this.panelContainer);
             this.scBrowser.Size = new System.Drawing.Size(1176, 850);
-            this.scBrowser.SplitterDistance = 30;
-            this.scBrowser.SplitterWidth = 1;
+            this.scBrowser.SplitterPosition = 30;
             this.scBrowser.TabIndex = 1;
             // 
             // panelMenu
@@ -201,7 +200,7 @@
             // panelContainer
             // 
             this.panelContainer.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContainer.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.panelContainer.Controls.Add(this.tcTopics);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
@@ -236,9 +235,9 @@
         #endregion
 
         private DevExpress.XtraTab.XtraTabControl tcTopics;
-        private System.Windows.Forms.SplitContainer scBrowser;
-        private DevExpress.XtraEditors.XtraPanel panelMenu;
-        private DevExpress.XtraEditors.XtraPanel panelContainer;
+        private DevExpress.XtraEditors.SplitContainerControl scBrowser;
+        private DevExpress.XtraEditors.PanelControl panelMenu;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
         private DevExpress.XtraEditors.SimpleButton btnSettings;
         private DevExpress.XtraEditors.SimpleButton btnClear;        
         private DevExpress.XtraEditors.SimpleButton btnLoadTop;

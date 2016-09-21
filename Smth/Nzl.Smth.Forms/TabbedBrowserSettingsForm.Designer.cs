@@ -65,7 +65,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(148, 393);
+            this.btnOK.Location = new System.Drawing.Point(144, 354);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.TabIndex = 4;
@@ -213,7 +213,8 @@
             // 
             // btnClearCache
             // 
-            this.btnClearCache.Location = new System.Drawing.Point(241, 343);
+            this.btnClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClearCache.Location = new System.Drawing.Point(259, 354);
             this.btnClearCache.Name = "btnClearCache";
             this.btnClearCache.Size = new System.Drawing.Size(114, 27);
             this.btnClearCache.TabIndex = 7;

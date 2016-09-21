@@ -42,6 +42,7 @@
             this.cmbInterval = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.ckbAutoUpdating = new DevExpress.XtraEditors.CheckEdit();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gcBrowseMode)).BeginInit();
             this.gcBrowseMode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcTopicType)).BeginInit();
@@ -50,12 +51,14 @@
             this.gcAutoUpdating.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbInterval.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAutoUpdating.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
+            this.panelContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(132, 344);
+            this.btnOK.Location = new System.Drawing.Point(130, 344);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.TabIndex = 4;
@@ -87,7 +90,7 @@
             // 
             this.gcBrowseMode.Controls.Add(this.rbNoTops);
             this.gcBrowseMode.Controls.Add(this.rbShowTops);
-            this.gcBrowseMode.Location = new System.Drawing.Point(14, 12);
+            this.gcBrowseMode.Location = new System.Drawing.Point(12, 12);
             this.gcBrowseMode.Name = "gcBrowseMode";
             this.gcBrowseMode.Size = new System.Drawing.Size(325, 78);
             this.gcBrowseMode.TabIndex = 2;
@@ -99,7 +102,7 @@
             this.gcTopicType.Controls.Add(this.rbDigest);
             this.gcTopicType.Controls.Add(this.rbClassic);
             this.gcTopicType.Controls.Add(this.rbSubject);
-            this.gcTopicType.Location = new System.Drawing.Point(14, 96);
+            this.gcTopicType.Location = new System.Drawing.Point(12, 96);
             this.gcTopicType.Name = "gcTopicType";
             this.gcTopicType.Size = new System.Drawing.Size(325, 100);
             this.gcTopicType.TabIndex = 4;
@@ -151,7 +154,7 @@
             this.gcAutoUpdating.Controls.Add(this.cmbInterval);
             this.gcAutoUpdating.Controls.Add(this.label1);
             this.gcAutoUpdating.Controls.Add(this.ckbAutoUpdating);
-            this.gcAutoUpdating.Location = new System.Drawing.Point(14, 202);
+            this.gcAutoUpdating.Location = new System.Drawing.Point(12, 202);
             this.gcAutoUpdating.Name = "gcAutoUpdating";
             this.gcAutoUpdating.Size = new System.Drawing.Size(325, 125);
             this.gcAutoUpdating.TabIndex = 6;
@@ -201,15 +204,24 @@
             this.ckbAutoUpdating.TabIndex = 6;
             this.ckbAutoUpdating.TabStop = false;
             // 
+            // panelContainer
+            // 
+            this.panelContainer.Controls.Add(this.gcBrowseMode);
+            this.panelContainer.Controls.Add(this.gcAutoUpdating);
+            this.panelContainer.Controls.Add(this.btnOK);
+            this.panelContainer.Controls.Add(this.gcTopicType);
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(0, 0);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(351, 383);
+            this.panelContainer.TabIndex = 7;
+            // 
             // BoardSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(351, 383);
-            this.Controls.Add(this.gcAutoUpdating);
-            this.Controls.Add(this.gcTopicType);
-            this.Controls.Add(this.gcBrowseMode);
-            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.panelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "BoardSettingsForm";
             this.Text = "Settings";
@@ -224,6 +236,8 @@
             this.gcAutoUpdating.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbInterval.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAutoUpdating.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
+            this.panelContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -244,5 +258,6 @@
         private DevExpress.XtraEditors.LabelControl label1;
         private DevExpress.XtraEditors.CheckEdit ckbAutoUpdating;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
     }
 }

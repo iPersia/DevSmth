@@ -23,6 +23,7 @@
         {
             InitializeComponent();
             this.HideWhenDeactivate = false;
+            this.btnOK.Left = (this.panelContainer.Width - this.btnOK.Width) / 2;
         }
 
         /// <summary>

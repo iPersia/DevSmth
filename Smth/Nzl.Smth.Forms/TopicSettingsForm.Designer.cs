@@ -37,12 +37,15 @@
             this.label2 = new DevExpress.XtraEditors.LabelControl();
             this.cmbInterval = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label1 = new DevExpress.XtraEditors.LabelControl();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gpBrowseMode)).BeginInit();
             this.gpBrowseMode.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckbAutoUpdating.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).BeginInit();
             this.gpAutoUpdating.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbInterval.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
+            this.panelContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbLatestReply
@@ -70,7 +73,7 @@
             // 
             this.gpBrowseMode.Controls.Add(this.rbFirstReply);
             this.gpBrowseMode.Controls.Add(this.rbLatestReply);
-            this.gpBrowseMode.Location = new System.Drawing.Point(14, 14);
+            this.gpBrowseMode.Location = new System.Drawing.Point(12, 12);
             this.gpBrowseMode.Name = "gpBrowseMode";
             this.gpBrowseMode.Size = new System.Drawing.Size(323, 75);
             this.gpBrowseMode.TabIndex = 2;
@@ -88,7 +91,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(137, 260);
+            this.btnOK.Location = new System.Drawing.Point(135, 258);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.TabIndex = 4;
@@ -102,7 +105,7 @@
             this.gpAutoUpdating.Controls.Add(this.cmbInterval);
             this.gpAutoUpdating.Controls.Add(this.label1);
             this.gpAutoUpdating.Controls.Add(this.ckbAutoUpdating);
-            this.gpAutoUpdating.Location = new System.Drawing.Point(14, 95);
+            this.gpAutoUpdating.Location = new System.Drawing.Point(12, 93);
             this.gpAutoUpdating.Name = "gpAutoUpdating";
             this.gpAutoUpdating.Size = new System.Drawing.Size(323, 140);
             this.gpAutoUpdating.TabIndex = 5;
@@ -143,14 +146,23 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Interval is";
             // 
+            // panelContainer
+            // 
+            this.panelContainer.Controls.Add(this.gpBrowseMode);
+            this.panelContainer.Controls.Add(this.gpAutoUpdating);
+            this.panelContainer.Controls.Add(this.btnOK);
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(0, 0);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(351, 306);
+            this.panelContainer.TabIndex = 6;
+            // 
             // TopicSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(351, 306);
-            this.Controls.Add(this.gpAutoUpdating);
-            this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.gpBrowseMode);
+            this.Controls.Add(this.panelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "TopicSettingsForm";
             this.Text = "Settings";
@@ -162,6 +174,8 @@
             this.gpAutoUpdating.ResumeLayout(false);
             this.gpAutoUpdating.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbInterval.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
+            this.panelContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -177,5 +191,6 @@
         private DevExpress.XtraEditors.LabelControl label1;
         private DevExpress.XtraEditors.LabelControl label2;
         private DevExpress.XtraEditors.ComboBoxEdit cmbInterval;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
     }
 }

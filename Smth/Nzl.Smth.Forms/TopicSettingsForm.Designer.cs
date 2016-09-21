@@ -35,7 +35,7 @@
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.gpAutoUpdating = new System.Windows.Forms.GroupBox();
             this.label2 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbInterval = new System.Windows.Forms.ComboBox();
+            this.cmbInterval = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.gpBrowseMode.SuspendLayout();
             this.gpAutoUpdating.SuspendLayout();
@@ -119,9 +119,7 @@
             // 
             // cmbInterval
             // 
-            this.cmbInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbInterval.FormattingEnabled = true;
-            this.cmbInterval.Items.AddRange(new object[] {
+            this.cmbInterval.Properties.Items.AddRange(new object[] {
             "5",
             "10",
             "15",
@@ -175,6 +173,6 @@
         private System.Windows.Forms.GroupBox gpAutoUpdating;
         private DevExpress.XtraEditors.LabelControl label1;
         private DevExpress.XtraEditors.LabelControl label2;
-        private System.Windows.Forms.ComboBox cmbInterval;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbInterval;
     }
 }

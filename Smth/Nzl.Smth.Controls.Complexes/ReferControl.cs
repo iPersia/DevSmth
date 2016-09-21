@@ -4,6 +4,7 @@
     using System.Drawing;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraTab;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Containers;
     using Nzl.Smth.Loaders;
@@ -53,7 +54,7 @@
             this.SizeChanged += ReferControl_SizeChanged;
             ///At
             {
-                TabPage tp = new TabPage();
+                XtraTabPage tp = new XtraTabPage();
                 tp.Name = "tpAt";
                 tp.Text = "@me";
                 this.tcRefer.TabPages.Add(tp);
@@ -70,7 +71,7 @@
 
             ///Refer
             {
-                TabPage tp = new TabPage();
+                XtraTabPage tp = new XtraTabPage();
                 tp.Name = "tpRefer";
                 tp.Text = "Refer";
                 this.tcRefer.TabPages.Add(tp);

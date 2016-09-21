@@ -4,6 +4,7 @@
     using System.Drawing;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraTab;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Containers;
@@ -50,7 +51,7 @@
             int dHeight = 26;
             ///Inbox
             {
-                TabPage tp = new TabPage();
+                XtraTabPage tp = new XtraTabPage();
                 tp.Name = "tpInbox";
                 tp.Text = "Inbox";
                 this.tcMailBox.TabPages.Add(tp);
@@ -72,7 +73,7 @@
 
             ///Outbox
             {
-                TabPage tp = new TabPage();
+                XtraTabPage tp = new XtraTabPage();
                 tp.Name = "tpOutbox";
                 tp.Text = "Outbox";
                 this.tcMailBox.TabPages.Add(tp);
@@ -91,7 +92,7 @@
 
             ///Trash
             {
-                TabPage tp = new TabPage();
+                XtraTabPage tp = new XtraTabPage();
                 tp.Name = "tpTrash";
                 tp.Text = "Trash";
                 this.tcMailBox.TabPages.Add(tp);

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tcRefer = new System.Windows.Forms.TabControl();
+            this.tcRefer = new DevExpress.XtraTab.XtraTabControl();
             this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnReadAll = new DevExpress.XtraEditors.SimpleButton();
@@ -44,7 +44,6 @@
             this.tcRefer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcRefer.Location = new System.Drawing.Point(0, 0);
             this.tcRefer.Name = "tcRefer";
-            this.tcRefer.SelectedIndex = 0;
             this.tcRefer.Size = new System.Drawing.Size(720, 534);
             this.tcRefer.TabIndex = 0;
             // 
@@ -105,7 +104,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tcRefer;
+        private DevExpress.XtraTab.XtraTabControl tcRefer;
         private DevExpress.XtraEditors.SplitContainerControl scContainer;
         private DevExpress.XtraEditors.PanelControl panelMenu;
         private DevExpress.XtraEditors.SimpleButton btnReadAll;

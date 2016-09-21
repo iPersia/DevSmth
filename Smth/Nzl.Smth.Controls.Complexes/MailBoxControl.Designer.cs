@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tcMailBox = new System.Windows.Forms.TabControl();
+            this.tcMailBox = new DevExpress.XtraTab.XtraTabControl();
             this.SuspendLayout();
             // 
             // tcMailBox
@@ -36,7 +36,6 @@
             this.tcMailBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMailBox.Location = new System.Drawing.Point(0, 0);
             this.tcMailBox.Name = "tcMailBox";
-            this.tcMailBox.SelectedIndex = 0;
             this.tcMailBox.Size = new System.Drawing.Size(800, 473);
             this.tcMailBox.TabIndex = 0;
             // 
@@ -53,6 +52,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tcMailBox;
+        private DevExpress.XtraTab.XtraTabControl tcMailBox;
     }
 }

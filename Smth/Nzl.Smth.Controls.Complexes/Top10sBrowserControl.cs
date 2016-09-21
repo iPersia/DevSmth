@@ -4,6 +4,7 @@
     using System.Drawing;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraTab;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Containers;
 
@@ -53,7 +54,7 @@
         {
             base.OnLoad(e);
             {
-                TabPage tp = new TabPage();
+                XtraTabPage tp = new XtraTabPage();
                 tp.Name = "tpHot";
                 this.tcTop10s.TabPages.Add(tp);
 
@@ -100,7 +101,7 @@
                 return;
             }
 
-            TabPage tp = new TabPage();
+            XtraTabPage tp = new XtraTabPage();
             tp.Name = "tbcHot" + this._sectionIndex;
             TopControlContainer tbc = new TopControlContainer("http://m.newsmth.net/hot/" + this._sectionIndex);
             tbc.Location = new Point(0, 0);

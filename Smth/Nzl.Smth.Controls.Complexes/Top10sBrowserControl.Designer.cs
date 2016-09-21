@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tcTop10s = new System.Windows.Forms.TabControl();
+            this.tcTop10s = new DevExpress.XtraTab.XtraTabControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.panelContainer.SuspendLayout();
             this.SuspendLayout();
@@ -38,7 +38,6 @@
             this.tcTop10s.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcTop10s.Location = new System.Drawing.Point(0, 0);
             this.tcTop10s.Name = "tcTop10s";
-            this.tcTop10s.SelectedIndex = 0;
             this.tcTop10s.Size = new System.Drawing.Size(683, 418);
             this.tcTop10s.TabIndex = 1;
             // 
@@ -67,7 +66,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tcTop10s;
+        private DevExpress.XtraTab.XtraTabControl tcTop10s;
         private DevExpress.XtraEditors.PanelControl panelContainer;
     }
 }

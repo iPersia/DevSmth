@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.gpAutoUpdating = new System.Windows.Forms.GroupBox();
+            this.gpAutoUpdating = new DevExpress.XtraEditors.GroupControl();
             this.label6 = new DevExpress.XtraEditors.LabelControl();
             this.cmbNewMailCheckingInterval = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label5 = new DevExpress.XtraEditors.LabelControl();
@@ -41,7 +41,7 @@
             this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gcUISettings = new DevExpress.XtraEditors.GroupControl();
             this.label7 = new DevExpress.XtraEditors.LabelControl();
             this.label9 = new DevExpress.XtraEditors.LabelControl();
             this.cmbBaseControlLocationMargin = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -49,10 +49,17 @@
             this.label11 = new DevExpress.XtraEditors.LabelControl();
             this.cmbBaseControlContainerLocationMargin = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label12 = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).BeginInit();
             this.gpAutoUpdating.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbNewMailCheckingInterval.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTop10sLoadingInterval.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSectionTopUpdatingInterval.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcUISettings)).BeginInit();
+            this.gcUISettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlLocationMargin.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlContainerLocationMargin.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOK
@@ -68,7 +75,8 @@
             // 
             // gpAutoUpdating
             // 
-            this.gpAutoUpdating.BackColor = System.Drawing.SystemColors.Control;
+            this.gpAutoUpdating.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.gpAutoUpdating.Appearance.Options.UseBackColor = true;
             this.gpAutoUpdating.Controls.Add(this.label6);
             this.gpAutoUpdating.Controls.Add(this.cmbNewMailCheckingInterval);
             this.gpAutoUpdating.Controls.Add(this.label5);
@@ -82,7 +90,6 @@
             this.gpAutoUpdating.Name = "gpAutoUpdating";
             this.gpAutoUpdating.Size = new System.Drawing.Size(359, 149);
             this.gpAutoUpdating.TabIndex = 5;
-            this.gpAutoUpdating.TabStop = false;
             this.gpAutoUpdating.Text = "Updating intervals";
             // 
             // label6
@@ -95,6 +102,8 @@
             // 
             // cmbNewMailCheckingInterval
             // 
+            this.cmbNewMailCheckingInterval.Location = new System.Drawing.Point(227, 101);
+            this.cmbNewMailCheckingInterval.Name = "cmbNewMailCheckingInterval";
             this.cmbNewMailCheckingInterval.Properties.Items.AddRange(new object[] {
             "5",
             "10",
@@ -105,9 +114,8 @@
             "180",
             "300",
             "600"});
-            this.cmbNewMailCheckingInterval.Location = new System.Drawing.Point(227, 101);
-            this.cmbNewMailCheckingInterval.Name = "cmbNewMailCheckingInterval";
-            this.cmbNewMailCheckingInterval.Size = new System.Drawing.Size(87, 22);
+            this.cmbNewMailCheckingInterval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbNewMailCheckingInterval.Size = new System.Drawing.Size(87, 20);
             this.cmbNewMailCheckingInterval.TabIndex = 11;
             this.cmbNewMailCheckingInterval.TabStop = false;
             // 
@@ -129,6 +137,8 @@
             // 
             // cmbTop10sLoadingInterval
             // 
+            this.cmbTop10sLoadingInterval.Location = new System.Drawing.Point(227, 66);
+            this.cmbTop10sLoadingInterval.Name = "cmbTop10sLoadingInterval";
             this.cmbTop10sLoadingInterval.Properties.Items.AddRange(new object[] {
             "5",
             "10",
@@ -139,9 +149,8 @@
             "180",
             "300",
             "600"});
-            this.cmbTop10sLoadingInterval.Location = new System.Drawing.Point(227, 66);
-            this.cmbTop10sLoadingInterval.Name = "cmbTop10sLoadingInterval";
-            this.cmbTop10sLoadingInterval.Size = new System.Drawing.Size(87, 22);
+            this.cmbTop10sLoadingInterval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbTop10sLoadingInterval.Size = new System.Drawing.Size(87, 20);
             this.cmbTop10sLoadingInterval.TabIndex = 8;
             this.cmbTop10sLoadingInterval.TabStop = false;
             // 
@@ -163,6 +172,8 @@
             // 
             // cmbSectionTopUpdatingInterval
             // 
+            this.cmbSectionTopUpdatingInterval.Location = new System.Drawing.Point(227, 29);
+            this.cmbSectionTopUpdatingInterval.Name = "cmbSectionTopUpdatingInterval";
             this.cmbSectionTopUpdatingInterval.Properties.Items.AddRange(new object[] {
             "5",
             "10",
@@ -173,9 +184,8 @@
             "180",
             "300",
             "600"});
-            this.cmbSectionTopUpdatingInterval.Location = new System.Drawing.Point(227, 29);
-            this.cmbSectionTopUpdatingInterval.Name = "cmbSectionTopUpdatingInterval";
-            this.cmbSectionTopUpdatingInterval.Size = new System.Drawing.Size(87, 22);
+            this.cmbSectionTopUpdatingInterval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbSectionTopUpdatingInterval.Size = new System.Drawing.Size(87, 20);
             this.cmbSectionTopUpdatingInterval.TabIndex = 5;
             this.cmbSectionTopUpdatingInterval.TabStop = false;
             // 
@@ -192,7 +202,7 @@
             this.panelContainer.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelContainer.Appearance.Options.UseBackColor = true;
             this.panelContainer.Controls.Add(this.btnClearCache);
-            this.panelContainer.Controls.Add(this.groupBox1);
+            this.panelContainer.Controls.Add(this.gcUISettings);
             this.panelContainer.Controls.Add(this.btnOK);
             this.panelContainer.Controls.Add(this.gpAutoUpdating);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -211,22 +221,22 @@
             this.btnClearCache.Text = "Clear cache";
             this.btnClearCache.Click += new System.EventHandler(this.btnClearCache_Click);
             // 
-            // groupBox1
+            // gcUISettings
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.cmbBaseControlLocationMargin);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.cmbBaseControlContainerLocationMargin);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Location = new System.Drawing.Point(14, 168);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(359, 156);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "UI settings";
+            this.gcUISettings.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.gcUISettings.Appearance.Options.UseBackColor = true;
+            this.gcUISettings.Controls.Add(this.label7);
+            this.gcUISettings.Controls.Add(this.label9);
+            this.gcUISettings.Controls.Add(this.cmbBaseControlLocationMargin);
+            this.gcUISettings.Controls.Add(this.label10);
+            this.gcUISettings.Controls.Add(this.label11);
+            this.gcUISettings.Controls.Add(this.cmbBaseControlContainerLocationMargin);
+            this.gcUISettings.Controls.Add(this.label12);
+            this.gcUISettings.Location = new System.Drawing.Point(14, 168);
+            this.gcUISettings.Name = "gcUISettings";
+            this.gcUISettings.Size = new System.Drawing.Size(359, 156);
+            this.gcUISettings.TabIndex = 6;
+            this.gcUISettings.Text = "UI settings";
             // 
             // label7
             // 
@@ -248,6 +258,8 @@
             // 
             // cmbBaseControlLocationMargin
             // 
+            this.cmbBaseControlLocationMargin.Location = new System.Drawing.Point(227, 66);
+            this.cmbBaseControlLocationMargin.Name = "cmbBaseControlLocationMargin";
             this.cmbBaseControlLocationMargin.Properties.Items.AddRange(new object[] {
             "2",
             "4",
@@ -255,9 +267,8 @@
             "8",
             "10",
             "12"});
-            this.cmbBaseControlLocationMargin.Location = new System.Drawing.Point(227, 66);
-            this.cmbBaseControlLocationMargin.Name = "cmbBaseControlLocationMargin";
-            this.cmbBaseControlLocationMargin.Size = new System.Drawing.Size(87, 22);
+            this.cmbBaseControlLocationMargin.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbBaseControlLocationMargin.Size = new System.Drawing.Size(87, 20);
             this.cmbBaseControlLocationMargin.TabIndex = 8;
             this.cmbBaseControlLocationMargin.TabStop = false;
             // 
@@ -279,6 +290,8 @@
             // 
             // cmbBaseControlContainerLocationMargin
             // 
+            this.cmbBaseControlContainerLocationMargin.Location = new System.Drawing.Point(227, 29);
+            this.cmbBaseControlContainerLocationMargin.Name = "cmbBaseControlContainerLocationMargin";
             this.cmbBaseControlContainerLocationMargin.Properties.Items.AddRange(new object[] {
             "2",
             "4",
@@ -286,9 +299,8 @@
             "8",
             "10",
             "12"});
-            this.cmbBaseControlContainerLocationMargin.Location = new System.Drawing.Point(227, 29);
-            this.cmbBaseControlContainerLocationMargin.Name = "cmbBaseControlContainerLocationMargin";
-            this.cmbBaseControlContainerLocationMargin.Size = new System.Drawing.Size(87, 22);
+            this.cmbBaseControlContainerLocationMargin.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbBaseControlContainerLocationMargin.Size = new System.Drawing.Size(87, 20);
             this.cmbBaseControlContainerLocationMargin.TabIndex = 5;
             this.cmbBaseControlContainerLocationMargin.TabStop = false;
             // 
@@ -309,19 +321,26 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "TabbedBrowserSettingsForm";
             this.Text = "Settings";
+            ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).EndInit();
             this.gpAutoUpdating.ResumeLayout(false);
             this.gpAutoUpdating.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbNewMailCheckingInterval.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbTop10sLoadingInterval.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSectionTopUpdatingInterval.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcUISettings)).EndInit();
+            this.gcUISettings.ResumeLayout(false);
+            this.gcUISettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlLocationMargin.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlContainerLocationMargin.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private DevExpress.XtraEditors.SimpleButton btnOK;
-        private System.Windows.Forms.GroupBox gpAutoUpdating;
+        private DevExpress.XtraEditors.GroupControl gpAutoUpdating;
         private DevExpress.XtraEditors.LabelControl label1;
         private DevExpress.XtraEditors.LabelControl label2;
         private DevExpress.XtraEditors.ComboBoxEdit cmbSectionTopUpdatingInterval;
@@ -332,7 +351,7 @@
         private DevExpress.XtraEditors.LabelControl label6;
         private DevExpress.XtraEditors.ComboBoxEdit cmbNewMailCheckingInterval;
         private DevExpress.XtraEditors.PanelControl panelContainer;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private DevExpress.XtraEditors.GroupControl gcUISettings;
         private DevExpress.XtraEditors.LabelControl label9;
         private DevExpress.XtraEditors.ComboBoxEdit cmbBaseControlLocationMargin;
         private DevExpress.XtraEditors.LabelControl label10;

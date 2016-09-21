@@ -881,8 +881,6 @@
         /// <param name="e"></param>
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("Blue");
-
             ShowFormAsDialog(TabbedBrowserSettingsForm.Instance);
         }
 

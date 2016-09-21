@@ -28,31 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.rbShowTops = new System.Windows.Forms.RadioButton();
             this.rbNoTops = new System.Windows.Forms.RadioButton();
-            this.gpBrowseMode = new System.Windows.Forms.GroupBox();
-            this.ckbAutoUpdating = new DevExpress.XtraEditors.CheckEdit();
-            this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.gpAutoUpdating = new System.Windows.Forms.GroupBox();
-            this.label2 = new DevExpress.XtraEditors.LabelControl();
-            this.cmbInterval = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.label1 = new DevExpress.XtraEditors.LabelControl();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gcBrowseMode = new DevExpress.XtraEditors.GroupControl();
+            this.gcTopicType = new DevExpress.XtraEditors.GroupControl();
+            this.rbReserved = new System.Windows.Forms.RadioButton();
+            this.rbDigest = new System.Windows.Forms.RadioButton();
             this.rbClassic = new System.Windows.Forms.RadioButton();
             this.rbSubject = new System.Windows.Forms.RadioButton();
-            this.rbDigest = new System.Windows.Forms.RadioButton();
-            this.rbReserved = new System.Windows.Forms.RadioButton();
-            this.gpBrowseMode.SuspendLayout();
-            this.gpAutoUpdating.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gcAutoUpdating = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cmbInterval = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label1 = new DevExpress.XtraEditors.LabelControl();
+            this.ckbAutoUpdating = new DevExpress.XtraEditors.CheckEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcBrowseMode)).BeginInit();
+            this.gcBrowseMode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcTopicType)).BeginInit();
+            this.gcTopicType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcAutoUpdating)).BeginInit();
+            this.gcAutoUpdating.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbInterval.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbAutoUpdating.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnOK
+            // 
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOK.Location = new System.Drawing.Point(132, 344);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(87, 27);
+            this.btnOK.TabIndex = 4;
+            this.btnOK.TabStop = false;
+            this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // rbShowTops
             // 
             this.rbShowTops.AutoSize = true;
-            this.rbShowTops.Location = new System.Drawing.Point(17, 26);
+            this.rbShowTops.Location = new System.Drawing.Point(21, 39);
             this.rbShowTops.Name = "rbShowTops";
-            this.rbShowTops.Size = new System.Drawing.Size(77, 16);
+            this.rbShowTops.Size = new System.Drawing.Size(84, 18);
             this.rbShowTops.TabIndex = 0;
             this.rbShowTops.Text = "Show tops";
             this.rbShowTops.UseVisualStyleBackColor = true;
@@ -60,69 +76,99 @@
             // rbNoTops
             // 
             this.rbNoTops.AutoSize = true;
-            this.rbNoTops.Location = new System.Drawing.Point(161, 26);
+            this.rbNoTops.Location = new System.Drawing.Point(189, 39);
             this.rbNoTops.Name = "rbNoTops";
-            this.rbNoTops.Size = new System.Drawing.Size(65, 16);
+            this.rbNoTops.Size = new System.Drawing.Size(68, 18);
             this.rbNoTops.TabIndex = 1;
             this.rbNoTops.Text = "No tops";
             this.rbNoTops.UseVisualStyleBackColor = true;
             // 
-            // gpBrowseMode
+            // gcBrowseMode
             // 
-            this.gpBrowseMode.Controls.Add(this.rbNoTops);
-            this.gpBrowseMode.Controls.Add(this.rbShowTops);
-            this.gpBrowseMode.Location = new System.Drawing.Point(12, 12);
-            this.gpBrowseMode.Name = "gpBrowseMode";
-            this.gpBrowseMode.Size = new System.Drawing.Size(277, 64);
-            this.gpBrowseMode.TabIndex = 2;
-            this.gpBrowseMode.TabStop = false;
-            this.gpBrowseMode.Text = "Browse Mode";
+            this.gcBrowseMode.Controls.Add(this.rbNoTops);
+            this.gcBrowseMode.Controls.Add(this.rbShowTops);
+            this.gcBrowseMode.Location = new System.Drawing.Point(14, 12);
+            this.gcBrowseMode.Name = "gcBrowseMode";
+            this.gcBrowseMode.Size = new System.Drawing.Size(325, 78);
+            this.gcBrowseMode.TabIndex = 2;
+            this.gcBrowseMode.Text = "Browse Mode";
             // 
-            // ckbAutoUpdating
+            // gcTopicType
             // 
-            this.ckbAutoUpdating.AutoSize = true;
-            this.ckbAutoUpdating.Location = new System.Drawing.Point(17, 37);
-            this.ckbAutoUpdating.Name = "ckbAutoUpdating";
-            this.ckbAutoUpdating.Size = new System.Drawing.Size(102, 16);
-            this.ckbAutoUpdating.TabIndex = 3;
-            this.ckbAutoUpdating.TabStop = false;
-            this.ckbAutoUpdating.Text = "Auto updating";
+            this.gcTopicType.Controls.Add(this.rbReserved);
+            this.gcTopicType.Controls.Add(this.rbDigest);
+            this.gcTopicType.Controls.Add(this.rbClassic);
+            this.gcTopicType.Controls.Add(this.rbSubject);
+            this.gcTopicType.Location = new System.Drawing.Point(14, 96);
+            this.gcTopicType.Name = "gcTopicType";
+            this.gcTopicType.Size = new System.Drawing.Size(325, 100);
+            this.gcTopicType.TabIndex = 4;
+            this.gcTopicType.Text = "Topic type";
             // 
-            // btnOK
+            // rbReserved
             // 
-            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(115, 313);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 4;
-            this.btnOK.TabStop = false;
-            this.btnOK.Text = "OK";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            this.rbReserved.AutoSize = true;
+            this.rbReserved.Location = new System.Drawing.Point(189, 68);
+            this.rbReserved.Name = "rbReserved";
+            this.rbReserved.Size = new System.Drawing.Size(75, 18);
+            this.rbReserved.TabIndex = 7;
+            this.rbReserved.Text = "Reserved";
+            this.rbReserved.UseVisualStyleBackColor = true;
             // 
-            // gpAutoUpdating
+            // rbDigest
             // 
-            this.gpAutoUpdating.Controls.Add(this.label2);
-            this.gpAutoUpdating.Controls.Add(this.cmbInterval);
-            this.gpAutoUpdating.Controls.Add(this.label1);
-            this.gpAutoUpdating.Controls.Add(this.ckbAutoUpdating);
-            this.gpAutoUpdating.Location = new System.Drawing.Point(12, 174);
-            this.gpAutoUpdating.Name = "gpAutoUpdating";
-            this.gpAutoUpdating.Size = new System.Drawing.Size(277, 120);
-            this.gpAutoUpdating.TabIndex = 5;
-            this.gpAutoUpdating.TabStop = false;
-            this.gpAutoUpdating.Text = "Auto Updating in Latest Reply";
+            this.rbDigest.AutoSize = true;
+            this.rbDigest.Location = new System.Drawing.Point(21, 69);
+            this.rbDigest.Name = "rbDigest";
+            this.rbDigest.Size = new System.Drawing.Size(59, 18);
+            this.rbDigest.TabIndex = 6;
+            this.rbDigest.Text = "Digest";
+            this.rbDigest.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // rbClassic
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(173, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 12);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "s.";
+            this.rbClassic.AutoSize = true;
+            this.rbClassic.Location = new System.Drawing.Point(189, 34);
+            this.rbClassic.Name = "rbClassic";
+            this.rbClassic.Size = new System.Drawing.Size(58, 18);
+            this.rbClassic.TabIndex = 5;
+            this.rbClassic.Text = "Classic";
+            this.rbClassic.UseVisualStyleBackColor = true;
+            // 
+            // rbSubject
+            // 
+            this.rbSubject.AutoSize = true;
+            this.rbSubject.Location = new System.Drawing.Point(21, 34);
+            this.rbSubject.Name = "rbSubject";
+            this.rbSubject.Size = new System.Drawing.Size(67, 18);
+            this.rbSubject.TabIndex = 4;
+            this.rbSubject.Text = "Subject";
+            this.rbSubject.UseVisualStyleBackColor = true;
+            // 
+            // gcAutoUpdating
+            // 
+            this.gcAutoUpdating.Controls.Add(this.labelControl1);
+            this.gcAutoUpdating.Controls.Add(this.cmbInterval);
+            this.gcAutoUpdating.Controls.Add(this.label1);
+            this.gcAutoUpdating.Controls.Add(this.ckbAutoUpdating);
+            this.gcAutoUpdating.Location = new System.Drawing.Point(14, 202);
+            this.gcAutoUpdating.Name = "gcAutoUpdating";
+            this.gcAutoUpdating.Size = new System.Drawing.Size(325, 125);
+            this.gcAutoUpdating.TabIndex = 6;
+            this.gcAutoUpdating.Text = "Auto Updating in Latest Reply";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(175, 76);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(9, 14);
+            this.labelControl1.TabIndex = 9;
+            this.labelControl1.Text = "s.";
             // 
             // cmbInterval
             // 
+            this.cmbInterval.Location = new System.Drawing.Point(81, 73);
+            this.cmbInterval.Name = "cmbInterval";
             this.cmbInterval.Properties.Items.AddRange(new object[] {
             "5",
             "10",
@@ -133,111 +179,70 @@
             "180",
             "300",
             "600"});
-            this.cmbInterval.Location = new System.Drawing.Point(93, 76);
-            this.cmbInterval.Name = "cmbInterval";
-            this.cmbInterval.Size = new System.Drawing.Size(75, 20);
-            this.cmbInterval.TabIndex = 5;
+            this.cmbInterval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbInterval.Size = new System.Drawing.Size(87, 20);
+            this.cmbInterval.TabIndex = 8;
             this.cmbInterval.TabStop = false;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 80);
+            this.label1.Location = new System.Drawing.Point(23, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 12);
-            this.label1.TabIndex = 4;
+            this.label1.Size = new System.Drawing.Size(52, 14);
+            this.label1.TabIndex = 7;
             this.label1.Text = "Interval is";
             // 
-            // groupBox1
+            // ckbAutoUpdating
             // 
-            this.groupBox1.Controls.Add(this.rbReserved);
-            this.groupBox1.Controls.Add(this.rbDigest);
-            this.groupBox1.Controls.Add(this.rbClassic);
-            this.groupBox1.Controls.Add(this.rbSubject);
-            this.groupBox1.Location = new System.Drawing.Point(12, 82);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(277, 86);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Topic type";
-            // 
-            // rbClassic
-            // 
-            this.rbClassic.AutoSize = true;
-            this.rbClassic.Location = new System.Drawing.Point(161, 26);
-            this.rbClassic.Name = "rbClassic";
-            this.rbClassic.Size = new System.Drawing.Size(65, 16);
-            this.rbClassic.TabIndex = 1;
-            this.rbClassic.Text = "Classic";
-            this.rbClassic.UseVisualStyleBackColor = true;
-            // 
-            // rbSubject
-            // 
-            this.rbSubject.AutoSize = true;
-            this.rbSubject.Location = new System.Drawing.Point(17, 26);
-            this.rbSubject.Name = "rbSubject";
-            this.rbSubject.Size = new System.Drawing.Size(65, 16);
-            this.rbSubject.TabIndex = 0;
-            this.rbSubject.Text = "Subject";
-            this.rbSubject.UseVisualStyleBackColor = true;
-            // 
-            // rbDigest
-            // 
-            this.rbDigest.AutoSize = true;
-            this.rbDigest.Location = new System.Drawing.Point(17, 56);
-            this.rbDigest.Name = "rbDigest";
-            this.rbDigest.Size = new System.Drawing.Size(59, 16);
-            this.rbDigest.TabIndex = 2;
-            this.rbDigest.Text = "Digest";
-            this.rbDigest.UseVisualStyleBackColor = true;
-            // 
-            // rbReserved
-            // 
-            this.rbReserved.AutoSize = true;
-            this.rbReserved.Location = new System.Drawing.Point(161, 55);
-            this.rbReserved.Name = "rbReserved";
-            this.rbReserved.Size = new System.Drawing.Size(71, 16);
-            this.rbReserved.TabIndex = 3;
-            this.rbReserved.Text = "Reserved";
-            this.rbReserved.UseVisualStyleBackColor = true;
+            this.ckbAutoUpdating.Location = new System.Drawing.Point(21, 38);
+            this.ckbAutoUpdating.Name = "ckbAutoUpdating";
+            this.ckbAutoUpdating.Properties.Caption = "Auto updating";
+            this.ckbAutoUpdating.Size = new System.Drawing.Size(119, 19);
+            this.ckbAutoUpdating.TabIndex = 6;
+            this.ckbAutoUpdating.TabStop = false;
             // 
             // BoardSettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 357);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.gpAutoUpdating);
+            this.ClientSize = new System.Drawing.Size(351, 383);
+            this.Controls.Add(this.gcAutoUpdating);
+            this.Controls.Add(this.gcTopicType);
+            this.Controls.Add(this.gcBrowseMode);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.gpBrowseMode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "BoardSettingsForm";
             this.Text = "Settings";
-            this.gpBrowseMode.ResumeLayout(false);
-            this.gpBrowseMode.PerformLayout();
-            this.gpAutoUpdating.ResumeLayout(false);
-            this.gpAutoUpdating.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcBrowseMode)).EndInit();
+            this.gcBrowseMode.ResumeLayout(false);
+            this.gcBrowseMode.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcTopicType)).EndInit();
+            this.gcTopicType.ResumeLayout(false);
+            this.gcTopicType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcAutoUpdating)).EndInit();
+            this.gcAutoUpdating.ResumeLayout(false);
+            this.gcAutoUpdating.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbInterval.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbAutoUpdating.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.RadioButton rbShowTops;
-        private System.Windows.Forms.RadioButton rbNoTops;
-        private System.Windows.Forms.GroupBox gpBrowseMode;
-        private DevExpress.XtraEditors.CheckEdit ckbAutoUpdating;
         private DevExpress.XtraEditors.SimpleButton btnOK;
-        private System.Windows.Forms.GroupBox gpAutoUpdating;
-        private DevExpress.XtraEditors.LabelControl label1;
-        private DevExpress.XtraEditors.LabelControl label2;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbInterval;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbClassic;
-        private System.Windows.Forms.RadioButton rbSubject;
+        private System.Windows.Forms.RadioButton rbNoTops;
+        private System.Windows.Forms.RadioButton rbShowTops;
+        private DevExpress.XtraEditors.GroupControl gcBrowseMode;
+        private DevExpress.XtraEditors.GroupControl gcTopicType;
         private System.Windows.Forms.RadioButton rbReserved;
         private System.Windows.Forms.RadioButton rbDigest;
+        private System.Windows.Forms.RadioButton rbClassic;
+        private System.Windows.Forms.RadioButton rbSubject;
+        private DevExpress.XtraEditors.GroupControl gcAutoUpdating;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbInterval;
+        private DevExpress.XtraEditors.LabelControl label1;
+        private DevExpress.XtraEditors.CheckEdit ckbAutoUpdating;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

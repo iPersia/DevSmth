@@ -30,23 +30,27 @@
         {
             this.rbLatestReply = new System.Windows.Forms.RadioButton();
             this.rbFirstReply = new System.Windows.Forms.RadioButton();
-            this.gpBrowseMode = new System.Windows.Forms.GroupBox();
+            this.gpBrowseMode = new DevExpress.XtraEditors.GroupControl();
             this.ckbAutoUpdating = new DevExpress.XtraEditors.CheckEdit();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.gpAutoUpdating = new System.Windows.Forms.GroupBox();
+            this.gpAutoUpdating = new DevExpress.XtraEditors.GroupControl();
             this.label2 = new DevExpress.XtraEditors.LabelControl();
             this.cmbInterval = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label1 = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.gpBrowseMode)).BeginInit();
             this.gpBrowseMode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbAutoUpdating.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).BeginInit();
             this.gpAutoUpdating.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbInterval.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // rbLatestReply
             // 
             this.rbLatestReply.AutoSize = true;
-            this.rbLatestReply.Location = new System.Drawing.Point(17, 26);
+            this.rbLatestReply.Location = new System.Drawing.Point(20, 40);
             this.rbLatestReply.Name = "rbLatestReply";
-            this.rbLatestReply.Size = new System.Drawing.Size(95, 16);
+            this.rbLatestReply.Size = new System.Drawing.Size(92, 18);
             this.rbLatestReply.TabIndex = 0;
             this.rbLatestReply.Text = "Latest Reply";
             this.rbLatestReply.UseVisualStyleBackColor = true;
@@ -55,9 +59,9 @@
             // rbFirstReply
             // 
             this.rbFirstReply.AutoSize = true;
-            this.rbFirstReply.Location = new System.Drawing.Point(161, 26);
+            this.rbFirstReply.Location = new System.Drawing.Point(188, 40);
             this.rbFirstReply.Name = "rbFirstReply";
-            this.rbFirstReply.Size = new System.Drawing.Size(89, 16);
+            this.rbFirstReply.Size = new System.Drawing.Size(80, 18);
             this.rbFirstReply.TabIndex = 1;
             this.rbFirstReply.Text = "First Reply";
             this.rbFirstReply.UseVisualStyleBackColor = true;
@@ -66,29 +70,27 @@
             // 
             this.gpBrowseMode.Controls.Add(this.rbFirstReply);
             this.gpBrowseMode.Controls.Add(this.rbLatestReply);
-            this.gpBrowseMode.Location = new System.Drawing.Point(12, 12);
+            this.gpBrowseMode.Location = new System.Drawing.Point(14, 14);
             this.gpBrowseMode.Name = "gpBrowseMode";
-            this.gpBrowseMode.Size = new System.Drawing.Size(277, 64);
+            this.gpBrowseMode.Size = new System.Drawing.Size(323, 75);
             this.gpBrowseMode.TabIndex = 2;
-            this.gpBrowseMode.TabStop = false;
             this.gpBrowseMode.Text = "Browse Mode";
             // 
             // ckbAutoUpdating
             // 
-            this.ckbAutoUpdating.AutoSize = true;
-            this.ckbAutoUpdating.Location = new System.Drawing.Point(17, 37);
+            this.ckbAutoUpdating.Location = new System.Drawing.Point(20, 43);
             this.ckbAutoUpdating.Name = "ckbAutoUpdating";
-            this.ckbAutoUpdating.Size = new System.Drawing.Size(102, 16);
+            this.ckbAutoUpdating.Properties.Caption = "Auto updating";
+            this.ckbAutoUpdating.Size = new System.Drawing.Size(119, 19);
             this.ckbAutoUpdating.TabIndex = 3;
             this.ckbAutoUpdating.TabStop = false;
-            this.ckbAutoUpdating.Text = "Auto updating";
             // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(115, 243);
+            this.btnOK.Location = new System.Drawing.Point(137, 260);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.TabIndex = 4;
             this.btnOK.TabStop = false;
             this.btnOK.Text = "OK";
@@ -100,24 +102,24 @@
             this.gpAutoUpdating.Controls.Add(this.cmbInterval);
             this.gpAutoUpdating.Controls.Add(this.label1);
             this.gpAutoUpdating.Controls.Add(this.ckbAutoUpdating);
-            this.gpAutoUpdating.Location = new System.Drawing.Point(12, 95);
+            this.gpAutoUpdating.Location = new System.Drawing.Point(14, 95);
             this.gpAutoUpdating.Name = "gpAutoUpdating";
-            this.gpAutoUpdating.Size = new System.Drawing.Size(277, 120);
+            this.gpAutoUpdating.Size = new System.Drawing.Size(323, 140);
             this.gpAutoUpdating.TabIndex = 5;
-            this.gpAutoUpdating.TabStop = false;
             this.gpAutoUpdating.Text = "Auto Updating in Latest Reply";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(173, 80);
+            this.label2.Location = new System.Drawing.Point(202, 93);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.Size = new System.Drawing.Size(9, 14);
             this.label2.TabIndex = 6;
             this.label2.Text = "s.";
             // 
             // cmbInterval
             // 
+            this.cmbInterval.Location = new System.Drawing.Point(108, 89);
+            this.cmbInterval.Name = "cmbInterval";
             this.cmbInterval.Properties.Items.AddRange(new object[] {
             "5",
             "10",
@@ -128,36 +130,38 @@
             "180",
             "300",
             "600"});
-            this.cmbInterval.Location = new System.Drawing.Point(93, 76);
-            this.cmbInterval.Name = "cmbInterval";
-            this.cmbInterval.Size = new System.Drawing.Size(75, 20);
+            this.cmbInterval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbInterval.Size = new System.Drawing.Size(87, 20);
             this.cmbInterval.TabIndex = 5;
             this.cmbInterval.TabStop = false;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 80);
+            this.label1.Location = new System.Drawing.Point(20, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 12);
+            this.label1.Size = new System.Drawing.Size(52, 14);
             this.label1.TabIndex = 4;
             this.label1.Text = "Interval is";
             // 
             // TopicSettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 301);
+            this.ClientSize = new System.Drawing.Size(351, 306);
             this.Controls.Add(this.gpAutoUpdating);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.gpBrowseMode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "TopicSettingsForm";
             this.Text = "Settings";
+            ((System.ComponentModel.ISupportInitialize)(this.gpBrowseMode)).EndInit();
             this.gpBrowseMode.ResumeLayout(false);
             this.gpBrowseMode.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbAutoUpdating.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).EndInit();
             this.gpAutoUpdating.ResumeLayout(false);
             this.gpAutoUpdating.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbInterval.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,10 +170,10 @@
 
         private System.Windows.Forms.RadioButton rbLatestReply;
         private System.Windows.Forms.RadioButton rbFirstReply;
-        private System.Windows.Forms.GroupBox gpBrowseMode;
+        private DevExpress.XtraEditors.GroupControl gpBrowseMode;
         private DevExpress.XtraEditors.CheckEdit ckbAutoUpdating;
         private DevExpress.XtraEditors.SimpleButton btnOK;
-        private System.Windows.Forms.GroupBox gpAutoUpdating;
+        private DevExpress.XtraEditors.GroupControl gpAutoUpdating;
         private DevExpress.XtraEditors.LabelControl label1;
         private DevExpress.XtraEditors.LabelControl label2;
         private DevExpress.XtraEditors.ComboBoxEdit cmbInterval;

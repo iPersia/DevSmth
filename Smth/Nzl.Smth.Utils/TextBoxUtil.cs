@@ -20,17 +20,18 @@
         /// </summary>
         /// <param name="textBox">TextBox</param>
         /// <param name="watermark">水印文字</param>
-        public static void SetWatermark(this TextBox textBox, string watermark)
+        public static void SetWatermark(this Control ctl, string watermark)
         {
-            SendMessage(textBox.Handle, EM_SETCUEBANNER, 0, watermark);
+            SendMessage(ctl.Handle, EM_SETCUEBANNER, 0, watermark);
         }
+
         /// <summary>
         /// 清除水印文字
         /// </summary>
         /// <param name="textBox">TextBox</param>
-        public static void ClearWatermark(this TextBox textBox)
+        public static void ClearWatermark(this Control ctl)
         {
-            SendMessage(textBox.Handle, EM_SETCUEBANNER, 0, string.Empty);
+            SendMessage(ctl.Handle, EM_SETCUEBANNER, 0, string.Empty);
         }
     }
 }

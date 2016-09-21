@@ -31,9 +31,9 @@
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.btnLogout = new DevExpress.XtraEditors.SimpleButton();
             this.btnLogon = new DevExpress.XtraEditors.SimpleButton();
-            this.txtUserID = new System.Windows.Forms.TextBox();
-            this.ckbSave = new System.Windows.Forms.CheckBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUserID = new DevExpress.XtraEditors.TextEdit();
+            this.ckbSave = new DevExpress.XtraEditors.CheckEdit();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelUp = new DevExpress.XtraEditors.PanelControl();
             this.lblNote = new DevExpress.XtraEditors.LabelControl();
@@ -95,13 +95,13 @@
             this.ckbSave.Size = new System.Drawing.Size(48, 16);
             this.ckbSave.TabIndex = 10;
             this.ckbSave.Text = "Save";
-            this.ckbSave.UseVisualStyleBackColor = true;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(66, 68);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Properties.UseSystemPasswordChar = true;
+            this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(128, 21);
             this.txtPassword.TabIndex = 9;
             // 
@@ -172,9 +172,9 @@
         private DevExpress.XtraEditors.PanelControl panelUp;
         private DevExpress.XtraEditors.SimpleButton btnLogout;
         private DevExpress.XtraEditors.SimpleButton btnLogon;
-        private System.Windows.Forms.TextBox txtUserID;
-        private System.Windows.Forms.CheckBox ckbSave;
-        private System.Windows.Forms.TextBox txtPassword;
+        private DevExpress.XtraEditors.TextEdit txtUserID;
+        private DevExpress.XtraEditors.CheckEdit ckbSave;
+        private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.LabelControl lblNote;
     }
 }

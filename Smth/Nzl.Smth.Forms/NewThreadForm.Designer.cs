@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewThreadForm));
             this.btnSubmit = new DevExpress.XtraEditors.SimpleButton();
             this.panel = new DevExpress.XtraEditors.PanelControl();
-            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtTitle = new DevExpress.XtraEditors.TextEdit();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
-            this.ckbSendMail = new System.Windows.Forms.CheckBox();
+            this.ckbSendMail = new DevExpress.XtraEditors.CheckEdit();
             this.txtContent = new System.Windows.Forms.RichTextBox();
             this.lblContent = new DevExpress.XtraEditors.LabelControl();
             this.panel.SuspendLayout();
@@ -90,7 +90,6 @@
             this.ckbSendMail.Size = new System.Drawing.Size(78, 16);
             this.ckbSendMail.TabIndex = 3;
             this.ckbSendMail.Text = "Send Mail";
-            this.ckbSendMail.UseVisualStyleBackColor = true;
             this.ckbSendMail.Visible = false;
             // 
             // txtContent
@@ -139,8 +138,8 @@
         private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.LabelControl lblContent;
         private System.Windows.Forms.RichTextBox txtContent;
-        private System.Windows.Forms.CheckBox ckbSendMail;
-        private System.Windows.Forms.TextBox txtTitle;
+        private DevExpress.XtraEditors.CheckEdit ckbSendMail;
+        private DevExpress.XtraEditors.TextEdit txtTitle;
         private DevExpress.XtraEditors.LabelControl lblTitle;
     }
 }

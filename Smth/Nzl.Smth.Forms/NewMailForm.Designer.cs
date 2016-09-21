@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel = new DevExpress.XtraEditors.PanelControl();
-            this.ckbBackup = new System.Windows.Forms.CheckBox();
+            this.ckbBackup = new DevExpress.XtraEditors.CheckEdit();
             this.btnSend = new DevExpress.XtraEditors.SimpleButton();
             this.richtxtContent = new System.Windows.Forms.RichTextBox();
             this.label3 = new DevExpress.XtraEditors.LabelControl();
-            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtTitle = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtSendTo = new System.Windows.Forms.TextBox();
+            this.txtSendTo = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.panel.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +66,6 @@
             this.ckbBackup.Size = new System.Drawing.Size(120, 16);
             this.ckbBackup.TabIndex = 3;
             this.ckbBackup.Text = "Backup to outbox";
-            this.ckbBackup.UseVisualStyleBackColor = true;
             // 
             // btnSend
             // 
@@ -153,12 +152,12 @@
 
         private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.LabelControl label1;
-        private System.Windows.Forms.TextBox txtSendTo;
-        private System.Windows.Forms.TextBox txtTitle;
+        private DevExpress.XtraEditors.TextEdit txtSendTo;
+        private DevExpress.XtraEditors.TextEdit txtTitle;
         private DevExpress.XtraEditors.LabelControl label2;
         private DevExpress.XtraEditors.LabelControl label3;
         private System.Windows.Forms.RichTextBox richtxtContent;
         private DevExpress.XtraEditors.SimpleButton btnSend;
-        private System.Windows.Forms.CheckBox ckbBackup;
+        private DevExpress.XtraEditors.CheckEdit ckbBackup;
     }
 }

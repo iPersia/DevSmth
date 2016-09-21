@@ -33,7 +33,7 @@
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.btnOpenInBrower = new DevExpress.XtraEditors.SimpleButton();
             this.btnGo = new DevExpress.XtraEditors.SimpleButton();
-            this.txtGoTo = new System.Windows.Forms.TextBox();
+            this.txtGoTo = new DevExpress.XtraEditors.TextEdit();
             this.lblPage = new DevExpress.XtraEditors.LabelControl();
             this.btnLast = new DevExpress.XtraEditors.SimpleButton();
             this.btnFirst = new DevExpress.XtraEditors.SimpleButton();
@@ -128,7 +128,6 @@
             this.txtGoTo.Size = new System.Drawing.Size(25, 21);
             this.txtGoTo.TabIndex = 9;
             this.txtGoTo.TabStop = false;
-            this.txtGoTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblPage
             // 
@@ -224,7 +223,7 @@
         private DevExpress.XtraEditors.SimpleButton btnOpenInBrower;
         private DevExpress.XtraEditors.PanelControl panelMenu;
         private DevExpress.XtraEditors.SimpleButton btnGo;
-        private System.Windows.Forms.TextBox txtGoTo;
+        private DevExpress.XtraEditors.TextEdit txtGoTo;
         private DevExpress.XtraEditors.LabelControl lblPage;
         private DevExpress.XtraEditors.SimpleButton btnLast;
         private DevExpress.XtraEditors.SimpleButton btnFirst;

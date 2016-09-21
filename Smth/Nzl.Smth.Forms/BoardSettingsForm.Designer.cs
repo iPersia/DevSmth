@@ -31,7 +31,7 @@
             this.rbShowTops = new System.Windows.Forms.RadioButton();
             this.rbNoTops = new System.Windows.Forms.RadioButton();
             this.gpBrowseMode = new System.Windows.Forms.GroupBox();
-            this.ckbAutoUpdating = new System.Windows.Forms.CheckBox();
+            this.ckbAutoUpdating = new DevExpress.XtraEditors.CheckEdit();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.gpAutoUpdating = new System.Windows.Forms.GroupBox();
             this.label2 = new DevExpress.XtraEditors.LabelControl();
@@ -87,7 +87,6 @@
             this.ckbAutoUpdating.TabIndex = 3;
             this.ckbAutoUpdating.TabStop = false;
             this.ckbAutoUpdating.Text = "Auto updating";
-            this.ckbAutoUpdating.UseVisualStyleBackColor = true;
             // 
             // btnOK
             // 
@@ -229,7 +228,7 @@
         private System.Windows.Forms.RadioButton rbShowTops;
         private System.Windows.Forms.RadioButton rbNoTops;
         private System.Windows.Forms.GroupBox gpBrowseMode;
-        private System.Windows.Forms.CheckBox ckbAutoUpdating;
+        private DevExpress.XtraEditors.CheckEdit ckbAutoUpdating;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private System.Windows.Forms.GroupBox gpAutoUpdating;
         private DevExpress.XtraEditors.LabelControl label1;

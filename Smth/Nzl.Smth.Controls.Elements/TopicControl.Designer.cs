@@ -70,7 +70,7 @@
             this.linklblLastID.Name = "linklblLastID";
             this.linklblLastID.Size = new System.Drawing.Size(100, 14);
             this.linklblLastID.TabIndex = 4;
-            this.linklblLastID.TabStop = true;
+            this.linklblLastID.TabStop = false;
             this.linklblLastID.Text = "LastID";
             // 
             // linklblCreateID
@@ -81,7 +81,7 @@
             this.linklblCreateID.Name = "linklblCreateID";
             this.linklblCreateID.Size = new System.Drawing.Size(100, 14);
             this.linklblCreateID.TabIndex = 3;
-            this.linklblCreateID.TabStop = true;
+            this.linklblCreateID.TabStop = false;
             this.linklblCreateID.Text = "ZZZZZZZZZZZZZ";
             // 
             // lblLastDT
@@ -113,7 +113,7 @@
             this.linklblTopic.Name = "linklblTopic";
             this.linklblTopic.Size = new System.Drawing.Size(42, 14);
             this.linklblTopic.TabIndex = 0;
-            this.linklblTopic.TabStop = true;
+            this.linklblTopic.TabStop = false;
             this.linklblTopic.Text = "Topic";
             // 
             // TopicControl

@@ -40,6 +40,8 @@
             this.cmbSectionTopUpdatingInterval = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            this.gcSkins = new DevExpress.XtraBars.Ribbon.GalleryControl();
+            this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
             this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
             this.gcUISettings = new DevExpress.XtraEditors.GroupControl();
             this.label7 = new DevExpress.XtraEditors.LabelControl();
@@ -56,6 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbSectionTopUpdatingInterval.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSkins)).BeginInit();
+            this.gcSkins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcUISettings)).BeginInit();
             this.gcUISettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlLocationMargin.Properties)).BeginInit();
@@ -65,7 +69,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(144, 354);
+            this.btnOK.Location = new System.Drawing.Point(144, 438);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.TabIndex = 4;
@@ -201,6 +205,7 @@
             // 
             this.panelContainer.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelContainer.Appearance.Options.UseBackColor = true;
+            this.panelContainer.Controls.Add(this.gcSkins);
             this.panelContainer.Controls.Add(this.btnClearCache);
             this.panelContainer.Controls.Add(this.gcUISettings);
             this.panelContainer.Controls.Add(this.btnOK);
@@ -208,13 +213,30 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(387, 436);
+            this.panelContainer.Size = new System.Drawing.Size(387, 474);
             this.panelContainer.TabIndex = 6;
+            // 
+            // gcSkins
+            // 
+            this.gcSkins.Controls.Add(this.galleryControlClient1);
+            this.gcSkins.DesignGalleryGroupIndex = 0;
+            this.gcSkins.DesignGalleryItemIndex = 0;
+            this.gcSkins.Location = new System.Drawing.Point(14, 294);
+            this.gcSkins.Name = "gcSkins";
+            this.gcSkins.Size = new System.Drawing.Size(359, 138);
+            this.gcSkins.TabIndex = 3;
+            this.gcSkins.Text = "galleryControl1";
+            // 
+            // galleryControlClient1
+            // 
+            this.galleryControlClient1.GalleryControl = this.gcSkins;
+            this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
+            this.galleryControlClient1.Size = new System.Drawing.Size(338, 134);
             // 
             // btnClearCache
             // 
             this.btnClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearCache.Location = new System.Drawing.Point(259, 354);
+            this.btnClearCache.Location = new System.Drawing.Point(259, 438);
             this.btnClearCache.Name = "btnClearCache";
             this.btnClearCache.Size = new System.Drawing.Size(114, 27);
             this.btnClearCache.TabIndex = 7;
@@ -235,7 +257,7 @@
             this.gcUISettings.Controls.Add(this.label12);
             this.gcUISettings.Location = new System.Drawing.Point(14, 168);
             this.gcUISettings.Name = "gcUISettings";
-            this.gcUISettings.Size = new System.Drawing.Size(359, 156);
+            this.gcUISettings.Size = new System.Drawing.Size(359, 120);
             this.gcUISettings.TabIndex = 6;
             this.gcUISettings.Text = "UI settings";
             // 
@@ -243,7 +265,7 @@
             // 
             this.label7.Appearance.ForeColor = System.Drawing.Color.Red;
             this.label7.Appearance.Options.UseForeColor = true;
-            this.label7.Location = new System.Drawing.Point(55, 117);
+            this.label7.Location = new System.Drawing.Point(55, 94);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(249, 14);
             this.label7.TabIndex = 10;
@@ -317,7 +339,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 436);
+            this.ClientSize = new System.Drawing.Size(387, 474);
             this.Controls.Add(this.panelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "TabbedBrowserSettingsForm";
@@ -330,6 +352,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbSectionTopUpdatingInterval.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcSkins)).EndInit();
+            this.gcSkins.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcUISettings)).EndInit();
             this.gcUISettings.ResumeLayout(false);
             this.gcUISettings.PerformLayout();
@@ -361,5 +385,7 @@
         private DevExpress.XtraEditors.LabelControl label12;
         private DevExpress.XtraEditors.LabelControl label7;
         private DevExpress.XtraEditors.SimpleButton btnClearCache;
+        private DevExpress.XtraBars.Ribbon.GalleryControl gcSkins;
+        private DevExpress.XtraBars.Ribbon.GalleryControlClient galleryControlClient1;
     }
 }

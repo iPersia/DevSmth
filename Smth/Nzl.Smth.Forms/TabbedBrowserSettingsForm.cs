@@ -1,8 +1,9 @@
 ﻿namespace Nzl.Smth.Forms
 {
     using System;
-    using System.Windows.Forms;
     using Nzl.Smth.Configs;
+    using DevExpress.XtraBars.Helpers;
+    using DevExpress.XtraBars.Localization;
 
     /// <summary>
     /// 
@@ -24,6 +25,7 @@
             InitializeComponent();
             this.HideWhenDeactivate = false;
             this.btnOK.Left = (this.panelContainer.Width - this.btnOK.Width) / 2;
+            SkinHelper.InitSkinGallery(gcSkins, true);
         }
 
         /// <summary>
@@ -36,6 +38,7 @@
             this.cmbNewMailCheckingInterval.Text = (Configuration.NewMailCheckingInterval / 1000).ToString();
             this.cmbSectionTopUpdatingInterval.Text = (Configuration.SectionTopsUpdatingInterval / 1000).ToString();
             this.cmbTop10sLoadingInterval.Text = (Configuration.Top10sLoadingInterval / 1000).ToString();
+            
         }
 
         /// <summary>

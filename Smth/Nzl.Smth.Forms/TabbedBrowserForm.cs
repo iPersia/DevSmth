@@ -183,10 +183,10 @@
         /// <param name="e"></param>
         private void ReferFormInstance_OnReferClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linklbl = sender as LinkLabel;
-            if (linklbl != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                this.AddPost(e.Link, linklbl.Text);
+                this.AddPost(e.Link, hlc.PlainText);
             }
         }
 
@@ -294,10 +294,10 @@
         /// <param name="e"></param>
         private void ThreadControlContainer_OnBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
-            if (linkLabel != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                this.AddBoard(e.Link, TopicBrowserType.Subject, linkLabel.Text);
+                this.AddBoard(e.Link, TopicBrowserType.Subject, hlc.PlainText);
                 //e.Link.Visited = true;
             }
         }
@@ -329,8 +329,8 @@
         /// <param name="e"></param>
         private void ThreadControlContainer_OnThreadQueryTypeLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
-            if (linkLabel != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
                 string userID = Nzl.Web.Util.CommonUtil.GetMatch(@"au=(?'ID'[a-zA-z][a-zA-Z0-9]{1,11})", e.Link, 1);
                 TopicForm topicForm = new TopicForm(Nzl.Web.Util.CommonUtil.GetUrlBase(e.Link), userID);
@@ -349,7 +349,7 @@
         /// <param name="title"></param>
         public void AddBoard(string boardCode, TopicBrowserType browserType, string title)
         {
-            this.Text = title;
+            this.Text = CommonUtil.TrimHtml(title);
             string key = "tp" + boardCode;
             ///Exsits
             {
@@ -451,10 +451,10 @@
         /// <param name="e"></param>
         private void TopicControlContainer_OnPostLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
-            if (linkLabel != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                this.AddPost(e.Link, linkLabel.Text);
+                this.AddPost(e.Link, hlc.PlainText);
                 //e.Link.Visited = true;
             }
         }
@@ -466,10 +466,10 @@
         /// <param name="e"></param>
         private void TopicControlContainer_OnTopicLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
-            if (linkLabel != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                this.AddTopic(e.Link, linkLabel.Text);
+                this.AddTopic(e.Link, hlc.PlainText);
                 //e.Link.Visited = true;
             }
         }
@@ -571,10 +571,10 @@
         /// <param name="e"></param>
         private void PostControlContainer_OnBoardClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linklbl = sender as LinkLabel;
-            if (linklbl != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                this.AddBoard(e.Link, TopicBrowserType.Classic, linklbl.Text);
+                this.AddBoard(e.Link, TopicBrowserType.Classic, hlc.PlainText);
             }
         }
         #endregion
@@ -735,7 +735,7 @@
             DevExpress.XtraEditors.HyperlinkLabelControl linkLabel = sender as DevExpress.XtraEditors.HyperlinkLabelControl;
             if (linkLabel != null)
             {
-                TabbedBrowserForm.Instance.AddBoard(e.Link, TopicBrowserType.Subject, linkLabel.Text);
+                TabbedBrowserForm.Instance.AddBoard(e.Link, TopicBrowserType.Subject, linkLabel.PlainText);
             }
         }
 
@@ -780,10 +780,10 @@
         /// <param name="e"></param>
         private void tbc_OnTopLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linklbl = sender as LinkLabel;
-            if (linklbl != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                TabbedBrowserForm.Instance.AddTopic(e.Link, linklbl.Text);
+                TabbedBrowserForm.Instance.AddTopic(e.Link, hlc.PlainText);
                 TabbedBrowserForm.Instance.Show();
             }
         }
@@ -901,10 +901,10 @@
         /// <param name="e"></param>
         private void Top10sForm_OnTopBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linklbl = sender as LinkLabel;
-            if (linklbl != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                this.AddBoard(e.Link, TopicBrowserType.Subject, linklbl.Text);
+                this.AddBoard(e.Link, TopicBrowserType.Subject, hlc.PlainText);
             }
         }
 
@@ -915,10 +915,10 @@
         /// <param name="e"></param>
         private void Top10sForm_OnTopLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linklbl = sender as LinkLabel;
-            if (linklbl != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                this.AddTopic(e.Link, linklbl.Text);
+                this.AddTopic(e.Link, hlc.PlainText);
             }
         }
 

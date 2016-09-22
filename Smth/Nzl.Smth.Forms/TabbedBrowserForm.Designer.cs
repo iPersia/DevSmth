@@ -100,6 +100,7 @@
             this.btnRefer.Name = "btnRefer";
             this.btnRefer.Size = new System.Drawing.Size(75, 27);
             this.btnRefer.TabIndex = 16;
+            this.btnRefer.TabStop = false;
             this.btnRefer.Text = "Refers";
             this.btnRefer.Visible = false;
             this.btnRefer.Click += new System.EventHandler(this.btnRefer_Click);
@@ -128,6 +129,7 @@
             this.btnLoadTop.Name = "btnLoadTop";
             this.btnLoadTop.Size = new System.Drawing.Size(75, 27);
             this.btnLoadTop.TabIndex = 6;
+            this.btnLoadTop.TabStop = false;
             this.btnLoadTop.Text = "Top 10\'s";
             this.btnLoadTop.Click += new System.EventHandler(this.btnLoadTop_Click);
             // 
@@ -137,6 +139,7 @@
             this.btnLogon.Name = "btnLogon";
             this.btnLogon.Size = new System.Drawing.Size(75, 27);
             this.btnLogon.TabIndex = 10;
+            this.btnLogon.TabStop = false;
             this.btnLogon.Text = "Log in";
             this.btnLogon.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
@@ -146,6 +149,7 @@
             this.btnMail.Name = "btnMail";
             this.btnMail.Size = new System.Drawing.Size(75, 27);
             this.btnMail.TabIndex = 13;
+            this.btnMail.TabStop = false;
             this.btnMail.Text = "Mails";
             this.btnMail.Visible = false;
             this.btnMail.Click += new System.EventHandler(this.btnMail_Click);
@@ -156,6 +160,7 @@
             this.btnFavor.Name = "btnFavor";
             this.btnFavor.Size = new System.Drawing.Size(75, 27);
             this.btnFavor.TabIndex = 12;
+            this.btnFavor.TabStop = false;
             this.btnFavor.Text = "Favors";
             this.btnFavor.Visible = false;
             this.btnFavor.Click += new System.EventHandler(this.btnFavor_Click);
@@ -167,6 +172,7 @@
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 27);
             this.btnClear.TabIndex = 1;
+            this.btnClear.TabStop = false;
             this.btnClear.Text = "Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
@@ -176,6 +182,7 @@
             this.btnBoardNavi.Name = "btnBoardNavi";
             this.btnBoardNavi.Size = new System.Drawing.Size(75, 27);
             this.btnBoardNavi.TabIndex = 11;
+            this.btnBoardNavi.TabStop = false;
             this.btnBoardNavi.Text = "Boards";
             this.btnBoardNavi.Click += new System.EventHandler(this.btnBoardNavi_Click);
             // 
@@ -186,6 +193,7 @@
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(75, 27);
             this.btnSettings.TabIndex = 0;
+            this.btnSettings.TabStop = false;
             this.btnSettings.Text = "Setting";
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 

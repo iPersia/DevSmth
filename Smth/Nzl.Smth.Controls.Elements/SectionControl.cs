@@ -39,7 +39,7 @@
                 }
                 else
                 {
-                    this.lblType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+                    this.lblType.ForeColor = System.Drawing.Color.Red;
                     this.lblType.Text = "目录";
                     this.Tag = "Section";
                 }

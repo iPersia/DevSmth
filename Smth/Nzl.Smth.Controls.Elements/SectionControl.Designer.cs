@@ -63,7 +63,7 @@ namespace Nzl.Smth.Controls.Elements
             this.linklblSection.Name = "linklblSection";
             this.linklblSection.Size = new System.Drawing.Size(47, 12);
             this.linklblSection.TabIndex = 0;
-            this.linklblSection.TabStop = true;
+            this.linklblSection.TabStop = false;
             this.linklblSection.Text = "Section";
             // 
             // SectionControl

@@ -4,6 +4,7 @@
     using System.Drawing;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using DevExpress.XtraTab;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Containers;
@@ -121,8 +122,8 @@
         /// <param name="e"></param>
         private void SectionTopsControl_OnTopLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linklbl = sender as LinkLabel;
-            if (linklbl != null && this.OnTopLinkClicked != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null && this.OnTopLinkClicked != null)
             {
                 this.OnTopLinkClicked(sender, e);
             }
@@ -135,8 +136,8 @@
         /// <param name="e"></param>
         private void SectionTopsControl_OnTopBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linklbl = sender as LinkLabel;
-            if (linklbl != null && this.OnTopBoardLinkClicked != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null && this.OnTopBoardLinkClicked != null)
             {
                 this.OnTopBoardLinkClicked(sender, e);
             }

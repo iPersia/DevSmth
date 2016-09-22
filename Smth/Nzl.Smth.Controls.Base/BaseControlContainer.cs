@@ -52,7 +52,7 @@
         /// <summary>
         /// 
         /// </summary>
-        private Label _lblMessage = new Label();
+        private DevExpress.XtraWaitForm.ProgressPanel _ppMessage = new DevExpress.XtraWaitForm.ProgressPanel();
         #endregion
 
         #region Ctor
@@ -190,6 +190,7 @@
 
             ///Set BorderStyle.
             this.BorderStyle = BorderStyle.None;
+            this.GetPanelContainer().Dock = DockStyle.Fill;
             this.GetPanelContainer().BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.GetPanel().BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
 
@@ -203,11 +204,11 @@
                                   - this.GetPanelContainerBoarderMargin();
 
             ///Add message label.
-            this._lblMessage.BackColor = Color.Transparent;
-            this._lblMessage.ForeColor = Color.OrangeRed;
-            this._lblMessage.Hide();
+            this._ppMessage.BackColor = Color.Transparent;
+            this._ppMessage.ForeColor = Color.OrangeRed;
+            this._ppMessage.Hide();
             this.GetPanelContainer().Controls.Remove(this.GetPanel());
-            this.GetPanelContainer().Controls.Add(this._lblMessage);
+            this.GetPanelContainer().Controls.Add(this._ppMessage);
             this.GetPanelContainer().Controls.Add(this.GetPanel());
 
             ///Response to mouse wheeling.
@@ -231,6 +232,9 @@
                 baseControlContainer.Width = this.Width
                                            - Configuration.BaseControlContainerLocationMargin * 2
                                            - this.GetPanelContainerBoarderMargin();
+#if (DEBUG)
+                System.Diagnostics.Debug.WriteLine(this.ToString() + " - baseControlContainer.Width\t" + baseControlContainer.Width);
+#endif
             }
         }
 
@@ -247,11 +251,16 @@
 #if (DEBUG)
                 System.Diagnostics.Debug.WriteLine("BaseContainer - BaseContainer_SizeChanged - FetchPage");
 #endif
-                baseControlContainer.Width = this.Width
-                                           - Configuration.BaseControlContainerLocationMargin * 2
-                                           - this.GetPanelContainerBoarderMargin();
-                this.SetUrlInfo(false);
-                this.FetchPage();
+                int newWidth = this.Width
+                             - Configuration.BaseControlContainerLocationMargin * 2
+                             - this.GetPanelContainerBoarderMargin();
+                int absDiff = Math.Abs(baseControlContainer.Width - newWidth);
+                baseControlContainer.Width = newWidth;
+                if (absDiff > 10)
+                {                    
+                    this.SetUrlInfo(false);
+                    this.FetchPage();
+                }
             }
         }
         #endregion
@@ -855,12 +864,12 @@
                 PanelControl panelContainer = this.GetPanelContainer();
                 if (panelContainer != null)
                 {
-                    this._lblMessage.Hide();
-                    this._lblMessage.AutoSize = true;
-                    this._lblMessage.Text = text;
-                    this._lblMessage.Top = panelContainer.Height * 8 / 10;
-                    this._lblMessage.Left = (panelContainer.Width - this._lblMessage.Width) / 2;
-                    this._lblMessage.Show();
+                    this._ppMessage.Hide();
+                    this._ppMessage.AutoSize = true;
+                    this._ppMessage.Description = text;
+                    this._ppMessage.Top = panelContainer.Height * 8 / 10;
+                    this._ppMessage.Left = (panelContainer.Width - this._ppMessage.Width) / 2;
+                    this._ppMessage.Show();
                 }
 
                 ///Clear timer
@@ -877,7 +886,7 @@
             if (timer != null)
             {
                 timer.Stop();
-                this._lblMessage.Hide();
+                this._ppMessage.Hide();
             }
         }
 

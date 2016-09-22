@@ -29,32 +29,43 @@
         private void InitializeComponent()
         {
             this.richTextBoxEx1 = new Nzl.Controls.RichTextBoxEx();
-            ///this.richTextBoxEx1 = new System.Windows.Forms.RichTextBox();
+            this.ppMessage = new DevExpress.XtraWaitForm.ProgressPanel();
             this.SuspendLayout();
             // 
             // richTextBoxEx1
             // 
-            this.richTextBoxEx1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.richTextBoxEx1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.richTextBoxEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxEx1.HiglightColor = Nzl.Controls.RtfColor.White;
             this.richTextBoxEx1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBoxEx1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.richTextBoxEx1.Name = "richTextBoxEx1";
-            this.richTextBoxEx1.Size = new System.Drawing.Size(467, 437);
+            this.richTextBoxEx1.Size = new System.Drawing.Size(545, 510);
             this.richTextBoxEx1.TabIndex = 0;
             this.richTextBoxEx1.Text = "";
             this.richTextBoxEx1.TextColor = Nzl.Controls.RtfColor.Black;
             // 
+            // ppMessage
+            // 
+            this.ppMessage.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.ppMessage.Appearance.Options.UseBackColor = true;
+            this.ppMessage.Caption = "Caption";
+            this.ppMessage.Description = "Descripton";
+            this.ppMessage.Location = new System.Drawing.Point(173, 215);
+            this.ppMessage.Name = "ppMessage";
+            this.ppMessage.Size = new System.Drawing.Size(246, 66);
+            this.ppMessage.TabIndex = 1;
+            this.ppMessage.Text = "Information";
+            this.ppMessage.ToolTipTitle = "ToolTipTitle";
+            // 
             // TestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 437);
+            this.ClientSize = new System.Drawing.Size(545, 510);
+            this.Controls.Add(this.ppMessage);
             this.Controls.Add(this.richTextBoxEx1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "TestForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Text = "Mail Detail";
             this.ResumeLayout(false);
 
@@ -63,6 +74,8 @@
         #endregion
 
         private Nzl.Controls.RichTextBoxEx richTextBoxEx1;
+        private DevExpress.XtraWaitForm.ProgressPanel ppMessage;
+
         ///private System.Windows.Forms.RichTextBox richTextBoxEx1;
     }
 }

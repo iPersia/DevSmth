@@ -168,6 +168,7 @@
             LoginForm.Instance.OnLoginFailed += LoginForm_OnLoginFailed;
             LoginForm.Instance.OnLogoutFailed += LoginForm_OnLogoutFailed;
             this._entryAssemblyTitle = this.GetEntryAssemblyTitle();
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("Coffee");  // 设置皮肤样式
 
 #if (DEBUG)
             ////Just for testing.
@@ -175,21 +176,6 @@
             }
 #endif
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ReferFormInstance_OnReferClicked(object sender, HyperlinkClickEventArgs e)
-        {
-            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
-            if (hlc != null)
-            {
-                this.AddPost(e.Link, hlc.PlainText);
-            }
-        }
-
 #if (X)
         ////Just for testing.
 
@@ -631,27 +617,27 @@
         /// <param name="e"></param>
         private void tcTopics_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //int index = this.tcTopics.SelectedIndex;
-            //TabPage tp = this.tcTopics.TabPages[index];
-            //if (index == this.tcTopics.TabCount - 1)
-            //{
-            //    index--;
-            //}
-            //else
-            //{
-            //    index++;
-            //}
+            int index = this.tcTopics.SelectedTabPageIndex;
+            XtraTabPage tp = this.tcTopics.TabPages[index];
+            if (index == this.tcTopics.TabPages.Count - 1)
+            {
+                index--;
+            }
+            else
+            {
+                index++;
+            }
 
-            //this.tcTopics.SelectedIndex = index;
-            //this.DisposeTabPage(tp);
-            //this.tcTopics.TabPages.Remove(tp);
+            this.tcTopics.SelectedTabPageIndex = index;
+            this.DisposeTabPage(tp);
+            this.tcTopics.TabPages.Remove(tp);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="tp"></param>
-        private void DisposeTabPage(TabPage tp)
+        private void DisposeTabPage(XtraTabPage tp)
         {
             foreach (Control ctl in tp.Controls)
             {
@@ -744,6 +730,20 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        private void ReferFormInstance_OnReferClicked(object sender, HyperlinkClickEventArgs e)
+        {
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (hlc != null)
+            {
+                this.AddPost(e.Link, hlc.PlainText);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMail_Click(object sender, EventArgs e)
         {
             MailBoxForm.Instance.SetParent(this);
@@ -795,12 +795,18 @@
         /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
-            foreach (TabPage tp in this.tcTopics.TabPages)
+            IList<XtraTabPage> list = new List<XtraTabPage>();
+            foreach (XtraTabPage tp in this.tcTopics.TabPages)
+            {
+                list.Add(tp);                
+            }
+
+            this.tcTopics.TabPages.Clear();
+            foreach (XtraTabPage tp in list)
             {
                 this.DisposeTabPage(tp);
             }
 
-            this.tcTopics.TabPages.Clear();
             GC.Collect();
         }
 

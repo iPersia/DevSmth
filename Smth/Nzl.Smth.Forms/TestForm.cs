@@ -19,6 +19,9 @@
         {
             InitializeComponent();
             this.HideWhenDeactivate = false;
+
+            this.ppMessage.Text = "Text";
+            this.ppMessage.ToolTipTitle = "ToolTipTitle";
         }
 
         /// <summary>

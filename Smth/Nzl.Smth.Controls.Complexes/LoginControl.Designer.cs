@@ -37,11 +37,14 @@
             this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelUp = new DevExpress.XtraEditors.PanelControl();
             this.lblNote = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbSave.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
-            this.scContainer.Panel1.SuspendLayout();
-            this.scContainer.Panel2.SuspendLayout();
             this.scContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelUp)).BeginInit();
             this.panelUp.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +59,7 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(265, 234);
+            this.panelContainer.Size = new System.Drawing.Size(265, 230);
             this.panelContainer.TabIndex = 0;
             // 
             // btnLogout
@@ -71,7 +74,7 @@
             // 
             // btnLogon
             // 
-            this.btnLogon.Location = new System.Drawing.Point(66, 138);
+            this.btnLogon.Location = new System.Drawing.Point(66, 145);
             this.btnLogon.Name = "btnLogon";
             this.btnLogon.Size = new System.Drawing.Size(128, 23);
             this.btnLogon.TabIndex = 11;
@@ -82,53 +85,44 @@
             // 
             this.txtUserID.Location = new System.Drawing.Point(66, 25);
             this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(128, 21);
+            this.txtUserID.Size = new System.Drawing.Size(128, 20);
             this.txtUserID.TabIndex = 8;
             // 
             // ckbSave
             // 
-            this.ckbSave.AutoSize = true;
-            this.ckbSave.Checked = true;
-            this.ckbSave.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbSave.EditValue = true;
             this.ckbSave.Location = new System.Drawing.Point(102, 109);
             this.ckbSave.Name = "ckbSave";
-            this.ckbSave.Size = new System.Drawing.Size(48, 16);
+            this.ckbSave.Properties.Caption = "Save";
+            this.ckbSave.Size = new System.Drawing.Size(48, 19);
             this.ckbSave.TabIndex = 10;
-            this.ckbSave.Text = "Save";
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(66, 68);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Properties.UseSystemPasswordChar = true;
             this.txtPassword.Properties.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(128, 21);
+            this.txtPassword.Properties.UseSystemPasswordChar = true;
+            this.txtPassword.Size = new System.Drawing.Size(128, 20);
             this.txtPassword.TabIndex = 9;
             // 
             // scContainer
             // 
             this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
+            this.scContainer.Horizontal = false;
             this.scContainer.IsSplitterFixed = true;
             this.scContainer.Location = new System.Drawing.Point(0, 0);
             this.scContainer.Name = "scContainer";
-            this.scContainer.Horizontal = false;
-            // 
-            // scContainer.Panel1
-            // 
             this.scContainer.Panel1.Controls.Add(this.panelUp);
-            // 
-            // scContainer.Panel2
-            // 
             this.scContainer.Panel2.Controls.Add(this.panelContainer);
             this.scContainer.Size = new System.Drawing.Size(265, 260);
             this.scContainer.SplitterPosition = 25;
             this.scContainer.TabIndex = 2;
-            this.scContainer.TabStop = false;
             // 
             // panelUp
             // 
-            this.panelUp.BackColor = System.Drawing.SystemColors.Window;
+            this.panelUp.Appearance.BackColor = System.Drawing.SystemColors.Window;
+            this.panelUp.Appearance.Options.UseBackColor = true;
             this.panelUp.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.panelUp.Controls.Add(this.lblNote);
             this.panelUp.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -139,10 +133,9 @@
             // 
             // lblNote
             // 
-            this.lblNote.AutoSize = true;
             this.lblNote.Location = new System.Drawing.Point(95, 6);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(83, 12);
+            this.lblNote.Size = new System.Drawing.Size(75, 14);
             this.lblNote.TabIndex = 1;
             this.lblNote.Text = "Sign In && Out";
             // 
@@ -153,12 +146,14 @@
             this.Controls.Add(this.scContainer);
             this.Name = "LoginControl";
             this.Size = new System.Drawing.Size(265, 260);
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
-            this.panelContainer.PerformLayout();
-            this.scContainer.Panel1.ResumeLayout(false);
-            this.scContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbSave.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).EndInit();
             this.scContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelUp)).EndInit();
             this.panelUp.ResumeLayout(false);
             this.panelUp.PerformLayout();
             this.ResumeLayout(false);

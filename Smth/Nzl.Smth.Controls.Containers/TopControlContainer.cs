@@ -217,8 +217,8 @@
         /// <param name="e"></param>
         private void TopControl_OnTopLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linklbl = sender as LinkLabel;
-            if (linklbl != null && this.OnTopLinkClicked != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null && this.OnTopLinkClicked != null)
             {
                 this.OnTopLinkClicked(sender, e);
                 //e.Link.Visited = true;
@@ -232,8 +232,8 @@
         /// <param name="e"></param>
         private void TopControl_OnTopBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel linklbl = sender as LinkLabel;
-            if (linklbl != null && this.OnTopBoardLinkClicked != null)
+            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            if (hlc != null && this.OnTopBoardLinkClicked != null)
             {
                 this.OnTopBoardLinkClicked(sender, e);
                 //e.Link.Visited = true;

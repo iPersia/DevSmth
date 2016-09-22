@@ -109,7 +109,7 @@
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            this.IsResponingMouseWheel = false;
+            //this.IsResponingMouseWheel = false;
             this.InitializeSize();
         }
 

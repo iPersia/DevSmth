@@ -168,10 +168,14 @@
                 ///Add content.
                 this.Name = "tc" + thread.ID;
                 this.richtxtContent.Clear();
+                this.richtxtContent.BorderStyle = BorderStyle.None;
                 ControlUtil.AddContent(this.richtxtContent, thread);
-                //this.AddContent(thread);
-                this.Height = this.richtxtContent.Height + 48;
-                this.richtxtContent.ReadOnly = true;
+                this.Height = this.richtxtContent.Top
+                            + this.richtxtContent.Height
+                            + 15;
+
+                this.richtxtContent.ReadOnly = false;
+                this.richtxtContent.Enabled = true;
                 this.richtxtContent.ShortcutsEnabled = false;
             }
         }
@@ -184,8 +188,9 @@
         {
             base.SetWidth(width);
             this.Width = width;
-            this.panelTitle.Width = this.Width - 10;
-            this.richtxtContent.Width = this.panelTitle.Width - 8;
+            this.panelTitle.Width = this.Width - 12;
+            this.richtxtContent.Left = this.panelTitle.Left + 5;
+            this.richtxtContent.Width = this.panelTitle.Width - 10;
         }
         #endregion
 
@@ -198,7 +203,11 @@
             set
             {
                 this.panel.BackColor = value;
-                this.richtxtContent.BackColor = value;
+                if (value == Color.White)
+                {
+                    this.richtxtContent.BackColor = this.panelTitle.BackColor;
+                    //this.richtxtContent.BackColor = value;
+                }
             }
         }
 
@@ -353,7 +362,7 @@
         /// <param name="e"></param>
         private void richtxtContent_Enter(object sender, EventArgs e)
         {
-            this.panel.Focus();
+            //this.panel.Focus();
         }
 
         /// <summary>

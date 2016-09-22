@@ -30,20 +30,23 @@
         {
             this.tcTop10s = new DevExpress.XtraTab.XtraTabControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.tcTop10s)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcTop10s
             // 
             this.tcTop10s.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcTop10s.Location = new System.Drawing.Point(0, 0);
+            this.tcTop10s.Location = new System.Drawing.Point(2, 2);
             this.tcTop10s.Name = "tcTop10s";
-            this.tcTop10s.Size = new System.Drawing.Size(683, 418);
+            this.tcTop10s.Size = new System.Drawing.Size(679, 414);
             this.tcTop10s.TabIndex = 1;
             // 
             // panelContainer
             // 
-            this.panelContainer.BackColor = System.Drawing.SystemColors.Window;
+            this.panelContainer.Appearance.BackColor = System.Drawing.SystemColors.Window;
+            this.panelContainer.Appearance.Options.UseBackColor = true;
             this.panelContainer.Controls.Add(this.tcTop10s);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
@@ -59,6 +62,8 @@
             this.Controls.Add(this.panelContainer);
             this.Name = "Top10sBrowserControl";
             this.Size = new System.Drawing.Size(683, 418);
+            ((System.ComponentModel.ISupportInitialize)(this.tcTop10s)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 

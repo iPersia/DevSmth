@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.panel = new DevExpress.XtraEditors.PanelControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
-            this.btnOpenInBrowser = new DevExpress.XtraEditors.SimpleButton();
-            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
+            this.btnOpenInBrowser = new DevExpress.XtraEditors.SimpleButton();            
             this.panelMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.linklblBoard = new DevExpress.XtraEditors.HyperlinkLabelControl();
@@ -179,7 +179,7 @@
             // txtGoTo
             // 
             this.txtGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGoTo.Location = new System.Drawing.Point(775, 2);
+            this.txtGoTo.Location = new System.Drawing.Point(775, 4);
             this.txtGoTo.Name = "txtGoTo";
             this.txtGoTo.Size = new System.Drawing.Size(25, 21);
             this.txtGoTo.TabIndex = 9;
@@ -238,16 +238,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.scContainer);
-            this.DoubleBuffered = true;
             this.Name = "ThreadControlContainer";
             this.Size = new System.Drawing.Size(850, 414);
-            this.panelContainer.ResumeLayout(false);
             this.scContainer.Panel1.ResumeLayout(false);
             this.scContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).EndInit();
             this.scContainer.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
+            this.panelContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

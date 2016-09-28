@@ -149,7 +149,7 @@
             // txtGoTo
             // 
             this.txtGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGoTo.Location = new System.Drawing.Point(734, 2);
+            this.txtGoTo.Location = new System.Drawing.Point(734, 4);
             this.txtGoTo.Name = "txtGoTo";
             this.txtGoTo.Size = new System.Drawing.Size(25, 21);
             this.txtGoTo.TabIndex = 9;

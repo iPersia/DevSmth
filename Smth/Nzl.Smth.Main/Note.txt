@@ -130,6 +130,12 @@
 	    Common_OnThreadEditLinkClicked
 		MbcMailBox_OnMailLinkClicked
 
+    38、诡异的事情
+        ThreadControlContainer构造的时候，竟然自动触发了OnLoad
+        TopicControlContainer构造的时候，则不会由此情况。
+        
+        猜测和ThreadControlContainer的连个HyperlinkLabel有关
+
 经验
 
   1、不要奢望能够直接改动Dock=Fill控件的大小，只能通过改变其容器的大小来达到目的。

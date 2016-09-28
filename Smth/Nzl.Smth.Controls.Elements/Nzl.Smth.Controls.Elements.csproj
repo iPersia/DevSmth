@@ -100,6 +100,12 @@
     <Compile Include="PostControl.Designer.cs">
       <DependentUpon>PostControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThreadControlSrc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThreadControlSrc.Designer.cs">
+      <DependentUpon>ThreadControlSrc.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThreadControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PostControl.resx">
       <DependentUpon>PostControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadControlSrc.resx">
+      <DependentUpon>ThreadControlSrc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThreadControl.resx">
       <DependentUpon>ThreadControl.cs</DependentUpon>

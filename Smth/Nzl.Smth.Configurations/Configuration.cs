@@ -153,9 +153,13 @@
         /// <summary>
         /// 
         /// </summary>
-        private static int staticTitleWordCount = 6;        
-        #endregion
+        private static int staticTitleWordCount = 6;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        private static string staticApplicationTitle = "水木社区";
+        #endregion
 
         #region Properties
         /// <summary>
@@ -364,6 +368,17 @@
             get
             {
                 return staticReadAllReferUrl;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string ApplicationTitle
+        {
+            get
+            {
+                return staticApplicationTitle;
             }
         }        
         #endregion

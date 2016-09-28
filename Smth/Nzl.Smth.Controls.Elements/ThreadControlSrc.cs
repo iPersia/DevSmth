@@ -14,7 +14,7 @@
     /// <summary>
     /// Thread control.
     /// </summary>
-    public partial class ThreadControl : BaseControl<Thread>
+    public partial class ThreadControlSrc : BaseControl<Thread>
     {
         #region events.
         /// <summary>
@@ -67,7 +67,7 @@
         /// <summary>
         /// Ctor.
         /// </summary>
-        public ThreadControl()
+        public ThreadControlSrc()
         {
             InitializeComponent();
             this.linklblID.HyperlinkClick += new HyperlinkClickEventHandler(linklblID_LinkClicked);

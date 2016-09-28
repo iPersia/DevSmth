@@ -168,6 +168,7 @@
             LoginForm.Instance.OnLoginFailed += LoginForm_OnLoginFailed;
             LoginForm.Instance.OnLogoutFailed += LoginForm_OnLogoutFailed;
             this._entryAssemblyTitle = this.GetEntryAssemblyTitle();
+            this.Text = Configuration.ApplicationTitle;
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("Coffee");  // 设置皮肤样式
 
 #if (DEBUG)
@@ -592,7 +593,7 @@
         /// <param name="e"></param>
         private void tcTopics_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Text = (this.tcTopics.SelectedTabPage == null) ? "水木社区" : this.tcTopics.SelectedTabPage.Text;
+            this.Text = (this.tcTopics.SelectedTabPage == null) ? Configuration.ApplicationTitle : this.tcTopics.SelectedTabPage.Text;
         }
 
         /// <summary>

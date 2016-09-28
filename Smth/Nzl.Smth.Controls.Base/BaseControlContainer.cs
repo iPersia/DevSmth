@@ -229,7 +229,7 @@
             PanelControl baseControlContainer = this.GetPanel();
             if (baseControlContainer != null)
             {
-                baseControlContainer.Width = this.Width
+                baseControlContainer.Width = this.GetPanelContainer().Width
                                            - Configuration.BaseControlContainerLocationMargin * 2
                                            - this.GetPanelContainerBoarderMargin();
 #if (DEBUG)
@@ -249,14 +249,14 @@
             if (baseControlContainer != null)
             {
 #if (DEBUG)
-                System.Diagnostics.Debug.WriteLine("BaseContainer - BaseContainer_SizeChanged - FetchPage");
+                System.Diagnostics.Debug.WriteLine("BaseContainer - BaseContainer_SizeChanged - FetchPage - Type is " + this.GetType().ToString());
 #endif
-                int newWidth = this.Width
+                int newWidth = this.GetPanelContainer().Width
                              - Configuration.BaseControlContainerLocationMargin * 2
                              - this.GetPanelContainerBoarderMargin();
-                int absDiff = Math.Abs(baseControlContainer.Width - newWidth);
-                baseControlContainer.Width = newWidth;
-                if (absDiff > 10)
+                //int absDiff = Math.Abs(baseControlContainer.Width - newWidth);
+                //baseControlContainer.Width = newWidth;
+                if (Math.Abs(baseControlContainer.Width - newWidth) > 10)
                 {                    
                     this.SetUrlInfo(false);
                     this.FetchPage();

@@ -111,6 +111,73 @@
             try
             {
                 MatchCollection mtContentCollection = CommonUtil.GetMatchCollection("<div class=\"sp\">", page.Html);
+                IList<Thread> threadList = ThreadFactory.GetThreads(page.Html);
+                string htmlNavi = page.Html;
+                string htmlContent = page.Html;
+                if (threadList.Count == mtContentCollection.Count)
+                {
+                    for (int i = 0; i < threadList.Count; i++)
+                    {
+                        Match mt = mtContentCollection[i];
+                        Thread thread = threadList[i];
+                        if (mt.Success)
+                        {
+                            int startPos = htmlContent.IndexOf(mt.Groups[0].Value.ToString());
+                            htmlContent = htmlContent.Substring(startPos);
+                            string endStr = @"</div>";
+                            int endPos = htmlContent.IndexOf(endStr);
+                            string divstr = htmlContent.Substring(0, endPos + endStr.Length);
+                            htmlContent = htmlContent.Substring(endPos);
+                            if (thread != null)
+                            {
+                                thread.Content = TrimHtmlTag(divstr);
+                                thread.ContentHtml = divstr;
+                                string content = thread.Content;
+                                IList<string> imageUrls = GetImageUrls(ref content);
+                                if (imageUrls.Count > 0)
+                                {
+                                    foreach (string imageUrl in imageUrls)
+                                    {
+                                        CommonUtil.GetWebImage(imageUrl);
+                                    }
+                                }
+
+                                IList<string> iconUrls = GetIconUrls(ref content);
+                                if (iconUrls.Count > 0)
+                                {
+                                    foreach (string iconUrl in iconUrls)
+                                    {
+                                        CommonUtil.GetWebImage(iconUrl);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return threadList;
+            }
+            catch (Exception exp)
+            {
+                if (Logger.Enabled)
+                {
+                    Logger.Instance.Error(exp.Message + "\n" + exp.StackTrace);
+                }
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="html"></param>
+        /// <returns></returns>
+        private static IList<Thread> CreateThreadsX(WebPage page)
+        {
+            try
+            {
+                MatchCollection mtContentCollection = CommonUtil.GetMatchCollection("<div class=\"sp\">", page.Html);
                 //MatchCollection mtNaviCollection = CommonUtil.GetMatchCollection("<div class=\"nav hl\">", page.Html);
                 IList<Thread> threadList = ThreadFactory.GetThreads(page.Html);
                 string htmlNavi = page.Html;
@@ -132,6 +199,7 @@
                             if (thread != null)
                             {
                                 thread.Content = TrimHtmlTag(divstr);
+                                thread.ContentHtml = divstr.Replace("<div class=\"sp\">", "").Replace("</div>", "");
                                 thread.Tag = thread.Content;
                                 string content = thread.Content;
                                 IList<string> imageUrls = GetImageUrls(ref content);

@@ -69,6 +69,7 @@
       <DependentUpon>AtControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlUtil.cs" />
+    <Compile Include="ImageStreamProvider.cs" />
     <Compile Include="ReplyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +171,10 @@
     <ProjectReference Include="..\..\Components\Nzl.Recycling\Nzl.Recycling.csproj">
       <Project>{dc293647-8798-4539-bea1-77185e5c66c1}</Project>
       <Name>Nzl.Recycling</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\Nzl.Repository\Nzl.Repository.csproj">
+      <Project>{34e73dff-0b1d-4820-9df9-f9efe29e23ac}</Project>
+      <Name>Nzl.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\Nzl.Web.Page\Nzl.Web.Page.csproj">
       <Project>{58bc70f0-3ff6-4095-87ac-08a4b7c00f58}</Project>

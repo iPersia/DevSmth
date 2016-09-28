@@ -22,6 +22,7 @@
         {
             try
             {
+                key = typeof(T).ToString() + key;
                 if (_staticDictionary.ContainsKey(key))
                 {
                     return _staticDictionary[key] as T;
@@ -47,6 +48,7 @@
             {
                 try
                 {
+                    key = typeof(T).ToString() + key;
                     if (_staticDictionary.ContainsKey(key) == false)
                     {
                         _staticDictionary.Add(key, value);

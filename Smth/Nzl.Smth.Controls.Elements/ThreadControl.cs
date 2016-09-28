@@ -2,15 +2,14 @@
 {
     using System;
     using System.Drawing;
-    using System.Text.RegularExpressions;
     using System.Windows.Forms;
+    using DevExpress.Office.Services;
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
     using DevExpress.XtraRichEdit.API.Native;
     using Nzl.Smth.Controls.Base;    
     using Nzl.Smth.Datas;
     using Nzl.Smth.Utils;
-    using Nzl.Web.Util;
 
     /// <summary>
     /// Thread control.
@@ -83,9 +82,26 @@
             this.richtxtContent.GotFocus += RichtxtContent_GotFocus;
             this.richtxtContent.SizeChanged += RichtxtContent_SizeChanged;
 
+            ///Used to get image stream.
+            IUriStreamService uriStreamService = this.richtxtContent.GetService<IUriStreamService>();
+            uriStreamService.RegisterProvider(new ImageStreamProvider(this));
+
+            ///
+            this.richtxtContent.DocumentLoaded += RichtxtContent_DocumentLoaded;
+
 #if (DEBUG)
             //this.richtxtContent.BorderStyle = BorderStyle.FixedSingle;
 #endif
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RichtxtContent_DocumentLoaded(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(this.GetHashCode() + "\t ThreadControl - RichtxtContent_DocumentLoaded");
         }
 
         /// <summary>
@@ -158,8 +174,26 @@
 
                 ///Add content.
                 this.richtxtContent.ReadOnly = false;
-                this.richtxtContent.Document.Text = "";
-                this.richtxtContent.AddContent(thread);
+                Document doc = this.richtxtContent.Document;
+                doc.BeginUpdate();
+                try
+                {
+                    this.richtxtContent.Text = thread.ContentHtml;
+                    CharacterProperties cp = doc.BeginUpdateCharacters(0, doc.HtmlText.Length);
+                    cp.FontName = "宋体";
+                    cp.FontSize = 9;
+                    doc.EndUpdateCharacters(cp);
+                }
+                catch
+                {
+
+                }
+                finally
+                {
+                    doc.EndUpdate();
+                }
+
+                
                 this.richtxtContent.ReadOnly = true;
             }
         }
@@ -358,5 +392,5 @@
             }
         }
         #endregion
-    }
+    }    
 }

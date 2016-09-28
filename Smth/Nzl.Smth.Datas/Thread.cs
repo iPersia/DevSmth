@@ -165,7 +165,14 @@
             set;
         }
 
-
+        /// <summary>
+        /// This indicates the thread content whose html has been trimed！
+        /// </summary>
+        public string ContentHtml
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// This indicates the thread content whose html has been trimed！

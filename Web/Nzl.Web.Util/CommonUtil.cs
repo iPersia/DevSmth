@@ -445,8 +445,8 @@
         {
             try
             {
-                Image image = Repository.GetValue<Image>(url);
-                if (image == null)
+                MemoryStream stream = Repository.GetValue<MemoryStream>(url);
+                if (stream == null)
                 {
                     using (WebDownload wd = new WebDownload())
                     {
@@ -454,21 +454,33 @@
                         if (bytes != null)
                         {
                             System.IO.MemoryStream ms = new System.IO.MemoryStream(bytes, 0, bytes.Length);
-                            image = Image.FromStream(ms);
+                            Repository.Add<MemoryStream>(url, ms);
+                            Image image = Image.FromStream(ms);
                             if (image != null)
                             {
                                 Repository.Add<Image>(url, image);
                             }
+
                         }                        
                     }
                 }
 
-                return image;
+                return null;
             }
             catch
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Get web image.
+        /// </summary>
+        /// <param name="url">The image url.</param>
+        /// <returns>The image.</returns>
+        public static Stream GetWebImageStream(string url)
+        {
+            return Repository.GetValue<MemoryStream>(url);
         }
     }
 

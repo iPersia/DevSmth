@@ -88,6 +88,7 @@
       <DependentUpon>MailDetailControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RichEditControlExtensions.cs" />
     <Compile Include="SectionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

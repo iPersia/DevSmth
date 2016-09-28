@@ -1089,7 +1089,7 @@
         /// </summary>
         protected bool FetchPage(UrlInfo<TBaseControl, TBaseData> urlInfo)
         {
-            lock (this)
+            lock (this.GetPanelContainer())
             {
                 if (urlInfo.Index > 0 &&
                     urlInfo.Index <= urlInfo.Total &&

@@ -6,6 +6,7 @@
     using System.Windows.Forms;
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
+    using DevExpress.XtraRichEdit.API.Native;
     using Nzl.Smth.Controls.Base;    
     using Nzl.Smth.Datas;
     using Nzl.Smth.Utils;
@@ -79,18 +80,25 @@
             this.linklblDelete.HyperlinkClick += new HyperlinkClickEventHandler(linklblDelete_LinkClicked);
             this.richtxtContent.MouseWheel += new MouseEventHandler(richtxtContent_MouseWheel);
 
-            System.Drawing.Font currentFont = this.richtxtContent.SelectionFont;
-            this.richtxtContent.Font = new Font(currentFont.FontFamily, 11, FontStyle.Regular);
             this.richtxtContent.GotFocus += RichtxtContent_GotFocus;
-
-            ///Need to be optimized.
-            this.richtxtContent.WordWrap = true;
-            this.richtxtContent.ScrollBars = RichTextBoxScrollBars.None;
-            this.richtxtContent.ContentsResized += new ContentsResizedEventHandler(richtxtContent_ContentsResized);
+            this.richtxtContent.SizeChanged += RichtxtContent_SizeChanged;
 
 #if (DEBUG)
             //this.richtxtContent.BorderStyle = BorderStyle.FixedSingle;
 #endif
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RichtxtContent_SizeChanged(object sender, EventArgs e)
+        {
+            this.Height = this.richtxtContent.Top
+                        + this.richtxtContent.Height
+                        + (this.richtxtContent.Top - this.panelTitle.Top - this.panelTitle.Height)
+                        + 2;            
         }
 
         /// <summary>
@@ -106,32 +114,15 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void richtxtContent_ContentsResized(object sender, ContentsResizedEventArgs e)
-        {
-#if (X)
-            System.Diagnostics.Debug.WriteLine("richtxtContent_ContentsResized - "
-                                              + "Url - " + (this.Tag as Thread).Url + "\t"
-                                              + "Floor -" + (this.Tag as Thread).Floor + "\t"
-                                              + "NewSize - " + e.NewRectangle.Size);
-#endif
-            RichTextBox rtb = sender as RichTextBox;
-            if (rtb != null)
-            {
-                rtb.Size = e.NewRectangle.Size;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="thread"></param>
         public override void Initialize(Thread thread)
         {
             base.Initialize(thread);
             if (thread != null)
             {
+                ///Name
+                this.Name = "tc" + thread.ID;
+
                 ///Floor
                 this.lblFloor.Visible = true;
                 if (thread.Floor == "楼主")
@@ -166,16 +157,10 @@
                 this.InitializeLinkLabel(this.linklblID, thread.User, thread.User);
 
                 ///Add content.
-                this.Name = "tc" + thread.ID;
-                this.richtxtContent.Clear();
-                this.richtxtContent.BorderStyle = BorderStyle.None;
-                ControlUtil.AddContent(this.richtxtContent, thread);
-                this.Height = this.richtxtContent.Top
-                            + this.richtxtContent.Height
-                            + 15;
-
+                this.richtxtContent.ReadOnly = false;
+                this.richtxtContent.Document.Text = "";
+                this.richtxtContent.AddContent(thread);
                 this.richtxtContent.ReadOnly = true;
-                this.richtxtContent.ShortcutsEnabled = false;
             }
         }
 
@@ -201,12 +186,7 @@
         {
             set
             {
-                //this.panel.BackColor = value;
-                if (value == Color.White)
-                {
-                    //this.richtxtContent.BackColor = this.panelTitle.BackColor;
-                    //this.richtxtContent.BackColor = value;
-                }
+                this.richtxtContent.Views.SimpleView.BackColor = value;
             }
         }
 
@@ -374,10 +354,7 @@
             HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
-                this.richtxtContent.SelectAll();
-                Clipboard.SetData(DataFormats.Rtf, this.richtxtContent.SelectedRtf);
-                this.richtxtContent.DeselectAll();
-                //e.Link.Visited = true;
+                this.richtxtContent.Copy();
             }
         }
         #endregion

@@ -40,7 +40,7 @@
             this.linklblQuryType = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblReply = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.lblCopy = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.richtxtContent = new Nzl.Controls.RichTextBoxEx();
+            this.richtxtContent = new DevExpress.XtraRichEdit.RichEditControl();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelTitle)).BeginInit();
@@ -51,7 +51,7 @@
             // 
             this.lblFloor.Appearance.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblFloor.Appearance.Options.UseFont = true;
-            this.lblFloor.Location = new System.Drawing.Point(2, 5);
+            this.lblFloor.Location = new System.Drawing.Point(11, 5);
             this.lblFloor.Name = "lblFloor";
             this.lblFloor.Size = new System.Drawing.Size(36, 12);
             this.lblFloor.TabIndex = 0;
@@ -76,8 +76,8 @@
             this.panel.Appearance.Options.UseBackColor = true;
             this.panel.AutoSize = true;
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel.Controls.Add(this.panelTitle);
             this.panel.Controls.Add(this.richtxtContent);
+            this.panel.Controls.Add(this.panelTitle);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
@@ -136,6 +136,7 @@
             this.linklblTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linklblTransfer.Appearance.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linklblTransfer.Appearance.Options.UseFont = true;
+            this.linklblTransfer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linklblTransfer.Location = new System.Drawing.Point(520, 5);
             this.linklblTransfer.Name = "linklblTransfer";
             this.linklblTransfer.Size = new System.Drawing.Size(48, 12);
@@ -160,6 +161,7 @@
             this.linklblMail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linklblMail.Appearance.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linklblMail.Appearance.Options.UseFont = true;
+            this.linklblMail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linklblMail.Location = new System.Drawing.Point(432, 5);
             this.linklblMail.Name = "linklblMail";
             this.linklblMail.Size = new System.Drawing.Size(24, 12);
@@ -173,6 +175,7 @@
             this.linklblQuryType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linklblQuryType.Appearance.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linklblQuryType.Appearance.Options.UseFont = true;
+            this.linklblQuryType.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linklblQuryType.Location = new System.Drawing.Point(589, 5);
             this.linklblQuryType.Name = "linklblQuryType";
             this.linklblQuryType.Size = new System.Drawing.Size(42, 12);
@@ -185,6 +188,7 @@
             this.linklblReply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linklblReply.Appearance.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linklblReply.Appearance.Options.UseFont = true;
+            this.linklblReply.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linklblReply.Location = new System.Drawing.Point(472, 5);
             this.linklblReply.Name = "linklblReply";
             this.linklblReply.Size = new System.Drawing.Size(30, 12);
@@ -198,6 +202,7 @@
             this.lblCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCopy.Appearance.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblCopy.Appearance.Options.UseFont = true;
+            this.lblCopy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCopy.Location = new System.Drawing.Point(651, 5);
             this.lblCopy.Name = "lblCopy";
             this.lblCopy.Size = new System.Drawing.Size(24, 12);
@@ -208,19 +213,22 @@
             // 
             // richtxtContent
             // 
-            this.richtxtContent.BackColor = System.Drawing.SystemColors.Control;
-            this.richtxtContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtxtContent.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.richtxtContent.HiglightColor = Nzl.Controls.RtfColor.White;
-            this.richtxtContent.Location = new System.Drawing.Point(17, 43);
+            this.richtxtContent.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.richtxtContent.Appearance.Text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richtxtContent.Appearance.Text.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.richtxtContent.Appearance.Text.Options.UseBackColor = true;
+            this.richtxtContent.Appearance.Text.Options.UseFont = true;
+            this.richtxtContent.Appearance.Text.Options.UseTextOptions = true;
+            this.richtxtContent.Appearance.Text.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.richtxtContent.AutoSizeMode = DevExpress.XtraRichEdit.AutoSizeMode.Vertical;
+            this.richtxtContent.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.richtxtContent.Location = new System.Drawing.Point(16, 39);
             this.richtxtContent.Name = "richtxtContent";
-            this.richtxtContent.Size = new System.Drawing.Size(665, 43);
-            this.richtxtContent.TabIndex = 2;
-            this.richtxtContent.TabStop = false;
-            this.richtxtContent.Text = "";
-            this.richtxtContent.TextColor = Nzl.Controls.RtfColor.Black;
-            this.richtxtContent.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richtxtContent_LinkClicked);
-            this.richtxtContent.Enter += new System.EventHandler(this.richtxtContent_Enter);
+            this.richtxtContent.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.richtxtContent.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.richtxtContent.Size = new System.Drawing.Size(664, 21);
+            this.richtxtContent.TabIndex = 12;
+            this.richtxtContent.Text = "Text....";
             // 
             // ThreadControl
             // 
@@ -245,8 +253,6 @@
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblID;
         private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.LabelControl lblDateTime;
-        //private System.Windows.Forms.RichTextBox richtxtContent;
-        private Nzl.Controls.RichTextBoxEx richtxtContent;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblQuryType;
         private DevExpress.XtraEditors.HyperlinkLabelControl lblCopy;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblReply;
@@ -255,5 +261,6 @@
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblDelete;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblEdit;
         private DevExpress.XtraEditors.PanelControl panelTitle;
+        private DevExpress.XtraRichEdit.RichEditControl richtxtContent;
     }
 }

@@ -45,7 +45,7 @@
             this.richEditControl1.Name = "richEditControl1";
             this.richEditControl1.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
             this.richEditControl1.ReadOnly = true;
-            this.richEditControl1.Size = new System.Drawing.Size(320, 447);
+            this.richEditControl1.Size = new System.Drawing.Size(320, 196);
             this.richEditControl1.TabIndex = 0;
             this.richEditControl1.Text = "<h1>Big</h1>";
             // 

@@ -64,6 +64,12 @@
     <Compile Include="ReplyControlContainer.Designer.cs">
       <DependentUpon>ReplyControlContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThreadControlContainerSrc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThreadControlContainerSrc.Designer.cs">
+      <DependentUpon>ThreadControlContainerSrc.cs</DependentUpon>
+    </Compile>
     <Compile Include="TopicControlContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="ReplyControlContainer.resx">
       <DependentUpon>ReplyControlContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadControlContainerSrc.resx">
+      <DependentUpon>ThreadControlContainerSrc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TopicControlContainer.resx">
       <DependentUpon>TopicControlContainer.cs</DependentUpon>

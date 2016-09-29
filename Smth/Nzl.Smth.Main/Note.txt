@@ -134,7 +134,14 @@
         ThreadControlContainer构造的时候，竟然自动触发了OnLoad
         TopicControlContainer构造的时候，则不会由此情况。
         
-        猜测和ThreadControlContainer的连个HyperlinkLabel有关
+        猜测和ThreadControlContainer的连个HyperlinkLabel有关。
+
+		确认无误。
+
+	39、卡顿
+	   ThreadControlContainer卡顿
+
+	   和38有关。
 
 经验
 

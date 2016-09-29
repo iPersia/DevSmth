@@ -204,8 +204,11 @@
                                   - this.GetPanelContainerBoarderMargin();
 
             ///Add message label.
+            this._ppMessage.Appearance.Options.UseBackColor = true;
+            this._ppMessage.Appearance.Options.UseForeColor = true;
             this._ppMessage.BackColor = Color.Transparent;
             this._ppMessage.ForeColor = Color.OrangeRed;
+            this._ppMessage.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Line;
             this._ppMessage.Hide();
             this.GetPanelContainer().Controls.Remove(this.GetPanel());
             this.GetPanelContainer().Controls.Add(this._ppMessage);
@@ -551,7 +554,7 @@
             }
             else
             {
-                this.GetPanelContainer().Enabled = flag;                
+                this.GetPanel().Enabled = flag;                
             }
         }
 
@@ -868,7 +871,7 @@
                     this._ppMessage.AutoSize = true;
                     this._ppMessage.Description = text;
                     this._ppMessage.Top = panelContainer.Height * 8 / 10;
-                    this._ppMessage.Left = (panelContainer.Width - this._ppMessage.Width) / 2;
+                    this._ppMessage.Left = (panelContainer.Width - this._ppMessage.Width) / 2;                    
                     this._ppMessage.Show();
                 }
 

@@ -178,7 +178,7 @@
                 doc.BeginUpdate();
                 try
                 {
-                    this.richtxtContent.Text = thread.ContentHtml;
+                    this.richtxtContent.HtmlText = thread.ContentHtml;
                     CharacterProperties cp = doc.BeginUpdateCharacters(0, doc.HtmlText.Length);
                     cp.FontName = "宋体";
                     cp.FontSize = 9;

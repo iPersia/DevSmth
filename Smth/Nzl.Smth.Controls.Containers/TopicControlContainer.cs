@@ -6,6 +6,7 @@
     using System.Drawing;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraBars;
     using DevExpress.XtraEditors;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
@@ -159,7 +160,7 @@
         {
             base.WorkCompleted(info);
             this.UpdateBoardTitle(info.WebPage);
-            this.lblPage.Text = info.Index.ToString().PadLeft(6, '0') + "/" + info.Total.ToString().PadLeft(6, '0');
+            this.bsiPage.Caption = info.Index.ToString().PadLeft(6, '0') + "/" + info.Total.ToString().PadLeft(6, '0');
 
             ///Fetch next page when the container is not full.
             ///The condition is the previous loading is good.
@@ -259,15 +260,15 @@
         {
             base.SetControlEnabled(flag);
 
-            this.btnFirst.Enabled = flag;
-            this.btnPrev.Enabled = flag;
-            this.btnNext.Enabled = flag;
-            this.btnLast.Enabled = flag;
-            this.btnGo.Enabled = flag;
-            this.btnSettings.Enabled = flag;
-            this.txtGoTo.Enabled = flag;
+            this.bbiFirst.Enabled = flag;
+            this.bbiPrev.Enabled = flag;
+            this.bbiNext.Enabled = flag;
+            this.bbiLast.Enabled = flag;
+            this.bbiGo.Enabled = flag;
+            this.bbiSettings.Enabled = flag;
+            this.beiGo.Enabled = flag;
 
-            this.btnRefresh.Enabled = true;
+            this.bbiRefresh.Enabled = true;
         }
 
         /// <summary>
@@ -276,7 +277,7 @@
         /// <param name="isLogin"></param>
         protected override void OnLoginStatusChanged(bool isLogin)
         {
-            this.btnNew.Visible = isLogin;
+            this.bbiNew.Visibility = isLogin ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
         }
 
         /// <summary>
@@ -308,7 +309,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnFirst_Click(object sender, EventArgs e)
+        private void bbiFirst_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(1, false);
             this.FetchPage();
@@ -319,7 +320,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnPrev_Click(object sender, EventArgs e)
+        private void bbiPrev_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchPrevPage();
@@ -330,7 +331,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnNext_Click(object sender, EventArgs e)
+        private void bbiNext_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchNextPage();
@@ -341,7 +342,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnLast_Click(object sender, EventArgs e)
+        private void bbiLast_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchLastPage();
@@ -352,7 +353,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchPage();
@@ -363,20 +364,20 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnGo_Click(object sender, EventArgs e)
+        private void bbiGo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
                 int pageIndex = Int32.MaxValue;
-                if (string.IsNullOrEmpty(this.txtGoTo.Text) == false)
+                if (this.beiGo.EditValue != null && string.IsNullOrEmpty(this.beiGo.EditValue.ToString()) == false)
                 {
-                    pageIndex = System.Convert.ToInt32(this.txtGoTo.Text);
+                    pageIndex = System.Convert.ToInt32(this.beiGo.EditValue);
                 }
 
 
                 this.SetUrlInfo(pageIndex, false);
                 this.FetchPage();
-                this.txtGoTo.Text = "";
+                this.beiGo.EditValue = "";
             }
             catch (Exception exp)
             {
@@ -396,18 +397,54 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnNew_Click(object sender, EventArgs e)
+        private void bbiOpenInBrowser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            SimpleButton sb = sender as SimpleButton;
-            if (this.OnNewClicked != null && sb != null)
+            CommonUtil.OpenUrl(this.GetCurrentUrl());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiSettings_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (this.OnBoardSettingsClicked != null)
             {
-                sb.Tag = null;
+                BoardSettingEventArgs bsEventArgs = new BoardSettingEventArgs();
+                bsEventArgs.IsShowTop = this._Settings.IsShowTop;
+                bsEventArgs.AutoUpdating = this._Settings.AutoUpdating;
+                bsEventArgs.BrowserType = this._Settings.BrowserType;
+                bsEventArgs.UpdatingInterval = this._Settings.UpdatingInterval;
+                this.OnBoardSettingsClicked(sender, bsEventArgs);
+                if (bsEventArgs.Tag != null && bsEventArgs.Tag.ToString() == "Updated")
+                {
+                    this._Settings.IsShowTop = bsEventArgs.IsShowTop;
+                    this._Settings.AutoUpdating = bsEventArgs.AutoUpdating;
+                    this._Settings.BrowserType = bsEventArgs.BrowserType;
+                    this._Settings.UpdatingInterval = bsEventArgs.UpdatingInterval;
+                    ApplyBoardSetting();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            BarManager bm = sender as BarManager;
+            if (this.OnNewClicked != null && bm != null)
+            {
+                e.Item.Tag = null;                
                 HyperlinkClickEventArgs hcea = new HyperlinkClickEventArgs();
                 hcea.Link = Configs.Configuration.BaseUrl + "/article/" + this.Board + "/post";
                 this.OnNewClicked(sender, hcea);
-                if (sb.Tag != null)
+                if (e.Item.Tag != null)
                 {
-                    string postString = sb.Tag.ToString();
+                    string postString = e.Item.Tag.ToString();
                     if (string.IsNullOrEmpty(postString) == false)
                     {
                         PostLoader pl = new PostLoader(hcea.Link, postString);
@@ -418,9 +455,9 @@
                     }
                 }
 
-                sb.Tag = null;
+                e.Item.Tag = null;
             }
-        }
+        }                
 
         #region NewTopic - Succeeded & Failed
         /// <summary>
@@ -455,43 +492,7 @@
             this.ShowInformation("Creating new post failed!");
         }
         #endregion
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            if (this.OnBoardSettingsClicked != null)
-            {
-                BoardSettingEventArgs bsEventArgs = new BoardSettingEventArgs();
-                bsEventArgs.IsShowTop = this._Settings.IsShowTop;
-                bsEventArgs.AutoUpdating = this._Settings.AutoUpdating;
-                bsEventArgs.BrowserType = this._Settings.BrowserType;
-                bsEventArgs.UpdatingInterval = this._Settings.UpdatingInterval;
-                this.OnBoardSettingsClicked(sender, bsEventArgs);
-                if (bsEventArgs.Tag != null && bsEventArgs.Tag.ToString() == "Updated")
-                {
-                    this._Settings.IsShowTop = bsEventArgs.IsShowTop;
-                    this._Settings.AutoUpdating = bsEventArgs.AutoUpdating;
-                    this._Settings.BrowserType = bsEventArgs.BrowserType;
-                    this._Settings.UpdatingInterval = bsEventArgs.UpdatingInterval;
-                    ApplyBoardSetting();
-                }
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnOpenInBrower_Click(object sender, EventArgs e)
-        {
-            CommonUtil.OpenUrl(this.GetCurrentUrl());
-        }
-
+        
         /// <summary>
         /// 
         /// </summary>

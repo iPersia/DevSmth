@@ -7,6 +7,7 @@ namespace Nzl.Smth.Controls.Containers
     using System.Drawing;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraBars;
     using DevExpress.XtraEditors;
     using Nzl.Recycling;
     using Nzl.Smth;
@@ -174,9 +175,9 @@ namespace Nzl.Smth.Controls.Containers
                 this._targetUserID = value;
                 if (string.IsNullOrEmpty(this._targetUserID) == false)
                 {
-                    this.btnSettings.Visible = false;
-                    this.linklblBoard.Visible = false;
-                    this.linklblReply.Visible = false;
+                    this.bbiSettings.Visibility =  BarItemVisibility.Never;
+                    this.bbiBoard.Visibility = BarItemVisibility.Never;
+                    this.bbiReply.Visibility = BarItemVisibility.Never;
                 }
             }
         }
@@ -191,20 +192,7 @@ namespace Nzl.Smth.Controls.Containers
             InitializeComponent();
             this._updatingTimer.Tick += _updatingTimer_Tick;
             this.Text = "Topic";
-            {
-                this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
-                this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-                this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-                this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
-                this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
-
-                this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-                this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-                this.btnOpenInBrowser.Click += new System.EventHandler(this.btnOpenInBrowser_Click);
-                this.linklblReply.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblReply_LinkClicked);
-                this.linklblBoard.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.linklblBoard_LinkClicked);
-            }
-
+            
             ///Initialize settings.
             this._Settings = new TopicSettingEventArgs();
         }
@@ -248,7 +236,7 @@ namespace Nzl.Smth.Controls.Containers
             if (info.Status == PageStatus.Normal)
             {
                 this.UpdateInfor(info.WebPage);
-                this.lblPage.Text = info.Index.ToString().PadLeft(3, '0') + "/" + info.Total.ToString().PadLeft(3, '0');
+                this.bsiPage.Caption = info.Index.ToString().PadLeft(3, '0') + "/" + info.Total.ToString().PadLeft(3, '0');
                 this._resultUrlInfo = info;
 
                 ///Save the host thread.
@@ -442,20 +430,15 @@ namespace Nzl.Smth.Controls.Containers
         {
             base.SetControlEnabled(flag);
 
-            this.btnFirst.Enabled = flag;
-            this.btnPrev.Enabled = flag;
-            this.btnNext.Enabled = flag;
-            this.btnLast.Enabled = flag;
-            this.btnGo.Enabled = flag;
-            this.btnSettings.Enabled = flag;
-            this.txtGoTo.Enabled = flag;
+            this.bbiFirst.Enabled = flag;
+            this.bbiPrev.Enabled = flag;
+            this.bbiNext.Enabled = flag;
+            this.bbiLast.Enabled = flag;
+            this.bbiGo.Enabled = flag;
+            this.bbiSettings.Enabled = flag;
+            this.beiGo.Enabled = flag;
 
-            this.btnRefresh.Enabled = true;
-        }
-
-        protected override void UpdateProgress(int proc)
-        {
-            this.btnFirst.Text = (proc * 11111).ToString();
+            this.bbiRefresh.Enabled = true;
         }
 
         /// <summary>
@@ -480,10 +463,10 @@ namespace Nzl.Smth.Controls.Containers
         /// <param name="isLogin"></param>
         protected override void OnLoginStatusChanged(bool isLogin)
         {
-            this.linklblReply.Visible = false;
+            this.bbiReply.Visibility = BarItemVisibility.Never;
             if (string.IsNullOrEmpty(this._targetUserID) == false)
             {
-                this.linklblReply.Visible = isLogin && string.IsNullOrEmpty(this._postUrl) == false;
+                this.bbiReply.Visibility = isLogin && string.IsNullOrEmpty(this._postUrl) == false ? BarItemVisibility.Always : BarItemVisibility.Never;
             }
         }
 
@@ -534,7 +517,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnFirst_Click(object sender, EventArgs e)
+        private void bbiFirst_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             if (this._Settings.BrowserType == ThreadBrowserType.FirstReply)
@@ -553,7 +536,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnPrev_Click(object sender, EventArgs e)
+        private void bbiPrev_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             if (this._Settings.BrowserType == ThreadBrowserType.LastReply)
@@ -571,7 +554,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnNext_Click(object sender, EventArgs e)
+        private void bbiNext_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             if (this._Settings.BrowserType == ThreadBrowserType.FirstReply)
@@ -589,7 +572,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnLast_Click(object sender, EventArgs e)
+        private void bbiLast_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             if (this._Settings.BrowserType == ThreadBrowserType.LastReply)
@@ -608,7 +591,47 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnSettings_Click(object sender, EventArgs e)
+        private void bbiGo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                int pageIndex = Int32.MaxValue;
+                if (this.beiGo.EditValue != null && string.IsNullOrEmpty(this.beiGo.EditValue.ToString()) == false)
+                {
+                    pageIndex = System.Convert.ToInt32(this.beiGo.EditValue.ToString());
+                }
+
+                if (this._Settings.BrowserType == ThreadBrowserType.FirstReply)
+                {
+                    this.SetUrlInfo(pageIndex, false);
+                }
+                else
+                {
+                    this.SetUrlInfo(this._resultUrlInfo.Total - pageIndex + 1, false);
+                }
+
+                this.FetchPage();
+                this.beiGo.EditValue = "";
+            }
+            catch (Exception exp)
+            {
+                if (Logger.Enabled)
+                {
+                    Logger.Instance.Error(exp.Message + "\n" + exp.StackTrace);
+                }
+
+#if (DEBUG)
+                CommonUtil.ShowMessage(typeof(ThreadControlContainer), exp.Message);
+#endif
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiSettings_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (this.OnTopicSettingsClicked != null)
             {
@@ -624,6 +647,67 @@ namespace Nzl.Smth.Controls.Containers
                     this._Settings.UpdatingInterval = tsEventArgs.UpdatingInterval;
                     ApplyTopicSetting();
                 }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.SetUrlInfo(false);
+            this.FetchPage();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiReply_HyperlinkClick(object sender, HyperlinkClickEventArgs e)
+        {
+            BarManager bm = sender as BarManager;
+            if (this.OnTopicReplyLinkClicked != null && bm != null)
+            {
+                e.Text = null;
+                this.OnTopicReplyLinkClicked(sender, e);
+                if (this.Text != null)
+                {
+                    string postString = e.Text;
+                    if (string.IsNullOrEmpty(postString) == false)
+                    {
+                        PostLoader pl = new PostLoader(this._postUrl, postString);
+                        pl.ErrorAccured += PostLoader_ErrorAccured;
+                        pl.Succeeded += ThreadReply_Succeeded;
+                        pl.Failed += ThreadReply_Failed;
+                        pl.Start();
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiOpenInBrowser_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CommonUtil.OpenUrl(this.GetCurrentUrl());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiBoard_HyperlinkClick(object sender, HyperlinkClickEventArgs e)
+        {
+            if (this.OnBoardLinkClicked != null)
+            {
+                this.OnBoardLinkClicked(sender, e);
             }
         }
 
@@ -652,88 +736,7 @@ namespace Nzl.Smth.Controls.Containers
                 this.FetchLastPage();
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnGo_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Button btn = sender as Button;
-                int pageIndex = Int32.MaxValue;
-                if (string.IsNullOrEmpty(this.txtGoTo.Text) == false)
-                {
-                    pageIndex = System.Convert.ToInt32(this.txtGoTo.Text);
-                }
-
-                if (this._Settings.BrowserType == ThreadBrowserType.FirstReply)
-                {
-                    this.SetUrlInfo(pageIndex, false);
-                }
-                else
-                {
-                    this.SetUrlInfo(this._resultUrlInfo.Total - pageIndex + 1, false);
-                }
-
-                this.FetchPage();
-            }
-            catch (Exception exp)
-            {
-                if (Logger.Enabled)
-                {
-                    Logger.Instance.Error(exp.Message + "\n" + exp.StackTrace);
-                }
-
-#if (DEBUG)
-                CommonUtil.ShowMessage(typeof(ThreadControlContainer), exp.Message);
-#endif
-            }
-        }
         
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            this.SetUrlInfo(false);
-            this.FetchPage();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void linklblReply_LinkClicked(object sender, HyperlinkClickEventArgs e)
-        {
-            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
-            if (this.OnTopicReplyLinkClicked != null && hlc != null)
-            {
-                hlc.Tag = null;
-                this.OnTopicReplyLinkClicked(sender, e);
-                if (hlc.Tag != null)
-                {
-                    string postString = hlc.Tag.ToString();
-                    hlc.Tag = null;
-                    if (string.IsNullOrEmpty(postString) == false)
-                    {
-                        PostLoader pl = new PostLoader(this._postUrl, postString);
-                        pl.ErrorAccured += PostLoader_ErrorAccured;
-                        pl.Succeeded += ThreadReply_Succeeded;
-                        pl.Failed += ThreadReply_Failed;
-                        pl.Start();
-                    }
-                }
-
-                hlc.Tag = null;
-            }
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -767,20 +770,7 @@ namespace Nzl.Smth.Controls.Containers
             this.ShowInformation("Replying the thread failed!");
         }
         #endregion
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void linklblBoard_LinkClicked(object sender, HyperlinkClickEventArgs e)
-        {
-            if (this.OnBoardLinkClicked != null)
-            {
-                this.OnBoardLinkClicked(sender, e);
-            }
-        }
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -1014,16 +1004,6 @@ namespace Nzl.Smth.Controls.Containers
                 this.OnThreadContentLinkClicked(sender, e);
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnOpenInBrowser_Click(object sender, EventArgs e)
-        {
-            CommonUtil.OpenUrl(this.GetCurrentUrl());
-        }
         #endregion
 
         #region Updating
@@ -1046,31 +1026,31 @@ namespace Nzl.Smth.Controls.Containers
 
             this._subject = this._topic;//CommonUtil.GetMatch(@"<input type=\Whidden\W name=\Wsubject\W value=\W(?'subject'Re[0-9A-Z,%,~,-]+)\W\s/>", html, 1);
             this._postUrl = CommonUtil.GetMatch(@"<form action=\W(?'post'/article/[\w, %2E, %5F, \.]+/post/\d+)\W method=\Wpost\W>", wp.Html, 1);
-            this.linklblReply.Visible = false;
+            this.bbiReply.Caption = "Reply";
             if (string.IsNullOrEmpty(this._postUrl) == false)
             {
                 this._postUrl.Replace("%2E", ".");
                 this._postUrl.Replace("%5F", "_");
                 this._postUrl = Configuration.BaseUrl + this._postUrl;
 
-                this.linklblReply.Visible = string.IsNullOrEmpty(this._targetUserID);
-                this.linklblReply.Text = ControlUtil.GetHyperlinkText(this.linklblReply.Text, this._postUrl);
+                this.bbiReply.Visibility = string.IsNullOrEmpty(this._targetUserID) ? BarItemVisibility.Always : BarItemVisibility.Never;
+                this.bbiReply.Caption = ControlUtil.GetHyperlinkText(this.bbiReply.Caption, this._postUrl);
             }
-
+            
             string board = SmthUtil.GetBoard(wp);
-            this.linklblBoard.Visible = false;
+            this.bbiBoard.Caption = "Board";
             if (board != null && string.IsNullOrEmpty(this._targetUserID))
             {
                 string engBoardName = CommonUtil.GetMatch(@"\((?'Board'.+)\)", board, "Board");
                 string chnBoardName = board.Replace("(" + engBoardName + ")", "");
-                this.linklblBoard.Visible = true;
-                this.linklblBoard.Text = chnBoardName;
-                this.linklblBoard.Text = ControlUtil.GetHyperlinkText(this.linklblBoard.Text, engBoardName);
+                this.bbiBoard.Caption = chnBoardName;
+                this.bbiBoard.Caption = ControlUtil.GetHyperlinkText(this.bbiBoard.Caption, engBoardName);
             }
 
-            this.linklblReply.Visible = LogStatus.Instance.IsLogin && string.IsNullOrEmpty(this._targetUserID);
+            this.bbiReply.Visibility = LogStatus.Instance.IsLogin && string.IsNullOrEmpty(this._targetUserID) ? BarItemVisibility.Always : BarItemVisibility.Never;
         }
         #endregion
+
 #endif
     }
 }

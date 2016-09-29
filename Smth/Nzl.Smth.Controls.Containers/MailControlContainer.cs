@@ -180,7 +180,7 @@
         protected override void WorkCompleted(UrlInfo<MailControl, Mail> info)
         {
             base.WorkCompleted(info);
-            this.lblPage.Text = info.Index.ToString().PadLeft(3, '0') + "/" + info.Total.ToString().PadLeft(3, '0');
+            this.bsiPage.Caption = info.Index.ToString().PadLeft(3, '0') + "/" + info.Total.ToString().PadLeft(3, '0');
             if (this._mailBoxType == MailBoxType.Inbox)
             {
                 MailStatus.Instance.UpdateStatus(info.WebPage);
@@ -216,14 +216,14 @@
         {
             base.SetControlEnabled(flag);
 
-            this.btnFirst.Enabled = flag;
-            this.btnPrev.Enabled = flag;
-            this.btnNext.Enabled = flag;
-            this.btnLast.Enabled = flag;
-            this.btnGo.Enabled = flag;
-            this.txtGoTo.Enabled = flag;
+            this.bbiFirst.Enabled = flag;
+            this.bbiPrev.Enabled = flag;
+            this.bbiNext.Enabled = flag;
+            this.bbiLast.Enabled = flag;
+            this.bbiGo.Enabled = flag;
+            this.beiGo.Enabled = flag;
 
-            this.btnRefresh.Enabled = true;
+            this.bbiRefresh.Enabled = true;
         }
 
         /// <summary>
@@ -232,7 +232,7 @@
         /// <param name="isLogin"></param>
         protected override void OnLoginStatusChanged(bool isLogin)
         {
-            this.btnNew.Visible = isLogin;
+            this.bbiNew.Visibility = isLogin ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
         }
         #endregion
 
@@ -242,7 +242,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnFirst_Click(object sender, EventArgs e)
+        private void bbiFirst_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(1, false);
             this.FetchPage();
@@ -253,7 +253,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnPrev_Click(object sender, EventArgs e)
+        private void bbiPrev_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchPrevPage();
@@ -264,7 +264,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnNext_Click(object sender, EventArgs e)
+        private void bbiNext_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchNextPage();
@@ -275,7 +275,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnLast_Click(object sender, EventArgs e)
+        private void bbiLast_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchLastPage();
@@ -286,7 +286,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchPage();
@@ -297,18 +297,19 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnGo_Click(object sender, EventArgs e)
+        private void bbiGo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
                 int pageIndex = Int32.MaxValue;
-                if (string.IsNullOrEmpty(this.txtGoTo.Text) == false)
+                if (this.beiGo.EditValue != null && string.IsNullOrEmpty(this.beiGo.EditValue.ToString()) == false)
                 {
-                    pageIndex = System.Convert.ToInt32(this.txtGoTo.Text);
+                    pageIndex = System.Convert.ToInt32(this.beiGo.EditValue);
                 }
 
                 this.SetUrlInfo(pageIndex, false);
                 this.FetchPage();
+                this.beiGo.EditValue = "";
             }
             catch (Exception exp)
             {
@@ -328,7 +329,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnOpenInBrower_Click(object sender, EventArgs e)
+        private void bbiOpenInBrowser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             CommonUtil.OpenUrl(this.GetCurrentUrl());
         }
@@ -338,15 +339,15 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnNew_Click(object sender, EventArgs e)
+        private void btnNew_Click(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (this.OnNewMailClicked != null)
             {
+                e.Item.Tag = null;
                 this.OnNewMailClicked(sender, e);
-                Button btn = sender as Button;
-                if (btn != null && btn.Tag != null)
+                if (e.Item.Tag != null)
                 {
-                    string postString = btn.Tag as string;
+                    string postString = e.Item.Tag as string;
                     if (string.IsNullOrEmpty(postString) == false)
                     {
                         PostLoader pl = new PostLoader(Configuration.SendMailUrl, postString);

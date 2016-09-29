@@ -259,11 +259,11 @@
                              - this.GetPanelContainerBoarderMargin();
                 //int absDiff = Math.Abs(baseControlContainer.Width - newWidth);
                 //baseControlContainer.Width = newWidth;
-                if (Math.Abs(baseControlContainer.Width - newWidth) > 10)
-                {                    
+                //if (Math.Abs(baseControlContainer.Width - newWidth) > 10)
+                //{                    
                     this.SetUrlInfo(false);
                     this.FetchPage();
-                }
+                //}
             }
         }
         #endregion

@@ -221,6 +221,7 @@
                 ThreadControlContainer tbc = RecycledQueues.GetRecycled<ThreadControlContainer>();
                 if (tbc == null)
                 {
+                    
                     tbc = new ThreadControlContainer();
                 }
 
@@ -281,11 +282,10 @@
         /// <param name="e"></param>
         private void ThreadControlContainer_OnBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
-            if (hlc != null)
+            DevExpress.XtraBars.BarManager bm= sender as DevExpress.XtraBars.BarManager;
+            if (bm != null)
             {
-                this.AddBoard(e.Link, TopicBrowserType.Subject, hlc.PlainText);
-                //e.Link.Visited = true;
+                this.AddBoard(e.Link, TopicBrowserType.Subject, e.Text);
             }
         }
 
@@ -296,15 +296,15 @@
         /// <param name="e"></param>
         private void ThreadControlContainer_OnTopicReplyLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
-            if (hlc != null)
+            DevExpress.XtraBars.BarManager bm = sender as DevExpress.XtraBars.BarManager;
+            if (bm != null)
             {
                 NewThreadForm threadForm = new NewThreadForm("回复 - " + this.Text,
                                                              "Re: " + this.tcTopics.SelectedTabPage.Text);
                 threadForm.StartPosition = FormStartPosition.CenterParent;
                 if (DialogResult.OK == threadForm.ShowDialog(this))
                 {
-                    hlc.Tag = threadForm.GetPostString();
+                    e.Text = threadForm.GetPostString();
                 }
             }
         }

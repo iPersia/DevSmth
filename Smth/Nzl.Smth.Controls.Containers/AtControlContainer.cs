@@ -146,7 +146,7 @@
         protected override void WorkCompleted(UrlInfo<AtControl, At> info)
         {
             base.WorkCompleted(info);
-            this.lblPage.Text = info.Index.ToString().PadLeft(3, '0') + "/" + info.Total.ToString().PadLeft(3, '0');
+            this.bsiPage.Caption = info.Index.ToString().PadLeft(3, '0') + "/" + info.Total.ToString().PadLeft(3, '0');
             AtStatus.Instance.UpdateStatus(info.WebPage);
         }
 
@@ -179,14 +179,14 @@
         {
             base.SetControlEnabled(flag);
 
-            this.btnFirst.Enabled = flag;
-            this.btnPrev.Enabled = flag;
-            this.btnNext.Enabled = flag;
-            this.btnLast.Enabled = flag;
-            this.btnGo.Enabled = flag;
-            this.txtGoTo.Enabled = flag;
+            this.bbiFirst.Enabled = flag;
+            this.bbiPrev.Enabled = flag;
+            this.bbiNext.Enabled = flag;
+            this.bbiLast.Enabled = flag;
+            this.bbiGo.Enabled = flag;
+            this.beiGo.Enabled = flag;
 
-            this.btnRefresh.Enabled = true;
+            this.bbiRefresh.Enabled = true;
         }
 
         /// <summary>
@@ -247,7 +247,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnFirst_Click(object sender, EventArgs e)
+        private void bbiFirst_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(1, false);
             this.FetchPage();
@@ -258,7 +258,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnPrev_Click(object sender, EventArgs e)
+        private void bbiPrev_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchPrevPage();
@@ -269,7 +269,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnNext_Click(object sender, EventArgs e)
+        private void bbiNext_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchNextPage();
@@ -280,7 +280,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnLast_Click(object sender, EventArgs e)
+        private void bbiLast_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchLastPage();
@@ -291,7 +291,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void bbiRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.SetUrlInfo(false);
             this.FetchPage();
@@ -302,18 +302,19 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnGo_Click(object sender, EventArgs e)
+        private void bbiGo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
             {
                 int pageIndex = Int32.MaxValue;
-                if (string.IsNullOrEmpty(this.txtGoTo.Text) == false)
+                if (this.beiGo.EditValue != null && string.IsNullOrEmpty(this.beiGo.EditValue.ToString()) == false)
                 {
-                    pageIndex = System.Convert.ToInt32(this.txtGoTo.Text);
+                    pageIndex = System.Convert.ToInt32(this.beiGo.EditValue);
                 }
 
                 this.SetUrlInfo(pageIndex, false);
                 this.FetchPage();
+                this.beiGo.EditValue = "";
             }
             catch (Exception exp)
             {
@@ -333,7 +334,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnOpenInBrower_Click(object sender, EventArgs e)
+        private void bbiOpenInBrowser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             CommonUtil.OpenUrl(this.GetCurrentUrl());
         }

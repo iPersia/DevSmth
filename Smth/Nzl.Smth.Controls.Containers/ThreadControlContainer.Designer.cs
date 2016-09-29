@@ -28,226 +28,286 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
-            this.panel = new DevExpress.XtraEditors.PanelControl();
+            this.components = new System.ComponentModel.Container();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
-            this.btnOpenInBrowser = new DevExpress.XtraEditors.SimpleButton();            
-            this.panelMenu = new DevExpress.XtraEditors.PanelControl();
-            this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
-            this.linklblBoard = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.linklblReply = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.btnSettings = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGo = new DevExpress.XtraEditors.SimpleButton();
-            this.txtGoTo = new DevExpress.XtraEditors.TextEdit();
-            this.lblPage = new DevExpress.XtraEditors.LabelControl();
-            this.btnLast = new DevExpress.XtraEditors.SimpleButton();
-            this.btnFirst = new DevExpress.XtraEditors.SimpleButton();
-            this.btnNext = new DevExpress.XtraEditors.SimpleButton();
-            this.btnPrev = new DevExpress.XtraEditors.SimpleButton();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
+            this.bmManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.bbiFirst = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPrev = new DevExpress.XtraBars.BarButtonItem();
+            this.bsiPage = new DevExpress.XtraBars.BarStaticItem();
+            this.bbiNext = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiLast = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.beiGo = new DevExpress.XtraBars.BarEditItem();
+            this.riteGo = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.bbiGo = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiReply = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiBoard = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSettings = new DevExpress.XtraBars.BarButtonItem();
+            this.bar2 = new DevExpress.XtraBars.Bar();
+            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.bbiOpenInBrowser = new DevExpress.XtraBars.BarButtonItem();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
-            this.scContainer.Panel1.SuspendLayout();
-            this.scContainer.Panel2.SuspendLayout();
-            this.scContainer.SuspendLayout();
-            this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riteGo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.Appearance.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelContainer.Appearance.Options.UseBackColor = true;
+            this.panelContainer.Controls.Add(this.panel);
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(0, 51);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(992, 409);
+            this.panelContainer.TabIndex = 1;
             // 
             // panel
             // 
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.panel.Location = new System.Drawing.Point(4, 4);
+            this.panel.Location = new System.Drawing.Point(5, 5);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(841, 351);
+            this.panel.Size = new System.Drawing.Size(981, 323);
             this.panel.TabIndex = 0;
             // 
-            // panelContainer
+            // bmManager
             // 
-            this.panelContainer.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelContainer.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.panelContainer.Controls.Add(this.panel);
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(0, 0);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(850, 388);
-            this.panelContainer.TabIndex = 1;
+            this.bmManager.AllowCustomization = false;
+            this.bmManager.AllowHtmlText = true;
+            this.bmManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.bar1,
+            this.bar2,
+            this.bar3});
+            this.bmManager.DockControls.Add(this.barDockControlTop);
+            this.bmManager.DockControls.Add(this.barDockControlBottom);
+            this.bmManager.DockControls.Add(this.barDockControlLeft);
+            this.bmManager.DockControls.Add(this.barDockControlRight);
+            this.bmManager.Form = this;
+            this.bmManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.bbiFirst,
+            this.bbiPrev,
+            this.bbiNext,
+            this.bbiLast,
+            this.bsiPage,
+            this.bbiGo,
+            this.beiGo,
+            this.bbiSettings,
+            this.bbiRefresh,
+            this.bbiReply,
+            this.bbiBoard,
+            this.bbiOpenInBrowser});
+            this.bmManager.MainMenu = this.bar2;
+            this.bmManager.MaxItemId = 24;
+            this.bmManager.OptionsLayout.AllowAddNewItems = false;
+            this.bmManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.riteGo});
+            this.bmManager.StatusBar = this.bar3;
             // 
-            // btnOpenInBrowser
+            // bar1
             // 
-            this.btnOpenInBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenInBrowser.Location = new System.Drawing.Point(735, 1);
-            this.btnOpenInBrowser.Name = "btnOpenInBrowser";
-            this.btnOpenInBrowser.Size = new System.Drawing.Size(33, 23);
-            this.btnOpenInBrowser.TabIndex = 8;
-            this.btnOpenInBrowser.TabStop = false;
-            this.btnOpenInBrowser.Text = "OiB";
+            this.bar1.BarName = "Tools";
+            this.bar1.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 1;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiFirst),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiPrev),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bsiPage, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiNext, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiLast),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiRefresh, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.beiGo, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiGo),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiReply),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiBoard),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiSettings),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiOpenInBrowser, true)});
+            this.bar1.OptionsBar.AllowQuickCustomization = false;
+            this.bar1.OptionsBar.DisableClose = true;
+            this.bar1.OptionsBar.DisableCustomization = true;
+            this.bar1.OptionsBar.DrawDragBorder = false;
+            this.bar1.OptionsBar.UseWholeRow = true;
+            this.bar1.Text = "Tools";
             // 
-            // scContainer
+            // bbiFirst
             // 
-            this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
-            this.scContainer.IsSplitterFixed = true;
-            this.scContainer.Location = new System.Drawing.Point(0, 0);
-            this.scContainer.Name = "scContainer";
-            this.scContainer.Horizontal = false;
+            this.bbiFirst.Caption = "First";
+            this.bbiFirst.Id = 1;
+            this.bbiFirst.Name = "bbiFirst";
+            this.bbiFirst.ShowItemShortcut = DevExpress.Utils.DefaultBoolean.False;
+            this.bbiFirst.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFirst_ItemClick);
             // 
-            // scContainer.Panel1
+            // bbiPrev
             // 
-            this.scContainer.Panel1.Controls.Add(this.panelMenu);
+            this.bbiPrev.Caption = "Prev";
+            this.bbiPrev.Id = 5;
+            this.bbiPrev.Name = "bbiPrev";
+            this.bbiPrev.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrev_ItemClick);
             // 
-            // scContainer.Panel2
+            // bsiPage
             // 
-            this.scContainer.Panel2.Controls.Add(this.panelContainer);
-            this.scContainer.Size = new System.Drawing.Size(850, 414);
-            this.scContainer.SplitterPosition = 25;
-            this.scContainer.TabIndex = 2;
-            this.scContainer.TabStop = false;
+            this.bsiPage.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.bsiPage.Caption = "000000/999999";
+            this.bsiPage.Id = 8;
+            this.bsiPage.Name = "bsiPage";
+            this.bsiPage.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // panelMenu
+            // bbiNext
             // 
-            this.panelMenu.BackColor = System.Drawing.SystemColors.Window;
-            this.panelMenu.Controls.Add(this.btnRefresh);
-            this.panelMenu.Controls.Add(this.linklblBoard);
-            this.panelMenu.Controls.Add(this.linklblReply);
-            this.panelMenu.Controls.Add(this.btnSettings);
-            this.panelMenu.Controls.Add(this.btnOpenInBrowser);
-            this.panelMenu.Controls.Add(this.btnGo);
-            this.panelMenu.Controls.Add(this.txtGoTo);
-            this.panelMenu.Controls.Add(this.lblPage);
-            this.panelMenu.Controls.Add(this.btnLast);
-            this.panelMenu.Controls.Add(this.btnFirst);
-            this.panelMenu.Controls.Add(this.btnNext);
-            this.panelMenu.Controls.Add(this.btnPrev);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(850, 25);
-            this.panelMenu.TabIndex = 0;
+            this.bbiNext.Caption = "Next";
+            this.bbiNext.Id = 6;
+            this.bbiNext.Name = "bbiNext";
+            this.bbiNext.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNext_ItemClick);
             // 
-            // btnRefresh
+            // bbiLast
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(273, 1);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(56, 23);
-            this.btnRefresh.TabIndex = 18;
-            this.btnRefresh.TabStop = false;
-            this.btnRefresh.Text = "Refresh";
+            this.bbiLast.Caption = "Last";
+            this.bbiLast.Id = 7;
+            this.bbiLast.Name = "bbiLast";
+            this.bbiLast.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLast_ItemClick);
             // 
-            // linklblBoard
+            // bbiRefresh
             // 
-            this.linklblBoard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linklblBoard.Location = new System.Drawing.Point(445, 7);
-            this.linklblBoard.Name = "linklblBoard";
-            this.linklblBoard.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.linklblBoard.Size = new System.Drawing.Size(200, 12);
-            this.linklblBoard.TabIndex = 17;
-            this.linklblBoard.TabStop = true;
-            this.linklblBoard.Text = "金融产品及个人理财";
-            this.linklblBoard.Visible = false;
+            this.bbiRefresh.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.bbiRefresh.Caption = "Refresh";
+            this.bbiRefresh.Id = 17;
+            this.bbiRefresh.Name = "bbiRefresh";
+            this.bbiRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefresh_ItemClick);
             // 
-            // linklblReply
+            // beiGo
             // 
-            this.linklblReply.AutoSize = true;
-            this.linklblReply.Location = new System.Drawing.Point(336, 7);
-            this.linklblReply.Name = "linklblReply";
-            this.linklblReply.Size = new System.Drawing.Size(35, 12);
-            this.linklblReply.TabIndex = 16;
-            this.linklblReply.TabStop = true;
-            this.linklblReply.Text = "Reply";
-            this.linklblReply.Visible = false;
+            this.beiGo.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.beiGo.Edit = this.riteGo;
+            this.beiGo.Id = 13;
+            this.beiGo.Name = "beiGo";
             // 
-            // btnSettings
+            // riteGo
             // 
-            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSettings.Location = new System.Drawing.Point(651, 1);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(75, 23);
-            this.btnSettings.TabIndex = 11;
-            this.btnSettings.TabStop = false;
-            this.btnSettings.Text = "Setting";
+            this.riteGo.Appearance.Options.UseTextOptions = true;
+            this.riteGo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.riteGo.AutoHeight = false;
+            this.riteGo.Name = "riteGo";
             // 
-            // btnGo
+            // bbiGo
             // 
-            this.btnGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGo.Location = new System.Drawing.Point(806, 1);
-            this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(30, 23);
-            this.btnGo.TabIndex = 10;
-            this.btnGo.TabStop = false;
-            this.btnGo.Text = "Go";
+            this.bbiGo.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.bbiGo.Caption = "Go";
+            this.bbiGo.Id = 12;
+            this.bbiGo.Name = "bbiGo";
+            this.bbiGo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGo_ItemClick);
             // 
-            // txtGoTo
+            // bbiReply
             // 
-            this.txtGoTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGoTo.Location = new System.Drawing.Point(775, 4);
-            this.txtGoTo.Name = "txtGoTo";
-            this.txtGoTo.Size = new System.Drawing.Size(25, 21);
-            this.txtGoTo.TabIndex = 9;
-            this.txtGoTo.TabStop = false;
+            this.bbiReply.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bbiReply.Caption = "Reply";
+            this.bbiReply.Id = 21;
+            this.bbiReply.Name = "bbiReply";
+            this.bbiReply.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.bbiReply_HyperlinkClick);
             // 
-            // lblPage
+            // bbiBoard
             // 
-            this.lblPage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPage.AutoSize = true;
-            this.lblPage.Location = new System.Drawing.Point(116, 7);
-            this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(47, 12);
-            this.lblPage.TabIndex = 8;
-            this.lblPage.Text = "001/100";
+            this.bbiBoard.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bbiBoard.Caption = "Board";
+            this.bbiBoard.Id = 22;
+            this.bbiBoard.Name = "bbiBoard";
+            this.bbiBoard.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.bbiBoard_HyperlinkClick);
             // 
-            // btnLast
+            // bbiSettings
             // 
-            this.btnLast.Location = new System.Drawing.Point(223, 1);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(45, 23);
-            this.btnLast.TabIndex = 7;
-            this.btnLast.TabStop = false;
-            this.btnLast.Text = "Last";
+            this.bbiSettings.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bbiSettings.Caption = "Settings";
+            this.bbiSettings.Id = 16;
+            this.bbiSettings.Name = "bbiSettings";
+            this.bbiSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSettings_ItemClick);
             // 
-            // btnFirst
+            // bar2
             // 
-            this.btnFirst.Location = new System.Drawing.Point(11, 1);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(45, 23);
-            this.btnFirst.TabIndex = 6;
-            this.btnFirst.TabStop = false;
-            this.btnFirst.Text = "First";
+            this.bar2.BarName = "Main menu";
+            this.bar2.DockCol = 0;
+            this.bar2.DockRow = 0;
+            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar2.FloatLocation = new System.Drawing.Point(262, 152);
+            this.bar2.FloatSize = new System.Drawing.Size(46, 29);
+            this.bar2.OptionsBar.MultiLine = true;
+            this.bar2.OptionsBar.UseWholeRow = true;
+            this.bar2.Text = "Main menu";
+            this.bar2.Visible = false;
             // 
-            // btnNext
+            // bar3
             // 
-            this.btnNext.Location = new System.Drawing.Point(173, 1);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(45, 23);
-            this.btnNext.TabIndex = 3;
-            this.btnNext.TabStop = false;
-            this.btnNext.Text = "Next";
+            this.bar3.BarName = "Status bar";
+            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            this.bar3.DockCol = 0;
+            this.bar3.DockRow = 0;
+            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar3.OptionsBar.AllowQuickCustomization = false;
+            this.bar3.OptionsBar.DrawDragBorder = false;
+            this.bar3.OptionsBar.UseWholeRow = true;
+            this.bar3.Text = "Status bar";
+            this.bar3.Visible = false;
             // 
-            // btnPrev
+            // barDockControlTop
             // 
-            this.btnPrev.Location = new System.Drawing.Point(61, 1);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(45, 23);
-            this.btnPrev.TabIndex = 0;
-            this.btnPrev.TabStop = false;
-            this.btnPrev.Text = "Prev";
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(992, 51);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 460);
+            this.barDockControlBottom.Size = new System.Drawing.Size(992, 23);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 409);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(992, 51);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 409);
+            // 
+            // bbiOpenInBrowser
+            // 
+            this.bbiOpenInBrowser.Caption = "Open in Browser";
+            this.bbiOpenInBrowser.Id = 23;
+            this.bbiOpenInBrowser.Name = "bbiOpenInBrowser";
+            this.bbiOpenInBrowser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOpenInBrowser_ItemClick);
             // 
             // ThreadControlContainer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.scContainer);
+            this.Controls.Add(this.panelContainer);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Name = "ThreadControlContainer";
-            this.Size = new System.Drawing.Size(850, 414);
-            this.scContainer.Panel1.ResumeLayout(false);
-            this.scContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.scContainer)).EndInit();
-            this.scContainer.ResumeLayout(false);
-            this.panelMenu.ResumeLayout(false);
-            this.panelMenu.PerformLayout();
+            this.Size = new System.Drawing.Size(992, 483);
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bmManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riteGo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -255,19 +315,26 @@
 
         private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.PanelControl panelContainer;
-        private DevExpress.XtraEditors.SimpleButton btnOpenInBrowser;
-        private DevExpress.XtraEditors.SplitContainerControl scContainer;
-        private DevExpress.XtraEditors.PanelControl panelMenu;
-        private DevExpress.XtraEditors.SimpleButton btnGo;
-        private DevExpress.XtraEditors.TextEdit txtGoTo;
-        private DevExpress.XtraEditors.LabelControl lblPage;
-        private DevExpress.XtraEditors.SimpleButton btnLast;
-        private DevExpress.XtraEditors.SimpleButton btnFirst;
-        private DevExpress.XtraEditors.SimpleButton btnNext;
-        private DevExpress.XtraEditors.SimpleButton btnPrev;
-        private DevExpress.XtraEditors.SimpleButton btnSettings;
-        private DevExpress.XtraEditors.HyperlinkLabelControl linklblReply;
-        private DevExpress.XtraEditors.HyperlinkLabelControl linklblBoard;
-        private DevExpress.XtraEditors.SimpleButton btnRefresh;
+        private DevExpress.XtraBars.BarManager bmManager;
+        private DevExpress.XtraBars.Bar bar1;
+        private DevExpress.XtraBars.Bar bar2;
+        private DevExpress.XtraBars.Bar bar3;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem bbiFirst;
+        private DevExpress.XtraBars.BarButtonItem bbiPrev;
+        private DevExpress.XtraBars.BarButtonItem bbiNext;
+        private DevExpress.XtraBars.BarButtonItem bbiLast;
+        private DevExpress.XtraBars.BarStaticItem bsiPage;
+        private DevExpress.XtraBars.BarButtonItem bbiGo;
+        private DevExpress.XtraBars.BarEditItem beiGo;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit riteGo;
+        private DevExpress.XtraBars.BarButtonItem bbiSettings;
+        private DevExpress.XtraBars.BarButtonItem bbiRefresh;
+        private DevExpress.XtraBars.BarButtonItem bbiReply;
+        private DevExpress.XtraBars.BarButtonItem bbiBoard;
+        private DevExpress.XtraBars.BarButtonItem bbiOpenInBrowser;
     }
 }

@@ -63,7 +63,7 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 51);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(840, 561);
+            this.panelContainer.Size = new System.Drawing.Size(681, 359);
             this.panelContainer.TabIndex = 1;
             // 
             // panel
@@ -243,28 +243,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(840, 51);
+            this.barDockControlTop.Size = new System.Drawing.Size(681, 51);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 612);
-            this.barDockControlBottom.Size = new System.Drawing.Size(840, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 410);
+            this.barDockControlBottom.Size = new System.Drawing.Size(681, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 561);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 359);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(840, 51);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 561);
+            this.barDockControlRight.Location = new System.Drawing.Point(681, 51);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 359);
             // 
             // MailControlContainer
             // 
@@ -276,7 +276,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "MailControlContainer";
-            this.Size = new System.Drawing.Size(840, 635);
+            this.Size = new System.Drawing.Size(681, 433);
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();

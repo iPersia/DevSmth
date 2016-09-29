@@ -3,6 +3,7 @@
     using System;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraBars;
     using DevExpress.XtraEditors;
 
     public partial class MailBoxForm : BaseForm
@@ -40,12 +41,9 @@
             this._mbcMails.OnDeleteLinkClicked += MbcMailBox_OnDeleteLinkClicked;
             this._mbcMails.OnNewMailClicked += MbcMailBox_OnNewMailClicked;
 
-            this._mbcMails.Top = 1;
-            this._mbcMails.Left = 1;
+            this._mbcMails.Dock = DockStyle.Fill;
             this.panelContainer.Controls.Clear();
             this.panelContainer.Controls.Add(this._mbcMails);
-            this.Size = new System.Drawing.Size(this._mbcMails.Width + 2 + this.Width - this.panelContainer.Width,
-                                                this._mbcMails.Height + 2 + this.Height - this.panelContainer.Height);
         }
 
         /// <summary>
@@ -103,17 +101,17 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MbcMailBox_OnNewMailClicked(object sender, EventArgs e)
+        private void MbcMailBox_OnNewMailClicked(object sender, ItemClickEventArgs e)
         {
-            Button btn = sender as Button;
-            if (btn != null)
+            BarManager bm = sender as BarManager;
+            if (bm != null)
             {
                 NewMailForm form = new NewMailForm();
                 form.StartPosition = FormStartPosition.CenterParent;
                 this.HideWhenDeactivate = false;
                 if (form.ShowDialog(this._parentForm) == DialogResult.OK)
                 {
-                    btn.Tag = form.GetPostString();
+                    e.Item.Tag = form.GetPostString();
                 }
 
                 this.Focus();

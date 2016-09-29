@@ -5,6 +5,7 @@
     using System.Windows.Forms;
     using DevExpress.Utils;
     using DevExpress.XtraTab;
+    using DevExpress.XtraBars;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Containers;
@@ -33,7 +34,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public event EventHandler OnNewMailClicked;
+        public event ItemClickEventHandler OnNewMailClicked;
         #endregion
 
         #region variable        
@@ -57,7 +58,7 @@
                 this.tcMailBox.TabPages.Add(tp);
 
                 MailControlContainer xbc = new MailControlContainer(MailBoxType.Inbox);
-                xbc.Location = new Point(0, 0);
+                xbc.Dock = DockStyle.Fill;
                 xbc.Url = Configuration.InboxUrl;
                 xbc.CreateControl();
                 xbc.SetParent(tp);
@@ -67,7 +68,7 @@
                 xbc.OnNewMailClicked += Xbc_OnNewMailClicked;
 
                 ///Set the size firstly, then add the MailControlContainer to TabPage.
-                this.Size = new Size(xbc.Width + dWidth, xbc.Height + dHeight);
+                //this.Size = new Size(xbc.Width + dWidth, xbc.Height + dHeight);
                 tp.Controls.Add(xbc);
             }
 
@@ -79,7 +80,7 @@
                 this.tcMailBox.TabPages.Add(tp);
 
                 MailControlContainer xbc = new MailControlContainer(MailBoxType.Outbox);
-                xbc.Location = new Point(0, 0);
+                xbc.Dock = DockStyle.Fill;
                 xbc.Url = Configuration.OutboxUrl;
                 xbc.CreateControl();
                 xbc.SetParent(tp);
@@ -98,7 +99,7 @@
                 this.tcMailBox.TabPages.Add(tp);
 
                 MailControlContainer xbc = new MailControlContainer(MailBoxType.Trash);
-                xbc.Location = new Point(0, 0);
+                xbc.Dock = DockStyle.Fill;
                 xbc.Url = Configuration.TrashUrl;
                 xbc.CreateControl();
                 xbc.SetParent(tp);
@@ -148,7 +149,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Xbc_OnNewMailClicked(object sender, EventArgs e)
+        private void Xbc_OnNewMailClicked(object sender, ItemClickEventArgs e)
         {
             if (this.OnNewMailClicked != null)
             {

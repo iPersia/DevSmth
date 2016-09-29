@@ -536,11 +536,11 @@ namespace Nzl.Smth.Controls.Containers
             HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (this.OnNewClicked != null && hlc != null)
             {
-                hlc.Tag = null;
+                e.Text = null;
                 this.OnNewClicked(sender, e);
-                if (hlc.Tag != null)
+                if (e.Text != null)
                 {
-                    string postString = hlc.Tag as string;
+                    string postString = e.Text;
                     if (string.IsNullOrEmpty(postString) == false)
                     {
                         PostLoader pl = new PostLoader(e.Link, postString);
@@ -550,8 +550,6 @@ namespace Nzl.Smth.Controls.Containers
                         pl.Start();
                     }
                 }
-
-                hlc.Tag = null;
             }
         }
 

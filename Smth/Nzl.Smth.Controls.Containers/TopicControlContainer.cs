@@ -267,6 +267,7 @@
             this.bbiGo.Enabled = flag;
             this.bbiSettings.Enabled = flag;
             this.beiGo.Enabled = flag;
+            this.bbiNew.Enabled = flag;
 
             this.bbiRefresh.Enabled = true;
         }
@@ -438,13 +439,13 @@
             BarManager bm = sender as BarManager;
             if (this.OnNewClicked != null && bm != null)
             {
-                e.Item.Tag = null;                
                 HyperlinkClickEventArgs hcea = new HyperlinkClickEventArgs();
                 hcea.Link = Configs.Configuration.BaseUrl + "/article/" + this.Board + "/post";
+                hcea.Text = null;
                 this.OnNewClicked(sender, hcea);
-                if (e.Item.Tag != null)
+                if (hcea.Text != null)
                 {
-                    string postString = e.Item.Tag.ToString();
+                    string postString = hcea.Text;
                     if (string.IsNullOrEmpty(postString) == false)
                     {
                         PostLoader pl = new PostLoader(hcea.Link, postString);

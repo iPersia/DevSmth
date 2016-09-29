@@ -390,14 +390,13 @@
         /// <param name="e"></param>
         private void Common_OnNewClicked(object sender, HyperlinkClickEventArgs e)
         {
-            SimpleButton sb = sender as SimpleButton;
-            if (sb != null)
+            if (sender != null)
             {
                 NewThreadForm threadForm = new NewThreadForm("New post", "");
                 threadForm.StartPosition = FormStartPosition.CenterParent;
                 if (DialogResult.OK == threadForm.ShowDialog(this))
                 {
-                    sb.Tag = threadForm.GetPostString();
+                    e.Text = threadForm.GetPostString();
                 }
             }
         }
@@ -1307,7 +1306,7 @@
                             Nzl.Web.Util.CommonUtil.ShowMessage("this.linklblUserID.Links count:" + this.linklblUserID.Text);
 #endif
                             string welcomeStr = "Welcome ";
-                            this.linklblUserID.Text = welcomeStr + LogStatus.Instance.UserID + "!";
+                            this.linklblUserID.Text = welcomeStr + " <href=" + LogStatus.Instance.UserID + ">" + LogStatus.Instance.UserID + "</href>" + "!";
                             this.linklblUserID.HyperlinkClick -= new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
                             this.linklblUserID.HyperlinkClick += new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
                             this.btnLogon.Text = "Log Out";

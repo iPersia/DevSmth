@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -36,14 +37,14 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(597, 468);
+            this.panelContainer.Size = new System.Drawing.Size(784, 501);
             this.panelContainer.TabIndex = 0;
             // 
             // MailBoxForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 468);
+            this.ClientSize = new System.Drawing.Size(784, 501);
             this.Controls.Add(this.panelContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -51,6 +52,7 @@
             this.Name = "MailBoxForm";
             this.Text = "Mails";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MailBoxForm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.ResumeLayout(false);
 
         }

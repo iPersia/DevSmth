@@ -7,7 +7,7 @@
     using System.Windows.Forms;
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
-    using DevExpress.XtraGrid;
+    using DevExpress.XtraBars;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
@@ -44,7 +44,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public event EventHandler OnNewMailClicked;
+        public event ItemClickEventHandler OnNewMailClicked;
         #endregion
 
         #region Variable

@@ -31,6 +31,7 @@
             this.lblFloor = new DevExpress.XtraEditors.LabelControl();
             this.linklblID = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panel = new DevExpress.XtraEditors.PanelControl();
+            this.richtxtContent = new DevExpress.XtraRichEdit.RichEditControl();
             this.panelTitle = new DevExpress.XtraEditors.PanelControl();
             this.linklblEdit = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblDelete = new DevExpress.XtraEditors.HyperlinkLabelControl();
@@ -40,7 +41,6 @@
             this.linklblQuryType = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblReply = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.lblCopy = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.richtxtContent = new DevExpress.XtraRichEdit.RichEditControl();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelTitle)).BeginInit();
@@ -81,8 +81,27 @@
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(700, 114);
+            this.panel.Size = new System.Drawing.Size(700, 70);
             this.panel.TabIndex = 4;
+            // 
+            // richtxtContent
+            // 
+            this.richtxtContent.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.richtxtContent.Appearance.Text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richtxtContent.Appearance.Text.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.richtxtContent.Appearance.Text.Options.UseBackColor = true;
+            this.richtxtContent.Appearance.Text.Options.UseFont = true;
+            this.richtxtContent.Appearance.Text.Options.UseTextOptions = true;
+            this.richtxtContent.Appearance.Text.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.richtxtContent.AutoSizeMode = DevExpress.XtraRichEdit.AutoSizeMode.Vertical;
+            this.richtxtContent.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.richtxtContent.Location = new System.Drawing.Point(16, 39);
+            this.richtxtContent.Name = "richtxtContent";
+            this.richtxtContent.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.richtxtContent.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.richtxtContent.Size = new System.Drawing.Size(664, 21);
+            this.richtxtContent.TabIndex = 12;
+            this.richtxtContent.Text = "Text....";
             // 
             // panelTitle
             // 
@@ -211,32 +230,13 @@
             this.lblCopy.Text = "Copy";
             this.lblCopy.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.lblCopy_LinkClicked);
             // 
-            // richtxtContent
-            // 
-            this.richtxtContent.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
-            this.richtxtContent.Appearance.Text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richtxtContent.Appearance.Text.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.richtxtContent.Appearance.Text.Options.UseBackColor = true;
-            this.richtxtContent.Appearance.Text.Options.UseFont = true;
-            this.richtxtContent.Appearance.Text.Options.UseTextOptions = true;
-            this.richtxtContent.Appearance.Text.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.richtxtContent.AutoSizeMode = DevExpress.XtraRichEdit.AutoSizeMode.Vertical;
-            this.richtxtContent.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.richtxtContent.Location = new System.Drawing.Point(16, 39);
-            this.richtxtContent.Name = "richtxtContent";
-            this.richtxtContent.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
-            this.richtxtContent.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
-            this.richtxtContent.Size = new System.Drawing.Size(664, 21);
-            this.richtxtContent.TabIndex = 12;
-            this.richtxtContent.Text = "Text....";
-            // 
             // ThreadControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel);
             this.Name = "ThreadControl";
-            this.Size = new System.Drawing.Size(700, 114);
+            this.Size = new System.Drawing.Size(700, 70);
             ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             this.panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelTitle)).EndInit();

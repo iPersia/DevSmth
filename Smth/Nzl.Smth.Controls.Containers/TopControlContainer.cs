@@ -134,7 +134,7 @@
         protected override IList<Top> GetItems(WebPage wp)
         {
             IList<Top> list = TopFactory.CreateTops(wp);
-#if (DEBUG)
+#if (X)
             System.Diagnostics.Debug.WriteLine("SectionTopsControl - GetItems - Item count is " + list.Count);
 #endif
             return list;

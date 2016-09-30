@@ -2,14 +2,15 @@
 {
     using System;
     using System.Drawing;
-    using System.Text.RegularExpressions;
     using System.Windows.Forms;
+    using DevExpress.Office.Services;
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
-    using Nzl.Smth.Controls.Base;    
+    using DevExpress.XtraRichEdit.API.Native;
+    using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Datas;
+    using Nzl.Smth.Loaders;
     using Nzl.Smth.Utils;
-    using Nzl.Web.Util;
 
     /// <summary>
     /// Thread control.
@@ -116,15 +117,22 @@
         {
             InitializeComponent();
 
-            System.Drawing.Font currentFont = this.richtxtContent.SelectionFont;
-            this.richtxtContent.Font = new Font(currentFont.FontFamily, 11, FontStyle.Regular);
             this.richtxtContent.GotFocus += RichtxtContent_GotFocus;
             this.richtxtContent.MouseWheel += new MouseEventHandler(richtxtContent_MouseWheel);
+            this.richtxtContent.SizeChanged += RichtxtContent_SizeChanged;
 
             ///Need to be optimized.
-            this.richtxtContent.WordWrap = true;
-            this.richtxtContent.ScrollBars = RichTextBoxScrollBars.None;
-            this.richtxtContent.ContentsResized += new ContentsResizedEventHandler(richtxtContent_ContentsResized);
+            ///Used to get image stream.
+            IUriStreamService uriStreamService = this.richtxtContent.GetService<IUriStreamService>();
+            uriStreamService.RegisterProvider(new ImageStreamProvider());
+        }
+
+        private void RichtxtContent_SizeChanged(object sender, EventArgs e)
+        {
+            this.Height = this.richtxtContent.Top
+                        + this.richtxtContent.Height
+                        + (this.richtxtContent.Top - this.panelTitle.Top - this.panelTitle.Height)
+                        + 2;
         }
 
         /// <summary>
@@ -135,26 +143,6 @@
         private void RichtxtContent_GotFocus(object sender, EventArgs e)
         {
             this.panel.Focus();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void richtxtContent_ContentsResized(object sender, ContentsResizedEventArgs e)
-        {
-#if (X)
-            System.Diagnostics.Debug.WriteLine("richtxtContent_ContentsResized - "
-                                              + "Url - " + (this.Tag as Thread).Url + "\t"
-                                              + "Floor -" + (this.Tag as Thread).Floor + "\t"
-                                              + "NewSize - " + e.NewRectangle.Size);
-#endif
-            RichTextBox rtb = sender as RichTextBox;
-            if (rtb != null)
-            {
-                rtb.Size = e.NewRectangle.Size;
-            }
         }
 
         /// <summary>
@@ -228,12 +216,29 @@
                 this.InitializeLinkLabel(this.linklblTransfer, refer.TransferUrl);
 
                 ///Add content.
-                this.richtxtContent.Clear();
-                ControlUtil.AddContent(this.richtxtContent, refer.Data);
-                //this.AddContent(refer.Data);
-                this.Height = this.richtxtContent.Height + 100;
+                ///Add content.
+                this.richtxtContent.ReadOnly = false;
+                Document doc = this.richtxtContent.Document;
+                doc.BeginUpdate();
+                try
+                {
+                    this.richtxtContent.HtmlText = refer.Content;
+                    CharacterProperties cp = doc.BeginUpdateCharacters(0, doc.HtmlText.Length);
+                    cp.FontName = "宋体";
+                    cp.FontSize = 9;
+                    doc.EndUpdateCharacters(cp);
+                }
+                catch
+                {
+
+                }
+                finally
+                {
+                    doc.EndUpdate();
+                }
+
+
                 this.richtxtContent.ReadOnly = true;
-                this.richtxtContent.ShortcutsEnabled = false;
             }
         }
 
@@ -245,8 +250,9 @@
         {
             base.SetWidth(width);
             this.Width = width;
-            this.panelTitle.Width = this.Width - 10;
-            this.richtxtContent.Width = this.panelTitle.Width - 8;
+            this.panelTitle.Width = this.Width - 12;
+            this.richtxtContent.Left = this.panelTitle.Left + 5;
+            this.richtxtContent.Width = this.panelTitle.Width - 10;
         }
         #endregion
 
@@ -526,7 +532,7 @@
             if (linkLabel != null)
             {
                 this.richtxtContent.SelectAll();
-                Clipboard.SetData(DataFormats.Rtf, this.richtxtContent.SelectedRtf);
+                this.richtxtContent.Copy();
                 this.richtxtContent.DeselectAll();
             }
         }

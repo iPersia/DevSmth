@@ -35,23 +35,23 @@
             this.txtCache = new Nzl.Controls.RichTextBoxEx();
             this.panelDown = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
-            this.scContainer.Panel1.SuspendLayout();
-            this.scContainer.Panel2.SuspendLayout();
             this.scContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelUp)).BeginInit();
             this.panelUp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown)).BeginInit();
             this.panelDown.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtMsg
             // 
-            this.txtMsg.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtMsg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMsg.HiglightColor = Nzl.Controls.RtfColor.White;
-            this.txtMsg.Location = new System.Drawing.Point(0, 0);
             this.txtMsg.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMsg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMsg.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMsg.HiglightColor = Nzl.Controls.RtfColor.White;
+            this.txtMsg.Location = new System.Drawing.Point(2, 2);
             this.txtMsg.Name = "txtMsg";
             this.txtMsg.ReadOnly = true;
-            this.txtMsg.Size = new System.Drawing.Size(782, 318);
+            this.txtMsg.Size = new System.Drawing.Size(911, 365);
             this.txtMsg.TabIndex = 0;
             this.txtMsg.Text = "";
             this.txtMsg.TextColor = Nzl.Controls.RtfColor.Black;
@@ -59,18 +59,12 @@
             // scContainer
             // 
             this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scContainer.Horizontal = false;
             this.scContainer.Location = new System.Drawing.Point(0, 0);
             this.scContainer.Name = "scContainer";
-            this.scContainer.Horizontal = false;
-            // 
-            // scContainer.Panel1
-            // 
             this.scContainer.Panel1.Controls.Add(this.panelUp);
-            // 
-            // scContainer.Panel2
-            // 
             this.scContainer.Panel2.Controls.Add(this.panelDown);
-            this.scContainer.Size = new System.Drawing.Size(784, 561);
+            this.scContainer.Size = new System.Drawing.Size(915, 654);
             this.scContainer.SplitterPosition = 240;
             this.scContainer.TabIndex = 1;
             // 
@@ -80,19 +74,19 @@
             this.panelUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelUp.Location = new System.Drawing.Point(0, 0);
             this.panelUp.Name = "panelUp";
-            this.panelUp.Size = new System.Drawing.Size(782, 238);
+            this.panelUp.Size = new System.Drawing.Size(915, 280);
             this.panelUp.TabIndex = 0;
             // 
             // txtCache
             // 
-            this.txtCache.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtCache.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCache.HiglightColor = Nzl.Controls.RtfColor.White;
-            this.txtCache.Location = new System.Drawing.Point(0, 0);
             this.txtCache.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCache.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCache.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCache.HiglightColor = Nzl.Controls.RtfColor.White;
+            this.txtCache.Location = new System.Drawing.Point(2, 2);
             this.txtCache.Name = "txtCache";
             this.txtCache.ReadOnly = true;
-            this.txtCache.Size = new System.Drawing.Size(782, 238);
+            this.txtCache.Size = new System.Drawing.Size(911, 276);
             this.txtCache.TabIndex = 1;
             this.txtCache.Text = "";
             this.txtCache.TextColor = Nzl.Controls.RtfColor.Black;
@@ -103,25 +97,25 @@
             this.panelDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDown.Location = new System.Drawing.Point(0, 0);
             this.panelDown.Name = "panelDown";
-            this.panelDown.Size = new System.Drawing.Size(782, 318);
+            this.panelDown.Size = new System.Drawing.Size(915, 369);
             this.panelDown.TabIndex = 1;
             // 
             // MessageCenterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(915, 654);
             this.Controls.Add(this.scContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.Name = "MessageCenterForm";
             this.Text = "Message Center";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MessageCenterForm_FormClosing);
-            this.scContainer.Panel1.ResumeLayout(false);
-            this.scContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).EndInit();
             this.scContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelUp)).EndInit();
             this.panelUp.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown)).EndInit();
             this.panelDown.ResumeLayout(false);
             this.ResumeLayout(false);
 

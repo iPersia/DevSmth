@@ -235,7 +235,7 @@
                 baseControlContainer.Width = this.GetPanelContainer().Width
                                            - Configuration.BaseControlContainerLocationMargin * 2
                                            - this.GetPanelContainerBoarderMargin();
-#if (DEBUG)
+#if (X)
                 System.Diagnostics.Debug.WriteLine(this.ToString() + " - baseControlContainer.Width\t" + baseControlContainer.Width);
 #endif
             }
@@ -251,7 +251,7 @@
             PanelControl baseControlContainer = this.GetPanel();
             if (baseControlContainer != null)
             {
-#if (DEBUG)
+#if (X)
                 System.Diagnostics.Debug.WriteLine("BaseContainer - BaseContainer_SizeChanged - FetchPage - Type is " + this.GetType().ToString());
 #endif
                 int newWidth = this.GetPanelContainer().Width
@@ -311,6 +311,10 @@
         /// <param name="info"></param>
         protected virtual void DoWork(UrlInfo<TBaseControl, TBaseData> info)
         {
+#if (DEBUG)
+            System.Diagnostics.Stopwatch swDoWork = new System.Diagnostics.Stopwatch();
+            swDoWork.Start();
+#endif
             this.UpdatePageInfo(info.WebPage, info);
             info.Result = this.GetItems(info.WebPage);
             info.Controls = this.PrepareControls(info.Result);
@@ -332,8 +336,18 @@
                         System.Threading.Thread.Sleep(0);
                     }
                 }
-
+#if (DEBUG)
+                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+                sw.Restart();
+#endif
                 this.UpdateView(info.Controls);
+#if (DEBUG)
+                sw.Stop();
+                System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - DoWork - UpdateView - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
+
+                swDoWork.Stop();
+                System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - DoWork - ElapsedMilliseconds - " + swDoWork.ElapsedMilliseconds);
+#endif
             }
         }
 
@@ -343,18 +357,28 @@
         /// <param name="ctls"></param>
         protected void UpdateView(IList<TBaseControl> ctls)
         {
+#if (DEBUG)
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();            
+#endif
             foreach (TBaseControl ctl in ctls)
             {
                 if (this.IsHandleCreated)
                 {
                     if (this.InvokeRequired)
                     {
+#if (DEBUG)
+                        sw.Restart();
+#endif
                         System.Threading.Thread.Sleep(0);
                         this.Invoke(new MethodInvoker(delegate ()
                         {
                             this.AddControl(ctl);
                         }));
                         System.Threading.Thread.Sleep(0);
+#if (DEBUG)
+                        sw.Stop();
+                        System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - UpdateView - AddControl - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
+#endif
                     }
                 }
             }
@@ -701,9 +725,9 @@
         protected virtual void OnLoginStatusChanged(bool isLogin)
         {
         }
-        #endregion
+#endregion
 
-        #region protected
+#region protected
         /// <summary>
         /// 
         /// </summary>
@@ -766,16 +790,27 @@
         /// <param name="listThread"></param>
         private IList<TBaseControl> PrepareControls(IList<TBaseData> list)
         {
+#if (DEBUG)
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
+#endif
             IList<TBaseControl> listThreacControl = new List<TBaseControl>();
             foreach (TBaseData data in list)
             {
+#if (DEBUG)
+                sw.Restart();
+#endif
                 TBaseControl ctl = this.GetControl(data);
+#if (DEBUG)
+                sw.Stop();
+                System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - PrepareControls - GetControl - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
+#endif
                 if (ctl != null)
                 {
                     listThreacControl.Add(ctl);
                 }
             }
-#if (DEBUG)
+#if (X)
             System.Diagnostics.Debug.WriteLine("BaseContainer - PrepareControls - TBaseControl count is " + list.Count);
 #endif
             return listThreacControl;
@@ -792,11 +827,17 @@
             {
                 if (this.InvokeRequired)
                 {
+#if (DEBUG)
+                    System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();                    
+#endif
                     TBaseControl ctl = this.GetRecycledControl();
                     if (ctl == null || ctl.IsDisposed)
                     {
-#if (DEBUG)
+#if (X)
                         System.Diagnostics.Debug.WriteLine("BaseContainer - GetControl - GetRecycledControl failed, type is " + typeof(TBaseControl).ToString());
+#endif
+#if (DEBUG)
+                        sw.Start();
 #endif
                         System.Threading.Thread.Sleep(0);
                         this.Invoke(new MethodInvoker(delegate ()
@@ -804,6 +845,10 @@
                             ctl = this.CreateBaseControl();
                         }));
                         System.Threading.Thread.Sleep(0);
+#if (DEBUG)
+                        sw.Stop();
+                        System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - GetControl - CreateBaseControl - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
+#endif
                     }
 
                     if (ctl != null && data != null)
@@ -812,12 +857,20 @@
                         {
                             if (this.InvokeRequired)
                             {
+
+#if (DEBUG)
+                                sw.Restart();
+#endif
                                 System.Threading.Thread.Sleep(0);
                                 this.Invoke(new MethodInvoker(delegate ()
                                 {
                                     this.InitializeControl(ctl, data);
                                 }));
                                 System.Threading.Thread.Sleep(0);
+#if (DEBUG)
+                                sw.Stop();
+                                System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - GetControl - InitializeControl - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
+#endif
                             }
                         }
 
@@ -910,9 +963,9 @@
         {
             return this.GetPanel().BorderStyle == DevExpress.XtraEditors.Controls.BorderStyles.Simple ? 2 : 0;
         }
-        #endregion
+#endregion
 
-        #region FetchPage
+#region FetchPage
         /// <summary>
         /// 
         /// </summary>
@@ -1106,7 +1159,7 @@
                     pl.PageLoaded += new EventHandler(PageLoader_PageLoaded);
                     pl.PageFailed += new EventHandler(PageLoader_PageFailed);
                     PageDispatcher.Instance.Add(pl);
-#if (DEBUG)
+#if (X)
                     Nzl.Web.Util.CommonUtil.ShowMessage(this, "BaseContainer - FetchPage(UrlInfo's index is equal to " + urlInfo.Index + ")!");
 #endif
 
@@ -1232,9 +1285,9 @@
                 this.OnWorkerCancelled(this, new MessageEventArgs(msg));
             }
         }
-        #endregion
+#endregion
 
-        #region eventhandler
+#region eventhandler
         /// <summary>
         /// 
         /// </summary>
@@ -1266,6 +1319,6 @@
                                   - this.GetPanelContainerBoarderMargin();
             this.FetchPage();
         }
-        #endregion
+#endregion
     }
 }

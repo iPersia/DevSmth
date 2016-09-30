@@ -7,7 +7,8 @@
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
     using DevExpress.XtraRichEdit.API.Native;
-    using Nzl.Smth.Controls.Base;    
+    using Nzl.Smth.Controls.Base;
+    using Nzl.Smth.Loaders;
     using Nzl.Smth.Datas;
     using Nzl.Smth.Utils;
 
@@ -84,12 +85,12 @@
 
             ///Used to get image stream.
             IUriStreamService uriStreamService = this.richtxtContent.GetService<IUriStreamService>();
-            uriStreamService.RegisterProvider(new ImageStreamProvider(this));
+            uriStreamService.RegisterProvider(new ImageStreamProvider());
 
             ///
             this.richtxtContent.DocumentLoaded += RichtxtContent_DocumentLoaded;
 
-#if (DEBUG)
+#if (X)
             //this.richtxtContent.BorderStyle = BorderStyle.FixedSingle;
 #endif
         }
@@ -101,7 +102,9 @@
         /// <param name="e"></param>
         private void RichtxtContent_DocumentLoaded(object sender, EventArgs e)
         {
+#if (X)
             System.Diagnostics.Debug.WriteLine(this.GetHashCode() + "\t ThreadControl - RichtxtContent_DocumentLoaded");
+#endif
         }
 
         /// <summary>
@@ -182,6 +185,7 @@
                     this.linklblQuryType.Text = "Spreads";
                 }
 
+                ///Linklabel.
                 this.InitializeLinkLabel(this.linklblQuryType, thread.QueryUrl);
                 this.InitializeLinkLabel(this.linklblReply, thread.ReplyUrl);
                 this.InitializeLinkLabel(this.linklblMail, thread.MailUrl);
@@ -192,6 +196,7 @@
 
                 ///Add content.
                 this.richtxtContent.ReadOnly = false;
+                this.richtxtContent.BeginUpdate();
                 Document doc = this.richtxtContent.Document;
                 doc.BeginUpdate();
                 try
@@ -209,6 +214,7 @@
                 finally
                 {
                     doc.EndUpdate();
+                    this.richtxtContent.EndUpdate();
                 }
 
                 
@@ -406,7 +412,9 @@
             HyperlinkLabelControl linkLabel = sender as HyperlinkLabelControl;
             if (linkLabel != null)
             {
+                this.richtxtContent.SelectAll();
                 this.richtxtContent.Copy();
+                this.richtxtContent.DeselectAll();
             }
         }
         #endregion

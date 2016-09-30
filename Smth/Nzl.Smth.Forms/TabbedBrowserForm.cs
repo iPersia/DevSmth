@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Drawing;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
@@ -209,6 +210,10 @@
 
             ///NOT Exsits
             {
+#if (DEBUG)
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
+#endif
                 XtraTabPage tp = new XtraTabPage();
                 tp.Name = key;
                 //tp.Text = subject == null ? "Unknown" : subject.Length > 10 ? subject.Substring(0, 10) + ".." : "" + subject;
@@ -243,7 +248,10 @@
                 tbc.OnWorkerCancelled += Common_OnWorkerCancelled;
                 tbc.OnTopicSettingsClicked += ThreadControlContainer_OnTopicSettingsClicked;
                 tp.Controls.Add(tbc);
-
+#if (DEBUG)
+                sw.Stop();
+                System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - AddTopic - Create ThreadControlContainer - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
+#endif
                 tbc.RefreshingOnSizeChanged(true);
                 tbc.Reusing();
             }
@@ -350,6 +358,10 @@
 
             ///NOT Exsits
             {
+#if (DEBUG)
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
+#endif
                 XtraTabPage tp = new XtraTabPage();
                 tp.Name = "tp" + boardCode;
                 tp.Text = "[ " + title + " ]";
@@ -377,6 +389,10 @@
                 bbc.Dock = DockStyle.Fill;
                 tp.Controls.Add(bbc);
 
+#if (DEBUG)
+                sw.Stop();
+                System.Diagnostics.Debug.WriteLine("AddBoard - ElapsedMilliseconds " + sw.ElapsedMilliseconds);
+#endif
                 ///
                 bbc.RefreshingOnSizeChanged(true);
                 bbc.Reusing();
@@ -808,6 +824,7 @@
             }
 
             GC.Collect();
+            this.Text = Configuration.ApplicationTitle;
         }
 
         /// <summary>
@@ -1302,7 +1319,7 @@
                     {
                         if (flag)
                         {
-#if (DEBUG)
+#if (X)
                             Nzl.Web.Util.CommonUtil.ShowMessage("this.linklblUserID.Links count:" + this.linklblUserID.Text);
 #endif
                             string welcomeStr = "Welcome ";

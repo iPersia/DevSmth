@@ -1,8 +1,8 @@
-﻿namespace Nzl.Smth.Controls.Elements
+﻿namespace Nzl.Smth.Loaders
 {
     using System.IO;
-    using System.Windows.Forms;
     using DevExpress.Office.Services;
+    using Nzl.Smth.Configs;
     using Nzl.Web.Util;
 
     /// <summary>
@@ -13,14 +13,8 @@
         /// <summary>
         /// 
         /// </summary>
-        private Control _parentControl = null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public ImageStreamProvider(Control ctl)
+        public ImageStreamProvider()
         {
-            this._parentControl = ctl;
         }
 
         /// <summary>
@@ -30,7 +24,15 @@
         /// <returns></returns>
         public Stream GetStream(string url)
         {
+#if (X)
             System.Diagnostics.Debug.WriteLine(this._parentControl.GetHashCode() + "\t ImageStreamProvider - GetStream - " + url);
+#endif
+            ///Icon.
+            if (url.Contains("http") == false)
+            {
+                url = Configuration.BaseUrl + url;
+            }
+
             return CommonUtil.GetWebImageStream(url);
         }
     }

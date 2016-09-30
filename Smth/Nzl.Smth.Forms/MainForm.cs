@@ -2,9 +2,14 @@
 {
     using System;
     using System.Windows.Forms;
+    using System.ComponentModel;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Logger;
-    using DevExpress.XtraEditors;
+    using Nzl.Smth.Datas;
+    using Nzl.Smth.Controls.Elements;
+    using Nzl.Smth.Controls.Complexes;
+    using Nzl.Smth.Controls.Containers;
+    using DevExpress.XtraRichEdit;
 
     public partial class MainForm : BaseForm
     {
@@ -22,6 +27,25 @@
         public MainForm()
         {
             InitializeComponent();
+
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.DoWork += Bw_DoWork;
+            bw.RunWorkerAsync();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                ThreadControlContainer tcc = new ThreadControlContainer();
+            }
+            catch
+            { }
         }
         #endregion
 

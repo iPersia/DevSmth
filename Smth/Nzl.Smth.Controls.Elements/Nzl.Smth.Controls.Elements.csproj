@@ -69,7 +69,6 @@
       <DependentUpon>AtControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlUtil.cs" />
-    <Compile Include="ImageStreamProvider.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -194,6 +193,10 @@
     <ProjectReference Include="..\Nzl.Smth.Datas\Nzl.Smth.Datas.csproj">
       <Project>{bbc9010b-cb89-4f7e-b418-5b653e5eb005}</Project>
       <Name>Nzl.Smth.Datas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nzl.Smth.Loaders\Nzl.Smth.Loaders.csproj">
+      <Project>{091bca06-33fb-4785-8169-81cc64deab80}</Project>
+      <Name>Nzl.Smth.Loaders</Name>
     </ProjectReference>
     <ProjectReference Include="..\Nzl.Smth.Utils\Nzl.Smth.Utils.csproj">
       <Project>{ed81bef2-92f1-474d-80e9-635644d7d0a3}</Project>

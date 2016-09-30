@@ -50,7 +50,7 @@
                 {
                     if (queue.Count > 0)
                     {
-#if (DEBUG)
+#if (X)
                         System.Diagnostics.Debug.WriteLine("RecycledQueues - Before GetRecycled - Type is " + typeof(T).ToString() + "\tQueue size is " + queue.Count);
 #endif
                         return queue.Dequeue() as T;
@@ -87,7 +87,7 @@
                         obj.Status = RecycledStatus.Recycled;
                     }
                 }
-#if (DEBUG)
+#if (X)
                 System.Diagnostics.Debug.WriteLine("RecycledQueues - AddRecycled - Type is " + obj.GetType().ToString() + "\tQueue size is " + queue.Count);
 #endif
             }

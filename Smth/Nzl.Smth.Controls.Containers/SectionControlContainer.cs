@@ -61,6 +61,9 @@
             this.linklblPrevious.LostFocus += LinklblPrevious_LostFocus;
             this.SetBaseUrl(@"http://m.newsmth.net/section");
             this.Text = "Section navigation";
+
+            this.linklblPrevious.Initialize();
+            this.linklblSectionName.Initialize();
         }
 
         /// <summary>

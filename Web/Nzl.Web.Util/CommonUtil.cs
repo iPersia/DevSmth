@@ -23,9 +23,11 @@
         /// <param name="msg"></param>
         public static void ShowMessage(string msg)
         {
+#if (DEBUG)
             System.Diagnostics.Debug.WriteLine("************************Diagonostic Message Start************************");
             System.Diagnostics.Debug.WriteLine(msg);
             System.Diagnostics.Debug.WriteLine("*************************Diagonostic Message End*************************");
+#endif
         }
 
 

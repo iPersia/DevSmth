@@ -50,14 +50,14 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(317, 471);
+            this.panelContainer.Size = new System.Drawing.Size(370, 550);
             this.panelContainer.TabIndex = 0;
             // 
             // panel
             // 
             this.panel.Location = new System.Drawing.Point(3, 3);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(311, 100);
+            this.panel.Size = new System.Drawing.Size(363, 117);
             this.panel.TabIndex = 0;
             // 
             // scContainer
@@ -69,7 +69,7 @@
             this.scContainer.Name = "scContainer";
             this.scContainer.Panel1.Controls.Add(this.panelMenu);
             this.scContainer.Panel2.Controls.Add(this.panelContainer);
-            this.scContainer.Size = new System.Drawing.Size(317, 506);
+            this.scContainer.Size = new System.Drawing.Size(370, 590);
             this.scContainer.SplitterPosition = 30;
             this.scContainer.TabIndex = 1;
             // 
@@ -83,14 +83,16 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(317, 30);
+            this.panelMenu.Size = new System.Drawing.Size(370, 35);
             this.panelMenu.TabIndex = 0;
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(120, 4);
+            this.btnRefresh.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Appearance.Options.UseFont = true;
+            this.btnRefresh.Location = new System.Drawing.Point(140, 4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(75, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(87, 27);
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -98,34 +100,38 @@
             // linklblSectionName
             // 
             this.linklblSectionName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linklblSectionName.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblSectionName.Appearance.Options.UseFont = true;
             this.linklblSectionName.Appearance.Options.UseTextOptions = true;
             this.linklblSectionName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.linklblSectionName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.linklblSectionName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linklblSectionName.Location = new System.Drawing.Point(212, 9);
+            this.linklblSectionName.Location = new System.Drawing.Point(243, 10);
             this.linklblSectionName.Name = "linklblSectionName";
-            this.linklblSectionName.Size = new System.Drawing.Size(100, 14);
+            this.linklblSectionName.Size = new System.Drawing.Size(117, 16);
             this.linklblSectionName.TabIndex = 1;
             this.linklblSectionName.TabStop = true;
             this.linklblSectionName.Text = "Section";
             // 
             // linklblPrevious
             // 
+            this.linklblPrevious.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblPrevious.Appearance.Options.UseFont = true;
             this.linklblPrevious.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linklblPrevious.Location = new System.Drawing.Point(11, 9);
+            this.linklblPrevious.Location = new System.Drawing.Point(11, 12);
             this.linklblPrevious.Name = "linklblPrevious";
-            this.linklblPrevious.Size = new System.Drawing.Size(45, 14);
+            this.linklblPrevious.Size = new System.Drawing.Size(48, 12);
             this.linklblPrevious.TabIndex = 0;
             this.linklblPrevious.TabStop = true;
             this.linklblPrevious.Text = "Previous";
             // 
             // SectionControlContainer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.scContainer);
             this.Name = "SectionControlContainer";
-            this.Size = new System.Drawing.Size(317, 506);
+            this.Size = new System.Drawing.Size(370, 590);
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();

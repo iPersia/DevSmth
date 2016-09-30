@@ -58,6 +58,20 @@ namespace Nzl.Smth.Controls.Elements
         /// <summary>
         /// 
         /// </summary>
+        public override void PrepareControls()
+        {
+            base.PrepareControls();
+
+            ///
+            this.HyperlinkLabelControls.Add(this.linklblDelete);
+            this.HyperlinkLabelControls.Add(this.linklblTransfer);
+            this.HyperlinkLabelControls.Add(this.linklblReply);
+            this.HyperlinkLabelControls.Add(this.linklblID);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="mail"></param>
         public override void Initialize(Mail mail)
         {

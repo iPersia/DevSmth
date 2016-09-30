@@ -33,26 +33,32 @@
             this.panel = new DevExpress.XtraEditors.PanelControl();
             this.linklblDelete = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblTitle = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // linklblAuthor
             // 
             this.linklblAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linklblAuthor.Location = new System.Drawing.Point(381, 11);
+            this.linklblAuthor.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblAuthor.Appearance.Options.UseFont = true;
+            this.linklblAuthor.Appearance.Options.UseLinkColor = true;
+            this.linklblAuthor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linklblAuthor.Location = new System.Drawing.Point(438, 13);
             this.linklblAuthor.Name = "linklblAuthor";
-            this.linklblAuthor.Size = new System.Drawing.Size(100, 14);
+            this.linklblAuthor.Size = new System.Drawing.Size(78, 12);
             this.linklblAuthor.TabIndex = 3;
             this.linklblAuthor.TabStop = true;
-            this.linklblAuthor.Text = "Author";
+            this.linklblAuthor.Text = "ZZZZZZZZZZZZZ";
             // 
             // lblDT
             // 
             this.lblDT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDT.AutoSize = true;
-            this.lblDT.Location = new System.Drawing.Point(542, 11);
+            this.lblDT.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDT.Appearance.Options.UseFont = true;
+            this.lblDT.Location = new System.Drawing.Point(568, 13);
             this.lblDT.Name = "lblDT";
-            this.lblDT.Size = new System.Drawing.Size(140, 14);
+            this.lblDT.Size = new System.Drawing.Size(114, 12);
             this.lblDT.TabIndex = 2;
             this.lblDT.Text = "2013-02-01 01:01:01";
             // 
@@ -71,10 +77,13 @@
             // linklblDelete
             // 
             this.linklblDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linklblDelete.AutoSize = true;
-            this.linklblDelete.Location = new System.Drawing.Point(487, 11);
+            this.linklblDelete.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblDelete.Appearance.Options.UseFont = true;
+            this.linklblDelete.Appearance.Options.UseLinkColor = true;
+            this.linklblDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linklblDelete.Location = new System.Drawing.Point(524, 13);
             this.linklblDelete.Name = "linklblDelete";
-            this.linklblDelete.Size = new System.Drawing.Size(49, 14);
+            this.linklblDelete.Size = new System.Drawing.Size(36, 12);
             this.linklblDelete.TabIndex = 4;
             this.linklblDelete.TabStop = true;
             this.linklblDelete.Text = "Delete";
@@ -82,23 +91,27 @@
             // 
             // linklblTitle
             // 
-            this.linklblTitle.AutoSize = true;
-            this.linklblTitle.Font = new System.Drawing.Font("宋体", 9F);
+            this.linklblTitle.Appearance.Font = new System.Drawing.Font("宋体", 9F);
+            this.linklblTitle.Appearance.Options.UseFont = true;
+            this.linklblTitle.Appearance.Options.UseLinkColor = true;
+            this.linklblTitle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linklblTitle.Location = new System.Drawing.Point(17, 13);
             this.linklblTitle.Name = "linklblTitle";
-            this.linklblTitle.Size = new System.Drawing.Size(71, 12);
+            this.linklblTitle.Size = new System.Drawing.Size(66, 12);
             this.linklblTitle.TabIndex = 0;
             this.linklblTitle.TabStop = true;
             this.linklblTitle.Text = "Refer Title";
             // 
             // ReplyControl
             // 
+            this.Appearance.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel);
-            this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "ReplyControl";
             this.Size = new System.Drawing.Size(696, 36);
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             this.ResumeLayout(false);

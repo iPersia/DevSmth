@@ -25,6 +25,21 @@
             this.linklblSection.HyperlinkClick += new HyperlinkClickEventHandler(linklblBorS_LinkClicked);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void PrepareControls()
+        {
+            base.PrepareControls();
+
+            ///
+            this.HyperlinkLabelControls.Add(this.linklblSection);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="section"></param>
         public override void Initialize(Section section)
         {
             base.Initialize(section);

@@ -130,6 +130,24 @@
         /// <summary>
         /// 
         /// </summary>
+        public override void PrepareControls()
+        {
+            base.PrepareControls();
+
+            ///
+            this.HyperlinkLabelControls.Add(linklblID);
+            this.HyperlinkLabelControls.Add(linklblQuryType);
+            this.HyperlinkLabelControls.Add(lblCopy);
+            this.HyperlinkLabelControls.Add(linklblReply);
+            this.HyperlinkLabelControls.Add(linklblMail);
+            this.HyperlinkLabelControls.Add(linklblTransfer);
+            this.HyperlinkLabelControls.Add(linklblDelete);
+            this.HyperlinkLabelControls.Add(linklblEdit);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="thread"></param>
         public override void Initialize(Thread thread)
         {

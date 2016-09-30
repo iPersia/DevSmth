@@ -37,6 +37,23 @@
             this.linklblTitle.HyperlinkClick += new HyperlinkClickEventHandler(linklblTitle_LinkClicked);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void PrepareControls()
+        {
+            base.PrepareControls();
+
+            ///
+            this.HyperlinkLabelControls.Add(this.linklblAuthor);
+            this.HyperlinkLabelControls.Add(this.linklblDelete);
+            this.HyperlinkLabelControls.Add(this.linklblTitle);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="refer"></param>
         public override void Initialize(Reply refer)
         {
             base.Initialize(refer);

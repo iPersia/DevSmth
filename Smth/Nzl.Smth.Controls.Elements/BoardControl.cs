@@ -24,6 +24,19 @@
         public BoardControl()
         {
             InitializeComponent();
+
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void PrepareControls()
+        {
+            base.PrepareControls();
+
+            ///
+            this.HyperlinkLabelControls.Add(this.linklblBoard);
         }
 
         /// <summary>

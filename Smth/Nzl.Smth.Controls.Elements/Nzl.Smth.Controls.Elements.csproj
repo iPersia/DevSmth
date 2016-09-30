@@ -70,12 +70,6 @@
     </Compile>
     <Compile Include="ControlUtil.cs" />
     <Compile Include="ImageStreamProvider.cs" />
-    <Compile Include="NavigatorControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NavigatorControl.Designer.cs">
-      <DependentUpon>NavigatorControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,12 +106,6 @@
     <Compile Include="PostControl.Designer.cs">
       <DependentUpon>PostControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThreadControlSrc.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ThreadControlSrc.Designer.cs">
-      <DependentUpon>ThreadControlSrc.cs</DependentUpon>
-    </Compile>
     <Compile Include="ThreadControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,9 +132,6 @@
     <EmbeddedResource Include="AtControl.resx">
       <DependentUpon>AtControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NavigatorControl.resx">
-      <DependentUpon>NavigatorControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -166,9 +151,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PostControl.resx">
       <DependentUpon>PostControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ThreadControlSrc.resx">
-      <DependentUpon>ThreadControlSrc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ThreadControl.resx">
       <DependentUpon>ThreadControl.cs</DependentUpon>

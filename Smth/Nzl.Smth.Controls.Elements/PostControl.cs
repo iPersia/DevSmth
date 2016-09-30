@@ -160,6 +160,33 @@
         /// <summary>
         /// 
         /// </summary>
+        public override void PrepareControls()
+        {
+            base.PrepareControls();
+
+            ///
+            this.HyperlinkLabelControls.Add(linklblID);
+            this.HyperlinkLabelControls.Add(lblCopy);
+            this.HyperlinkLabelControls.Add(linklblReply);
+            this.HyperlinkLabelControls.Add(linklblTransfer);
+            this.HyperlinkLabelControls.Add(linklblExpand);
+            this.HyperlinkLabelControls.Add(linklblHost);
+            this.HyperlinkLabelControls.Add(linklblSubjectExpand);
+            this.HyperlinkLabelControls.Add(linklblSource);
+            this.HyperlinkLabelControls.Add(linklblBoard);
+            this.HyperlinkLabelControls.Add(linklblLast);
+            this.HyperlinkLabelControls.Add(linklblNext);
+            this.HyperlinkLabelControls.Add(linklblSubjectLast);
+            this.HyperlinkLabelControls.Add(linklblSubjectNext);
+            this.HyperlinkLabelControls.Add(linklblNew);
+            this.HyperlinkLabelControls.Add(linklblMail);
+            this.HyperlinkLabelControls.Add(linklblDelete);
+            this.HyperlinkLabelControls.Add(linklblEdit);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="thread"></param>
         public override void Initialize(Post refer)
         {

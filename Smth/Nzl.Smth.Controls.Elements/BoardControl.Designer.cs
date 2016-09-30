@@ -31,6 +31,7 @@
             this.panel = new DevExpress.XtraEditors.PanelControl();
             this.lblType = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblBoard = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,14 +42,14 @@
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(475, 24);
+            this.panel.Size = new System.Drawing.Size(554, 28);
             this.panel.TabIndex = 0;
             // 
             // lblType
             // 
             this.lblType.Appearance.Font = new System.Drawing.Font("宋体", 9F);
             this.lblType.Appearance.Options.UseFont = true;
-            this.lblType.Location = new System.Drawing.Point(12, 6);
+            this.lblType.Location = new System.Drawing.Point(14, 7);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(24, 12);
             this.lblType.TabIndex = 1;
@@ -58,7 +59,9 @@
             // 
             this.linklblBoard.Appearance.Font = new System.Drawing.Font("宋体", 9F);
             this.linklblBoard.Appearance.Options.UseFont = true;
-            this.linklblBoard.Location = new System.Drawing.Point(48, 6);
+            this.linklblBoard.Appearance.Options.UseLinkColor = true;
+            this.linklblBoard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linklblBoard.Location = new System.Drawing.Point(56, 7);
             this.linklblBoard.Name = "linklblBoard";
             this.linklblBoard.Size = new System.Drawing.Size(30, 12);
             this.linklblBoard.TabIndex = 0;
@@ -67,11 +70,12 @@
             // 
             // BoardControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel);
             this.Name = "BoardControl";
-            this.Size = new System.Drawing.Size(475, 24);
+            this.Size = new System.Drawing.Size(554, 28);
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             this.ResumeLayout(false);

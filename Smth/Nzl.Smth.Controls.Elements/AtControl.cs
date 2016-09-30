@@ -3,9 +3,11 @@
     using System;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraEditors;
     using Nzl.Web.Util;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Datas;
+    using Nzl.Smth.Utils;
 
     /// <summary>
     /// Class.

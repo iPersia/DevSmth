@@ -46,6 +46,18 @@ namespace Nzl.Smth.Controls.Elements
         /// <summary>
         /// 
         /// </summary>
+        public override void PrepareControls()
+        {
+            base.PrepareControls();
+
+            ///
+            this.HyperlinkLabelControls.Add(this.linklblBoard);
+            this.HyperlinkLabelControls.Add(this.linklblTop);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="topic"></param>
         public override void Initialize(Top topic)
         {

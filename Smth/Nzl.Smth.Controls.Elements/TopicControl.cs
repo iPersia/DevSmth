@@ -41,7 +41,20 @@
             this.linklblCreateID.HyperlinkClick += new HyperlinkClickEventHandler(linklblCreateID_LinkClicked);
             this.linklblLastID.HyperlinkClick += new HyperlinkClickEventHandler(linklblLastID_LinkClicked);
         }
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void PrepareControls()
+        {
+            base.PrepareControls();
+
+            ///
+            this.HyperlinkLabelControls.Add(this.linklblTopic);
+            this.HyperlinkLabelControls.Add(this.linklblCreateID);
+            this.HyperlinkLabelControls.Add(this.linklblLastID);
+        }
+
         /// <summary>
         /// 
         /// </summary>

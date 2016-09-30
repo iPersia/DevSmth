@@ -50,7 +50,20 @@
             this.linklblAuthor.HyperlinkClick += linklblAuthor_LinkClicked;
             this.linklblTitle.HyperlinkClick += linklblTitle_LinkClicked;
             this.linklblDelete.HyperlinkClick += LinklblDelete_LinkClicked;
-        }        
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void PrepareControls()
+        {
+            base.PrepareControls();
+
+            ///
+            this.HyperlinkLabelControls.Add(this.linklblAuthor);
+            this.HyperlinkLabelControls.Add(this.linklblDelete);
+            this.HyperlinkLabelControls.Add(this.linklblTitle);
+        }
 
         /// <summary>
         /// 

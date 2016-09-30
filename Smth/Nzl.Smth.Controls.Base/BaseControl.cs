@@ -1,12 +1,12 @@
 ﻿namespace Nzl.Smth.Controls.Base
 {
     using System;
+    using System.Collections.Generic;
     using System.Windows.Forms;
     using DevExpress.XtraEditors;
-    using DevExpress.XtraEditors.Drawing;
-    using DevExpress.XtraEditors.ViewInfo;
     using Nzl.Recycling;
     using Nzl.Smth.Datas;
+    using Nzl.Smth.Utils;
 
     /// <summary>
     /// 
@@ -18,8 +18,31 @@
         /// <summary>
         /// 
         /// </summary>
+        private IList<HyperlinkLabelControl> _hlcList = new List<HyperlinkLabelControl>();
+
+        /// <summary>
+        /// 
+        /// </summary>
         public BaseControl()
         {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            ///For initializing.
+            this.PrepareControls();
+
+            ///Initializing.
+            foreach (HyperlinkLabelControl ctl in this.HyperlinkLabelControls) 
+            {
+                ctl.Initialize();
+            }
         }
 
         /// <summary>
@@ -29,6 +52,25 @@
         {
             get;
             set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        protected IList<HyperlinkLabelControl> HyperlinkLabelControls
+        {
+            get
+            {
+                return this._hlcList;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual void PrepareControls()
+        {
+
         }
 
         /// <summary>

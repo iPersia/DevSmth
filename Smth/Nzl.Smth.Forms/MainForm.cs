@@ -1,11 +1,14 @@
 ﻿namespace Nzl.Smth.Forms
 {
     using System;
+    using System.Collections.Generic;
     using System.Windows.Forms;
     using System.ComponentModel;
+    using DevExpress.XtraSplashScreen;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Logger;
     using Nzl.Smth.Datas;
+    using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Controls.Elements;
     using Nzl.Smth.Controls.Complexes;
     using Nzl.Smth.Controls.Containers;
@@ -28,9 +31,30 @@
         {
             InitializeComponent();
 
+            SplashScreenManager.ShowForm(typeof(SplashScreenForm));
+
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += Bw_DoWork;
+            bw.RunWorkerCompleted += Bw_RunWorkerCompleted;
             bw.RunWorkerAsync();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ///
+            SplashScreenManager.CloseForm();
+
+            ///Load board's infor.
+            //Boards.Instance.Initilize();
+
+            TabbedBrowserForm.Instance.SetParent(this);
+            TabbedBrowserForm.Instance.Show();
+            TabbedBrowserForm.Instance.Focus();
         }
 
         /// <summary>
@@ -42,10 +66,70 @@
         {
             try
             {
-                ThreadControlContainer tcc = new ThreadControlContainer();
+                this.AddControls(this.GetInitializingControls());
             }
             catch
             { }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private IList<Control> GetInitializingControls()
+        {
+            if (this.InvokeRequired)
+            {
+                IList<Control> list = null;
+                this.Invoke(new MethodInvoker(delegate ()
+                {
+                    list = this.GetInitializingControls();
+                }));
+                return list;
+            }
+            else
+            {
+                IList<Control> list = new List<Control>();
+                list.Add(new TopControlContainer("1"));
+                list.Add(new TopControl());
+                list.Add(new ThreadControl());
+                list.Add(new ThreadControlContainer());
+                list.Add(new ThreadControl());
+                return list;
+            }
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ctl"></param>
+        private void AddControls(IList<Control> ctls)
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(delegate ()
+                {
+                    this.AddControls(ctls);
+                }));
+            }
+            else
+            {
+                foreach (Control ctl in ctls)
+                {
+                    this.Controls.Add(ctl);
+                    ctl.CreateControl();
+                    if (ctl is ThreadControl)
+                    {
+                        Thread thread = new Thread();
+                        thread.DeleteUrl = "DeleteUrl";
+                        thread.Floor = "1";
+                        thread.User = "User";
+                        thread.ContentHtml = "<form action=\"/user/login\" method=\"post\"><ul class=\"sec slist\"><li class=\"f\">当前用户:Nesus</li><li>等级:用户</li><li>发帖数:1433</li></ul></form><ul class=\"slist sec\"><li class=\"f\">十大热门话题</li><li>1|<a href=\"/article/Age/16604805\">(更新)遇到咖啡托儿，被其同伙揍差点屎了，刚刚才录完口供(<span style=\"color:red\">272</span>)</a></li><li>2|<a href=\"/article/OurEstate/1893295\">女方死活不同意离婚规避怎么办(<span style=\"color:red\">144</span>)</a></li><li>3|<a href=\"/article/FamilyLife/1758620823\">婆婆说“你们的孩子应该你们养，不要指望我来带”，请教将来养(<span style=\"color:red\">126</span>)</a></li><li>4|<a href=\"/article/RealEstate/5477605\">简单解读一下9.30新政，纠正一下错误认识(<span style=\"color:red\">102</span>)</a></li><li>5|<a href=\"/article/Picture/1421968\">浙江大学打造全球最大，最豪华大学校门！！！(<span style=\"color:red\">99</span>)</a></li><li>6|<a href=\"/article/ShangHaiEstate/135154\">上海户口重要吗？(<span style=\"color:red\">78</span>)</a></li><li>7|<a href=\"/article/Love/6059199\">女友和ex发生过关系(<span style=\"color:red\">77</span>)</a></li><li>8|<a href=\"/article/AutoWorld/1940353861\">汉兰达跑长途太舒服了(<span style=\"color:red\">61</span>)</a></li><li>9|<a href=\"/article/Stock/6723683\">人民日报今天又对房价又说话了。(<span style=\"color:red\">58</span>)</a></li><li>10|<a href=\"/article/Sichuan/577271\">粗大事了(<span style=\"color:red\">47</span>)</a></li></ul>	<div class=\"sec sp\"><form action=\"/go\" method=\"get\"><span class=\"f\">选择讨论区</span><br><input name=\"name\" type=\"text\">&nbsp;<input value=\"GO\" class=\"btn\" type=\"submit\"></form></div>";
+                        (ctl as ThreadControl).Initialize(thread);
+                    }
+                }
+            }
         }
         #endregion
 
@@ -64,16 +148,6 @@
 
             ///Should excute before loading of TabbedBrowserForm.Instance.
             TabbedBrowserSettingsForm.Instance.LoadSettings();
-
-            ///Load board's infor.
-            //Boards.Instance.Initilize();
-
-            TabbedBrowserForm.Instance.SetParent(this);
-            TabbedBrowserForm.Instance.Show();
-            TabbedBrowserForm.Instance.Focus();
-
-            ///
-            //PageDispatcher.Instance.Synchronous = false;
         }
         #endregion
 

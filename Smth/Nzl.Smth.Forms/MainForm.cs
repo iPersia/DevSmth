@@ -53,7 +53,9 @@
             //Boards.Instance.Initilize();
 
             TabbedBrowserForm.Instance.SetParent(this);
+            TabbedBrowserForm.Instance.StartPosition = FormStartPosition.CenterScreen;
             TabbedBrowserForm.Instance.Show();
+            TabbedBrowserForm.Instance.Activate();
             TabbedBrowserForm.Instance.Focus();
         }
 
@@ -142,6 +144,7 @@
         {
             base.OnLoad(e);
 
+            ///Hide the main form.
             this.Hide();
             this.ShowInTaskbar = false;
             this.nfiMain.Visible = true;

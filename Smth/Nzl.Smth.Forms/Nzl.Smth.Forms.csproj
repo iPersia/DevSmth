@@ -227,6 +227,9 @@
     <EmbeddedResource Include="NewThreadForm.resx">
       <DependentUpon>NewThreadForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreenForm.resx">
+      <DependentUpon>SplashScreenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TabbedBrowserForm.resx">
       <DependentUpon>TabbedBrowserForm.cs</DependentUpon>
     </EmbeddedResource>

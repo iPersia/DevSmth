@@ -902,6 +902,11 @@
             }
         }
 
+        private static bool _isWaitFormShowing = false;
+
+        private static int count = 0;
+        private static System.Threading.Mutex _staticMutexWaitFormShowing = new System.Threading.Mutex();
+
         /// <summary>
         /// 
         /// </summary>
@@ -917,22 +922,25 @@
             }
             else
             {
-                PanelControl panelContainer = this.GetPanelContainer();
-                if (panelContainer != null)
+                try
                 {
-                    this._ppMessage.Hide();
-                    this._ppMessage.AutoSize = true;
-                    this._ppMessage.Description = text;
-                    this._ppMessage.Top = panelContainer.Height * 8 / 10;
-                    this._ppMessage.Left = (panelContainer.Width - this._ppMessage.Width) / 2;                    
-                    this._ppMessage.Show();
-                }
+                    _staticMutexWaitFormShowing.WaitOne();
+                    if (_isWaitFormShowing == false)
+                    {
+                        DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(typeof(BaseWaitForm));
+                        _isWaitFormShowing = true;
+                    }
+                    
+                    DevExpress.XtraSplashScreen.SplashScreenManager.Default.SendCommand(BaseWaitForm.WaitFormCommand.SetDescription, text);
+                    _staticMutexWaitFormShowing.ReleaseMutex();
 
-                ///Clear timer
-                Timer showTextTimer = new Timer();
-                showTextTimer.Tick += ShowTextTimer_Tick;
-                showTextTimer.Interval += 1000;
-                showTextTimer.Start();                
+                    ///Clear timer
+                    Timer showTextTimer = new Timer();
+                    showTextTimer.Tick += ShowTextTimer_Tick;
+                    showTextTimer.Interval += 500;
+                    showTextTimer.Start();
+                }
+                catch { }
             }
         }
 
@@ -942,7 +950,16 @@
             if (timer != null)
             {
                 timer.Stop();
-                this._ppMessage.Hide();
+                //this._ppMessage.Hide();
+
+                _staticMutexWaitFormShowing.WaitOne();
+                if (_isWaitFormShowing)
+                {
+                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
+                    _isWaitFormShowing = false;
+                }
+
+                _staticMutexWaitFormShowing.ReleaseMutex();
             }
         }
 

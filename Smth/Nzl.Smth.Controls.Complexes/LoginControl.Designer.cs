@@ -65,6 +65,8 @@
             // btnLogout
             // 
             this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.Appearance.Options.UseFont = true;
             this.btnLogout.Location = new System.Drawing.Point(94, 184);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(75, 23);
@@ -74,6 +76,8 @@
             // 
             // btnLogon
             // 
+            this.btnLogon.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogon.Appearance.Options.UseFont = true;
             this.btnLogon.Location = new System.Drawing.Point(66, 145);
             this.btnLogon.Name = "btnLogon";
             this.btnLogon.Size = new System.Drawing.Size(128, 23);
@@ -85,7 +89,9 @@
             // 
             this.txtUserID.Location = new System.Drawing.Point(66, 25);
             this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(128, 20);
+            this.txtUserID.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserID.Properties.Appearance.Options.UseFont = true;
+            this.txtUserID.Size = new System.Drawing.Size(128, 18);
             this.txtUserID.TabIndex = 8;
             // 
             // ckbSave
@@ -93,6 +99,8 @@
             this.ckbSave.EditValue = true;
             this.ckbSave.Location = new System.Drawing.Point(102, 109);
             this.ckbSave.Name = "ckbSave";
+            this.ckbSave.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbSave.Properties.Appearance.Options.UseFont = true;
             this.ckbSave.Properties.Caption = "Save";
             this.ckbSave.Size = new System.Drawing.Size(48, 19);
             this.ckbSave.TabIndex = 10;
@@ -101,9 +109,11 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(66, 68);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Properties.Appearance.Options.UseFont = true;
             this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Properties.UseSystemPasswordChar = true;
-            this.txtPassword.Size = new System.Drawing.Size(128, 20);
+            this.txtPassword.Size = new System.Drawing.Size(128, 18);
             this.txtPassword.TabIndex = 9;
             // 
             // scContainer
@@ -133,9 +143,11 @@
             // 
             // lblNote
             // 
+            this.lblNote.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNote.Appearance.Options.UseFont = true;
             this.lblNote.Location = new System.Drawing.Point(95, 6);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(75, 14);
+            this.lblNote.Size = new System.Drawing.Size(78, 12);
             this.lblNote.TabIndex = 1;
             this.lblNote.Text = "Sign In && Out";
             // 

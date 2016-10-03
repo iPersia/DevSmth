@@ -32,10 +32,10 @@
             this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnReadAll = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.tcRefer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
-            this.scContainer.Panel1.SuspendLayout();
-            this.scContainer.Panel2.SuspendLayout();
             this.scContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,24 +44,17 @@
             this.tcRefer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcRefer.Location = new System.Drawing.Point(0, 0);
             this.tcRefer.Name = "tcRefer";
-            this.tcRefer.Size = new System.Drawing.Size(720, 534);
+            this.tcRefer.Size = new System.Drawing.Size(720, 530);
             this.tcRefer.TabIndex = 0;
             // 
             // scContainer
             // 
             this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
+            this.scContainer.Horizontal = false;
             this.scContainer.IsSplitterFixed = true;
             this.scContainer.Location = new System.Drawing.Point(0, 0);
             this.scContainer.Name = "scContainer";
-            this.scContainer.Horizontal = false;
-            // 
-            // scContainer.Panel1
-            // 
             this.scContainer.Panel1.Controls.Add(this.panelMenu);
-            // 
-            // scContainer.Panel2
-            // 
             this.scContainer.Panel2.Controls.Add(this.tcRefer);
             this.scContainer.Size = new System.Drawing.Size(720, 560);
             this.scContainer.SplitterPosition = 25;
@@ -69,7 +62,8 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.SystemColors.Window;
+            this.panelMenu.Appearance.BackColor = System.Drawing.SystemColors.Window;
+            this.panelMenu.Appearance.Options.UseBackColor = true;
             this.panelMenu.Controls.Add(this.btnReadAll);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -79,6 +73,8 @@
             // 
             // btnReadAll
             // 
+            this.btnReadAll.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadAll.Appearance.Options.UseFont = true;
             this.btnReadAll.Location = new System.Drawing.Point(304, 1);
             this.btnReadAll.Name = "btnReadAll";
             this.btnReadAll.Size = new System.Drawing.Size(75, 23);
@@ -93,10 +89,10 @@
             this.Controls.Add(this.scContainer);
             this.Name = "ReferControl";
             this.Size = new System.Drawing.Size(720, 560);
-            this.scContainer.Panel1.ResumeLayout(false);
-            this.scContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tcRefer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scContainer)).EndInit();
             this.scContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 

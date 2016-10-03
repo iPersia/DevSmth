@@ -92,7 +92,7 @@
             else
             {
                 IList<Control> list = new List<Control>();
-                list.Add(new TopControlContainer("1"));
+                list.Add(new TopControlContainer("http://m.newsmth.net/hot"));
                 list.Add(new TopControl());
                 list.Add(new ThreadControl());
                 list.Add(new ThreadControlContainer());

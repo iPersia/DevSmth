@@ -52,10 +52,37 @@
         /// <summary>
         /// 
         /// </summary>
-        private DevExpress.XtraWaitForm.ProgressPanel _ppMessage = new DevExpress.XtraWaitForm.ProgressPanel();
+        private System.Threading.Mutex _mutexFetchPage = new System.Threading.Mutex();
+
+        #region static
+        /// <summary>
+        /// 
+        /// </summary>
+        private static bool _staticIsWaitFormShown = false;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static System.Threading.Mutex _staticMutexWaitFormShowing = new System.Threading.Mutex();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Timer _staticWaitFormTimer = new Timer();
+        #endregion
+
         #endregion
 
         #region Ctor
+        /// <summary>
+        /// 
+        /// </summary>
+        static BaseControlContainer()
+        {
+            BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Interval = 500;
+            BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Tick += WaitFormTimer_Tick;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -66,7 +93,7 @@
             this.IsRecycled = false;
             this.Status = RecycledStatus.Using;
             //Configuration.OnLocationMarginChanged += Configuration_OnLocationMarginChanged;
-            LogStatus.Instance.OnLoginStatusChanged += LogStatus_OnLoginStatusChanged;
+            LogStatus.Instance.OnLoginStatusChanged += LogStatus_OnLoginStatusChanged;       
         }
         #endregion
 
@@ -187,7 +214,7 @@
                     throw new Exception("The PanelControl or the PanelControl container is null!");
                 }
             }
-
+            
             ///Set BorderStyle.
             this.BorderStyle = BorderStyle.None;
             this.GetPanelContainer().Dock = DockStyle.Fill;
@@ -203,19 +230,8 @@
                                   - Configuration.BaseControlContainerLocationMargin * 2
                                   - this.GetPanelContainerBoarderMargin();
 
-            ///Add message label.
-            this._ppMessage.Appearance.Options.UseBackColor = true;
-            this._ppMessage.Appearance.Options.UseForeColor = true;
-            this._ppMessage.BackColor = Color.Transparent;
-            this._ppMessage.ForeColor = Color.OrangeRed;
-            this._ppMessage.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Line;
-            this._ppMessage.Hide();
-            this.GetPanelContainer().Controls.Remove(this.GetPanel());
-            this.GetPanelContainer().Controls.Add(this._ppMessage);
-            this.GetPanelContainer().Controls.Add(this.GetPanel());
-
             ///Response to mouse wheeling.
-            this.IsResponingMouseWheel = true;            
+            this.IsResponingMouseWheel = true;
 
             ///Fetch first page.
             this.SetUrlInfo(false);
@@ -261,8 +277,8 @@
                 //baseControlContainer.Width = newWidth;
                 //if (Math.Abs(baseControlContainer.Width - newWidth) > 10)
                 //{                    
-                    this.SetUrlInfo(false);
-                    this.FetchPage();
+                this.SetUrlInfo(false);
+                this.FetchPage();
                 //}
             }
         }
@@ -311,6 +327,41 @@
         /// <param name="info"></param>
         protected virtual void DoWork(UrlInfo<TBaseControl, TBaseData> info)
         {
+            this.UpdatePageInfo(info.WebPage, info);
+            info.Result = this.GetItems(info.WebPage);
+            if (info.Result != null && info.Result.Count > 0)
+            {
+                ///Initialize container.
+                System.Threading.Thread.Sleep(0);
+                this.Invoke(new MethodInvoker(delegate ()
+                {
+                    this.InitializeContainer(info.IsAppend);
+                }));
+                System.Threading.Thread.Sleep(0);
+
+                ///Apply data in control.
+                foreach (TBaseData data in info.Result)
+                {
+                    TBaseControl ctl = this.GetControl(data);
+                    if (ctl != null)
+                    {
+                        System.Threading.Thread.Sleep(0);
+                        this.Invoke(new MethodInvoker(delegate ()
+                        {
+                            this.AddControl(ctl);
+                        }));
+                        System.Threading.Thread.Sleep(0);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="info"></param>
+        protected virtual void DoWorkSrc(UrlInfo<TBaseControl, TBaseData> info)
+        {
 #if (DEBUG)
             System.Diagnostics.Stopwatch swDoWork = new System.Diagnostics.Stopwatch();
             swDoWork.Start();
@@ -358,7 +409,7 @@
         protected void UpdateView(IList<TBaseControl> ctls)
         {
 #if (DEBUG)
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();            
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 #endif
             foreach (TBaseControl ctl in ctls)
             {
@@ -578,7 +629,7 @@
             }
             else
             {
-                this.GetPanel().Enabled = flag;                
+                this.GetPanel().Enabled = flag;
             }
         }
 
@@ -725,9 +776,9 @@
         protected virtual void OnLoginStatusChanged(bool isLogin)
         {
         }
-#endregion
+        #endregion
 
-#region protected
+        #region protected
         /// <summary>
         /// 
         /// </summary>
@@ -828,7 +879,7 @@
                 if (this.InvokeRequired)
                 {
 #if (DEBUG)
-                    System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();                    
+                    System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 #endif
                     TBaseControl ctl = this.GetRecycledControl();
                     if (ctl == null || ctl.IsDisposed)
@@ -902,11 +953,6 @@
             }
         }
 
-        private static bool _isWaitFormShowing = false;
-
-        private static int count = 0;
-        private static System.Threading.Mutex _staticMutexWaitFormShowing = new System.Threading.Mutex();
-
         /// <summary>
         /// 
         /// </summary>
@@ -924,42 +970,60 @@
             {
                 try
                 {
-                    _staticMutexWaitFormShowing.WaitOne();
-                    if (_isWaitFormShowing == false)
+                    BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.WaitOne();
+
+#if (DEBUG)
+                    System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - ShowInformation - MutexWaitFormShowing.WaitOne - " + text);
+#endif 
+
+                    if (BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown == false)
                     {
                         DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(typeof(BaseWaitForm));
-                        _isWaitFormShowing = true;
+                        BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown = true;
                     }
-                    
-                    DevExpress.XtraSplashScreen.SplashScreenManager.Default.SendCommand(BaseWaitForm.WaitFormCommand.SetDescription, text);
-                    _staticMutexWaitFormShowing.ReleaseMutex();
 
-                    ///Clear timer
-                    Timer showTextTimer = new Timer();
-                    showTextTimer.Tick += ShowTextTimer_Tick;
-                    showTextTimer.Interval += 500;
-                    showTextTimer.Start();
+                    DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormDescription(text);
+                    BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Stop();
+                    BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Start();
                 }
                 catch { }
+                finally
+                {
+#if (DEBUG)
+                    System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - ShowInformation - MutexWaitFormShowing.ReleaseMutex - " + text);
+#endif 
+                    BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.ReleaseMutex();
+                }
             }
         }
 
-        private void ShowTextTimer_Tick(object sender, EventArgs e)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void WaitFormTimer_Tick(object sender, EventArgs e)
         {
-            Timer timer = sender as Timer;
-            if (timer != null)
+            try
             {
-                timer.Stop();
-                //this._ppMessage.Hide();
-
-                _staticMutexWaitFormShowing.WaitOne();
-                if (_isWaitFormShowing)
+                BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Stop();
+                BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.WaitOne();
+#if (DEBUG)
+                System.Diagnostics.Debug.WriteLine("WaitFormTimer_Tick - MutexWaitFormShowing.WaitOne!");
+#endif 
+                if (BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown)
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
-                    _isWaitFormShowing = false;
+                    BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown = false;
                 }
-
-                _staticMutexWaitFormShowing.ReleaseMutex();
+            }
+            catch { }
+            finally
+            {
+#if (DEBUG)
+                System.Diagnostics.Debug.WriteLine("WaitFormTimer_Tick - MutexWaitFormShowing.ReleaseMutex!");
+#endif 
+                BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.ReleaseMutex();
             }
         }
 
@@ -980,9 +1044,9 @@
         {
             return this.GetPanel().BorderStyle == DevExpress.XtraEditors.Controls.BorderStyles.Simple ? 2 : 0;
         }
-#endregion
+        #endregion
 
-#region FetchPage
+        #region FetchPage
         /// <summary>
         /// 
         /// </summary>
@@ -1070,7 +1134,7 @@
                 {
                     WorkCompletedBase(e);
                 }
-                
+
                 ///Set control enable.
                 this.SetControlEnabled(true);
             }
@@ -1162,8 +1226,9 @@
         /// </summary>
         protected bool FetchPage(UrlInfo<TBaseControl, TBaseData> urlInfo)
         {
-            lock (this.GetPanelContainer())
+            try
             {
+                //this._mutexFetchPage.WaitOne();
                 if (urlInfo.Index > 0 &&
                     urlInfo.Index <= urlInfo.Total &&
                     string.IsNullOrEmpty(urlInfo.BaseUrl) == false &&
@@ -1183,7 +1248,7 @@
 #if (DEBUG)
                     this.ShowInformation("Starting getting page!");
 #endif
-                    SetControlEnabled(false);
+                    this.SetControlEnabled(false);
                     return true;
                 }
                 else
@@ -1195,6 +1260,10 @@
                 }
 
                 return false;
+            }
+            finally
+            {
+                //this._mutexFetchPage.ReleaseMutex();
             }
         }
 
@@ -1302,9 +1371,9 @@
                 this.OnWorkerCancelled(this, new MessageEventArgs(msg));
             }
         }
-#endregion
+        #endregion
 
-#region eventhandler
+        #region eventhandler
         /// <summary>
         /// 
         /// </summary>
@@ -1314,7 +1383,8 @@
         {
             if (this.InvokeRequired)
             {
-                this.Invoke(new MethodInvoker(delegate () {
+                this.Invoke(new MethodInvoker(delegate ()
+                {
                     this.LogStatus_OnLoginStatusChanged(sender, e);
                 }));
             }
@@ -1336,6 +1406,6 @@
                                   - this.GetPanelContainerBoarderMargin();
             this.FetchPage();
         }
-#endregion
+        #endregion
     }
 }

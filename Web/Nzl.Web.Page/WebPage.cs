@@ -540,7 +540,14 @@
         {
             try
             {
-                m_uri = new Uri(_url);
+                try {
+                    m_uri = new Uri(_url);
+                }
+                catch {
+                    m_good = false;
+                    return;
+                }
+
                 m_links = new List<HyperLink>();
                 m_html = "";
                 m_outstr = "";

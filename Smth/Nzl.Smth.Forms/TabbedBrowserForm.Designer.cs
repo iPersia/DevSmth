@@ -96,6 +96,8 @@
             // 
             // btnRefer
             // 
+            this.btnRefer.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefer.Appearance.Options.UseFont = true;
             this.btnRefer.Location = new System.Drawing.Point(642, 2);
             this.btnRefer.Name = "btnRefer";
             this.btnRefer.Size = new System.Drawing.Size(75, 27);
@@ -107,14 +109,19 @@
             // 
             // linklblUserID
             // 
+            this.linklblUserID.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linklblUserID.Appearance.Options.UseFont = true;
+            this.linklblUserID.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linklblUserID.Location = new System.Drawing.Point(14, 10);
             this.linklblUserID.Name = "linklblUserID";
-            this.linklblUserID.Size = new System.Drawing.Size(55, 14);
+            this.linklblUserID.Size = new System.Drawing.Size(48, 12);
             this.linklblUserID.TabIndex = 15;
             this.linklblUserID.Text = "Welcome!";
             // 
             // btnMessge
             // 
+            this.btnMessge.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMessge.Appearance.Options.UseFont = true;
             this.btnMessge.Location = new System.Drawing.Point(402, 2);
             this.btnMessge.Name = "btnMessge";
             this.btnMessge.Size = new System.Drawing.Size(75, 27);
@@ -125,6 +132,8 @@
             // 
             // btnLoadTop
             // 
+            this.btnLoadTop.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadTop.Appearance.Options.UseFont = true;
             this.btnLoadTop.Location = new System.Drawing.Point(242, 2);
             this.btnLoadTop.Name = "btnLoadTop";
             this.btnLoadTop.Size = new System.Drawing.Size(75, 27);
@@ -135,6 +144,8 @@
             // 
             // btnLogon
             // 
+            this.btnLogon.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogon.Appearance.Options.UseFont = true;
             this.btnLogon.Location = new System.Drawing.Point(162, 2);
             this.btnLogon.Name = "btnLogon";
             this.btnLogon.Size = new System.Drawing.Size(75, 27);
@@ -145,6 +156,8 @@
             // 
             // btnMail
             // 
+            this.btnMail.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMail.Appearance.Options.UseFont = true;
             this.btnMail.Location = new System.Drawing.Point(562, 2);
             this.btnMail.Name = "btnMail";
             this.btnMail.Size = new System.Drawing.Size(75, 27);
@@ -156,6 +169,8 @@
             // 
             // btnFavor
             // 
+            this.btnFavor.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFavor.Appearance.Options.UseFont = true;
             this.btnFavor.Location = new System.Drawing.Point(482, 2);
             this.btnFavor.Name = "btnFavor";
             this.btnFavor.Size = new System.Drawing.Size(75, 27);
@@ -168,6 +183,8 @@
             // btnClear
             // 
             this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Appearance.Options.UseFont = true;
             this.btnClear.Location = new System.Drawing.Point(927, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 27);
@@ -178,6 +195,8 @@
             // 
             // btnBoardNavi
             // 
+            this.btnBoardNavi.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBoardNavi.Appearance.Options.UseFont = true;
             this.btnBoardNavi.Location = new System.Drawing.Point(322, 2);
             this.btnBoardNavi.Name = "btnBoardNavi";
             this.btnBoardNavi.Size = new System.Drawing.Size(75, 27);
@@ -189,6 +208,8 @@
             // btnSettings
             // 
             this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSettings.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.Appearance.Options.UseFont = true;
             this.btnSettings.Location = new System.Drawing.Point(847, 2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(75, 27);

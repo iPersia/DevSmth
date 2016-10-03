@@ -734,7 +734,7 @@
                     System.Diagnostics.Debug.WriteLine("newYPos:" + newYPos);
 #endif
                     baseControlContainer.Location = new Point(Configuration.BaseControlContainerLocationMargin, newYPos);
-                    if (newYPos == minHeight)
+                    if (newYPos == minHeight && this.IsWorking == false)
                     {
                         this.FetchPageOnMouseWheel();
 #if (X)
@@ -759,14 +759,6 @@
         {
             this.SetUrlInfo(true);
             this.FetchNextPage();
-            //if (this._settingBrowserType == BrowserType.FirstReply)
-            //{
-            //    this.FetchNextPage();
-            //}
-            //else if (this._settingAutoUpdating == false)
-            //{
-            //    this.FetchPrevPage();
-            //}
         }
 
         /// <summary>
@@ -1255,7 +1247,9 @@
                 {
                     if (this.IsWorking)
                     {
-                        this.ShowInformation("Page loading is already in progess!");
+#if (DEBUG)
+                        //this.ShowInformation("Page loading is already in progess!");
+#endif
                     }
                 }
 

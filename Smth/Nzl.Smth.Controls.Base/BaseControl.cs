@@ -44,6 +44,15 @@
                 ctl.Initialize();
             }
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.Text;
+        }
 
         /// <summary>
         /// 

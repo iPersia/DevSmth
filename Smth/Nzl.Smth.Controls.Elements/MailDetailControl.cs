@@ -48,6 +48,9 @@ namespace Nzl.Smth.Controls.Elements
         public MailDetailControl()
         {
             InitializeComponent();
+            ///For ToString.
+            this.Text = "The mail detail control";
+
             this.linklblID.HyperlinkClick += LinklblID_LinkClicked;
             this.linklblReply.HyperlinkClick += LinklblReply_LinkClicked;
             this.linklblDelete.HyperlinkClick += LinklblDelete_LinkClicked;

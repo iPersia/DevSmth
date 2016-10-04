@@ -37,9 +37,10 @@
         public BoardControlContainer()
         {
             InitializeComponent();
-            //this.panel.MouseWheel += Panel_MouseWheel;
-            this.SetBaseUrl(@"http://m.newsmth.net/favor");
-            this.Text = "User favourite board";
+            ///For ToString.
+            this.Text = "The board container";
+
+            this.SetBaseUrl(@"http://m.newsmth.net/favor");            
         }
         #endregion
 

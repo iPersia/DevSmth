@@ -81,9 +81,12 @@
             InitializeComponent();
             this._updatingTimer.Tick += _updatingTimer_Tick;
             this._Settings = new BoardSettingEventArgs();
-            
+
+            ///For ToString.
+            this.Text = "The topic container";
+
             ///Apply font.
-            foreach(DevExpress.XtraBars.Bar bar in this.bmManager.Bars)
+            foreach (DevExpress.XtraBars.Bar bar in this.bmManager.Bars)
             {
                 bar.BarAppearance.Normal.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 bar.BarAppearance.Hovered.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

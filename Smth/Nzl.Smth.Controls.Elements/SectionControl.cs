@@ -22,6 +22,9 @@
         public SectionControl()
         {
             InitializeComponent();
+            ///For ToString.
+            this.Text = "The section control";
+
             this.linklblSection.HyperlinkClick += new HyperlinkClickEventHandler(linklblBorS_LinkClicked);
         }
 

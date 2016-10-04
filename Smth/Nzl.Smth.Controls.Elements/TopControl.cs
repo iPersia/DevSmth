@@ -38,6 +38,10 @@ namespace Nzl.Smth.Controls.Elements
         public TopControl()
         {
             InitializeComponent();
+            ///For ToString.
+            this.Text = "The top control";
+
+            ///
             this.Height = ControlHeight;
             this.linklblTop.HyperlinkClick += new HyperlinkClickEventHandler(linklblTop_LinkClicked);
             this.linklblBoard.HyperlinkClick += LinklblBoard_LinkClicked;

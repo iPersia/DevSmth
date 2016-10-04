@@ -56,11 +56,13 @@
         public SectionControlContainer()
         {
             InitializeComponent();
+            ///For ToString.
+            this.Text = "The section container";
+
             this.btnRefresh.Left = this.panelMenu.Width / 2 - this.btnRefresh.Width / 2;
             this.linklblPrevious.HyperlinkClick += LinklblPrevious_LinkClicked;
             this.linklblPrevious.LostFocus += LinklblPrevious_LostFocus;
             this.SetBaseUrl(@"http://m.newsmth.net/section");
-            this.Text = "Section navigation";
 
             this.linklblPrevious.Initialize();
             this.linklblSectionName.Initialize();

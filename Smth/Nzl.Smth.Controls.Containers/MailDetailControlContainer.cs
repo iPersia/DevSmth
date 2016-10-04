@@ -66,8 +66,10 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         public MailDetailControlContainer()
         {
-            InitializeComponent();            
-            this.Text = "Mail Detail";
+            InitializeComponent();
+            ///For ToString.
+            this.Text = "The mail detail container";
+
             this.panel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.panelContainer.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
             this.InitializeSize();

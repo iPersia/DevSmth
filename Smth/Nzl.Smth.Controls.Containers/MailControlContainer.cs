@@ -65,7 +65,9 @@
         MailControlContainer()
         {
             InitializeComponent();
-            this.Text = "Mail Container";
+
+            ///For ToString.
+            this.Text = "The mail container";
 
             ///Apply font.
             foreach (DevExpress.XtraBars.Bar bar in this.bmManager.Bars)

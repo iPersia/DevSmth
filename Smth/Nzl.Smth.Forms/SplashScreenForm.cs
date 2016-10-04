@@ -21,12 +21,27 @@ namespace Nzl.Smth.Forms
         public override void ProcessCommand(Enum cmd, object arg)
         {
             base.ProcessCommand(cmd, arg);
+
+            SplashScreenCommand ssCmd = (SplashScreenCommand)cmd;
+            if (ssCmd == SplashScreenCommand.Loading)
+            {
+                string status = arg as string;
+                this.lblMsg.Text = "Loading " + status + "...";
+            }
+
+            if (ssCmd == SplashScreenCommand.Loaded)
+            {
+                string status = arg as string;
+                this.lblMsg.Text = "Initializing is completed, the browser will be shown!";
+            }
         }
 
         #endregion
 
         public enum SplashScreenCommand
         {
+            Loading,
+            Loaded
         }
     }
 }

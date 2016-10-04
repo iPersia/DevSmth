@@ -46,6 +46,9 @@
         public MailControl()
         {
             InitializeComponent();
+            ///For ToString.
+            this.Text = "The mail control";
+
             this.Height = MailControl.ControlHeight;
             this.linklblAuthor.HyperlinkClick += linklblAuthor_LinkClicked;
             this.linklblTitle.HyperlinkClick += linklblTitle_LinkClicked;

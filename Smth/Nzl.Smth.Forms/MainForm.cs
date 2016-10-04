@@ -31,8 +31,10 @@
         {
             InitializeComponent();
 
+            ///
             SplashScreenManager.ShowForm(typeof(SplashScreenForm));
 
+            ///
             BackgroundWorker bw = new BackgroundWorker();
             bw.DoWork += Bw_DoWork;
             bw.RunWorkerCompleted += Bw_RunWorkerCompleted;
@@ -46,6 +48,10 @@
         /// <param name="e"></param>
         private void Bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            ///Initializing is completed.
+            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loaded, null);
+            System.Threading.Thread.Sleep(1000);
+
             ///
             SplashScreenManager.CloseForm();
 
@@ -92,11 +98,26 @@
             else
             {
                 IList<Control> list = new List<Control>();
-                list.Add(new TopControlContainer("http://m.newsmth.net/hot"));
-                list.Add(new TopControl());
+                list.Add(new AtControl());
+                list.Add(new AtControlContainer());
+                list.Add(new BoardControl());
+                list.Add(new BoardControlContainer());
+                list.Add(new MailControl());
+                list.Add(new MailControlContainer(MailBoxType.Inbox));
+                list.Add(new MailDetailControl());
+                list.Add(new MailDetailControlContainer());
+                list.Add(new PostControl());
+                list.Add(new PostControlContainer());
+                list.Add(new ReplyControl());
+                list.Add(new ReplyControlContainer());
+                list.Add(new SectionControl());
+                list.Add(new SectionControlContainer());
                 list.Add(new ThreadControl());
                 list.Add(new ThreadControlContainer());
-                list.Add(new ThreadControl());
+                list.Add(new TopControl());
+                list.Add(new TopControlContainer("http://m.newsmth.net/hot"));
+                list.Add(new TopicControl());
+                list.Add(new TopicControlContainer());
                 return list;
             }
         }
@@ -119,6 +140,8 @@
             {
                 foreach (Control ctl in ctls)
                 {
+                    SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, ctl.ToString());
+                    System.Threading.Thread.Sleep(0);
                     this.Controls.Add(ctl);
                     ctl.CreateControl();
                     if (ctl is ThreadControl)

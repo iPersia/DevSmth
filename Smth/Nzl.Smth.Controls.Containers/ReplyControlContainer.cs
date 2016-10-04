@@ -56,7 +56,9 @@
         {
             InitializeComponent();
             this.SetBaseUrl(Configuration.ReplyUrl);
-            this.Text = "Reply Container";
+
+            ///For ToString.
+            this.Text = "The reply container";
 
             ///Apply font.
             foreach (DevExpress.XtraBars.Bar bar in this.bmManager.Bars)

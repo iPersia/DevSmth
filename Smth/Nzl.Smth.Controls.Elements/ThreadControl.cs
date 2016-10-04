@@ -73,6 +73,10 @@
         public ThreadControl()
         {
             InitializeComponent();
+            ///For ToString.
+            this.Text = "The thread control";
+
+            ///
             this.linklblID.HyperlinkClick += new HyperlinkClickEventHandler(linklblID_LinkClicked);
             this.linklblQuryType.HyperlinkClick += new HyperlinkClickEventHandler(linklblQuryType_LinkClicked);
             this.linklblReply.HyperlinkClick += new HyperlinkClickEventHandler(linklblReply_LinkClicked);

@@ -33,6 +33,9 @@
         public ReplyControl()
         {
             InitializeComponent();
+            ///For ToString.
+            this.Text = "The reply control";
+
             this.linklblAuthor.HyperlinkClick += new HyperlinkClickEventHandler(linklblAuthor_LinkClicked);
             this.linklblTitle.HyperlinkClick += new HyperlinkClickEventHandler(linklblTitle_LinkClicked);
         }

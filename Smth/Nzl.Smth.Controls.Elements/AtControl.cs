@@ -35,6 +35,9 @@
         public AtControl()
         {
             InitializeComponent();
+            ///For ToString.
+            this.Text = "The at control";
+
             this.linklblAuthor.HyperlinkClick += new HyperlinkClickEventHandler(linklblAuthor_LinkClicked);
             this.linklblTitle.HyperlinkClick += new HyperlinkClickEventHandler(linklblTitle_LinkClicked);
         }

@@ -116,6 +116,8 @@
         public PostControl()
         {
             InitializeComponent();
+            ///For ToString.
+            this.Text = "The post control";
 
             this.richtxtContent.GotFocus += RichtxtContent_GotFocus;
             this.richtxtContent.MouseWheel += new MouseEventHandler(richtxtContent_MouseWheel);

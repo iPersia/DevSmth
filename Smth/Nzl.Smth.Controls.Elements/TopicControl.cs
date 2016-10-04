@@ -37,6 +37,9 @@
         public TopicControl()
         {
             InitializeComponent();
+            ///For ToString.
+            this.Text = "The topic control";
+
             this.linklblTopic.HyperlinkClick += new HyperlinkClickEventHandler(linklblTopic_LinkClicked);
             this.linklblCreateID.HyperlinkClick += new HyperlinkClickEventHandler(linklblCreateID_LinkClicked);
             this.linklblLastID.HyperlinkClick += new HyperlinkClickEventHandler(linklblLastID_LinkClicked);

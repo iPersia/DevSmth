@@ -282,6 +282,15 @@
                 //}
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.Text;
+        }
         #endregion
 
         #region virtual

@@ -25,7 +25,8 @@
         {
             InitializeComponent();
 
-
+            ///For ToString.
+            this.Text = "The board control";
         }
 
         /// <summary>

@@ -56,7 +56,9 @@
         {
             InitializeComponent();
             this.SetBaseUrl(Configuration.AtUrl);
-            this.Text = "At Container";
+
+            ///For ToString.
+            this.Text = "The at container";
 
             ///Apply font.
             foreach (DevExpress.XtraBars.Bar bar in this.bmManager.Bars)

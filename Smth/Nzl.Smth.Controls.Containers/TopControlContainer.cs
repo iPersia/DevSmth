@@ -50,7 +50,10 @@
         TopControlContainer()
         {
             InitializeComponent();
-            this.Text = "Section top topic";
+            
+            ///For ToString.
+            this.Text = "The top container";
+
             Configuration.OnSectionTopsUpdatingIntervalChanged += Configuration_OnSectionTopsUpdatingIntervalChanged;
         }
 

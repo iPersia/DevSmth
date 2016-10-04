@@ -191,7 +191,9 @@ namespace Nzl.Smth.Controls.Containers
         {
             InitializeComponent();
             this._updatingTimer.Tick += _updatingTimer_Tick;
-            this.Text = "Topic";
+
+            ///For ToString.
+            this.Text = "The thread container";
             
             ///Initialize settings.
             this._Settings = new TopicSettingEventArgs();
@@ -217,15 +219,6 @@ namespace Nzl.Smth.Controls.Containers
         #endregion
 
         #region overrides
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return "Topic ";
-        }
-
         /// <summary>
         /// 
         /// </summary>

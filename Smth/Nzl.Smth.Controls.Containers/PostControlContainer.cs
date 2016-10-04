@@ -97,7 +97,9 @@ namespace Nzl.Smth.Controls.Containers
         public PostControlContainer()
         {
             InitializeComponent();
-            this.Text = "Post";
+            ///For ToString.
+            this.Text = "The post container";
+
             this.SetUrlInfo(false);
         }
 

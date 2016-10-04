@@ -108,6 +108,9 @@
             // 
             this.cmbNewMailCheckingInterval.Location = new System.Drawing.Point(227, 101);
             this.cmbNewMailCheckingInterval.Name = "cmbNewMailCheckingInterval";
+            this.cmbNewMailCheckingInterval.Properties.Appearance.Options.UseTextOptions = true;
+            this.cmbNewMailCheckingInterval.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.cmbNewMailCheckingInterval.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.cmbNewMailCheckingInterval.Properties.Items.AddRange(new object[] {
             "5",
             "10",
@@ -143,6 +146,9 @@
             // 
             this.cmbTop10sLoadingInterval.Location = new System.Drawing.Point(227, 66);
             this.cmbTop10sLoadingInterval.Name = "cmbTop10sLoadingInterval";
+            this.cmbTop10sLoadingInterval.Properties.Appearance.Options.UseTextOptions = true;
+            this.cmbTop10sLoadingInterval.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.cmbTop10sLoadingInterval.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.cmbTop10sLoadingInterval.Properties.Items.AddRange(new object[] {
             "5",
             "10",
@@ -178,6 +184,9 @@
             // 
             this.cmbSectionTopUpdatingInterval.Location = new System.Drawing.Point(227, 29);
             this.cmbSectionTopUpdatingInterval.Name = "cmbSectionTopUpdatingInterval";
+            this.cmbSectionTopUpdatingInterval.Properties.Appearance.Options.UseTextOptions = true;
+            this.cmbSectionTopUpdatingInterval.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.cmbSectionTopUpdatingInterval.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.cmbSectionTopUpdatingInterval.Properties.Items.AddRange(new object[] {
             "5",
             "10",
@@ -283,6 +292,9 @@
             // 
             this.cmbBaseControlLocationMargin.Location = new System.Drawing.Point(227, 66);
             this.cmbBaseControlLocationMargin.Name = "cmbBaseControlLocationMargin";
+            this.cmbBaseControlLocationMargin.Properties.Appearance.Options.UseTextOptions = true;
+            this.cmbBaseControlLocationMargin.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.cmbBaseControlLocationMargin.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.cmbBaseControlLocationMargin.Properties.Items.AddRange(new object[] {
             "2",
             "4",
@@ -315,6 +327,9 @@
             // 
             this.cmbBaseControlContainerLocationMargin.Location = new System.Drawing.Point(227, 29);
             this.cmbBaseControlContainerLocationMargin.Name = "cmbBaseControlContainerLocationMargin";
+            this.cmbBaseControlContainerLocationMargin.Properties.Appearance.Options.UseTextOptions = true;
+            this.cmbBaseControlContainerLocationMargin.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.cmbBaseControlContainerLocationMargin.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.cmbBaseControlContainerLocationMargin.Properties.Items.AddRange(new object[] {
             "2",
             "4",

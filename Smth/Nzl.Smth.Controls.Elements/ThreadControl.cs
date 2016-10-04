@@ -227,7 +227,7 @@
 
                         ///Colored the replied thread content.
                         {
-                            string replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】\S*\s+(\:.*\s*)*";
+                            string replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】\S*\s+(:( )?.*\s+)*";
                             //replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】";                            
                             DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
                             foreach(DocumentRange dr in drs)
@@ -236,7 +236,7 @@
                                 CharacterProperties cp = doc.BeginUpdateCharacters(dr);
                                 cp.FontName = "宋体";
                                 cp.FontSize = 9;
-                                cp.ForeColor = Color.Gray;
+                                cp.ForeColor = Color.FromArgb(96, 96, 96);
                                 doc.EndUpdateCharacters(cp);                                
                             }
                         }
@@ -253,7 +253,7 @@
                                 CharacterProperties cp = doc.BeginUpdateCharacters(dr);
                                 cp.FontName = "宋体";
                                 cp.FontSize = 9;
-                                cp.ForeColor = Color.Gray;
+                                cp.ForeColor = Color.FromArgb(160, 160, 160);
                                 doc.EndUpdateCharacters(cp);
                             }
 
@@ -265,7 +265,7 @@
                                 CharacterProperties cp = doc.BeginUpdateCharacters(dr);
                                 cp.FontName = "宋体";
                                 cp.FontSize = 9;
-                                cp.ForeColor = Color.Gray;
+                                cp.ForeColor = Color.FromArgb(160, 160, 160);
                                 doc.EndUpdateCharacters(cp);
                             }
                         }

@@ -57,6 +57,8 @@
             // 
             // btnOK
             // 
+            this.btnOK.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Location = new System.Drawing.Point(130, 344);
             this.btnOK.Name = "btnOK";
@@ -69,9 +71,10 @@
             // rbShowTops
             // 
             this.rbShowTops.AutoSize = true;
-            this.rbShowTops.Location = new System.Drawing.Point(21, 39);
+            this.rbShowTops.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rbShowTops.Location = new System.Drawing.Point(21, 38);
             this.rbShowTops.Name = "rbShowTops";
-            this.rbShowTops.Size = new System.Drawing.Size(84, 18);
+            this.rbShowTops.Size = new System.Drawing.Size(77, 16);
             this.rbShowTops.TabIndex = 0;
             this.rbShowTops.Text = "Show tops";
             this.rbShowTops.UseVisualStyleBackColor = true;
@@ -79,15 +82,20 @@
             // rbNoTops
             // 
             this.rbNoTops.AutoSize = true;
-            this.rbNoTops.Location = new System.Drawing.Point(189, 39);
+            this.rbNoTops.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rbNoTops.Location = new System.Drawing.Point(189, 38);
             this.rbNoTops.Name = "rbNoTops";
-            this.rbNoTops.Size = new System.Drawing.Size(68, 18);
+            this.rbNoTops.Size = new System.Drawing.Size(65, 16);
             this.rbNoTops.TabIndex = 1;
             this.rbNoTops.Text = "No tops";
             this.rbNoTops.UseVisualStyleBackColor = true;
             // 
             // gcBrowseMode
             // 
+            this.gcBrowseMode.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcBrowseMode.Appearance.Options.UseFont = true;
+            this.gcBrowseMode.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcBrowseMode.AppearanceCaption.Options.UseFont = true;
             this.gcBrowseMode.Controls.Add(this.rbNoTops);
             this.gcBrowseMode.Controls.Add(this.rbShowTops);
             this.gcBrowseMode.Location = new System.Drawing.Point(12, 12);
@@ -98,6 +106,10 @@
             // 
             // gcTopicType
             // 
+            this.gcTopicType.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcTopicType.Appearance.Options.UseFont = true;
+            this.gcTopicType.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcTopicType.AppearanceCaption.Options.UseFont = true;
             this.gcTopicType.Controls.Add(this.rbReserved);
             this.gcTopicType.Controls.Add(this.rbDigest);
             this.gcTopicType.Controls.Add(this.rbClassic);
@@ -111,9 +123,10 @@
             // rbReserved
             // 
             this.rbReserved.AutoSize = true;
-            this.rbReserved.Location = new System.Drawing.Point(189, 68);
+            this.rbReserved.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rbReserved.Location = new System.Drawing.Point(189, 67);
             this.rbReserved.Name = "rbReserved";
-            this.rbReserved.Size = new System.Drawing.Size(75, 18);
+            this.rbReserved.Size = new System.Drawing.Size(71, 16);
             this.rbReserved.TabIndex = 7;
             this.rbReserved.Text = "Reserved";
             this.rbReserved.UseVisualStyleBackColor = true;
@@ -121,9 +134,10 @@
             // rbDigest
             // 
             this.rbDigest.AutoSize = true;
-            this.rbDigest.Location = new System.Drawing.Point(21, 69);
+            this.rbDigest.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rbDigest.Location = new System.Drawing.Point(21, 68);
             this.rbDigest.Name = "rbDigest";
-            this.rbDigest.Size = new System.Drawing.Size(59, 18);
+            this.rbDigest.Size = new System.Drawing.Size(59, 16);
             this.rbDigest.TabIndex = 6;
             this.rbDigest.Text = "Digest";
             this.rbDigest.UseVisualStyleBackColor = true;
@@ -131,9 +145,10 @@
             // rbClassic
             // 
             this.rbClassic.AutoSize = true;
-            this.rbClassic.Location = new System.Drawing.Point(189, 34);
+            this.rbClassic.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rbClassic.Location = new System.Drawing.Point(189, 33);
             this.rbClassic.Name = "rbClassic";
-            this.rbClassic.Size = new System.Drawing.Size(58, 18);
+            this.rbClassic.Size = new System.Drawing.Size(65, 16);
             this.rbClassic.TabIndex = 5;
             this.rbClassic.Text = "Classic";
             this.rbClassic.UseVisualStyleBackColor = true;
@@ -141,15 +156,20 @@
             // rbSubject
             // 
             this.rbSubject.AutoSize = true;
-            this.rbSubject.Location = new System.Drawing.Point(21, 34);
+            this.rbSubject.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rbSubject.Location = new System.Drawing.Point(21, 33);
             this.rbSubject.Name = "rbSubject";
-            this.rbSubject.Size = new System.Drawing.Size(67, 18);
+            this.rbSubject.Size = new System.Drawing.Size(65, 16);
             this.rbSubject.TabIndex = 4;
             this.rbSubject.Text = "Subject";
             this.rbSubject.UseVisualStyleBackColor = true;
             // 
             // gcAutoUpdating
             // 
+            this.gcAutoUpdating.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcAutoUpdating.Appearance.Options.UseFont = true;
+            this.gcAutoUpdating.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcAutoUpdating.AppearanceCaption.Options.UseFont = true;
             this.gcAutoUpdating.Controls.Add(this.labelControl1);
             this.gcAutoUpdating.Controls.Add(this.cmbInterval);
             this.gcAutoUpdating.Controls.Add(this.label1);
@@ -162,16 +182,20 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(175, 76);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(192, 74);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(9, 14);
+            this.labelControl1.Size = new System.Drawing.Size(12, 12);
             this.labelControl1.TabIndex = 9;
             this.labelControl1.Text = "s.";
             // 
             // cmbInterval
             // 
-            this.cmbInterval.Location = new System.Drawing.Point(81, 73);
+            this.cmbInterval.Location = new System.Drawing.Point(98, 72);
             this.cmbInterval.Name = "cmbInterval";
+            this.cmbInterval.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbInterval.Properties.Appearance.Options.UseFont = true;
             this.cmbInterval.Properties.Items.AddRange(new object[] {
             "5",
             "10",
@@ -183,15 +207,17 @@
             "300",
             "600"});
             this.cmbInterval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbInterval.Size = new System.Drawing.Size(87, 20);
+            this.cmbInterval.Size = new System.Drawing.Size(87, 18);
             this.cmbInterval.TabIndex = 8;
             this.cmbInterval.TabStop = false;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(23, 76);
+            this.label1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Appearance.Options.UseFont = true;
+            this.label1.Location = new System.Drawing.Point(23, 75);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 14);
+            this.label1.Size = new System.Drawing.Size(66, 12);
             this.label1.TabIndex = 7;
             this.label1.Text = "Interval is";
             // 
@@ -199,6 +225,8 @@
             // 
             this.ckbAutoUpdating.Location = new System.Drawing.Point(21, 38);
             this.ckbAutoUpdating.Name = "ckbAutoUpdating";
+            this.ckbAutoUpdating.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ckbAutoUpdating.Properties.Appearance.Options.UseFont = true;
             this.ckbAutoUpdating.Properties.Caption = "Auto updating";
             this.ckbAutoUpdating.Size = new System.Drawing.Size(119, 19);
             this.ckbAutoUpdating.TabIndex = 6;

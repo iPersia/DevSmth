@@ -68,6 +68,8 @@
             // 
             // btnOK
             // 
+            this.btnOK.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Location = new System.Drawing.Point(144, 438);
             this.btnOK.Name = "btnOK";
@@ -80,7 +82,11 @@
             // gpAutoUpdating
             // 
             this.gpAutoUpdating.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.gpAutoUpdating.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpAutoUpdating.Appearance.Options.UseBackColor = true;
+            this.gpAutoUpdating.Appearance.Options.UseFont = true;
+            this.gpAutoUpdating.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpAutoUpdating.AppearanceCaption.Options.UseFont = true;
             this.gpAutoUpdating.Controls.Add(this.label6);
             this.gpAutoUpdating.Controls.Add(this.cmbNewMailCheckingInterval);
             this.gpAutoUpdating.Controls.Add(this.label5);
@@ -98,16 +104,20 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(322, 105);
+            this.label6.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Appearance.Options.UseFont = true;
+            this.label6.Location = new System.Drawing.Point(322, 113);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(9, 14);
+            this.label6.Size = new System.Drawing.Size(12, 12);
             this.label6.TabIndex = 12;
             this.label6.Text = "s.";
             // 
             // cmbNewMailCheckingInterval
             // 
-            this.cmbNewMailCheckingInterval.Location = new System.Drawing.Point(227, 101);
+            this.cmbNewMailCheckingInterval.Location = new System.Drawing.Point(227, 110);
             this.cmbNewMailCheckingInterval.Name = "cmbNewMailCheckingInterval";
+            this.cmbNewMailCheckingInterval.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbNewMailCheckingInterval.Properties.Appearance.Options.UseFont = true;
             this.cmbNewMailCheckingInterval.Properties.Appearance.Options.UseTextOptions = true;
             this.cmbNewMailCheckingInterval.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.cmbNewMailCheckingInterval.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -122,30 +132,36 @@
             "300",
             "600"});
             this.cmbNewMailCheckingInterval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbNewMailCheckingInterval.Size = new System.Drawing.Size(87, 20);
+            this.cmbNewMailCheckingInterval.Size = new System.Drawing.Size(87, 18);
             this.cmbNewMailCheckingInterval.TabIndex = 11;
             this.cmbNewMailCheckingInterval.TabStop = false;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(20, 105);
+            this.label5.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Appearance.Options.UseFont = true;
+            this.label5.Location = new System.Drawing.Point(20, 113);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 14);
+            this.label5.Size = new System.Drawing.Size(156, 12);
             this.label5.TabIndex = 10;
             this.label5.Text = "New mail checking interval";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(322, 70);
+            this.label4.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Appearance.Options.UseFont = true;
+            this.label4.Location = new System.Drawing.Point(322, 78);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(9, 14);
+            this.label4.Size = new System.Drawing.Size(12, 12);
             this.label4.TabIndex = 9;
             this.label4.Text = "s.";
             // 
             // cmbTop10sLoadingInterval
             // 
-            this.cmbTop10sLoadingInterval.Location = new System.Drawing.Point(227, 66);
+            this.cmbTop10sLoadingInterval.Location = new System.Drawing.Point(227, 75);
             this.cmbTop10sLoadingInterval.Name = "cmbTop10sLoadingInterval";
+            this.cmbTop10sLoadingInterval.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTop10sLoadingInterval.Properties.Appearance.Options.UseFont = true;
             this.cmbTop10sLoadingInterval.Properties.Appearance.Options.UseTextOptions = true;
             this.cmbTop10sLoadingInterval.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.cmbTop10sLoadingInterval.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -160,30 +176,36 @@
             "300",
             "600"});
             this.cmbTop10sLoadingInterval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbTop10sLoadingInterval.Size = new System.Drawing.Size(87, 20);
+            this.cmbTop10sLoadingInterval.Size = new System.Drawing.Size(87, 18);
             this.cmbTop10sLoadingInterval.TabIndex = 8;
             this.cmbTop10sLoadingInterval.TabStop = false;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(20, 70);
+            this.label3.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Appearance.Options.UseFont = true;
+            this.label3.Location = new System.Drawing.Point(20, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 14);
+            this.label3.Size = new System.Drawing.Size(144, 12);
             this.label3.TabIndex = 7;
             this.label3.Text = "Top 10s loading interval";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(322, 36);
+            this.label2.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Appearance.Options.UseFont = true;
+            this.label2.Location = new System.Drawing.Point(322, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(9, 14);
+            this.label2.Size = new System.Drawing.Size(12, 12);
             this.label2.TabIndex = 6;
             this.label2.Text = "s.";
             // 
             // cmbSectionTopUpdatingInterval
             // 
-            this.cmbSectionTopUpdatingInterval.Location = new System.Drawing.Point(227, 29);
+            this.cmbSectionTopUpdatingInterval.Location = new System.Drawing.Point(227, 38);
             this.cmbSectionTopUpdatingInterval.Name = "cmbSectionTopUpdatingInterval";
+            this.cmbSectionTopUpdatingInterval.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSectionTopUpdatingInterval.Properties.Appearance.Options.UseFont = true;
             this.cmbSectionTopUpdatingInterval.Properties.Appearance.Options.UseTextOptions = true;
             this.cmbSectionTopUpdatingInterval.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.cmbSectionTopUpdatingInterval.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -198,15 +220,17 @@
             "300",
             "600"});
             this.cmbSectionTopUpdatingInterval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbSectionTopUpdatingInterval.Size = new System.Drawing.Size(87, 20);
+            this.cmbSectionTopUpdatingInterval.Size = new System.Drawing.Size(87, 18);
             this.cmbSectionTopUpdatingInterval.TabIndex = 5;
             this.cmbSectionTopUpdatingInterval.TabStop = false;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(20, 36);
+            this.label1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Appearance.Options.UseFont = true;
+            this.label1.Location = new System.Drawing.Point(20, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 14);
+            this.label1.Size = new System.Drawing.Size(168, 12);
             this.label1.TabIndex = 4;
             this.label1.Text = "Setion top updating interval";
             // 
@@ -230,6 +254,13 @@
             this.gcSkins.Controls.Add(this.galleryControlClient1);
             this.gcSkins.DesignGalleryGroupIndex = 0;
             this.gcSkins.DesignGalleryItemIndex = 0;
+            // 
+            // 
+            // 
+            this.gcSkins.Gallery.Appearance.FilterPanelCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcSkins.Gallery.Appearance.FilterPanelCaption.Options.UseFont = true;
+            this.gcSkins.Gallery.Appearance.GroupCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcSkins.Gallery.Appearance.GroupCaption.Options.UseFont = true;
             this.gcSkins.Location = new System.Drawing.Point(14, 294);
             this.gcSkins.Name = "gcSkins";
             this.gcSkins.Size = new System.Drawing.Size(359, 138);
@@ -245,6 +276,8 @@
             // btnClearCache
             // 
             this.btnClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClearCache.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearCache.Appearance.Options.UseFont = true;
             this.btnClearCache.Location = new System.Drawing.Point(259, 438);
             this.btnClearCache.Name = "btnClearCache";
             this.btnClearCache.Size = new System.Drawing.Size(114, 27);
@@ -257,6 +290,8 @@
             // 
             this.gcUISettings.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.gcUISettings.Appearance.Options.UseBackColor = true;
+            this.gcUISettings.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcUISettings.AppearanceCaption.Options.UseFont = true;
             this.gcUISettings.Controls.Add(this.label7);
             this.gcUISettings.Controls.Add(this.label9);
             this.gcUISettings.Controls.Add(this.cmbBaseControlLocationMargin);
@@ -272,19 +307,23 @@
             // 
             // label7
             // 
+            this.label7.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.label7.Appearance.Options.UseFont = true;
             this.label7.Appearance.Options.UseForeColor = true;
-            this.label7.Location = new System.Drawing.Point(55, 94);
+            this.label7.Location = new System.Drawing.Point(44, 96);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(249, 14);
+            this.label7.Size = new System.Drawing.Size(270, 12);
             this.label7.TabIndex = 10;
             this.label7.Text = "UI settings take effect need restart the App.";
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(322, 70);
+            this.label9.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Appearance.Options.UseFont = true;
+            this.label9.Location = new System.Drawing.Point(322, 69);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(13, 14);
+            this.label9.Size = new System.Drawing.Size(12, 12);
             this.label9.TabIndex = 9;
             this.label9.Text = "px";
             // 
@@ -292,6 +331,8 @@
             // 
             this.cmbBaseControlLocationMargin.Location = new System.Drawing.Point(227, 66);
             this.cmbBaseControlLocationMargin.Name = "cmbBaseControlLocationMargin";
+            this.cmbBaseControlLocationMargin.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBaseControlLocationMargin.Properties.Appearance.Options.UseFont = true;
             this.cmbBaseControlLocationMargin.Properties.Appearance.Options.UseTextOptions = true;
             this.cmbBaseControlLocationMargin.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.cmbBaseControlLocationMargin.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -303,23 +344,27 @@
             "10",
             "12"});
             this.cmbBaseControlLocationMargin.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbBaseControlLocationMargin.Size = new System.Drawing.Size(87, 20);
+            this.cmbBaseControlLocationMargin.Size = new System.Drawing.Size(87, 18);
             this.cmbBaseControlLocationMargin.TabIndex = 8;
             this.cmbBaseControlLocationMargin.TabStop = false;
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(20, 70);
+            this.label10.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Appearance.Options.UseFont = true;
+            this.label10.Location = new System.Drawing.Point(20, 69);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(134, 14);
+            this.label10.Size = new System.Drawing.Size(144, 12);
             this.label10.TabIndex = 7;
             this.label10.Text = "Control container margin";
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(322, 36);
+            this.label11.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Appearance.Options.UseFont = true;
+            this.label11.Location = new System.Drawing.Point(322, 35);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(13, 14);
+            this.label11.Size = new System.Drawing.Size(12, 12);
             this.label11.TabIndex = 6;
             this.label11.Text = "px";
             // 
@@ -327,6 +372,8 @@
             // 
             this.cmbBaseControlContainerLocationMargin.Location = new System.Drawing.Point(227, 29);
             this.cmbBaseControlContainerLocationMargin.Name = "cmbBaseControlContainerLocationMargin";
+            this.cmbBaseControlContainerLocationMargin.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBaseControlContainerLocationMargin.Properties.Appearance.Options.UseFont = true;
             this.cmbBaseControlContainerLocationMargin.Properties.Appearance.Options.UseTextOptions = true;
             this.cmbBaseControlContainerLocationMargin.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.cmbBaseControlContainerLocationMargin.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -338,15 +385,17 @@
             "10",
             "12"});
             this.cmbBaseControlContainerLocationMargin.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbBaseControlContainerLocationMargin.Size = new System.Drawing.Size(87, 20);
+            this.cmbBaseControlContainerLocationMargin.Size = new System.Drawing.Size(87, 18);
             this.cmbBaseControlContainerLocationMargin.TabIndex = 5;
             this.cmbBaseControlContainerLocationMargin.TabStop = false;
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(20, 36);
+            this.label12.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Appearance.Options.UseFont = true;
+            this.label12.Location = new System.Drawing.Point(20, 35);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(124, 14);
+            this.label12.Size = new System.Drawing.Size(132, 12);
             this.label12.TabIndex = 4;
             this.label12.Text = "Panel container margin";
             // 

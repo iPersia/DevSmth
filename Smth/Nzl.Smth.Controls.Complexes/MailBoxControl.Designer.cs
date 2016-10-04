@@ -29,10 +29,19 @@
         private void InitializeComponent()
         {
             this.tcMailBox = new DevExpress.XtraTab.XtraTabControl();
+            ((System.ComponentModel.ISupportInitialize)(this.tcMailBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tcMailBox
             // 
+            this.tcMailBox.AppearancePage.Header.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcMailBox.AppearancePage.Header.Options.UseFont = true;
+            this.tcMailBox.AppearancePage.HeaderActive.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcMailBox.AppearancePage.HeaderActive.Options.UseFont = true;
+            this.tcMailBox.AppearancePage.HeaderDisabled.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tcMailBox.AppearancePage.HeaderDisabled.Options.UseFont = true;
+            this.tcMailBox.AppearancePage.HeaderHotTracked.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcMailBox.AppearancePage.HeaderHotTracked.Options.UseFont = true;
             this.tcMailBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMailBox.Location = new System.Drawing.Point(0, 0);
             this.tcMailBox.Name = "tcMailBox";
@@ -46,6 +55,7 @@
             this.Controls.Add(this.tcMailBox);
             this.Name = "MailBoxControl";
             this.Size = new System.Drawing.Size(800, 473);
+            ((System.ComponentModel.ISupportInitialize)(this.tcMailBox)).EndInit();
             this.ResumeLayout(false);
 
         }

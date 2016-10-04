@@ -54,6 +54,17 @@
             // 
             // tcTopics
             // 
+            this.tcTopics.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcTopics.Appearance.Options.UseFont = true;
+            this.tcTopics.AppearancePage.Header.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcTopics.AppearancePage.Header.Options.UseFont = true;
+            this.tcTopics.AppearancePage.HeaderActive.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcTopics.AppearancePage.HeaderActive.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.tcTopics.AppearancePage.HeaderActive.Options.UseFont = true;
+            this.tcTopics.AppearancePage.HeaderDisabled.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcTopics.AppearancePage.HeaderDisabled.Options.UseFont = true;
+            this.tcTopics.AppearancePage.HeaderHotTracked.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcTopics.AppearancePage.HeaderHotTracked.Options.UseFont = true;
             this.tcTopics.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcTopics.Location = new System.Drawing.Point(2, 2);
             this.tcTopics.Name = "tcTopics";

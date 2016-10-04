@@ -360,9 +360,9 @@
             return "\n\n\n"
                  + "------------------"
                  + "\n"
-                 + "->>[b][url=" 
+                 + "->>[url=" 
                  + GetReplyUrl()
-                 + "]水木PC客户端[/url][/b]<<-";
+                 + "]水木PC客户端[/url]<<-";
 #else
            return "\n\n\n"
                  + "------------------"
@@ -389,9 +389,10 @@
         public static string GetReplyText()
         {
             return "------------------"
-                 + "\n"
-                 + "->>水木PC客户端#"
-                 + GetReplyUrl()
+                 + @"\s+"//+ Environment.NewLine
+                 + "->>水木PC客户端"
+                 //+ "#"
+                 //+ GetReplyUrl()
                  + "<<-";
         }
     }

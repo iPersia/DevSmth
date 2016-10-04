@@ -37,6 +37,14 @@
             // 
             // tcTop10s
             // 
+            this.tcTop10s.AppearancePage.Header.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcTop10s.AppearancePage.Header.Options.UseFont = true;
+            this.tcTop10s.AppearancePage.HeaderActive.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcTop10s.AppearancePage.HeaderActive.Options.UseFont = true;
+            this.tcTop10s.AppearancePage.HeaderDisabled.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcTop10s.AppearancePage.HeaderDisabled.Options.UseFont = true;
+            this.tcTop10s.AppearancePage.HeaderHotTracked.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcTop10s.AppearancePage.HeaderHotTracked.Options.UseFont = true;
             this.tcTop10s.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcTop10s.Location = new System.Drawing.Point(2, 2);
             this.tcTop10s.Name = "tcTop10s";

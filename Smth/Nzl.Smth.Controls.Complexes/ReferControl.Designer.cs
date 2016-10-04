@@ -41,6 +41,14 @@
             // 
             // tcRefer
             // 
+            this.tcRefer.AppearancePage.Header.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcRefer.AppearancePage.Header.Options.UseFont = true;
+            this.tcRefer.AppearancePage.HeaderActive.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcRefer.AppearancePage.HeaderActive.Options.UseFont = true;
+            this.tcRefer.AppearancePage.HeaderDisabled.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcRefer.AppearancePage.HeaderDisabled.Options.UseFont = true;
+            this.tcRefer.AppearancePage.HeaderHotTracked.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcRefer.AppearancePage.HeaderHotTracked.Options.UseFont = true;
             this.tcRefer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcRefer.Location = new System.Drawing.Point(0, 0);
             this.tcRefer.Name = "tcRefer";

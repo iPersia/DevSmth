@@ -2,6 +2,7 @@
 {
     using System;
     using System.Drawing;
+    using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using DevExpress.Office.Services;
     using DevExpress.Utils;
@@ -11,6 +12,7 @@
     using Nzl.Smth.Loaders;
     using Nzl.Smth.Datas;
     using Nzl.Smth.Utils;
+    using Nzl.Web.Util;
 
     /// <summary>
     /// Thread control.
@@ -83,6 +85,8 @@
             this.richtxtContent.GotFocus += RichtxtContent_GotFocus;
             this.richtxtContent.SizeChanged += RichtxtContent_SizeChanged;
 
+            this.richtxtContent.PopupMenuShowing += RichtxtContent_PopupMenuShowing;
+
             ///Used to get image stream.
             IUriStreamService uriStreamService = this.richtxtContent.GetService<IUriStreamService>();
             uriStreamService.RegisterProvider(new ImageStreamProvider());
@@ -93,6 +97,16 @@
 #if (X)
             //this.richtxtContent.BorderStyle = BorderStyle.FixedSingle;
 #endif
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RichtxtContent_PopupMenuShowing(object sender, DevExpress.XtraRichEdit.PopupMenuShowingEventArgs e)
+        {
+            e.Menu = null;            
         }
 
         /// <summary>
@@ -202,10 +216,76 @@
                 try
                 {
                     this.richtxtContent.HtmlText = thread.ContentHtml;
-                    CharacterProperties cp = doc.BeginUpdateCharacters(0, doc.HtmlText.Length);
-                    cp.FontName = "宋体";
-                    cp.FontSize = 9;
-                    doc.EndUpdateCharacters(cp);
+                    {
+                        ///Set default font.
+                        {
+                            CharacterProperties cp = doc.BeginUpdateCharacters(0, doc.Length);
+                            cp.FontName = "宋体";
+                            cp.FontSize = 10.5F;
+                            doc.EndUpdateCharacters(cp);
+                        }
+
+                        ///Colored the replied thread content.
+                        {
+                            string replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】\S*\s+(\:.*\s*)*";
+                            //replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】";                            
+                            DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
+                            foreach(DocumentRange dr in drs)
+                            {
+                                doc.Selection = dr;
+                                CharacterProperties cp = doc.BeginUpdateCharacters(dr);
+                                cp.FontName = "宋体";
+                                cp.FontSize = 9;
+                                cp.ForeColor = Color.Gray;
+                                doc.EndUpdateCharacters(cp);                                
+                            }
+                        }
+
+                        ///Colored the From IP.
+                        {
+                            string ipPattern = @"--\s+(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)\s+)?FROM (\d+\.){3}(\*|\d+)";
+                            //string ipPattern = @"<br>--<br />(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)<br />)?FROM (\d+\.){3}(\*|\d+)";
+                            //ipPattern = @"--\s+FROM (\d+\.){3}(\*|\d+)";
+                            DocumentRange[] drsa = doc.FindAll(new Regex(ipPattern));
+                            foreach (DocumentRange dr in drsa)
+                            {
+                                doc.Selection = dr;
+                                CharacterProperties cp = doc.BeginUpdateCharacters(dr);
+                                cp.FontName = "宋体";
+                                cp.FontSize = 9;
+                                cp.ForeColor = Color.Gray;
+                                doc.EndUpdateCharacters(cp);
+                            }
+
+                            ipPattern = @"修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)";
+                            DocumentRange[] drsb = doc.FindAll(new Regex(ipPattern));
+                            foreach (DocumentRange dr in drsb)
+                            {
+                                doc.Selection = dr;
+                                CharacterProperties cp = doc.BeginUpdateCharacters(dr);
+                                cp.FontName = "宋体";
+                                cp.FontSize = 9;
+                                cp.ForeColor = Color.Gray;
+                                doc.EndUpdateCharacters(cp);
+                            }
+                        }
+
+                        ///Colored the reply tail.
+                        {
+                            string repleyContent = SmthUtil.GetReplyText();
+                            DocumentRange[] drs = doc.FindAll(new Regex(repleyContent));
+                            foreach (DocumentRange dr in drs)
+                            {
+                                doc.Selection = dr;
+                                CharacterProperties cp = doc.BeginUpdateCharacters(dr);
+                                cp.FontName = "宋体";
+                                cp.FontSize = 9;
+                                doc.EndUpdateCharacters(cp);
+                            }
+                        }
+
+                        this.richtxtContent.DeselectAll();
+                    }
                 }
                 catch
                 {

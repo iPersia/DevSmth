@@ -8,12 +8,13 @@
     using DevExpress.XtraBars;
     using Nzl.Smth;
     using Nzl.Smth.Configs;
+    using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Controls.Containers;
 
     /// <summary>
     /// 
     /// </summary>
-    public partial class MailBoxControl : UserControl
+    public partial class MailBoxControl : BaseComplexControl
     {
         #region event
         /// <summary>

@@ -6,6 +6,7 @@
     using DevExpress.Utils;
     using DevExpress.XtraTab;
     using Nzl.Smth.Configs;
+    using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Controls.Containers;
     using Nzl.Smth.Loaders;
     using Nzl.Web.Page;
@@ -13,7 +14,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class ReferControl : UserControl
+    public partial class ReferControl : BaseComplexControl
     {
         #region event
         /// <summary>

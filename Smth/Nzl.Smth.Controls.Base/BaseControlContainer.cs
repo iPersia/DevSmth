@@ -22,7 +22,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class BaseControlContainer<TBaseControl, TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
+    public abstract class BaseControlContainer<TBaseControl, TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
         where TBaseControl : BaseControl<TBaseData>, new()
         where TBaseData : BaseData
     {
@@ -77,7 +77,7 @@
         /// <summary>
         /// 
         /// </summary>
-        static BaseControlContainer()
+        static BaseControlContainer()            
         {
             BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Interval = 500;
             BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Tick += WaitFormTimer_Tick;

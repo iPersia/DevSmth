@@ -5,8 +5,9 @@
     using System.IO;
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Windows.Forms;
-    using Nzl.Smth;
+    using Nzl.Smth;    
     using Nzl.Smth.Configs;
+    using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Loaders;
     using Nzl.Smth.Logger;
     using Nzl.Smth.Utils;
@@ -17,7 +18,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class LoginControl : UserControl
+    public partial class LoginControl : BaseComplexControl
     {
         #region event
         /// <summary>
@@ -45,16 +46,31 @@
         /// <summary>
         /// 
         /// </summary>
-        private string _filename = "userinfor.dat";
+        private static string _staticFilename = "userinfor.dat";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static string _staticKey = null;
         #endregion
 
         #region Ctor.
         /// <summary>
         /// 
         /// </summary>
+        static LoginControl()
+        {
+            _staticKey = LoginControl.GetKey();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public LoginControl()
         {
             InitializeComponent();
+            this.Text = "Login Control";
+
             LogStatus.Instance.OnLoginStatusChanged += Instance_OnLoginStatusChanged;
         }
         #endregion
@@ -488,13 +504,12 @@
         {
             try
             {
-                string key = this.GetKey();
                 UserInformation ui = new UserInformation();
-                ui.UserName = Nzl.Utils.EncryptUtil.Encrypt(this.txtUserID.Text, key);
-                ui.Password = Nzl.Utils.EncryptUtil.Encrypt(this.txtPassword.Text, key);
+                ui.UserName = Nzl.Utils.EncryptUtil.Encrypt(this.txtUserID.Text, LoginControl._staticKey);
+                ui.Password = Nzl.Utils.EncryptUtil.Encrypt(this.txtPassword.Text, LoginControl._staticKey);
                 byte[] datas = BufferHelper.Serialize(ui);
-                byte[] eDatas = Nzl.Utils.EncryptUtil.Encrypt(datas, System.Text.Encoding.Default.GetBytes(this._filename));
-                using (Stream fStream = new FileStream(this._filename, FileMode.Create, FileAccess.ReadWrite))
+                byte[] eDatas = Nzl.Utils.EncryptUtil.Encrypt(datas, System.Text.Encoding.Default.GetBytes(LoginControl._staticFilename));
+                using (Stream fStream = new FileStream(LoginControl._staticFilename, FileMode.Create, FileAccess.ReadWrite))
                 {
                     fStream.Write(eDatas, 0, eDatas.Length);
                 }
@@ -518,21 +533,20 @@
         {
             try
             {
-                if (File.Exists(this._filename))
+                if (File.Exists(LoginControl._staticFilename))
                 {
-                    using (Stream fStream = new FileStream(this._filename, FileMode.Open, FileAccess.ReadWrite))
+                    using (Stream fStream = new FileStream(LoginControl._staticFilename, FileMode.Open, FileAccess.ReadWrite))
                     {
                         if (fStream != null && fStream.Length > 0)
-                        {
-                            string key = this.GetKey();
+                        {                            
                             byte[] edatas = new byte[fStream.Length];
                             fStream.Read(edatas, 0, (int)fStream.Length);
-                            byte[] datas = EncryptUtil.Decrypt(edatas, System.Text.Encoding.Default.GetBytes(this._filename));
+                            byte[] datas = EncryptUtil.Decrypt(edatas, System.Text.Encoding.Default.GetBytes(LoginControl._staticFilename));
                             UserInformation ui = (UserInformation)BufferHelper.Deserialize(datas, 0);
                             if (ui != null)
                             {
-                                this.txtUserID.Text = EncryptUtil.Decrypt(ui.UserName, key);
-                                this.txtPassword.Text = EncryptUtil.Decrypt(ui.Password, key);
+                                this.txtUserID.Text = EncryptUtil.Decrypt(ui.UserName, LoginControl._staticKey);
+                                this.txtPassword.Text = EncryptUtil.Decrypt(ui.Password, LoginControl._staticKey);
                             }
                         }
                     }
@@ -554,13 +568,13 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        private string GetKey()
+        private static string GetKey()
         {
             return HardwareUtil.GetCpuID() +
                    "_" + 
                    HardwareUtil.GetMacAddress() +
                    "_" +
-                   Application.StartupPath + @"\" + this._filename;
+                   Application.StartupPath + @"\" + _staticFilename;
         }
         #endregion
 

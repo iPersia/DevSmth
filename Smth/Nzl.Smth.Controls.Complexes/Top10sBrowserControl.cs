@@ -7,12 +7,13 @@
     using DevExpress.XtraEditors;
     using DevExpress.XtraTab;
     using Nzl.Smth.Configs;
+    using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Controls.Containers;
 
     /// <summary>
     /// 
     /// </summary>
-    public partial class Top10sBrowserControl : UserControl
+    public partial class Top10sBrowserControl : BaseComplexControl
     {
         #region Event
         /// <summary>

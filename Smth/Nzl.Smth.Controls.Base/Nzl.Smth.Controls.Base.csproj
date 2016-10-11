@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseComplexControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="BaseControlContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>

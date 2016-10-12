@@ -170,7 +170,7 @@
             LoginForm.Instance.OnLogoutFailed += LoginForm_OnLogoutFailed;
             this._entryAssemblyTitle = this.GetEntryAssemblyTitle();
             this.Text = Configuration.ApplicationTitle;
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("Coffee");  // 设置皮肤样式
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(Configuration.SkinName);  // 设置皮肤样式
 
 #if (DEBUG)
             ////Just for testing.

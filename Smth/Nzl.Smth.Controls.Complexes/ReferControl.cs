@@ -52,6 +52,8 @@
         public ReferControl()
         {
             InitializeComponent();
+            this.Text = "The refer complex control";
+
             this.SizeChanged += ReferControl_SizeChanged;
             ///At
             {

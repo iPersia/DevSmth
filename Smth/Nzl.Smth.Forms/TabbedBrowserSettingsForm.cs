@@ -26,6 +26,8 @@
             this.HideWhenDeactivate = false;
             this.btnOK.Left = (this.panelContainer.Width - this.btnOK.Width) / 2;
             SkinHelper.InitSkinGallery(gcSkins, true);
+
+            this.galleryControlClient1.Gallery.ItemClick += Gallery_ItemClick;
         }
 
         /// <summary>
@@ -123,6 +125,16 @@
                     }
                     catch { }
                 }
+
+                if (cfg.AppSettings.Settings["SkinName"] != null &&
+                   cfg.AppSettings.Settings["SkinName"].Value != null)
+                {
+                    try
+                    {
+                        Configuration.SetSkinName(cfg.AppSettings.Settings["SkinName"].Value);
+                    }
+                    catch { }
+                }
             }
         }
 
@@ -193,6 +205,30 @@
         private void btnClearCache_Click(object sender, EventArgs e)
         {
             Nzl.Repository.Repository.Clear();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Gallery_ItemClick(object sender, DevExpress.XtraBars.Ribbon.GalleryItemClickEventArgs e)
+        {
+            System.Configuration.Configuration cfg =
+                System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None);
+            if (cfg != null)
+            {
+                if (cfg.AppSettings.Settings["SkinName"] != null)
+                {
+                    try
+                    {
+                        cfg.AppSettings.Settings["SkinName"].Value = e.Item.Caption;
+                    }
+                    catch { }
+                }
+
+                cfg.Save();
+            }
         }
     }
 }

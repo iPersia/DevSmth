@@ -69,7 +69,7 @@
         public LoginControl()
         {
             InitializeComponent();
-            this.Text = "Login Control";
+            this.Text = "The login complex control";
 
             LogStatus.Instance.OnLoginStatusChanged += Instance_OnLoginStatusChanged;
         }

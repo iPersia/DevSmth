@@ -45,6 +45,8 @@
         public Top10sBrowserControl()
         {
             InitializeComponent();
+            this.Text = "The top 10s complex control";
+
             Configuration.OnTop10sLoadingIntervalChanged += Configuration_OnTop10sLoadingIntervalChanged;
         }
 

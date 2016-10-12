@@ -60,7 +60,8 @@
         {
             set
             {
-                this.linklblTitle.ForeColor = value;
+                this.linklblTitle.Appearance.LinkColor = value;
+                this.linklblTitle.Appearance.Options.UseLinkColor = true;
             }
         }
 

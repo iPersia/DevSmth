@@ -118,7 +118,6 @@
                 list.Add(new TopControlContainer("http://m.newsmth.net/hot"));
                 list.Add(new TopicControl());
                 list.Add(new TopicControlContainer());
-                list.Add(new LoginControl());
                 return list;
             }
         }

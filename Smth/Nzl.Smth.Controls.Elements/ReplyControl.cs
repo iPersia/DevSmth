@@ -76,8 +76,9 @@
         public override System.Drawing.Color ForeColor
         {
             set
-            {
-                //this.linklblTitle.LinkColor = value;
+            {                
+                this.linklblTitle.Appearance.LinkColor = value;
+                this.linklblTitle.Appearance.Options.UseLinkColor = true;
             }
         }
 

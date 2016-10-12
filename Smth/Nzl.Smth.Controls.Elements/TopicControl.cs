@@ -102,7 +102,8 @@
         {
             set
             {
-                this.linklblTopic.ForeColor = value;
+                this.linklblTopic.Appearance.LinkColor = value;
+                this.linklblTopic.Appearance.Options.UseLinkColor = true;
             }
         }
 

@@ -159,6 +159,11 @@
         /// 
         /// </summary>
         private static string staticApplicationTitle = "水木社区";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static string staticSkinName = "Money Twins";
         #endregion
 
         #region Properties
@@ -380,7 +385,18 @@
             {
                 return staticApplicationTitle;
             }
-        }        
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string SkinName
+        {
+            get
+            {
+                return staticSkinName;
+            }
+        }
         #endregion
 
         #region Public methods
@@ -447,6 +463,18 @@
                 {
                     OnLocationMarginChanged(typeof(Configuration), new EventArgs());
                 }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        public static void SetSkinName(string value)
+        {
+            if (string.IsNullOrEmpty(value) == false)
+            {
+                staticSkinName = value;
             }
         }
         #endregion

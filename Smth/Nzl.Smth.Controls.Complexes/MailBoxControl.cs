@@ -48,9 +48,10 @@
         public MailBoxControl()
         {
             InitializeComponent();
+            this.Text = "The mail box complex control";
 
-            int dWidth = 8;
-            int dHeight = 26;
+            ///int dWidth = 8;
+            ///int dHeight = 26;
             ///Inbox
             {
                 XtraTabPage tp = new XtraTabPage();

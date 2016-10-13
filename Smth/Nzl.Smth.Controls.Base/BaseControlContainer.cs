@@ -535,9 +535,9 @@
                     {
                         int accumulateHeight = baseControlContainer.Height - Configuration.BaseControlLocationMargin - this.GetPanelContainerBoarderMargin();
                         ctl.Top = accumulateHeight + Configuration.BaseControlLocationMargin;
-                        ctl.Left = Configuration.BaseControlLocationMargin;
-                        this.SetControl(ctl, baseControlContainer.Controls.Count % 2 == 0);
+                        ctl.Left = Configuration.BaseControlLocationMargin;                        
                         baseControlContainer.Controls.Add(ctl);
+                        this.SetControl(ctl, baseControlContainer.Controls.Count % 2 == 0);
                         accumulateHeight += ctl.Height + Configuration.BaseControlLocationMargin;
                         baseControlContainer.Height = accumulateHeight + Configuration.BaseControlLocationMargin + this.GetPanelContainerBoarderMargin();
 #if (X)

@@ -31,19 +31,27 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="e"></param>
-        protected override void OnLoad(EventArgs e)
+        protected override void OnCreateControl()
         {
-            base.OnLoad(e);
+            base.OnCreateControl();
 
             ///For initializing.
             this.PrepareControls();
 
             ///Initializing.
-            foreach (HyperlinkLabelControl ctl in this.HyperlinkLabelControls) 
+            foreach (HyperlinkLabelControl ctl in this.HyperlinkLabelControls)
             {
                 ctl.Initialize();
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
         }
         
         /// <summary>

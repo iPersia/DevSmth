@@ -794,7 +794,7 @@ namespace Nzl.Smth.Controls.Containers
             HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (this.OnThreadReplyLinkClicked != null && hlc != null)
             {
-                hlc.Tag = null;
+                ///hlc.Tag = null;
                 this.OnThreadReplyLinkClicked(sender, e);
                 if (hlc.Tag != null)
                 {
@@ -823,7 +823,7 @@ namespace Nzl.Smth.Controls.Containers
             HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (this.OnThreadMailLinkClicked != null && hlc != null)
             {
-                hlc.Tag = null;
+                ///hlc.Tag = null;
                 this.OnThreadMailLinkClicked(sender, e);
                 if (hlc.Tag != null)
                 {
@@ -887,7 +887,7 @@ namespace Nzl.Smth.Controls.Containers
             HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (this.OnThreadEditLinkClicked != null && hlc != null)
             {
-                hlc.Tag = null;
+                ///hlc.Tag = null;
                 this.OnThreadEditLinkClicked(sender, e);
                 if (hlc.Tag != null)
                 {

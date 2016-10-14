@@ -388,9 +388,9 @@
         {
             if (this.OnReplyLinkClicked != null)
             {
-                (sender as LinkLabel).Tag = SmthUtil.GetReplyContent(this.Data);
+                (sender as HyperlinkLabelControl).Tag = SmthUtil.GetReplyContent(this.Data);
                 this.OnReplyLinkClicked(sender, e);
-                (sender as LinkLabel).Tag = null;
+                (sender as HyperlinkLabelControl).Tag = null;
             }
         }
 
@@ -403,9 +403,9 @@
         {
             if (this.OnMailLinkClicked != null)
             {
-                (sender as LinkLabel).Tag = this.Data.User + "<User>" + SmthUtil.GetReplyContent(this.Data);
+                (sender as HyperlinkLabelControl).Tag = this.Data.User + "<User>" + SmthUtil.GetReplyContent(this.Data);
                 this.OnMailLinkClicked(sender, e);
-                (sender as LinkLabel).Tag = null;
+                (sender as HyperlinkLabelControl).Tag = null;
             }
         }
 
@@ -431,9 +431,9 @@
         {
             if (this.OnEditLinkClicked != null)
             {
-                (sender as LinkLabel).Tag = SmthUtil.GetReplyContent(this.Data);
+                (sender as HyperlinkLabelControl).Tag = SmthUtil.GetReplyContent(this.Data);
                 this.OnEditLinkClicked(sender, e);
-                (sender as LinkLabel).Tag = null;
+                (sender as HyperlinkLabelControl).Tag = null;
             }
         }
 

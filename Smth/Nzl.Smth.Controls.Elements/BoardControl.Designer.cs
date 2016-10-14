@@ -48,7 +48,10 @@
             // lblType
             // 
             this.lblType.Appearance.Font = new System.Drawing.Font("宋体", 9F);
+            this.lblType.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblType.Appearance.Options.UseFont = true;
+            this.lblType.Appearance.Options.UseForeColor = true;
+            this.lblType.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblType.Location = new System.Drawing.Point(14, 7);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(24, 12);

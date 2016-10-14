@@ -133,6 +133,7 @@
                                 thread.Content = TrimHtmlTag(divstr);
                                 thread.ContentHtml = divstr;
                                 string content = thread.Content;
+                                thread.Tag = content;
                                 IList<string> imageUrls = GetImageUrls(ref content);
                                 if (imageUrls.Count > 0)
                                 {

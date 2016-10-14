@@ -27,6 +27,9 @@
 
             ///For ToString.
             this.Text = "The board control";
+
+            ///
+            this.linklblBoard.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(linklblBoard_HyperlinkClick);
         }
 
         /// <summary>
@@ -49,15 +52,8 @@
             base.Initialize(board);
             if (board != null)
             {
-                this.linklblBoard.HyperlinkClick -= new DevExpress.Utils.HyperlinkClickEventHandler(linklblBoard_HyperlinkClick);
                 this.linklblBoard.Text = ControlUtil.GetHyperlinkText(board.Name, board.Code);
                 this.linklblBoard.Tag = "Board";
-                //this.linklblBoard.HyperlinkClick += new HyperlinkClickEventHandler(linklblBorS_LinkClicked);
-                //this.linklblBoard.Text = board.Name;
-                //LinkLabel.Link link = new LinkLabel.Link(0, this.linklblBoard.Text.Length, board.Code);
-                //link.Tag = "Board";
-                //this.linklblBoard.Links.Clear();
-                //this.linklblBoard.Links.Add(link);
             }
         }
 
@@ -68,18 +64,5 @@
                 this.OnBoardClicked(sender, e);
             }
         }
-
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void linklblBorS_LinkClicked(object sender, HyperlinkClickEventArgs e)
-        //{
-        //    if (this.OnLinkClicked != null)
-        //    {
-        //        this.OnLinkClicked(sender, e);
-        //    }
-        //}
     }
 }

@@ -695,37 +695,7 @@
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnLogIn_Click(object sender, EventArgs e)
-        {
-            ShowFormOnCenterParent(LoginForm.Instance);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnBoardNavi_Click(object sender, EventArgs e)
-        {
-            ShowFormOnCenterParent(BoardNavigatorForm.Instance);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnFavor_Click(object sender, EventArgs e)
-        {
-            ShowFormOnCenterParent(FavorForm.Instance);
-        }
-
-        /// <summary>
+         /// <summary>
         /// 
         /// </summary>
         /// <param name="sender"></param>
@@ -752,52 +722,102 @@
                 this.AddPost(e.Link, hlc.PlainText);
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnMail_Click(object sender, EventArgs e)
-        {
-            MailBoxForm.Instance.SetParent(this);
-            ShowFormOnCenterParent(MailBoxForm.Instance);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnRefer_Click(object sender, EventArgs e)
-        {
-            ReferForm.Instance.OnReferClicked -= ReferFormInstance_OnReferClicked;
-            ReferForm.Instance.OnReferClicked += ReferFormInstance_OnReferClicked;
-            ReferForm.Instance.SetParent(this);
-            ShowFormOnCenterParent(ReferForm.Instance);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnMessge_Click(object sender, EventArgs e)
-        {
-            ShowFormOnCenterParent(MessageCenterForm.Instance);
-        }
         
         /// <summary>
         /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnClear_Click(object sender, EventArgs e)
+        private void bbiLogin_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.ShowFormOnCenterParent(LoginForm.Instance);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiTop10s_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.ShowTop10s();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiBoards_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.ShowFormOnCenterParent(BoardNavigatorForm.Instance);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiMessage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.ShowFormOnCenterParent(MessageCenterForm.Instance);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiFavors_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.ShowFormOnCenterParent(FavorForm.Instance);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiMails_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            MailBoxForm.Instance.SetParent(this);
+            this.ShowFormOnCenterParent(MailBoxForm.Instance);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiRefers_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ReferForm.Instance.OnReferClicked -= ReferFormInstance_OnReferClicked;
+            ReferForm.Instance.OnReferClicked += ReferFormInstance_OnReferClicked;
+            ReferForm.Instance.SetParent(this);
+            this.ShowFormOnCenterParent(ReferForm.Instance);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiSettings_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.ShowFormAsDialog(TabbedBrowserSettingsForm.Instance);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiClear_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             IList<XtraTabPage> list = new List<XtraTabPage>();
             foreach (XtraTabPage tp in this.xtcBrowser.TabPages)
             {
-                list.Add(tp);                
+                list.Add(tp);
             }
 
             this.xtcBrowser.TabPages.Clear();
@@ -878,26 +898,6 @@
                 pcc.OnWorkerFailed -= Common_OnWorkerFailed;
                 RecycledQueues.AddRecycled<PostControlContainer>(pcc);
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            ShowFormAsDialog(TabbedBrowserSettingsForm.Instance);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnLoadTop_Click(object sender, EventArgs e)
-        {
-            ShowTop10s();
         }
 
         /// <summary>
@@ -1108,6 +1108,16 @@
                 userForm.StartPosition = FormStartPosition.CenterParent;
                 userForm.ShowDialog(this);
             }
+            else
+            {
+                DevExpress.XtraBars.BarManager bm = sender as DevExpress.XtraBars.BarManager;
+                if (bm != null)
+                {
+                    UserForm userForm = new UserForm(e.Link);
+                    userForm.StartPosition = FormStartPosition.CenterParent;
+                    userForm.ShowDialog(this);
+                }
+            }
         }
 
         /// <summary>
@@ -1298,7 +1308,7 @@
                 }
                 else
                 {
-                    lock (this.linklblUserID)
+                    lock (this.bsiWelcome)
                     {
                         if (flag)
                         {
@@ -1306,15 +1316,15 @@
                             Nzl.Web.Util.CommonUtil.ShowMessage("this.linklblUserID.Links count:" + this.linklblUserID.Text);
 #endif
                             string welcomeStr = "Welcome ";
-                            this.linklblUserID.Text = welcomeStr + " <href=" + LogStatus.Instance.UserID + ">" + LogStatus.Instance.UserID + "</href>" + "!";
-                            this.linklblUserID.HyperlinkClick -= new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
-                            this.linklblUserID.HyperlinkClick += new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
-                            this.btnLogon.Text = "Log Out";
+                            this.bsiWelcome.Caption = welcomeStr + " <href=" + LogStatus.Instance.UserID + ">" + LogStatus.Instance.UserID + "</href>" + "!";
+                            this.bsiWelcome.HyperlinkClick -= new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
+                            this.bsiWelcome.HyperlinkClick += new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
+                            this.bbiLogin.Caption = "Log Out";
                         }
                         else
                         {
-                            this.linklblUserID.Text = "Welcome!";
-                            this.btnLogon.Text = "Log In";
+                            this.bsiWelcome.Caption = "Welcome!";
+                            this.bbiLogin.Caption = "Log In";
                         }
 
                         this._checkNewInforTimer.Stop();
@@ -1325,9 +1335,9 @@
                         }
                     }
 
-                    this.btnFavor.Visible = flag;
-                    this.btnMail.Visible = flag;
-                    this.btnRefer.Visible = flag;
+                    this.bbiFavors.Visibility = flag ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
+                    this.bbiMails.Visibility = flag ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
+                    this.bbiRefers.Visibility = flag ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
                 }
             }
         }
@@ -1355,22 +1365,22 @@
                 }
                 else
                 {
-                    lock (this.btnMail)
+                    lock (this.bbiMails)
                     {
                         int newMailCount = Convert.ToInt32(obj);
                         if (newMailCount > 0)
                         {
-                            this.btnMail.ForeColor = System.Drawing.Color.Red;
-                            this.btnMail.Text = "New mail!";
-                            this._mailToolTip.ShowAlways = true;
-                            this._mailToolTip.SetToolTip(this.btnMail, "You have " + newMailCount + " new mail" + (newMailCount == 1 ? "!" : "s!"));
+                            this.bbiMails.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
+                            this.bbiMails.Caption = "New mail!";
+                            //this._mailToolTip.ShowAlways = true;
+                            //this._mailToolTip.SetToolTip(this.bbiMails, "You have " + newMailCount + " new mail" + (newMailCount == 1 ? "!" : "s!"));
                         }
                         else
                         {
-                            this.btnMail.ForeColor = System.Drawing.Color.Black;
-                            this.btnMail.Text = "Mails";
-                            this._mailToolTip.ShowAlways = false;
-                            this._mailToolTip.SetToolTip(this.btnMail, "You have no new mail!");
+                            this.bbiMails.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Black;
+                            this.bbiMails.Caption = "Mails";
+                            ///this._mailToolTip.ShowAlways = false;
+                            ///this._mailToolTip.SetToolTip(this.bbiMails, "You have no new mail!");
                         }
                     }
                 }
@@ -1400,22 +1410,22 @@
                 }
                 else
                 {
-                    lock (this.btnRefer)
+                    lock (this.bbiRefers)
                     {
                         int newCount = Convert.ToInt32(obj);
                         if (newCount > 0)
                         {
-                            this.btnRefer.ForeColor = System.Drawing.Color.Red;
-                            this.btnRefer.Text = "New refer!";
-                            this._referToolTip.ShowAlways = true;
-                            this._referToolTip.SetToolTip(this.btnRefer, "You have " + newCount + " new refer" + (newCount == 1 ? "!" : "s!"));
+                            this.bbiRefers.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
+                            this.bbiRefers.Caption = "New refer!";
+                            ///this._referToolTip.ShowAlways = true;
+                            ///this._referToolTip.SetToolTip(this.bbiRefers, "You have " + newCount + " new refer" + (newCount == 1 ? "!" : "s!"));
                         }
                         else
                         {
-                            this.btnRefer.ForeColor = System.Drawing.Color.Black;
-                            this.btnRefer.Text = "Refers";
-                            this._referToolTip.ShowAlways = false;
-                            this._referToolTip.SetToolTip(this.btnRefer, "You have no new refer!");
+                            this.bbiRefers.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Black;
+                            this.bbiRefers.Caption = "Refers";
+                            ///this._referToolTip.ShowAlways = false;
+                            ///this._referToolTip.SetToolTip(this.bbiRefers, "You have no new refer!");
                         }
                     }
                 }

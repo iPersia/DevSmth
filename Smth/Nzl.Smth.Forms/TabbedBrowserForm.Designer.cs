@@ -28,28 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabbedBrowserForm));
             this.xtcBrowser = new DevExpress.XtraTab.XtraTabControl();
-            this.scBrowser = new DevExpress.XtraEditors.SplitContainerControl();
-            this.panelMenu = new DevExpress.XtraEditors.PanelControl();
-            this.btnRefer = new DevExpress.XtraEditors.SimpleButton();
-            this.linklblUserID = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.btnMessge = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLoadTop = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLogon = new DevExpress.XtraEditors.SimpleButton();
-            this.btnMail = new DevExpress.XtraEditors.SimpleButton();
-            this.btnFavor = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
-            this.btnBoardNavi = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSettings = new DevExpress.XtraEditors.SimpleButton();
-            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            this.bmManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.bsiWelcome = new DevExpress.XtraBars.BarStaticItem();
+            this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiTop10s = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiBoards = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiMessage = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiFavors = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiMails = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRefers = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSettings = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiClear = new DevExpress.XtraBars.BarButtonItem();
+            this.bar4 = new DevExpress.XtraBars.Bar();
+            this.bar5 = new DevExpress.XtraBars.Bar();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.riteGo = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             ((System.ComponentModel.ISupportInitialize)(this.xtcBrowser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scBrowser)).BeginInit();
-            this.scBrowser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
-            this.panelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
-            this.panelContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bmManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riteGo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // xtcBrowser
@@ -66,180 +71,240 @@
             this.xtcBrowser.AppearancePage.HeaderHotTracked.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xtcBrowser.AppearancePage.HeaderHotTracked.Options.UseFont = true;
             this.xtcBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtcBrowser.Location = new System.Drawing.Point(2, 2);
+            this.xtcBrowser.Location = new System.Drawing.Point(0, 49);
             this.xtcBrowser.Name = "xtcBrowser";
-            this.xtcBrowser.Size = new System.Drawing.Size(880, 623);
+            this.xtcBrowser.Size = new System.Drawing.Size(884, 590);
             this.xtcBrowser.TabIndex = 0;
             this.xtcBrowser.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtcBrowser_SelectedPageChanged);
             this.xtcBrowser.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.xtcBrowser_MouseDoubleClick);
             // 
-            // scBrowser
+            // bmManager
             // 
-            this.scBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scBrowser.Horizontal = false;
-            this.scBrowser.IsSplitterFixed = true;
-            this.scBrowser.Location = new System.Drawing.Point(0, 0);
-            this.scBrowser.Name = "scBrowser";
-            this.scBrowser.Panel1.Controls.Add(this.panelMenu);
-            this.scBrowser.Panel2.Controls.Add(this.panelContainer);
-            this.scBrowser.Size = new System.Drawing.Size(884, 662);
-            this.scBrowser.SplitterPosition = 30;
-            this.scBrowser.TabIndex = 1;
+            this.bmManager.AllowCustomization = false;
+            this.bmManager.AllowHtmlText = true;
+            this.bmManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.bar3,
+            this.bar4,
+            this.bar5});
+            this.bmManager.DockControls.Add(this.barDockControlTop);
+            this.bmManager.DockControls.Add(this.barDockControlBottom);
+            this.bmManager.DockControls.Add(this.barDockControlLeft);
+            this.bmManager.DockControls.Add(this.barDockControlRight);
+            this.bmManager.Form = this;
+            this.bmManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.bsiWelcome,
+            this.bbiLogin,
+            this.bbiTop10s,
+            this.bbiBoards,
+            this.bbiMessage,
+            this.bbiFavors,
+            this.bbiMails,
+            this.bbiRefers,
+            this.bbiSettings,
+            this.bbiClear});
+            this.bmManager.MainMenu = this.bar4;
+            this.bmManager.MaxItemId = 36;
+            this.bmManager.OptionsLayout.AllowAddNewItems = false;
+            this.bmManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.riteGo,
+            this.repositoryItemHyperLinkEdit1});
+            this.bmManager.StatusBar = this.bar5;
             // 
-            // panelMenu
+            // bar3
             // 
-            this.panelMenu.Appearance.BackColor = System.Drawing.SystemColors.Window;
-            this.panelMenu.Appearance.Options.UseBackColor = true;
-            this.panelMenu.Controls.Add(this.btnRefer);
-            this.panelMenu.Controls.Add(this.linklblUserID);
-            this.panelMenu.Controls.Add(this.btnMessge);
-            this.panelMenu.Controls.Add(this.btnLoadTop);
-            this.panelMenu.Controls.Add(this.btnLogon);
-            this.panelMenu.Controls.Add(this.btnMail);
-            this.panelMenu.Controls.Add(this.btnFavor);
-            this.panelMenu.Controls.Add(this.btnClear);
-            this.panelMenu.Controls.Add(this.btnBoardNavi);
-            this.panelMenu.Controls.Add(this.btnSettings);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(884, 30);
-            this.panelMenu.TabIndex = 0;
+            this.bar3.BarAppearance.Disabled.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar3.BarAppearance.Disabled.Options.UseFont = true;
+            this.bar3.BarAppearance.Hovered.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar3.BarAppearance.Hovered.Options.UseFont = true;
+            this.bar3.BarAppearance.Normal.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar3.BarAppearance.Normal.Options.UseFont = true;
+            this.bar3.BarAppearance.Pressed.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bar3.BarAppearance.Pressed.Options.UseFont = true;
+            this.bar3.BarName = "Tools";
+            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
+            this.bar3.DockCol = 0;
+            this.bar3.DockRow = 1;
+            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bsiWelcome),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiLogin, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiTop10s),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiBoards),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiMessage),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiFavors),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiMails),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiRefers),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiSettings),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiClear)});
+            this.bar3.OptionsBar.AllowQuickCustomization = false;
+            this.bar3.OptionsBar.DisableClose = true;
+            this.bar3.OptionsBar.DisableCustomization = true;
+            this.bar3.OptionsBar.DrawDragBorder = false;
+            this.bar3.OptionsBar.UseWholeRow = true;
+            this.bar3.Text = "Tools";
             // 
-            // btnRefer
+            // bsiWelcome
             // 
-            this.btnRefer.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefer.Appearance.Options.UseFont = true;
-            this.btnRefer.Location = new System.Drawing.Point(642, 2);
-            this.btnRefer.Name = "btnRefer";
-            this.btnRefer.Size = new System.Drawing.Size(75, 27);
-            this.btnRefer.TabIndex = 16;
-            this.btnRefer.TabStop = false;
-            this.btnRefer.Text = "Refers";
-            this.btnRefer.Visible = false;
-            this.btnRefer.Click += new System.EventHandler(this.btnRefer_Click);
+            this.bsiWelcome.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            this.bsiWelcome.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.bsiWelcome.Caption = "Welcome!";
+            this.bsiWelcome.Id = 26;
+            this.bsiWelcome.Name = "bsiWelcome";
+            this.bsiWelcome.Size = new System.Drawing.Size(120, 0);
+            this.bsiWelcome.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.bsiWelcome.Width = 120;
             // 
-            // linklblUserID
+            // bbiLogin
             // 
-            this.linklblUserID.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linklblUserID.Appearance.Options.UseFont = true;
-            this.linklblUserID.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linklblUserID.Location = new System.Drawing.Point(14, 10);
-            this.linklblUserID.Name = "linklblUserID";
-            this.linklblUserID.Size = new System.Drawing.Size(48, 12);
-            this.linklblUserID.TabIndex = 15;
-            this.linklblUserID.Text = "Welcome!";
+            this.bbiLogin.Caption = "Log in";
+            this.bbiLogin.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiLogin.Id = 27;
+            this.bbiLogin.Name = "bbiLogin";
+            this.bbiLogin.Size = new System.Drawing.Size(75, 0);
+            this.bbiLogin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLogin_ItemClick);
             // 
-            // btnMessge
+            // bbiTop10s
             // 
-            this.btnMessge.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMessge.Appearance.Options.UseFont = true;
-            this.btnMessge.Location = new System.Drawing.Point(402, 2);
-            this.btnMessge.Name = "btnMessge";
-            this.btnMessge.Size = new System.Drawing.Size(75, 27);
-            this.btnMessge.TabIndex = 14;
-            this.btnMessge.TabStop = false;
-            this.btnMessge.Text = "Message";
-            this.btnMessge.Click += new System.EventHandler(this.btnMessge_Click);
+            this.bbiTop10s.Caption = "Top 10\'s";
+            this.bbiTop10s.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiTop10s.Id = 28;
+            this.bbiTop10s.Name = "bbiTop10s";
+            this.bbiTop10s.Size = new System.Drawing.Size(75, 0);
+            this.bbiTop10s.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTop10s_ItemClick);
             // 
-            // btnLoadTop
+            // bbiBoards
             // 
-            this.btnLoadTop.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoadTop.Appearance.Options.UseFont = true;
-            this.btnLoadTop.Location = new System.Drawing.Point(241, 2);
-            this.btnLoadTop.Name = "btnLoadTop";
-            this.btnLoadTop.Size = new System.Drawing.Size(75, 27);
-            this.btnLoadTop.TabIndex = 6;
-            this.btnLoadTop.TabStop = false;
-            this.btnLoadTop.Text = "Top 10\'s";
-            this.btnLoadTop.Click += new System.EventHandler(this.btnLoadTop_Click);
+            this.bbiBoards.Caption = "Boards";
+            this.bbiBoards.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiBoards.Id = 29;
+            this.bbiBoards.Name = "bbiBoards";
+            this.bbiBoards.Size = new System.Drawing.Size(75, 0);
+            this.bbiBoards.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBoards_ItemClick);
             // 
-            // btnLogon
+            // bbiMessage
             // 
-            this.btnLogon.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogon.Appearance.Options.UseFont = true;
-            this.btnLogon.Location = new System.Drawing.Point(162, 2);
-            this.btnLogon.Name = "btnLogon";
-            this.btnLogon.Size = new System.Drawing.Size(75, 27);
-            this.btnLogon.TabIndex = 10;
-            this.btnLogon.TabStop = false;
-            this.btnLogon.Text = "Log in";
-            this.btnLogon.Click += new System.EventHandler(this.btnLogIn_Click);
+            this.bbiMessage.Caption = "Message";
+            this.bbiMessage.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiMessage.Id = 30;
+            this.bbiMessage.Name = "bbiMessage";
+            this.bbiMessage.Size = new System.Drawing.Size(75, 0);
+            this.bbiMessage.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiMessage_ItemClick);
             // 
-            // btnMail
+            // bbiFavors
             // 
-            this.btnMail.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMail.Appearance.Options.UseFont = true;
-            this.btnMail.Location = new System.Drawing.Point(562, 2);
-            this.btnMail.Name = "btnMail";
-            this.btnMail.Size = new System.Drawing.Size(75, 27);
-            this.btnMail.TabIndex = 13;
-            this.btnMail.TabStop = false;
-            this.btnMail.Text = "Mails";
-            this.btnMail.Visible = false;
-            this.btnMail.Click += new System.EventHandler(this.btnMail_Click);
+            this.bbiFavors.Caption = "Favors";
+            this.bbiFavors.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiFavors.Id = 31;
+            this.bbiFavors.Name = "bbiFavors";
+            this.bbiFavors.Size = new System.Drawing.Size(75, 0);
+            this.bbiFavors.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiFavors.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFavors_ItemClick);
             // 
-            // btnFavor
+            // bbiMails
             // 
-            this.btnFavor.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavor.Appearance.Options.UseFont = true;
-            this.btnFavor.Location = new System.Drawing.Point(482, 2);
-            this.btnFavor.Name = "btnFavor";
-            this.btnFavor.Size = new System.Drawing.Size(75, 27);
-            this.btnFavor.TabIndex = 12;
-            this.btnFavor.TabStop = false;
-            this.btnFavor.Text = "Favors";
-            this.btnFavor.Visible = false;
-            this.btnFavor.Click += new System.EventHandler(this.btnFavor_Click);
+            this.bbiMails.Caption = "Mails";
+            this.bbiMails.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiMails.Id = 32;
+            this.bbiMails.Name = "bbiMails";
+            this.bbiMails.Size = new System.Drawing.Size(75, 0);
+            this.bbiMails.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiMails.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiMails_ItemClick);
             // 
-            // btnClear
+            // bbiRefers
             // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Appearance.Options.UseFont = true;
-            this.btnClear.Location = new System.Drawing.Point(803, 2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 27);
-            this.btnClear.TabIndex = 1;
-            this.btnClear.TabStop = false;
-            this.btnClear.Text = "Clear";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.bbiRefers.Caption = "Refers";
+            this.bbiRefers.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiRefers.Id = 33;
+            this.bbiRefers.Name = "bbiRefers";
+            this.bbiRefers.Size = new System.Drawing.Size(75, 0);
+            this.bbiRefers.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbiRefers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefers_ItemClick);
             // 
-            // btnBoardNavi
+            // bbiSettings
             // 
-            this.btnBoardNavi.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBoardNavi.Appearance.Options.UseFont = true;
-            this.btnBoardNavi.Location = new System.Drawing.Point(322, 2);
-            this.btnBoardNavi.Name = "btnBoardNavi";
-            this.btnBoardNavi.Size = new System.Drawing.Size(75, 27);
-            this.btnBoardNavi.TabIndex = 11;
-            this.btnBoardNavi.TabStop = false;
-            this.btnBoardNavi.Text = "Boards";
-            this.btnBoardNavi.Click += new System.EventHandler(this.btnBoardNavi_Click);
+            this.bbiSettings.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bbiSettings.Caption = "Settings";
+            this.bbiSettings.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiSettings.Id = 34;
+            this.bbiSettings.Name = "bbiSettings";
+            this.bbiSettings.Size = new System.Drawing.Size(75, 0);
+            this.bbiSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSettings_ItemClick);
             // 
-            // btnSettings
+            // bbiClear
             // 
-            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSettings.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSettings.Appearance.Options.UseFont = true;
-            this.btnSettings.Location = new System.Drawing.Point(723, 2);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(75, 27);
-            this.btnSettings.TabIndex = 0;
-            this.btnSettings.TabStop = false;
-            this.btnSettings.Text = "Setting";
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            this.bbiClear.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bbiClear.Caption = "Clear";
+            this.bbiClear.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiClear.Id = 35;
+            this.bbiClear.Name = "bbiClear";
+            this.bbiClear.Size = new System.Drawing.Size(75, 0);
+            this.bbiClear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiClear_ItemClick);
             // 
-            // panelContainer
+            // bar4
             // 
-            this.panelContainer.Appearance.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.panelContainer.Appearance.Options.UseBackColor = true;
-            this.panelContainer.Controls.Add(this.xtcBrowser);
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(0, 0);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(884, 627);
-            this.panelContainer.TabIndex = 1;
+            this.bar4.BarName = "Main menu";
+            this.bar4.DockCol = 0;
+            this.bar4.DockRow = 0;
+            this.bar4.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar4.FloatLocation = new System.Drawing.Point(262, 152);
+            this.bar4.FloatSize = new System.Drawing.Size(46, 29);
+            this.bar4.OptionsBar.MultiLine = true;
+            this.bar4.OptionsBar.UseWholeRow = true;
+            this.bar4.Text = "Main menu";
+            this.bar4.Visible = false;
+            // 
+            // bar5
+            // 
+            this.bar5.BarName = "Status bar";
+            this.bar5.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            this.bar5.DockCol = 0;
+            this.bar5.DockRow = 0;
+            this.bar5.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar5.OptionsBar.AllowQuickCustomization = false;
+            this.bar5.OptionsBar.DrawDragBorder = false;
+            this.bar5.OptionsBar.UseWholeRow = true;
+            this.bar5.Text = "Status bar";
+            this.bar5.Visible = false;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(884, 49);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 639);
+            this.barDockControlBottom.Size = new System.Drawing.Size(884, 23);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 49);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 590);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(884, 49);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 590);
+            // 
+            // riteGo
+            // 
+            this.riteGo.Appearance.Options.UseTextOptions = true;
+            this.riteGo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.riteGo.AutoHeight = false;
+            this.riteGo.Name = "riteGo";
+            // 
+            // repositoryItemHyperLinkEdit1
+            // 
+            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
             // 
             // TabbedBrowserForm
             // 
@@ -248,7 +313,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 662);
-            this.Controls.Add(this.scBrowser);
+            this.Controls.Add(this.xtcBrowser);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
             this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -258,33 +327,36 @@
             this.Text = "水木社区";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TabbedTopicBrowserForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.xtcBrowser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scBrowser)).EndInit();
-            this.scBrowser.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).EndInit();
-            this.panelMenu.ResumeLayout(false);
-            this.panelMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
-            this.panelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bmManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riteGo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private DevExpress.XtraTab.XtraTabControl xtcBrowser;
-        private DevExpress.XtraEditors.SplitContainerControl scBrowser;
-        private DevExpress.XtraEditors.PanelControl panelMenu;
-        private DevExpress.XtraEditors.PanelControl panelContainer;
-        private DevExpress.XtraEditors.SimpleButton btnSettings;
-        private DevExpress.XtraEditors.SimpleButton btnClear;        
-        private DevExpress.XtraEditors.SimpleButton btnLoadTop;
-        private DevExpress.XtraEditors.SimpleButton btnMessge;
-        private DevExpress.XtraEditors.SimpleButton btnLogon;
-        private DevExpress.XtraEditors.SimpleButton btnMail;
-        private DevExpress.XtraEditors.SimpleButton btnFavor;
-        private DevExpress.XtraEditors.SimpleButton btnBoardNavi;
-        private DevExpress.XtraEditors.SimpleButton btnRefer;
-        private DevExpress.XtraEditors.HyperlinkLabelControl linklblUserID;
-        
+        private DevExpress.XtraBars.BarManager bmManager;
+        private DevExpress.XtraBars.Bar bar3;
+        private DevExpress.XtraBars.Bar bar4;
+        private DevExpress.XtraBars.Bar bar5;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit riteGo;
+        private DevExpress.XtraBars.BarStaticItem bsiWelcome;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
+        private DevExpress.XtraBars.BarButtonItem bbiLogin;
+        private DevExpress.XtraBars.BarButtonItem bbiTop10s;
+        private DevExpress.XtraBars.BarButtonItem bbiBoards;
+        private DevExpress.XtraBars.BarButtonItem bbiMessage;
+        private DevExpress.XtraBars.BarButtonItem bbiFavors;
+        private DevExpress.XtraBars.BarButtonItem bbiMails;
+        private DevExpress.XtraBars.BarButtonItem bbiRefers;
+        private DevExpress.XtraBars.BarButtonItem bbiSettings;
+        private DevExpress.XtraBars.BarButtonItem bbiClear;
     }
 }

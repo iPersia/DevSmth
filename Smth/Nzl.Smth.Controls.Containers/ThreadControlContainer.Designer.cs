@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.panel = new DevExpress.XtraEditors.PanelControl();
-            this.bmManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.bmManager = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bbiFirst = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPrev = new DevExpress.XtraBars.BarButtonItem();
@@ -45,13 +44,13 @@
             this.bbiReply = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBoard = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSettings = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiOpenInBrowser = new DevExpress.XtraBars.BarButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bbiOpenInBrowser = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
@@ -127,8 +126,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiRefresh, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.beiGo, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiGo),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiReply),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiBoard),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiReply),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiSettings),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiOpenInBrowser, true)});
             this.bar1.OptionsBar.AllowQuickCustomization = false;
@@ -141,46 +140,59 @@
             // bbiFirst
             // 
             this.bbiFirst.Caption = "First";
+            this.bbiFirst.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiFirst.Id = 1;
             this.bbiFirst.Name = "bbiFirst";
             this.bbiFirst.ShowItemShortcut = DevExpress.Utils.DefaultBoolean.False;
+            this.bbiFirst.Size = new System.Drawing.Size(60, 0);
             this.bbiFirst.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFirst_ItemClick);
             // 
             // bbiPrev
             // 
             this.bbiPrev.Caption = "Prev";
+            this.bbiPrev.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiPrev.Id = 5;
             this.bbiPrev.Name = "bbiPrev";
+            this.bbiPrev.Size = new System.Drawing.Size(60, 0);
             this.bbiPrev.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrev_ItemClick);
             // 
             // bsiPage
             // 
             this.bsiPage.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.bsiPage.Caption = "000000/999999";
+            this.bsiPage.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bsiPage.Id = 8;
             this.bsiPage.Name = "bsiPage";
+            this.bsiPage.Size = new System.Drawing.Size(120, 0);
             this.bsiPage.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.bsiPage.Width = 120;
             // 
             // bbiNext
             // 
             this.bbiNext.Caption = "Next";
+            this.bbiNext.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiNext.Id = 6;
             this.bbiNext.Name = "bbiNext";
+            this.bbiNext.Size = new System.Drawing.Size(60, 0);
             this.bbiNext.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNext_ItemClick);
             // 
             // bbiLast
             // 
             this.bbiLast.Caption = "Last";
+            this.bbiLast.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiLast.Id = 7;
             this.bbiLast.Name = "bbiLast";
+            this.bbiLast.Size = new System.Drawing.Size(60, 0);
             this.bbiLast.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLast_ItemClick);
             // 
             // bbiRefresh
             // 
             this.bbiRefresh.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
             this.bbiRefresh.Caption = "Refresh";
+            this.bbiRefresh.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiRefresh.Id = 17;
             this.bbiRefresh.Name = "bbiRefresh";
+            this.bbiRefresh.Size = new System.Drawing.Size(60, 0);
             this.bbiRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefresh_ItemClick);
             // 
             // beiGo
@@ -209,14 +221,17 @@
             // 
             this.bbiReply.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bbiReply.Caption = "Reply";
+            this.bbiReply.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiReply.Id = 21;
             this.bbiReply.Name = "bbiReply";
+            this.bbiReply.Size = new System.Drawing.Size(60, 0);
             this.bbiReply.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.bbiReply_HyperlinkClick);
             // 
             // bbiBoard
             // 
             this.bbiBoard.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bbiBoard.Caption = "Board";
+            this.bbiBoard.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiBoard.Id = 22;
             this.bbiBoard.Name = "bbiBoard";
             this.bbiBoard.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.bbiBoard_HyperlinkClick);
@@ -225,9 +240,18 @@
             // 
             this.bbiSettings.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bbiSettings.Caption = "Settings";
+            this.bbiSettings.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiSettings.Id = 16;
             this.bbiSettings.Name = "bbiSettings";
+            this.bbiSettings.Size = new System.Drawing.Size(60, 0);
             this.bbiSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSettings_ItemClick);
+            // 
+            // bbiOpenInBrowser
+            // 
+            this.bbiOpenInBrowser.Caption = "Open in Browser";
+            this.bbiOpenInBrowser.Id = 23;
+            this.bbiOpenInBrowser.Name = "bbiOpenInBrowser";
+            this.bbiOpenInBrowser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOpenInBrowser_ItemClick);
             // 
             // bar2
             // 
@@ -282,13 +306,6 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(992, 51);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 409);
-            // 
-            // bbiOpenInBrowser
-            // 
-            this.bbiOpenInBrowser.Caption = "Open in Browser";
-            this.bbiOpenInBrowser.Id = 23;
-            this.bbiOpenInBrowser.Name = "bbiOpenInBrowser";
-            this.bbiOpenInBrowser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiOpenInBrowser_ItemClick);
             // 
             // ThreadControlContainer
             // 

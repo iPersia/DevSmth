@@ -127,7 +127,7 @@
             this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bsiWelcome),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiLogin, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiLogin),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiTop10s),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiBoards),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiMessage),
@@ -174,6 +174,7 @@
             // 
             // bbiBoards
             // 
+            this.bbiBoards.Border = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.bbiBoards.Caption = "Boards";
             this.bbiBoards.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiBoards.Id = 29;

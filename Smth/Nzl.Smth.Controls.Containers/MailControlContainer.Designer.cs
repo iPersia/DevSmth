@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.panel = new DevExpress.XtraEditors.PanelControl();
-            this.bmManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.bmManager = new DevExpress.XtraBars.BarManager();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.bbiFirst = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPrev = new DevExpress.XtraBars.BarButtonItem();
@@ -63,7 +62,7 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 51);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(681, 359);
+            this.panelContainer.Size = new System.Drawing.Size(866, 359);
             this.panelContainer.TabIndex = 1;
             // 
             // panel
@@ -71,7 +70,7 @@
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel.Location = new System.Drawing.Point(5, 5);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(829, 117);
+            this.panel.Size = new System.Drawing.Size(856, 117);
             this.panel.TabIndex = 0;
             // 
             // bmManager
@@ -133,46 +132,58 @@
             // bbiFirst
             // 
             this.bbiFirst.Caption = "First";
+            this.bbiFirst.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiFirst.Id = 1;
             this.bbiFirst.Name = "bbiFirst";
             this.bbiFirst.ShowItemShortcut = DevExpress.Utils.DefaultBoolean.False;
+            this.bbiFirst.Size = new System.Drawing.Size(60, 0);
             this.bbiFirst.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFirst_ItemClick);
             // 
             // bbiPrev
             // 
             this.bbiPrev.Caption = "Prev";
+            this.bbiPrev.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiPrev.Id = 5;
             this.bbiPrev.Name = "bbiPrev";
+            this.bbiPrev.Size = new System.Drawing.Size(60, 0);
             this.bbiPrev.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrev_ItemClick);
             // 
             // bsiPage
             // 
             this.bsiPage.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.bsiPage.Caption = "000000/999999";
+            this.bsiPage.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bsiPage.Id = 8;
             this.bsiPage.Name = "bsiPage";
+            this.bsiPage.Size = new System.Drawing.Size(120, 0);
             this.bsiPage.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // bbiNext
             // 
             this.bbiNext.Caption = "Next";
+            this.bbiNext.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiNext.Id = 6;
             this.bbiNext.Name = "bbiNext";
+            this.bbiNext.Size = new System.Drawing.Size(60, 0);
             this.bbiNext.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNext_ItemClick);
             // 
             // bbiLast
             // 
             this.bbiLast.Caption = "Last";
+            this.bbiLast.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiLast.Id = 7;
             this.bbiLast.Name = "bbiLast";
+            this.bbiLast.Size = new System.Drawing.Size(60, 0);
             this.bbiLast.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLast_ItemClick);
             // 
             // bbiRefresh
             // 
             this.bbiRefresh.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
             this.bbiRefresh.Caption = "Refresh";
+            this.bbiRefresh.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiRefresh.Id = 17;
             this.bbiRefresh.Name = "bbiRefresh";
+            this.bbiRefresh.Size = new System.Drawing.Size(60, 0);
             this.bbiRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefresh_ItemClick);
             // 
             // beiGo
@@ -201,8 +212,10 @@
             // 
             this.bbiNew.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.bbiNew.Caption = "New";
+            this.bbiNew.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiNew.Id = 22;
             this.bbiNew.Name = "bbiNew";
+            this.bbiNew.Size = new System.Drawing.Size(60, 0);
             this.bbiNew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNew_Click);
             // 
             // bbiOpenInBrowser
@@ -243,14 +256,14 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(681, 51);
+            this.barDockControlTop.Size = new System.Drawing.Size(866, 51);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 410);
-            this.barDockControlBottom.Size = new System.Drawing.Size(681, 23);
+            this.barDockControlBottom.Size = new System.Drawing.Size(866, 23);
             // 
             // barDockControlLeft
             // 
@@ -263,7 +276,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(681, 51);
+            this.barDockControlRight.Location = new System.Drawing.Point(866, 51);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 359);
             // 
             // MailControlContainer
@@ -276,7 +289,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "MailControlContainer";
-            this.Size = new System.Drawing.Size(681, 433);
+            this.Size = new System.Drawing.Size(866, 433);
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();

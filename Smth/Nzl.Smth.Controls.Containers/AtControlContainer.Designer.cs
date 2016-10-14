@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.panel = new DevExpress.XtraEditors.PanelControl();
-            this.bmManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.bmManager = new DevExpress.XtraBars.BarManager();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.bbiFirst = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPrev = new DevExpress.XtraBars.BarButtonItem();
@@ -130,46 +129,58 @@
             // bbiFirst
             // 
             this.bbiFirst.Caption = "First";
+            this.bbiFirst.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiFirst.Id = 1;
             this.bbiFirst.Name = "bbiFirst";
             this.bbiFirst.ShowItemShortcut = DevExpress.Utils.DefaultBoolean.False;
+            this.bbiFirst.Size = new System.Drawing.Size(60, 0);
             this.bbiFirst.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiFirst_ItemClick);
             // 
             // bbiPrev
             // 
             this.bbiPrev.Caption = "Prev";
+            this.bbiPrev.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiPrev.Id = 5;
             this.bbiPrev.Name = "bbiPrev";
+            this.bbiPrev.Size = new System.Drawing.Size(60, 0);
             this.bbiPrev.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrev_ItemClick);
             // 
             // bsiPage
             // 
             this.bsiPage.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.bsiPage.Caption = "000000/999999";
+            this.bsiPage.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bsiPage.Id = 8;
             this.bsiPage.Name = "bsiPage";
+            this.bsiPage.Size = new System.Drawing.Size(120, 0);
             this.bsiPage.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // bbiNext
             // 
             this.bbiNext.Caption = "Next";
+            this.bbiNext.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiNext.Id = 6;
             this.bbiNext.Name = "bbiNext";
+            this.bbiNext.Size = new System.Drawing.Size(60, 0);
             this.bbiNext.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiNext_ItemClick);
             // 
             // bbiLast
             // 
             this.bbiLast.Caption = "Last";
+            this.bbiLast.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiLast.Id = 7;
             this.bbiLast.Name = "bbiLast";
+            this.bbiLast.Size = new System.Drawing.Size(60, 0);
             this.bbiLast.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLast_ItemClick);
             // 
             // bbiRefresh
             // 
             this.bbiRefresh.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
             this.bbiRefresh.Caption = "Refresh";
+            this.bbiRefresh.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
             this.bbiRefresh.Id = 17;
             this.bbiRefresh.Name = "bbiRefresh";
+            this.bbiRefresh.Size = new System.Drawing.Size(60, 0);
             this.bbiRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRefresh_ItemClick);
             // 
             // beiGo

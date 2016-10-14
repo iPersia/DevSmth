@@ -1010,7 +1010,7 @@ namespace Nzl.Smth.Controls.Containers
             if (this.Parent != null)
             {
                 this.Parent.Text = MiscUtil.GetFormattedTitle(this, this._topic);
-                this.Parent.Tag = "主题:" + this._topic + SmthUtil.GetBoard(wp);
+                this.Parent.Tag = "主题:" + this._topic + " - " + SmthUtil.GetBoard(wp);
             }
 
             this._subject = this._topic;//CommonUtil.GetMatch(@"<input type=\Whidden\W name=\Wsubject\W value=\W(?'subject'Re[0-9A-Z,%,~,-]+)\W\s/>", html, 1);

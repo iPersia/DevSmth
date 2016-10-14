@@ -592,6 +592,12 @@
             if (wp != null && wp.IsGood)
             {
                 this.Text = SmthUtil.GetBoard(wp);
+                if (this.Parent != null && this.Text != null)
+                {
+                    string boardName = this.Text.Substring(0, this.Text.IndexOf("("));
+                    this.Parent.Text = "【" + boardName + "】";
+                    this.Parent.Tag = "版面-" + this.Text;
+                }
             }
         }
 

@@ -217,6 +217,10 @@
                 this.InitializeLinkLabel(this.linklblSubjectNext, refer.SubjectNextUrl);
                 this.InitializeLinkLabel(this.linklblTransfer, refer.TransferUrl);
 
+                ///Tag
+                this.linklblExpand.Tag = refer.Subject.Replace("主题:Re: ", "");
+                this.linklblSubjectExpand.Tag = refer.Subject.Replace("主题:Re: ", "");
+
                 ///Add content.
                 ///Add content.
                 this.richtxtContent.ReadOnly = false;

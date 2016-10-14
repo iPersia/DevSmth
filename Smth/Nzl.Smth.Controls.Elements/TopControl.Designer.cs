@@ -48,7 +48,7 @@
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(511, 47);
+            this.panel.Size = new System.Drawing.Size(695, 47);
             this.panel.TabIndex = 0;
             // 
             // linklblBoard
@@ -57,7 +57,7 @@
             this.linklblBoard.Appearance.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linklblBoard.Appearance.Options.UseFont = true;
             this.linklblBoard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linklblBoard.Location = new System.Drawing.Point(402, 14);
+            this.linklblBoard.Location = new System.Drawing.Point(586, 14);
             this.linklblBoard.Name = "linklblBoard";
             this.linklblBoard.Size = new System.Drawing.Size(35, 14);
             this.linklblBoard.TabIndex = 7;
@@ -79,6 +79,7 @@
             // 
             this.linklblTop.Appearance.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.linklblTop.Appearance.Options.UseFont = true;
+            this.linklblTop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linklblTop.Location = new System.Drawing.Point(52, 16);
             this.linklblTop.Name = "linklblTop";
             this.linklblTop.Size = new System.Drawing.Size(21, 14);
@@ -102,7 +103,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel);
             this.Name = "TopControl";
-            this.Size = new System.Drawing.Size(511, 47);
+            this.Size = new System.Drawing.Size(695, 47);
             ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();

@@ -12,7 +12,7 @@
     /// 
     /// </summary>
     //public class BaseControl<TBaseData> : DevExpress.Utils.Controls.ControlBase, IRecycled
-    public abstract class BaseControl<TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
+    public class BaseControl<TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
         where TBaseData : BaseData
     {
         /// <summary>

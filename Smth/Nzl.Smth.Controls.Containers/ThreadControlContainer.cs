@@ -134,11 +134,6 @@ namespace Nzl.Smth.Controls.Containers
         /// 
         /// </summary>
         private UrlInfo<ThreadControl, Thread> _resultUrlInfo = new UrlInfo<ThreadControl, Thread>();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private Control _parentControl = null;
         #endregion
 
         #region Properties
@@ -206,15 +201,6 @@ namespace Nzl.Smth.Controls.Containers
                 bar.BarAppearance.Pressed.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 bar.BarAppearance.Disabled.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="ctl"></param>
-        public void SetParent(Control ctl)
-        {
-            this._parentControl = ctl;
         }
         #endregion
 
@@ -495,7 +481,6 @@ namespace Nzl.Smth.Controls.Containers
             this._subject = null;
             this._postUrl = null;
             this._targetUserID = null;
-            this._parentControl = null;
         }
         #endregion
 
@@ -1020,10 +1005,12 @@ namespace Nzl.Smth.Controls.Containers
             {
                 this.Text = "只看" + this._targetUserID + " - " + this.Text;
             }
-
-            if (this._parentControl != null)
+            
+            ///Set parent text.
+            if (this.Parent != null)
             {
-                this._parentControl.Text = this.Text;
+                this.Parent.Text = MiscUtil.GetFormattedTitle(this, this._topic);
+                this.Parent.Tag = "主题:" + this._topic + SmthUtil.GetBoard(wp);
             }
 
             this._subject = this._topic;//CommonUtil.GetMatch(@"<input type=\Whidden\W name=\Wsubject\W value=\W(?'subject'Re[0-9A-Z,%,~,-]+)\W\s/>", html, 1);

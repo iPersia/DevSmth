@@ -8,7 +8,8 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseComplexControl : DevExpress.XtraEditors.XtraUserControl
+    
+    public class BaseComplexControl : DevExpress.XtraEditors.XtraUserControl
     {
         #region Ctor
         /// <summary>

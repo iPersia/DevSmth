@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabbedBrowserForm));
-            this.tcTopics = new DevExpress.XtraTab.XtraTabControl();
+            this.xtcBrowser = new DevExpress.XtraTab.XtraTabControl();
             this.scBrowser = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnRefer = new DevExpress.XtraEditors.SimpleButton();
@@ -43,7 +43,7 @@
             this.btnBoardNavi = new DevExpress.XtraEditors.SimpleButton();
             this.btnSettings = new DevExpress.XtraEditors.SimpleButton();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.tcTopics)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtcBrowser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scBrowser)).BeginInit();
             this.scBrowser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
@@ -52,25 +52,26 @@
             this.panelContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tcTopics
+            // xtcBrowser
             // 
-            this.tcTopics.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcTopics.Appearance.Options.UseFont = true;
-            this.tcTopics.AppearancePage.Header.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcTopics.AppearancePage.Header.Options.UseFont = true;
-            this.tcTopics.AppearancePage.HeaderActive.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcTopics.AppearancePage.HeaderActive.FontStyleDelta = System.Drawing.FontStyle.Bold;
-            this.tcTopics.AppearancePage.HeaderActive.Options.UseFont = true;
-            this.tcTopics.AppearancePage.HeaderDisabled.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcTopics.AppearancePage.HeaderDisabled.Options.UseFont = true;
-            this.tcTopics.AppearancePage.HeaderHotTracked.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcTopics.AppearancePage.HeaderHotTracked.Options.UseFont = true;
-            this.tcTopics.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcTopics.Location = new System.Drawing.Point(2, 2);
-            this.tcTopics.Name = "tcTopics";
-            this.tcTopics.Size = new System.Drawing.Size(1004, 690);
-            this.tcTopics.TabIndex = 0;
-            this.tcTopics.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tcTopics_MouseDoubleClick);
+            this.xtcBrowser.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtcBrowser.Appearance.Options.UseFont = true;
+            this.xtcBrowser.AppearancePage.Header.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtcBrowser.AppearancePage.Header.Options.UseFont = true;
+            this.xtcBrowser.AppearancePage.HeaderActive.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtcBrowser.AppearancePage.HeaderActive.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.xtcBrowser.AppearancePage.HeaderActive.Options.UseFont = true;
+            this.xtcBrowser.AppearancePage.HeaderDisabled.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtcBrowser.AppearancePage.HeaderDisabled.Options.UseFont = true;
+            this.xtcBrowser.AppearancePage.HeaderHotTracked.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xtcBrowser.AppearancePage.HeaderHotTracked.Options.UseFont = true;
+            this.xtcBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtcBrowser.Location = new System.Drawing.Point(2, 2);
+            this.xtcBrowser.Name = "xtcBrowser";
+            this.xtcBrowser.Size = new System.Drawing.Size(880, 623);
+            this.xtcBrowser.TabIndex = 0;
+            this.xtcBrowser.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtcBrowser_SelectedPageChanged);
+            this.xtcBrowser.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.xtcBrowser_MouseDoubleClick);
             // 
             // scBrowser
             // 
@@ -81,7 +82,7 @@
             this.scBrowser.Name = "scBrowser";
             this.scBrowser.Panel1.Controls.Add(this.panelMenu);
             this.scBrowser.Panel2.Controls.Add(this.panelContainer);
-            this.scBrowser.Size = new System.Drawing.Size(1008, 729);
+            this.scBrowser.Size = new System.Drawing.Size(884, 662);
             this.scBrowser.SplitterPosition = 30;
             this.scBrowser.TabIndex = 1;
             // 
@@ -102,7 +103,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1008, 30);
+            this.panelMenu.Size = new System.Drawing.Size(884, 30);
             this.panelMenu.TabIndex = 0;
             // 
             // btnRefer
@@ -145,7 +146,7 @@
             // 
             this.btnLoadTop.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadTop.Appearance.Options.UseFont = true;
-            this.btnLoadTop.Location = new System.Drawing.Point(242, 2);
+            this.btnLoadTop.Location = new System.Drawing.Point(241, 2);
             this.btnLoadTop.Name = "btnLoadTop";
             this.btnLoadTop.Size = new System.Drawing.Size(75, 27);
             this.btnLoadTop.TabIndex = 6;
@@ -196,7 +197,7 @@
             this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClear.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Appearance.Options.UseFont = true;
-            this.btnClear.Location = new System.Drawing.Point(927, 2);
+            this.btnClear.Location = new System.Drawing.Point(803, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 27);
             this.btnClear.TabIndex = 1;
@@ -221,7 +222,7 @@
             this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSettings.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.Appearance.Options.UseFont = true;
-            this.btnSettings.Location = new System.Drawing.Point(847, 2);
+            this.btnSettings.Location = new System.Drawing.Point(723, 2);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(75, 27);
             this.btnSettings.TabIndex = 0;
@@ -233,19 +234,22 @@
             // 
             this.panelContainer.Appearance.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.panelContainer.Appearance.Options.UseBackColor = true;
-            this.panelContainer.Controls.Add(this.tcTopics);
+            this.panelContainer.Controls.Add(this.xtcBrowser);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1008, 694);
+            this.panelContainer.Size = new System.Drawing.Size(884, 627);
             this.panelContainer.TabIndex = 1;
             // 
             // TabbedBrowserForm
             // 
+            this.Appearance.Options.UseFont = true;
+            this.Appearance.Options.UseTextOptions = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(884, 662);
             this.Controls.Add(this.scBrowser);
+            this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TabbedBrowserForm";
@@ -253,7 +257,7 @@
             this.ShowInTaskbar = true;
             this.Text = "水木社区";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TabbedTopicBrowserForm_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.tcTopics)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtcBrowser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scBrowser)).EndInit();
             this.scBrowser.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).EndInit();
@@ -267,7 +271,7 @@
 
         #endregion
 
-        private DevExpress.XtraTab.XtraTabControl tcTopics;
+        private DevExpress.XtraTab.XtraTabControl xtcBrowser;
         private DevExpress.XtraEditors.SplitContainerControl scBrowser;
         private DevExpress.XtraEditors.PanelControl panelMenu;
         private DevExpress.XtraEditors.PanelControl panelContainer;

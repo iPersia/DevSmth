@@ -22,7 +22,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseControlContainer<TBaseControl, TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
+    public class BaseControlContainer<TBaseControl, TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
         where TBaseControl : BaseControl<TBaseData>, new()
         where TBaseData : BaseData
     {

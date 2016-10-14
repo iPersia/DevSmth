@@ -116,12 +116,12 @@
         {
             try
             {
-                foreach (TabPage tp in this.tcTopics.TabPages)
+                foreach (TabPage tp in this.xtcBrowser.TabPages)
                 {
                     tp.Dispose();
                 }
 
-                this.tcTopics.TabPages.Clear();
+                this.xtcBrowser.TabPages.Clear();
                 GC.Collect();
             }
             catch (Exception exp)
@@ -197,13 +197,13 @@
         public void AddTopic(string url, string subject)
         {
             this.Text = subject;
-            string key = "tp" + url;
+            string key = this.GetXtraTabPageName(url);
             ///Exsits
             {
-                XtraTabPage tp = GetTabPage(url);
+                XtraTabPage tp = GetTabPage(key);
                 if (tp != null)
                 {
-                    this.tcTopics.SelectedTabPage = tp;
+                    this.xtcBrowser.SelectedTabPage = tp;
                     return;
                 }
             }
@@ -216,11 +216,9 @@
 #endif
                 XtraTabPage tp = new XtraTabPage();
                 tp.Name = key;
-                //tp.Text = subject == null ? "Unknown" : subject.Length > 10 ? subject.Substring(0, 10) + ".." : "" + subject;
-                tp.Text = this.GetFormattedTitle(subject);
-                //tp.ToolTipText = subject;
-                this.tcTopics.TabPages.Add(tp);
-                this.tcTopics.SelectedTabPage = tp;
+                tp.Text = subject;
+                this.xtcBrowser.TabPages.Add(tp);
+                this.xtcBrowser.SelectedTabPage = tp;
 
                 //TopicBrowserControl tbc = new TopicBrowserControl();
                 ThreadControlContainer tbc = RecycledQueues.GetRecycled<ThreadControlContainer>();
@@ -308,7 +306,7 @@
             if (bm != null)
             {
                 NewThreadForm threadForm = new NewThreadForm("回复 - " + this.Text,
-                                                             "Re: " + this.tcTopics.SelectedTabPage.Text);
+                                                             "Re: " + this.xtcBrowser.SelectedTabPage.Text);
                 threadForm.StartPosition = FormStartPosition.CenterParent;
                 if (DialogResult.OK == threadForm.ShowDialog(this))
                 {
@@ -345,13 +343,13 @@
         public void AddBoard(string boardCode, TopicBrowserType browserType, string title)
         {
             this.Text = CommonUtil.TrimHtml(title);
-            string key = "tp" + boardCode;
+            string key = this.GetXtraTabPageName(boardCode);
             ///Exsits
             {
-                XtraTabPage tp = GetTabPage(boardCode);
+                XtraTabPage tp = GetTabPage(key);
                 if (tp != null)
                 {
-                    this.tcTopics.SelectedTabPage = tp;
+                    this.xtcBrowser.SelectedTabPage = tp;
                     return;
                 }
             }
@@ -363,11 +361,11 @@
                 sw.Start();
 #endif
                 XtraTabPage tp = new XtraTabPage();
-                tp.Name = "tp" + boardCode;
+                tp.Name = key;
                 tp.Text = "[ " + title + " ]";
                 //tp.ToolTipText = tp.Text;
-                this.tcTopics.TabPages.Add(tp);
-                this.tcTopics.SelectedTabPage = tp;
+                this.xtcBrowser.TabPages.Add(tp);
+                this.xtcBrowser.SelectedTabPage = tp;
 
                 TopicControlContainer bbc = RecycledQueues.GetRecycled<TopicControlContainer>();
                 if (bbc == null)
@@ -486,13 +484,13 @@
         public void AddPost(string url, string title)
         {
             this.Text = title;
-            string key = "tp" + url;
+            string key = this.GetXtraTabPageName(url);
             ///Exsits
             {
-                XtraTabPage tp = GetTabPage(url);
+                XtraTabPage tp = GetTabPage(key);
                 if (tp != null)
                 {
-                    this.tcTopics.SelectedTabPage = tp;
+                    this.xtcBrowser.SelectedTabPage = tp;
                     return;
                 }
             }
@@ -500,12 +498,10 @@
             ///NOT Exsits
             {
                 XtraTabPage tp = new XtraTabPage();
-                tp.Name = "tp" + url; ;
-                //tp.Text = title == null ? "Unknown" : title.Length > 10 ? title.Substring(0, 10) + ".." : "" + title;
-                tp.Text = this.GetFormattedTitle(title);
-                //tp.ToolTipText = tp.Text;
-                this.tcTopics.TabPages.Add(tp);
-                this.tcTopics.SelectedTabPage = tp;
+                tp.Name = key;
+                tp.Text = title;
+                this.xtcBrowser.TabPages.Add(tp);
+                this.xtcBrowser.SelectedTabPage = tp;
 
                 //BoardBrowserControl bbc = new BoardBrowserControl(url);
                 PostControlContainer pcc = RecycledQueues.GetRecycled<PostControlContainer>();
@@ -545,10 +541,10 @@
         /// <param name="e"></param>
         private void PostControlContainer_OnSubjectExpandClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel lbl = sender as LinkLabel;
-            if (lbl != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                this.AddTopic(e.Link, lbl.Tag.ToString());
+                this.AddTopic(e.Link, hlc.Tag.ToString());
             }
         }
        
@@ -559,10 +555,10 @@
         /// <param name="e"></param>
         private void PostControlContainer_OnExpandClicked(object sender, HyperlinkClickEventArgs e)
         {
-            LinkLabel lbl = sender as LinkLabel;
-            if (lbl != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                this.AddTopic(e.Link, lbl.Tag.ToString());
+                this.AddTopic(e.Link, hlc.Tag.ToString());
             }
         }
 
@@ -587,15 +583,17 @@
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        private XtraTabPage GetTabPage(string url)
+        private XtraTabPage GetTabPage(string ctlName)
         {
-            lock (this.tcTopics)
+            lock (this.xtcBrowser)
             {
-                //string key = "tp" + url;
-                //if (this.tcTopics.TabPages.ContainsKey(key))
-                //{
-                //    return this.tcTopics.TabPages[key];
-                //}
+                foreach(XtraTabPage xtp in this.xtcBrowser.TabPages)
+                {
+                    if (xtp.Name==ctlName)
+                    {
+                        return xtp;
+                    }
+                }
 
                 return null;
             }
@@ -606,9 +604,9 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void tcTopics_SelectedIndexChanged(object sender, EventArgs e)
+        private void xtcBrowser_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
         {
-            this.Text = (this.tcTopics.SelectedTabPage == null) ? Configuration.ApplicationTitle : this.tcTopics.SelectedTabPage.Text;
+            this.Text = (this.xtcBrowser.SelectedTabPage == null || this.xtcBrowser.SelectedTabPage.Tag == null) ? Configuration.ApplicationTitle : this.xtcBrowser.SelectedTabPage.Tag.ToString();
         }
 
         /// <summary>
@@ -631,11 +629,11 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void tcTopics_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void xtcBrowser_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int index = this.tcTopics.SelectedTabPageIndex;
-            XtraTabPage tp = this.tcTopics.TabPages[index];
-            if (index == this.tcTopics.TabPages.Count - 1)
+            int index = this.xtcBrowser.SelectedTabPageIndex;
+            XtraTabPage tp = this.xtcBrowser.TabPages[index];
+            if (index == this.xtcBrowser.TabPages.Count - 1)
             {
                 index--;
             }
@@ -644,9 +642,9 @@
                 index++;
             }
 
-            this.tcTopics.SelectedTabPageIndex = index;
+            this.xtcBrowser.SelectedTabPageIndex = index;
             this.DisposeTabPage(tp);
-            this.tcTopics.TabPages.Remove(tp);
+            this.xtcBrowser.TabPages.Remove(tp);
         }
 
         /// <summary>
@@ -734,10 +732,10 @@
         /// <param name="e"></param>
         private void FavorForm_OnBoardLinkLableClicked(object sender, HyperlinkClickEventArgs e)
         {
-            DevExpress.XtraEditors.HyperlinkLabelControl linkLabel = sender as DevExpress.XtraEditors.HyperlinkLabelControl;
-            if (linkLabel != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
-                TabbedBrowserForm.Instance.AddBoard(e.Link, TopicBrowserType.Subject, linkLabel.PlainText);
+                TabbedBrowserForm.Instance.AddBoard(e.Link, TopicBrowserType.Subject, hlc.PlainText);
             }
         }
 
@@ -788,22 +786,7 @@
         {
             ShowFormOnCenterParent(MessageCenterForm.Instance);
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tbc_OnTopLinkClicked(object sender, HyperlinkClickEventArgs e)
-        {
-            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
-            if (hlc != null)
-            {
-                TabbedBrowserForm.Instance.AddTopic(e.Link, hlc.PlainText);
-                TabbedBrowserForm.Instance.Show();
-            }
-        }
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -812,12 +795,12 @@
         private void btnClear_Click(object sender, EventArgs e)
         {
             IList<XtraTabPage> list = new List<XtraTabPage>();
-            foreach (XtraTabPage tp in this.tcTopics.TabPages)
+            foreach (XtraTabPage tp in this.xtcBrowser.TabPages)
             {
                 list.Add(tp);                
             }
 
-            this.tcTopics.TabPages.Clear();
+            this.xtcBrowser.TabPages.Clear();
             foreach (XtraTabPage tp in list)
             {
                 this.DisposeTabPage(tp);
@@ -1118,8 +1101,8 @@
         /// <param name="e"></param>
         private void Common_OnUserLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            DevExpress.XtraEditors.HyperlinkLabelControl linkLabel = sender as DevExpress.XtraEditors.HyperlinkLabelControl;
-            if (linkLabel != null)
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (hlc != null)
             {
                 UserForm userForm = new UserForm(e.Link);
                 userForm.StartPosition = FormStartPosition.CenterParent;
@@ -1194,7 +1177,7 @@
                 if (replyContent != null)
                 {
                     NewMailForm mailForm = new NewMailForm(replyContent.Substring(0, replyContent.IndexOf("<User>")),
-                                                           "Re: " + this.tcTopics.SelectedTabPage.Text,
+                                                           "Re: " + this.xtcBrowser.SelectedTabPage.Text,
                                                            replyContent.Substring(replyContent.IndexOf("<User>") + 6));
                     mailForm.StartPosition = FormStartPosition.CenterParent;
                     if (mailForm.ShowDialog(this) == DialogResult.OK)
@@ -1223,8 +1206,8 @@
                     string content = regex.Replace(replyContent, "");
                     content = CommonUtil.ReplaceSpecialChars(content);
                     content = SmthUtil.TrimUrls(content);
-                    NewThreadForm threadForm = new NewThreadForm(this.tcTopics.SelectedTabPage.Text,
-                                                                    "Re: " + this.tcTopics.SelectedTabPage.Text,
+                    NewThreadForm threadForm = new NewThreadForm(this.xtcBrowser.SelectedTabPage.Text,
+                                                                    "Re: " + this.xtcBrowser.SelectedTabPage.Text,
                                                                     content,
                                                                     false);
                     threadForm.StartPosition = FormStartPosition.CenterParent;
@@ -1282,8 +1265,8 @@
                 string replyContent = hlc.Tag.ToString();
                 if (replyContent != null)
                 {
-                    NewThreadForm threadForm = new NewThreadForm(this.tcTopics.SelectedTabPage.Text,
-                                                                    "Re: " + this.tcTopics.SelectedTabPage.Text,
+                    NewThreadForm threadForm = new NewThreadForm(this.xtcBrowser.SelectedTabPage.Text,
+                                                                    "Re: " + this.xtcBrowser.SelectedTabPage.Text,
                                                                     replyContent,//SmthUtil.GetReplyContent(thread),
                                                                     true);
                     threadForm.StartPosition = FormStartPosition.CenterParent;
@@ -1471,46 +1454,16 @@
                 }
             }
             return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
-        }
+        }        
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="title"></param>
+        /// <param name="url"></param>
         /// <returns></returns>
-        private string GetFormattedTitle(string title)
+        private string GetXtraTabPageName(string url)
         {
-            string srcTitle = title;
-            string suffix = "...";
-            using (Graphics graphics = CreateGraphics())
-            {
-                SizeF sizeF = graphics.MeasureString(title, new Font("宋体", 9));
-                SizeF sizeWord = graphics.MeasureString("N", new Font("宋体", 9));
-                SizeF sizeSuffix = graphics.MeasureString(suffix, new Font("宋体", 9));
-                float targetWidth = sizeWord.Width * Configuration.TitleWordCount * 2;
-                if (sizeF.Width > targetWidth)
-                {
-                    while (sizeF.Width > targetWidth - sizeSuffix.Width)
-                    {
-                        title = title.Substring(0, title.Length - 1);
-                        sizeF = graphics.MeasureString(title, new Font("宋体", 9));
-                    }
-
-                    title += suffix;
-                }
-                else
-                {
-                    while (sizeF.Width < targetWidth)
-                    {
-                        title = title + ".";
-                        sizeF = graphics.MeasureString(title, new Font("宋体", 9));
-                    }
-
-                    title = srcTitle + title.Replace(srcTitle, "").Replace(".", " ");
-                }
-            }
-
-            return title;
+            return "tp" + url;
         }
         #endregion
     }

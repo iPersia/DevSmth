@@ -43,6 +43,22 @@
 
                 ////应用程序的主入口点
 #if (DEBUG)
+
+                #region 设置默认字体、日期格式、汉化dev
+                DevExpress.Utils.AppearanceObject.DefaultFont = new System.Drawing.Font("宋体", 9);
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-CHS");//使用DEV汉化资源文件
+                                                                                                                        //设置程序区域语言设置中日期格式
+                System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("zh-CHS");
+                System.Globalization.DateTimeFormatInfo di = (System.Globalization.DateTimeFormatInfo)System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.Clone();
+                di.DateSeparator = "-";
+                di.ShortDatePattern = "yyyy-MM-dd";
+                di.LongDatePattern = "yyyy'年'M'月'd'日'";
+                di.ShortTimePattern = "H:mm:ss";
+                di.LongTimePattern = "H'时'mm'分'ss'秒'";
+                ci.DateTimeFormat = di;
+                System.Threading.Thread.CurrentThread.CurrentCulture = ci;
+                #endregion
+
                 Application.Run(new MainForm());
                 //Application.Run(new TestForm());
 #else

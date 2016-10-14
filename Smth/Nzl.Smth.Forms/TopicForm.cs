@@ -33,7 +33,7 @@
         public TopicForm(string uri)
             : this()
         {
-            this.tccTopic.SetParent(this);
+            this.tccTopic.Parent = this;
             this.tccTopic.Url = uri;
         }
 

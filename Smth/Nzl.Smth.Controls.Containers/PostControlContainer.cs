@@ -84,10 +84,6 @@ namespace Nzl.Smth.Controls.Containers
         #endregion
 
         #region variable
-        /// <summary>
-        /// 
-        /// </summary>
-        private Control _parentControl = null;
         #endregion
 
         #region Ctor.
@@ -101,15 +97,6 @@ namespace Nzl.Smth.Controls.Containers
             this.Text = "The post container";
 
             this.SetUrlInfo(false);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="ctl"></param>
-        public void SetParentControl(Control ctl)
-        {
-            this._parentControl = ctl;
         }
         #endregion
 
@@ -252,12 +239,12 @@ namespace Nzl.Smth.Controls.Containers
         protected override void WorkCompleted(UrlInfo<PostControl, Post> info)
         {
             base.WorkCompleted(info);
-            if (this._parentControl != null)
+
+            ///Set parent text.
+            if (this.Parent != null)
             {
-                if (info.Status == PageStatus.Normal && info.Result != null && info.Result.Count > 0)
-                {
-                    this._parentControl.Text = (info.Result[0] as Post).Subject;
-                }
+                this.Parent.Text = MiscUtil.GetFormattedTitle(this, (info.Result[0] as Post).Subject);
+                this.Parent.Tag = (info.Result[0] as Post).Subject;
             }
         }
         #endregion

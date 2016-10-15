@@ -251,8 +251,8 @@
                 baseControlContainer.Width = this.GetPanelContainer().Width
                                            - Configuration.BaseControlContainerLocationMargin * 2
                                            - this.GetPanelContainerBoarderMargin();
-#if (X)
-                System.Diagnostics.Debug.WriteLine(this.ToString() + " - baseControlContainer.Width\t" + baseControlContainer.Width);
+#if (DEBUG)
+                System.Diagnostics.Debug.WriteLine(this.ToString() + " - OnSizeChanged - baseControlContainer.Width\t" + baseControlContainer.Width);
 #endif
             }
         }
@@ -267,12 +267,13 @@
             PanelControl baseControlContainer = this.GetPanel();
             if (baseControlContainer != null)
             {
-#if (X)
-                System.Diagnostics.Debug.WriteLine("BaseContainer - BaseContainer_SizeChanged - FetchPage - Type is " + this.GetType().ToString());
+#if (DEBUG)
+                System.Diagnostics.Debug.WriteLine(this.ToString() + " - BaseContainer_SizeChanged - baseControlContainer.Width " + baseControlContainer.Width);
 #endif
                 int newWidth = this.GetPanelContainer().Width
                              - Configuration.BaseControlContainerLocationMargin * 2
                              - this.GetPanelContainerBoarderMargin();
+
                 //int absDiff = Math.Abs(baseControlContainer.Width - newWidth);
                 //baseControlContainer.Width = newWidth;
                 //if (Math.Abs(baseControlContainer.Width - newWidth) > 10)
@@ -1034,7 +1035,13 @@
         /// <returns></returns>
         protected int GetPanelContainerBoarderMargin()
         {
-            return this.GetPanelContainer().BorderStyle == DevExpress.XtraEditors.Controls.BorderStyles.Simple ? 2 : 0;
+            return 0;
+
+            /// In C# default mode, the margin should be 2 when the board style is BorderStyle.FixedSingle.
+            /// 
+            /// But, in DevExpress, the margin is 0!!!!!
+            /// 
+            ///return this.GetPanelContainer().BorderStyle == BorderStyle.FixedSingle ? 2 : 0;
         }
 
         /// <summary>
@@ -1043,7 +1050,13 @@
         /// <returns></returns>
         protected int GetControlContainerBoarderMargin()
         {
-            return this.GetPanel().BorderStyle == DevExpress.XtraEditors.Controls.BorderStyles.Simple ? 2 : 0;
+            return 0;
+
+            /// In C# default mode, the margin should be 2 when the board style is BorderStyle.FixedSingle.
+            /// 
+            /// But, in DevExpress, the margin is 0!!!!!
+            /// 
+            ///return this.GetPanel().BorderStyle == BorderStyle.FixedSingle ? 2 : 0;
         }
         #endregion
 

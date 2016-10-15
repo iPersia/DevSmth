@@ -70,8 +70,11 @@
                 tbc.OnTopBoardLinkClicked += SectionTopsControl_OnTopBoardLinkClicked;
                 tbc.OnTopLinkClicked += SectionTopsControl_OnTopLinkClicked;
 
-                ///Set the size firstly, then add the MailControlContainer to TabPage.
-                this.Size = new Size(tbc.Width + 10, tbc.Height + 28);
+                /// Set the size firstly, then add the MailControlContainer to TabPage.
+                /// The width margin is 10 and
+                /// the height margin is 29,
+                /// both number is not acurate actually.
+                this.Size = new Size(tbc.Width + 10, tbc.Height + 29);
                 tp.Controls.Add(tbc);
             }
 

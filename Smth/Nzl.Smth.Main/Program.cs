@@ -42,9 +42,7 @@
                 AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
                 ////应用程序的主入口点
-#if (DEBUG)
-
-                #region 设置默认字体、日期格式、汉化dev
+                #region 设置DevExpress默认字体、日期格式、汉化
                 DevExpress.Utils.AppearanceObject.DefaultFont = new System.Drawing.Font("宋体", 9);
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-CHS");//使用DEV汉化资源文件
                                                                                                                         //设置程序区域语言设置中日期格式
@@ -58,7 +56,7 @@
                 ci.DateTimeFormat = di;
                 System.Threading.Thread.CurrentThread.CurrentCulture = ci;
                 #endregion
-
+#if (DEBUG)
                 Application.Run(new MainForm());
                 //Application.Run(new TestForm());
 #else

@@ -52,9 +52,9 @@
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.labelControl1.Location = new System.Drawing.Point(23, 264);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(131, 14);
+            this.labelControl1.Size = new System.Drawing.Size(167, 14);
             this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Copyright © 1998-2013";
+            this.labelControl1.Text = "Copyright © Nesus 2016-2018";
             // 
             // lblMsg
             // 
@@ -83,7 +83,7 @@
             // 
             this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(278, 246);
+            this.pictureEdit1.Location = new System.Drawing.Point(278, 233);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -91,7 +91,7 @@
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit1.Properties.ShowMenu = false;
             this.pictureEdit1.Properties.ZoomAccelerationFactor = 1D;
-            this.pictureEdit1.Size = new System.Drawing.Size(160, 44);
+            this.pictureEdit1.Size = new System.Drawing.Size(160, 50);
             this.pictureEdit1.TabIndex = 8;
             // 
             // SplashScreenForm
@@ -119,7 +119,7 @@
         private DevExpress.XtraEditors.MarqueeProgressBarControl marqueeProgressBarControl1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl lblMsg;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit2;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }

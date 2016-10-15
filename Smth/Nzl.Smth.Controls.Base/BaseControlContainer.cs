@@ -218,8 +218,13 @@
             ///Set BorderStyle.
             this.BorderStyle = BorderStyle.None;
             this.GetPanelContainer().Dock = DockStyle.Fill;
+#if (DEBUG)
             this.GetPanelContainer().BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.GetPanel().BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+#else
+            this.GetPanelContainer().BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.GetPanel().BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+#endif
 
             ///Set location.
             this.GetPanel().Location = new Point(Configuration.BaseControlContainerLocationMargin,
@@ -292,9 +297,9 @@
         {
             return this.Text;
         }
-        #endregion
+#endregion
 
-        #region virtual
+#region virtual
         /// <summary>
         /// 
         /// </summary>
@@ -778,9 +783,9 @@
         protected virtual void OnLoginStatusChanged(bool isLogin)
         {
         }
-        #endregion
+#endregion
 
-        #region protected
+#region protected
         /// <summary>
         /// 
         /// </summary>
@@ -976,7 +981,7 @@
 
 #if (DEBUG)
                     System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - ShowInformation - MutexWaitFormShowing.WaitOne - " + text);
-#endif 
+#endif
 
                     if (BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown == false)
                     {
@@ -993,7 +998,7 @@
                 {
 #if (DEBUG)
                     System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - ShowInformation - MutexWaitFormShowing.ReleaseMutex - " + text);
-#endif 
+#endif
                     BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.ReleaseMutex();
                 }
             }
@@ -1012,7 +1017,7 @@
                 BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.WaitOne();
 #if (DEBUG)
                 System.Diagnostics.Debug.WriteLine("WaitFormTimer_Tick - MutexWaitFormShowing.WaitOne!");
-#endif 
+#endif
                 if (BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown)
                 {
                     DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
@@ -1024,7 +1029,7 @@
             {
 #if (DEBUG)
                 System.Diagnostics.Debug.WriteLine("WaitFormTimer_Tick - MutexWaitFormShowing.ReleaseMutex!");
-#endif 
+#endif
                 BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.ReleaseMutex();
             }
         }
@@ -1058,9 +1063,9 @@
             /// 
             ///return this.GetPanel().BorderStyle == BorderStyle.FixedSingle ? 2 : 0;
         }
-        #endregion
+#endregion
 
-        #region FetchPage
+#region FetchPage
         /// <summary>
         /// 
         /// </summary>
@@ -1387,9 +1392,9 @@
                 this.OnWorkerCancelled(this, new MessageEventArgs(msg));
             }
         }
-        #endregion
+#endregion
 
-        #region eventhandler
+#region eventhandler
         /// <summary>
         /// 
         /// </summary>
@@ -1422,6 +1427,6 @@
                                   - this.GetPanelContainerBoarderMargin();
             this.FetchPage();
         }
-        #endregion
+#endregion
     }
 }

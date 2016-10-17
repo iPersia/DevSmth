@@ -116,7 +116,7 @@
         {
             try
             {
-                foreach (TabPage tp in this.xtcBrowser.TabPages)
+                foreach (XtraTabPage tp in this.xtcBrowser.TabPages)
                 {
                     tp.Dispose();
                 }

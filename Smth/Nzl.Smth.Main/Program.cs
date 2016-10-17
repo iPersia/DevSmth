@@ -1,4 +1,4 @@
-﻿namespace Nzl.Web.Main
+﻿namespace Nzl.Smth.Main
 {
     using System;
     using System.Configuration;

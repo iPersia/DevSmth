@@ -7,7 +7,7 @@
     using System.Reflection;
     using System.Threading;
     using System.Windows.Forms;
-    
+
     /// <summary>
     /// Sealed class for hooking the user activity like mouse movement and keyboard pressing.
     /// </summary>
@@ -98,7 +98,7 @@
             public int time;
             public int dwExtraInfo;
         }
-        
+
         /// <summary>
         /// Keyboard hook struct.
         /// </summary>
@@ -309,39 +309,47 @@
         /// <param name="throwExceptions">The flag indicates whether exceptions can be throwed.</param>
         public void Stop(bool uninstallMouseHook, bool uninstallKeyboardHook, bool throwExceptions)
         {
-            //if mouse hook set and must be uninstalled
-            if (hMouseHook != IntPtr.Zero && uninstallMouseHook)
+            try
             {
-                //uninstall hook
-                bool retMouse = Win32API.UnhookWindowsHookEx(hMouseHook);
-                //reset invalid handle
-                hMouseHook = IntPtr.Zero;
-                //if failed and exception must be thrown
-                if (retMouse == false && throwExceptions)
+                //if mouse hook set and must be uninstalled
+                if (hMouseHook != IntPtr.Zero && uninstallMouseHook)
                 {
-                    //Returns the error code returned by the last unmanaged function called using platform invoke that has the DllImportAttribute.SetLastError flag set. 
-                    int errorCode = Marshal.GetLastWin32Error();
-                    //Initializes and throws a new instance of the Win32Exception class with the specified error. 
-                    throw new Win32Exception(errorCode);
+                    //uninstall hook
+                    bool retMouse = Win32API.UnhookWindowsHookEx(hMouseHook);
+                    //reset invalid handle
+                    hMouseHook = IntPtr.Zero;
+                    //if failed and exception must be thrown
+                    if (retMouse == false && throwExceptions)
+                    {
+                        //Returns the error code returned by the last unmanaged function called using platform invoke that has the DllImportAttribute.SetLastError flag set. 
+                        int errorCode = Marshal.GetLastWin32Error();
+                        //Initializes and throws a new instance of the Win32Exception class with the specified error. 
+                        throw new Win32Exception(errorCode);
+                    }
                 }
             }
+            catch { }
 
-            //if keyboard hook set and must be uninstalled
-            if (hKeyboardHook != IntPtr.Zero && uninstallKeyboardHook)
+            try
             {
-                //uninstall hook
-                bool retKeyboard = Win32API.UnhookWindowsHookEx(hKeyboardHook);
-                //reset invalid handle
-                hKeyboardHook = IntPtr.Zero;
-                //if failed and exception must be thrown
-                if (retKeyboard == false && throwExceptions)
+                //if keyboard hook set and must be uninstalled
+                if (hKeyboardHook != IntPtr.Zero && uninstallKeyboardHook)
                 {
-                    //Returns the error code returned by the last unmanaged function called using platform invoke that has the DllImportAttribute.SetLastError flag set. 
-                    int errorCode = Marshal.GetLastWin32Error();
-                    //Initializes and throws a new instance of the Win32Exception class with the specified error. 
-                    throw new Win32Exception(errorCode);
+                    //uninstall hook
+                    bool retKeyboard = Win32API.UnhookWindowsHookEx(hKeyboardHook);
+                    //reset invalid handle
+                    hKeyboardHook = IntPtr.Zero;
+                    //if failed and exception must be thrown
+                    if (retKeyboard == false && throwExceptions)
+                    {
+                        //Returns the error code returned by the last unmanaged function called using platform invoke that has the DllImportAttribute.SetLastError flag set. 
+                        int errorCode = Marshal.GetLastWin32Error();
+                        //Initializes and throws a new instance of the Win32Exception class with the specified error. 
+                        throw new Win32Exception(errorCode);
+                    }
                 }
             }
+            catch { }
         }
 
         /// <summary>

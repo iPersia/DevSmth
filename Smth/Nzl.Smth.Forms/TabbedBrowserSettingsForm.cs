@@ -1,9 +1,12 @@
 ﻿namespace Nzl.Smth.Forms
 {
     using System;
+    using System.Net;
+    using System.Windows.Forms;
+    using System.Xml;
+    using Nzl.Smth.AutoUpdater;
     using Nzl.Smth.Configs;
     using DevExpress.XtraBars.Helpers;
-    using DevExpress.XtraBars.Localization;
 
     /// <summary>
     /// 
@@ -17,6 +20,13 @@
         public static readonly TabbedBrowserSettingsForm Instance = new TabbedBrowserSettingsForm();
         #endregion
 
+        #region variable
+        /// <summary>
+        /// 
+        /// </summary>
+        private AutoUpdater _autoUpdater = new AutoUpdater();
+        #endregion
+
         /// <summary>
         /// 
         /// </summary>
@@ -27,7 +37,26 @@
             this.btnOK.Left = (this.panelContainer.Width - this.btnOK.Width) / 2;
             SkinHelper.InitSkinGallery(gcSkins, true);
 
+            ///
             this.galleryControlClient1.Gallery.ItemClick += Gallery_ItemClick;
+
+            ///
+            this._autoUpdater.OnLatest += AutoUpdater_OnLatest;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AutoUpdater_OnLatest(object sender, EventArgs e)
+        {
+            MessageForm form = new MessageForm("The application is latest!" + Environment.NewLine +
+                                               "The application is latest!" + Environment.NewLine +
+                                               "The application is latest!" + Environment.NewLine +
+                                               "The application is latest!" + Environment.NewLine);
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.ShowDialog(this);
         }
 
         /// <summary>
@@ -67,6 +96,59 @@
 
             this.SaveSettings();
             this.Close();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCheckNewVersion_Click(object sender, EventArgs e)
+        {
+            bool bHasError = false;            
+            try
+            {
+                this._autoUpdater.Update();
+            }
+            catch (WebException exp)
+            {
+                MessageBox.Show("Can not find the specified resource");
+                bHasError = true;
+            }
+            catch (XmlException exp)
+            {
+                bHasError = true;
+                MessageBox.Show("Download the upgrade file error");
+            }
+            catch (NotSupportedException exp)
+            {
+                bHasError = true;
+                MessageBox.Show("Upgrade address configuration error");
+            }
+            catch (ArgumentException exp)
+            {
+                bHasError = true;
+                MessageBox.Show("Download the upgrade file error");
+            }
+            catch (Exception exp)
+            {
+                bHasError = true;
+                MessageBox.Show("An error occurred during the upgrade process");
+            }
+            finally
+            {
+                if (bHasError == true)
+                {
+                    try
+                    {
+                        this._autoUpdater.RollBack();
+                    }
+                    catch (Exception)
+                    {
+                        //Log the message to your file or database
+                    }
+                }
+            }
         }
 
         #region private

@@ -73,7 +73,7 @@
             this.xtcBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtcBrowser.Location = new System.Drawing.Point(0, 49);
             this.xtcBrowser.Name = "xtcBrowser";
-            this.xtcBrowser.Size = new System.Drawing.Size(884, 589);
+            this.xtcBrowser.Size = new System.Drawing.Size(1010, 683);
             this.xtcBrowser.TabIndex = 0;
             this.xtcBrowser.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtcBrowser_SelectedPageChanged);
             this.xtcBrowser.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.xtcBrowser_MouseDoubleClick);
@@ -272,28 +272,28 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(884, 49);
+            this.barDockControlTop.Size = new System.Drawing.Size(1010, 49);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 638);
-            this.barDockControlBottom.Size = new System.Drawing.Size(884, 23);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 732);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1010, 23);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 49);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 589);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 683);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(884, 49);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 589);
+            this.barDockControlRight.Location = new System.Drawing.Point(1010, 49);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 683);
             // 
             // riteGo
             // 
@@ -311,16 +311,16 @@
             // 
             this.Appearance.Options.UseFont = true;
             this.Appearance.Options.UseTextOptions = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 661);
+            this.ClientSize = new System.Drawing.Size(1010, 755);
             this.Controls.Add(this.xtcBrowser);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TabbedBrowserForm";
             this.ShowIcon = true;

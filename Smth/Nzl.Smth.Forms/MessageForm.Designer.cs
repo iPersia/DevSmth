@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageForm));
             this.panel = new DevExpress.XtraEditors.PanelControl();
+            this.richtxtMessage = new DevExpress.XtraRichEdit.RichEditControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
-            this.richtxtMessage = new System.Windows.Forms.RichTextBox();
             this.splitContainer1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.panel1 = new DevExpress.XtraEditors.PanelControl();
+            this.label1 = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panel1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,20 +48,40 @@
             // 
             this.panel.AutoSize = true;
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.panel.Controls.Add(this.richtxtMessage);
             this.panel.Controls.Add(this.btnCancel);
             this.panel.Controls.Add(this.btnOK);
-            this.panel.Controls.Add(this.richtxtMessage);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(302, 96);
+            this.panel.Size = new System.Drawing.Size(302, 102);
             this.panel.TabIndex = 0;
+            // 
+            // richtxtMessage
+            // 
+            this.richtxtMessage.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.richtxtMessage.Appearance.Text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richtxtMessage.Appearance.Text.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.richtxtMessage.Appearance.Text.Options.UseBackColor = true;
+            this.richtxtMessage.Appearance.Text.Options.UseFont = true;
+            this.richtxtMessage.Appearance.Text.Options.UseTextOptions = true;
+            this.richtxtMessage.Appearance.Text.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.richtxtMessage.AutoSizeMode = DevExpress.XtraRichEdit.AutoSizeMode.Vertical;
+            this.richtxtMessage.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.richtxtMessage.Location = new System.Drawing.Point(12, 11);
+            this.richtxtMessage.Name = "richtxtMessage";
+            this.richtxtMessage.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.richtxtMessage.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.richtxtMessage.Size = new System.Drawing.Size(278, 21);
+            this.richtxtMessage.TabIndex = 3;
+            this.richtxtMessage.Text = "richEditControl1";
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancel.Location = new System.Drawing.Point(183, 60);
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.Location = new System.Drawing.Point(183, 66);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -71,56 +91,27 @@
             // btnOK
             // 
             this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnOK.Location = new System.Drawing.Point(39, 60);
+            this.btnOK.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.Appearance.Options.UseFont = true;
+            this.btnOK.Location = new System.Drawing.Point(39, 66);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // richtxtMessage
-            // 
-            this.richtxtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richtxtMessage.BackColor = System.Drawing.SystemColors.Control;
-            this.richtxtMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtxtMessage.Enabled = false;
-            this.richtxtMessage.Location = new System.Drawing.Point(20, 24);
-            this.richtxtMessage.Name = "richtxtMessage";
-            this.richtxtMessage.Size = new System.Drawing.Size(260, 16);
-            this.richtxtMessage.TabIndex = 0;
-            this.richtxtMessage.TabStop = false;
-            this.richtxtMessage.Text = "";
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
+            this.splitContainer1.Horizontal = false;
             this.splitContainer1.IsSplitterFixed = true;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Horizontal = false;
-            // 
-            // splitContainer1.Panel1
-            // 
             this.splitContainer1.Panel1.Controls.Add(this.panel1);
-            // 
-            // splitContainer1.Panel2
-            // 
             this.splitContainer1.Panel2.Controls.Add(this.panel);
-            this.splitContainer1.Size = new System.Drawing.Size(302, 122);
+            this.splitContainer1.Size = new System.Drawing.Size(302, 132);
             this.splitContainer1.SplitterPosition = 25;
             this.splitContainer1.TabIndex = 3;
-            this.splitContainer1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(106, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Message Detail";
             // 
             // panel1
             // 
@@ -131,23 +122,34 @@
             this.panel1.Size = new System.Drawing.Size(302, 25);
             this.panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Appearance.Options.UseFont = true;
+            this.label1.Location = new System.Drawing.Point(106, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Message Detail";
+            // 
             // MessageForm
             // 
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 122);
+            this.ClientSize = new System.Drawing.Size(302, 132);
             this.Controls.Add(this.splitContainer1);
+            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MessageForm";
             this.Text = "Message";
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             this.panel.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panel1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -157,11 +159,11 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panel;
-        private System.Windows.Forms.RichTextBox richtxtMessage;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SplitContainerControl splitContainer1;
         private DevExpress.XtraEditors.LabelControl label1;
         private DevExpress.XtraEditors.PanelControl panel1;
+        private DevExpress.XtraRichEdit.RichEditControl richtxtMessage;
     }
 }

@@ -15,6 +15,9 @@
         {
             InitializeComponent();
             this.HideWhenDeactivate = false;
+
+            this.richtxtMessage.SizeChanged += RichtxtContent_SizeChanged;
+            this.richtxtMessage.PopupMenuShowing += RichtxtContent_PopupMenuShowing;
         }
 
         /// <summary>
@@ -23,10 +26,27 @@
         public MessageForm(string msg)
             : this()
         {
-            this.richtxtMessage.AppendText(msg);
-            int rowCount = this.richtxtMessage.GetLineFromCharIndex(richtxtMessage.SelectionStart) + 1;
-            this.Height = (this.richtxtMessage.Font.Height + 2) * rowCount + (this.Height - this.richtxtMessage.Height);
-            this.richtxtMessage.Height = (this.richtxtMessage.Font.Height + 2) * rowCount;
+            this.richtxtMessage.ReadOnly = false;
+            this.richtxtMessage.BeginUpdate();
+            DevExpress.XtraRichEdit.API.Native.Document doc = this.richtxtMessage.Document;
+            doc.BeginUpdate();
+            try
+            {
+                doc.Text = "";
+                doc.AppendText(msg);
+                this.richtxtMessage.DeselectAll();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                doc.EndUpdate();
+                this.richtxtMessage.EndUpdate();
+            }
+
+            this.richtxtMessage.ReadOnly = true;
         }
 
         /// <summary>
@@ -36,6 +56,26 @@
             : this(msg)
         {
             this.Text = caption;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RichtxtContent_SizeChanged(object sender, EventArgs e)
+        {
+            this.Height = this.richtxtMessage.Height + 140;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RichtxtContent_PopupMenuShowing(object sender, DevExpress.XtraRichEdit.PopupMenuShowingEventArgs e)
+        {
+            e.Menu = null;
         }
 
         /// <summary>

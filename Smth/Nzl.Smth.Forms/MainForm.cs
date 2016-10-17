@@ -7,7 +7,6 @@
     using System.Windows.Forms;
     using System.Xml;
     using DevExpress.XtraSplashScreen;
-    using Nzl.Smth.AutoUpdater;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Logger;
     using Nzl.Smth.Datas;
@@ -182,54 +181,6 @@
 
             ///Should excute before loading of TabbedBrowserForm.Instance.
             TabbedBrowserSettingsForm.Instance.LoadSettings();
-
-            #region check and download new version program
-            bool bHasError = false;
-            IAutoUpdater autoUpdater = new AutoUpdater();
-            try
-            {
-                autoUpdater.Update();
-            }
-            catch (WebException exp)
-            {
-                MessageBox.Show("Can not find the specified resource");
-                bHasError = true;
-            }
-            catch (XmlException exp)
-            {
-                bHasError = true;
-                MessageBox.Show("Download the upgrade file error");
-            }
-            catch (NotSupportedException exp)
-            {
-                bHasError = true;
-                MessageBox.Show("Upgrade address configuration error");
-            }
-            catch (ArgumentException exp)
-            {
-                bHasError = true;
-                MessageBox.Show("Download the upgrade file error");
-            }
-            catch (Exception exp)
-            {
-                bHasError = true;
-                MessageBox.Show("An error occurred during the upgrade process");
-            }
-            finally
-            {
-                if (bHasError == true)
-                {
-                    try
-                    {
-                        autoUpdater.RollBack();
-                    }
-                    catch (Exception)
-                    {
-                        //Log the message to your file or database
-                    }
-                }
-            }
-            #endregion
         }
         #endregion
 

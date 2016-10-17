@@ -73,7 +73,7 @@
             this.xtcBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtcBrowser.Location = new System.Drawing.Point(0, 49);
             this.xtcBrowser.Name = "xtcBrowser";
-            this.xtcBrowser.Size = new System.Drawing.Size(884, 590);
+            this.xtcBrowser.Size = new System.Drawing.Size(884, 589);
             this.xtcBrowser.TabIndex = 0;
             this.xtcBrowser.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtcBrowser_SelectedPageChanged);
             this.xtcBrowser.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.xtcBrowser_MouseDoubleClick);
@@ -278,7 +278,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 639);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 638);
             this.barDockControlBottom.Size = new System.Drawing.Size(884, 23);
             // 
             // barDockControlLeft
@@ -286,14 +286,14 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 49);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 590);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 589);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(884, 49);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 590);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 589);
             // 
             // riteGo
             // 
@@ -313,7 +313,7 @@
             this.Appearance.Options.UseTextOptions = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 662);
+            this.ClientSize = new System.Drawing.Size(884, 661);
             this.Controls.Add(this.xtcBrowser);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);

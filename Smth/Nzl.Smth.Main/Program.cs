@@ -56,6 +56,7 @@
                 ci.DateTimeFormat = di;
                 System.Threading.Thread.CurrentThread.CurrentCulture = ci;
                 #endregion
+
 #if (DEBUG)
                 Application.Run(new MainForm());
                 //Application.Run(new TestForm());

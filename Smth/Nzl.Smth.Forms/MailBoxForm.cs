@@ -19,12 +19,7 @@
         /// 
         /// </summary>
         private Form _parentForm = null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private Nzl.Smth.Controls.Complexes.MailBoxControl _mbcMails = new Smth.Controls.Complexes.MailBoxControl();
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -36,14 +31,16 @@
         public MailBoxForm()
         {
             InitializeComponent();
-            this._mbcMails.OnMailLinkClicked += MbcMailBox_OnMailLinkClicked;
-            this._mbcMails.OnUserLinkClicked += MbcMailBox_OnUserLinkClicked;
-            this._mbcMails.OnDeleteLinkClicked += MbcMailBox_OnDeleteLinkClicked;
-            this._mbcMails.OnNewMailClicked += MbcMailBox_OnNewMailClicked;
 
-            this._mbcMails.Dock = DockStyle.Fill;
+            ///Add mail box control.
+            Nzl.Smth.Controls.Complexes.MailBoxControl mbcMails = new Smth.Controls.Complexes.MailBoxControl();
+            mbcMails.OnMailLinkClicked += MbcMailBox_OnMailLinkClicked;
+            mbcMails.OnUserLinkClicked += MbcMailBox_OnUserLinkClicked;
+            mbcMails.OnDeleteLinkClicked += MbcMailBox_OnDeleteLinkClicked;
+            mbcMails.OnNewMailClicked += MbcMailBox_OnNewMailClicked;
+            mbcMails.Dock = DockStyle.Fill;
             this.panelContainer.Controls.Clear();
-            this.panelContainer.Controls.Add(this._mbcMails);
+            this.panelContainer.Controls.Add(mbcMails);
         }
 
         /// <summary>

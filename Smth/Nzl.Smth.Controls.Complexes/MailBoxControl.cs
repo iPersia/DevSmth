@@ -51,7 +51,7 @@
             this.Text = "The mail box complex control";
 
             ///int dWidth = 8;
-            ///int dHeight = 26;
+            ///int dHeight = 29;
             ///Inbox
             {
                 XtraTabPage tp = new XtraTabPage();
@@ -70,7 +70,7 @@
                 xbc.OnNewMailClicked += Xbc_OnNewMailClicked;
 
                 ///Set the size firstly, then add the MailControlContainer to TabPage.
-                //this.Size = new Size(xbc.Width + dWidth, xbc.Height + dHeight);
+                ///this.Size = new Size(xbc.Width + dWidth, xbc.Height + dHeight);
                 tp.Controls.Add(xbc);
             }
 

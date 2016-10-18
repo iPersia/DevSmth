@@ -37,8 +37,6 @@
             this.galleryControlClient1.Gallery.ItemClick += Gallery_ItemClick;
 
             ///
-            this.SizeChanged += TabbedBrowserSettingsForm_SizeChanged;
-
             this.panelMenu.SizeChanged += PanelMenu_SizeChanged;
         }
 
@@ -48,20 +46,8 @@
             {
                 int dHeight = 36 - this.panelMenu.Height;
                 this.panelXtc.Height = this.panelXtc.Height - dHeight;
-
                 this.btnOK.Top = (this.panelMenu.Height - this.btnOK.Height) / 2;
-                //this.panelMenu.Height = 36;
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TabbedBrowserSettingsForm_SizeChanged(object sender, EventArgs e)
-        {
-            
         }
 
         /// <summary>

@@ -62,7 +62,9 @@
             this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
             this.xtpAbout = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).BeginInit();
             this.gpAutoUpdating.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbNewMailCheckingInterval.Properties)).BeginInit();
@@ -126,7 +128,7 @@
             this.gpAutoUpdating.Name = "gpAutoUpdating";
             this.gpAutoUpdating.Size = new System.Drawing.Size(308, 128);
             this.gpAutoUpdating.TabIndex = 5;
-            this.gpAutoUpdating.Text = "Updating intervals";
+            this.gpAutoUpdating.Text = "Refreshing intervals";
             // 
             // label6
             // 
@@ -320,7 +322,7 @@
             this.gcSkins.Location = new System.Drawing.Point(12, 121);
             this.gcSkins.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcSkins.Name = "gcSkins";
-            this.gcSkins.Size = new System.Drawing.Size(308, 189);
+            this.gcSkins.Size = new System.Drawing.Size(308, 215);
             this.gcSkins.TabIndex = 3;
             this.gcSkins.Text = "galleryControl1";
             // 
@@ -329,7 +331,7 @@
             this.galleryControlClient1.GalleryControl = this.gcSkins;
             this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
             this.galleryControlClient1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.galleryControlClient1.Size = new System.Drawing.Size(287, 185);
+            this.galleryControlClient1.Size = new System.Drawing.Size(287, 211);
             // 
             // gcUISettings
             // 
@@ -457,7 +459,7 @@
             this.xtpUpdating.Controls.Add(this.gpAutoUpdating);
             this.xtpUpdating.Name = "xtpUpdating";
             this.xtpUpdating.Size = new System.Drawing.Size(334, 343);
-            this.xtpUpdating.Text = "Updating";
+            this.xtpUpdating.Text = "Refreshing";
             // 
             // xtpMisc
             // 
@@ -465,7 +467,7 @@
             this.xtpMisc.Controls.Add(this.groupControl1);
             this.xtpMisc.Name = "xtpMisc";
             this.xtpMisc.Size = new System.Drawing.Size(334, 343);
-            this.xtpMisc.Text = "Misc";
+            this.xtpMisc.Text = "Caching && Updating";
             // 
             // groupControl2
             // 
@@ -565,12 +567,27 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.labelControl5);
+            this.panelControl1.Controls.Add(this.labelControl4);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(334, 343);
             this.panelControl1.TabIndex = 1;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.AllowHtmlString = true;
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.labelControl4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelControl4.Location = new System.Drawing.Point(8, 59);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(318, 12);
+            this.labelControl4.TabIndex = 1;
+            this.labelControl4.Text = "  My email is <href=nesus@sina.com>nesus@sina.com</href>.";
             // 
             // labelControl3
             // 
@@ -586,6 +603,20 @@
             this.labelControl3.Text = "  The application is developed by Nesus, which is a NewSmth ID. You can visit my " +
     "blog at <href=www.cnblogs.com/junier/p/5869972.html>cnblogs</href>.";
             this.labelControl3.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.labelControl3_HyperlinkClick);
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.AllowHtmlString = true;
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.labelControl5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelControl5.Location = new System.Drawing.Point(8, 90);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(318, 36);
+            this.labelControl5.TabIndex = 2;
+            this.labelControl5.Text = "  Please be free to contact me via you convenient way, as refered above: the smth" +
+    " forum email, the cnblogs, the email.";
             // 
             // TabbedBrowserSettingsForm
             // 
@@ -666,5 +697,7 @@
         private DevExpress.XtraTab.XtraTabPage xtpAbout;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
     }
 }

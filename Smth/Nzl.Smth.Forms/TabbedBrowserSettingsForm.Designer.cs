@@ -62,9 +62,11 @@
             this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
             this.xtpAbout = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).BeginInit();
             this.gpAutoUpdating.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbNewMailCheckingInterval.Properties)).BeginInit();
@@ -90,6 +92,10 @@
             this.xtpAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
@@ -97,7 +103,7 @@
             this.btnOK.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(133, 380);
+            this.btnOK.Location = new System.Drawing.Point(134, 6);
             this.btnOK.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(74, 23);
@@ -275,23 +281,23 @@
             // 
             this.panelContainer.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelContainer.Appearance.Options.UseBackColor = true;
-            this.panelContainer.Controls.Add(this.xtcSettings);
-            this.panelContainer.Controls.Add(this.btnOK);
+            this.panelContainer.Controls.Add(this.panelControl3);
+            this.panelContainer.Controls.Add(this.panelControl2);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(344, 411);
+            this.panelContainer.Size = new System.Drawing.Size(344, 427);
             this.panelContainer.TabIndex = 6;
             // 
             // xtcSettings
             // 
             this.xtcSettings.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.xtcSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.xtcSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtcSettings.Location = new System.Drawing.Point(2, 2);
             this.xtcSettings.Name = "xtcSettings";
             this.xtcSettings.SelectedTabPage = this.xtpUISettings;
-            this.xtcSettings.Size = new System.Drawing.Size(340, 372);
+            this.xtcSettings.Size = new System.Drawing.Size(336, 383);
             this.xtcSettings.TabIndex = 8;
             this.xtcSettings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpUISettings,
@@ -304,7 +310,7 @@
             this.xtpUISettings.Controls.Add(this.gcSkins);
             this.xtpUISettings.Controls.Add(this.gcUISettings);
             this.xtpUISettings.Name = "xtpUISettings";
-            this.xtpUISettings.Size = new System.Drawing.Size(334, 343);
+            this.xtpUISettings.Size = new System.Drawing.Size(330, 354);
             this.xtpUISettings.Text = "UI";
             // 
             // gcSkins
@@ -576,6 +582,20 @@
             this.panelControl1.Size = new System.Drawing.Size(334, 343);
             this.panelControl1.TabIndex = 1;
             // 
+            // labelControl5
+            // 
+            this.labelControl5.AllowHtmlString = true;
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.labelControl5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelControl5.Location = new System.Drawing.Point(8, 90);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(318, 36);
+            this.labelControl5.TabIndex = 2;
+            this.labelControl5.Text = "  Please be free to contact me via you convenient way, as refered above: the smth" +
+    " forum email, the cnblogs, the email.";
+            // 
             // labelControl4
             // 
             this.labelControl4.AllowHtmlString = true;
@@ -604,26 +624,30 @@
     "blog at <href=www.cnblogs.com/junier/p/5869972.html>cnblogs</href>.";
             this.labelControl3.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.labelControl3_HyperlinkClick);
             // 
-            // labelControl5
+            // panelControl2
             // 
-            this.labelControl5.AllowHtmlString = true;
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.labelControl5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelControl5.Location = new System.Drawing.Point(8, 90);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(318, 36);
-            this.labelControl5.TabIndex = 2;
-            this.labelControl5.Text = "  Please be free to contact me via you convenient way, as refered above: the smth" +
-    " forum email, the cnblogs, the email.";
+            this.panelControl2.Controls.Add(this.xtcSettings);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(2, 2);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(340, 387);
+            this.panelControl2.TabIndex = 9;
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.btnOK);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(2, 389);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(340, 36);
+            this.panelControl3.TabIndex = 10;
             // 
             // TabbedBrowserSettingsForm
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 411);
+            this.ClientSize = new System.Drawing.Size(344, 427);
             this.Controls.Add(this.panelContainer);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -657,6 +681,10 @@
             this.xtpAbout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -699,5 +727,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
     }
 }

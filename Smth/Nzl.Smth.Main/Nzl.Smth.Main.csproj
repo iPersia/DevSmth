@@ -120,10 +120,6 @@
       <Project>{a91bd567-b912-4f7a-a9b7-84d914923d53}</Project>
       <Name>Nzl.Messaging</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Nzl.Smth.Common\Nzl.Smth.csproj">
-      <Project>{e22371cb-bcae-41e5-82b3-2b696c7e05d1}</Project>
-      <Name>Nzl.Smth</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Nzl.Smth.Datas\Nzl.Smth.Datas.csproj">
       <Project>{bbc9010b-cb89-4f7e-b418-5b653e5eb005}</Project>
       <Name>Nzl.Smth.Datas</Name>
@@ -139,6 +135,10 @@
     <ProjectReference Include="..\Nzl.Smth.Utils\Nzl.Smth.Utils.csproj">
       <Project>{ed81bef2-92f1-474d-80e9-635644d7d0a3}</Project>
       <Name>Nzl.Smth.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nzl.Smth\Nzl.Smth.csproj">
+      <Project>{e22371cb-bcae-41e5-82b3-2b696c7e05d1}</Project>
+      <Name>Nzl.Smth</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

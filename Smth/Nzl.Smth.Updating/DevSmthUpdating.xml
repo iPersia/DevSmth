@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UpdateInfor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Available>true</Available>
+  <Urgency>一般</Urgency>
+  <LatestVersion>1.0.7099.342</LatestVersion>
+  <ReleaseDate>2016-10-18</ReleaseDate>
+  <UpdatingUrl>http://pan.baidu.com/s/1dE2LLZF</UpdatingUrl>
+  <ReleaseNote>
+  	<Prefix>新的重大更新，不要错过！</Prefix>
+  	<Items>
+  		<ReleaseNoteItem >
+  			<ID>1</ID>
+  			<Content>加入自动更新功能</Content>
+  		</ReleaseNoteItem>
+  		  		<ReleaseNoteItem >
+  			<ID>2</ID>
+  			<Content>优化界面加载逻辑，在DevExpress下保证界面能够及时响应</Content>
+  		</ReleaseNoteItem>
+  		  		<ReleaseNoteItem >
+  			<ID>3</ID>
+  			<Content>控件颜色调整</Content>
+  		</ReleaseNoteItem>
+  		  		<ReleaseNoteItem >
+  			<ID>4</ID>
+  			<Content>丰富设置项，应用使用更顺手</Content>
+  		</ReleaseNoteItem>
+  		  		<ReleaseNoteItem >
+  			<ID>5</ID>
+  			<Content>解决bug，包括应用卡顿及假死</Content>
+  		</ReleaseNoteItem>
+  		  		<ReleaseNoteItem >
+  			<ID>6</ID>
+  			<Content>加入皮肤设置</Content>
+  		</ReleaseNoteItem>
+  		  		<ReleaseNoteItem >
+  			<ID>7</ID>
+  			<Content>更新配置项，使得系统设置能够正常保存</Content>
+  		</ReleaseNoteItem>
+  	</Items>  	
+  	<Suffix>赶紧去下载吧！</Suffix>
+  </ReleaseNote>
+</UpdateInfor>

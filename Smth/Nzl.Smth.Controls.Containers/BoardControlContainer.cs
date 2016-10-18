@@ -40,6 +40,10 @@
             ///For ToString.
             this.Text = "The board container";
 
+            ///
+            this.SizeChanged += BoardControlContainer_SizeChanged;
+            
+            ///
             this.SetBaseUrl(@"http://m.newsmth.net/favor");            
         }
         #endregion
@@ -153,6 +157,16 @@
         {
             this.SetUrlInfo(false);
             this.FetchPage();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoardControlContainer_SizeChanged(object sender, EventArgs e)
+        {
+            this.btnRefresh.Left = (this.panelMenu.Width - this.btnRefresh.Width) / 2;
         }
         #endregion
 

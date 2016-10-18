@@ -28,6 +28,9 @@
         {
             InitializeComponent();
             this.HideWhenDeactivate = false;
+
+            ///
+            this.btnSendMail.Left = (this.panelMenu.Width - this.btnSendMail.Width) / 2;
         }
 
         /// <summary>

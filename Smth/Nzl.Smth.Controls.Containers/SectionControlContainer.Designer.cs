@@ -28,50 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
-            this.panel = new DevExpress.XtraEditors.PanelControl();
-            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelMenu = new DevExpress.XtraEditors.PanelControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.linklblSectionName = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.linklblPrevious = new DevExpress.XtraEditors.HyperlinkLabelControl();
+            this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            this.panel = new DevExpress.XtraEditors.PanelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
+            this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
-            this.scContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
-            this.panelMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.Controls.Add(this.panel);
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContainer.Location = new System.Drawing.Point(0, 0);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(370, 550);
-            this.panelContainer.TabIndex = 0;
-            // 
-            // panel
-            // 
-            this.panel.Location = new System.Drawing.Point(3, 3);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(363, 117);
-            this.panel.TabIndex = 0;
-            // 
-            // scContainer
-            // 
-            this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContainer.Horizontal = false;
-            this.scContainer.IsSplitterFixed = true;
-            this.scContainer.Location = new System.Drawing.Point(0, 0);
-            this.scContainer.Name = "scContainer";
-            this.scContainer.Panel1.Controls.Add(this.panelMenu);
-            this.scContainer.Panel2.Controls.Add(this.panelContainer);
-            this.scContainer.Size = new System.Drawing.Size(370, 590);
-            this.scContainer.SplitterPosition = 30;
-            this.scContainer.TabIndex = 1;
             // 
             // panelMenu
             // 
@@ -80,17 +48,17 @@
             this.panelMenu.Controls.Add(this.btnRefresh);
             this.panelMenu.Controls.Add(this.linklblSectionName);
             this.panelMenu.Controls.Add(this.linklblPrevious);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(370, 35);
+            this.panelMenu.Size = new System.Drawing.Size(370, 40);
             this.panelMenu.TabIndex = 0;
             // 
             // btnRefresh
             // 
             this.btnRefresh.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Appearance.Options.UseFont = true;
-            this.btnRefresh.Location = new System.Drawing.Point(140, 4);
+            this.btnRefresh.Location = new System.Drawing.Point(140, 7);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(87, 27);
             this.btnRefresh.TabIndex = 2;
@@ -106,7 +74,7 @@
             this.linklblSectionName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.linklblSectionName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.linklblSectionName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linklblSectionName.Location = new System.Drawing.Point(243, 10);
+            this.linklblSectionName.Location = new System.Drawing.Point(243, 12);
             this.linklblSectionName.Name = "linklblSectionName";
             this.linklblSectionName.Size = new System.Drawing.Size(117, 16);
             this.linklblSectionName.TabIndex = 1;
@@ -118,40 +86,53 @@
             this.linklblPrevious.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linklblPrevious.Appearance.Options.UseFont = true;
             this.linklblPrevious.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linklblPrevious.Location = new System.Drawing.Point(11, 12);
+            this.linklblPrevious.Location = new System.Drawing.Point(11, 14);
             this.linklblPrevious.Name = "linklblPrevious";
             this.linklblPrevious.Size = new System.Drawing.Size(48, 12);
             this.linklblPrevious.TabIndex = 0;
             this.linklblPrevious.TabStop = true;
             this.linklblPrevious.Text = "Previous";
             // 
+            // panelContainer
+            // 
+            this.panelContainer.Controls.Add(this.panel);
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(0, 40);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(370, 550);
+            this.panelContainer.TabIndex = 1;
+            // 
+            // panel
+            // 
+            this.panel.Location = new System.Drawing.Point(3, 5);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(399, 117);
+            this.panel.TabIndex = 0;
+            // 
             // SectionControlContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.scContainer);
+            this.Controls.Add(this.panelContainer);
+            this.Controls.Add(this.panelMenu);
             this.Name = "SectionControlContainer";
             this.Size = new System.Drawing.Size(370, 590);
-            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
-            this.panelContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scContainer)).EndInit();
-            this.scContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
+            this.panelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.PanelControl panelContainer;
-        private DevExpress.XtraEditors.PanelControl panel;
-        private DevExpress.XtraEditors.SplitContainerControl scContainer;
         private DevExpress.XtraEditors.PanelControl panelMenu;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblPrevious;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblSectionName;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
+        private DevExpress.XtraEditors.PanelControl panelContainer;
+        private DevExpress.XtraEditors.PanelControl panel;
     }
 }

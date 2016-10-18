@@ -40,6 +40,8 @@
             this.cmbSectionTopUpdatingInterval = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            this.panelMenu = new DevExpress.XtraEditors.PanelControl();
+            this.panelXtc = new DevExpress.XtraEditors.PanelControl();
             this.xtcSettings = new DevExpress.XtraTab.XtraTabControl();
             this.xtpUISettings = new DevExpress.XtraTab.XtraTabPage();
             this.gcSkins = new DevExpress.XtraBars.Ribbon.GalleryControl();
@@ -61,12 +63,10 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
             this.xtpAbout = new DevExpress.XtraTab.XtraTabPage();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelXtp = new DevExpress.XtraEditors.PanelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).BeginInit();
             this.gpAutoUpdating.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbNewMailCheckingInterval.Properties)).BeginInit();
@@ -74,6 +74,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbSectionTopUpdatingInterval.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
+            this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelXtc)).BeginInit();
+            this.panelXtc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcSettings)).BeginInit();
             this.xtcSettings.SuspendLayout();
             this.xtpUISettings.SuspendLayout();
@@ -90,12 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.xtpAbout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelXtp)).BeginInit();
+            this.panelXtp.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
@@ -281,14 +281,32 @@
             // 
             this.panelContainer.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelContainer.Appearance.Options.UseBackColor = true;
-            this.panelContainer.Controls.Add(this.panelControl3);
-            this.panelContainer.Controls.Add(this.panelControl2);
+            this.panelContainer.Controls.Add(this.panelMenu);
+            this.panelContainer.Controls.Add(this.panelXtc);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(344, 427);
             this.panelContainer.TabIndex = 6;
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.Controls.Add(this.btnOK);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMenu.Location = new System.Drawing.Point(2, 389);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(340, 36);
+            this.panelMenu.TabIndex = 10;
+            // 
+            // panelXtc
+            // 
+            this.panelXtc.Controls.Add(this.xtcSettings);
+            this.panelXtc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelXtc.Location = new System.Drawing.Point(2, 2);
+            this.panelXtc.Name = "panelXtc";
+            this.panelXtc.Size = new System.Drawing.Size(340, 387);
+            this.panelXtc.TabIndex = 9;
             // 
             // xtcSettings
             // 
@@ -464,7 +482,7 @@
             // 
             this.xtpUpdating.Controls.Add(this.gpAutoUpdating);
             this.xtpUpdating.Name = "xtpUpdating";
-            this.xtpUpdating.Size = new System.Drawing.Size(334, 343);
+            this.xtpUpdating.Size = new System.Drawing.Size(330, 354);
             this.xtpUpdating.Text = "Refreshing";
             // 
             // xtpMisc
@@ -472,7 +490,7 @@
             this.xtpMisc.Controls.Add(this.groupControl2);
             this.xtpMisc.Controls.Add(this.groupControl1);
             this.xtpMisc.Name = "xtpMisc";
-            this.xtpMisc.Size = new System.Drawing.Size(334, 343);
+            this.xtpMisc.Size = new System.Drawing.Size(330, 354);
             this.xtpMisc.Text = "Caching && Updating";
             // 
             // groupControl2
@@ -566,21 +584,21 @@
             // 
             // xtpAbout
             // 
-            this.xtpAbout.Controls.Add(this.panelControl1);
+            this.xtpAbout.Controls.Add(this.panelXtp);
             this.xtpAbout.Name = "xtpAbout";
-            this.xtpAbout.Size = new System.Drawing.Size(334, 343);
+            this.xtpAbout.Size = new System.Drawing.Size(330, 354);
             this.xtpAbout.Text = "About";
             // 
-            // panelControl1
+            // panelXtp
             // 
-            this.panelControl1.Controls.Add(this.labelControl5);
-            this.panelControl1.Controls.Add(this.labelControl4);
-            this.panelControl1.Controls.Add(this.labelControl3);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(334, 343);
-            this.panelControl1.TabIndex = 1;
+            this.panelXtp.Controls.Add(this.labelControl5);
+            this.panelXtp.Controls.Add(this.labelControl4);
+            this.panelXtp.Controls.Add(this.labelControl3);
+            this.panelXtp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelXtp.Location = new System.Drawing.Point(0, 0);
+            this.panelXtp.Name = "panelXtp";
+            this.panelXtp.Size = new System.Drawing.Size(330, 354);
+            this.panelXtp.TabIndex = 1;
             // 
             // labelControl5
             // 
@@ -624,24 +642,6 @@
     "blog at <href=www.cnblogs.com/junier/p/5869972.html>cnblogs</href>.";
             this.labelControl3.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.labelControl3_HyperlinkClick);
             // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.xtcSettings);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(2, 2);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(340, 387);
-            this.panelControl2.TabIndex = 9;
-            // 
-            // panelControl3
-            // 
-            this.panelControl3.Controls.Add(this.btnOK);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl3.Location = new System.Drawing.Point(2, 389);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(340, 36);
-            this.panelControl3.TabIndex = 10;
-            // 
             // TabbedBrowserSettingsForm
             // 
             this.Appearance.Options.UseFont = true;
@@ -662,6 +662,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbSectionTopUpdatingInterval.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).EndInit();
+            this.panelMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelXtc)).EndInit();
+            this.panelXtc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtcSettings)).EndInit();
             this.xtcSettings.ResumeLayout(false);
             this.xtpUISettings.ResumeLayout(false);
@@ -679,12 +683,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.xtpAbout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelXtp)).EndInit();
+            this.panelXtp.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -724,10 +724,10 @@
         private DevExpress.XtraEditors.SimpleButton btnCheckNewVersion;
         private DevExpress.XtraTab.XtraTabPage xtpAbout;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl panelXtp;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.PanelControl panelXtc;
+        private DevExpress.XtraEditors.PanelControl panelMenu;
     }
 }

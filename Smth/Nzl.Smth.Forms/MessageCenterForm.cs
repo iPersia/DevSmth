@@ -43,10 +43,10 @@
             this._updatingTimer.Start();
 
 #if (DEBUG)
-            this.scContainer.SplitterPosition = 360;
+            this.panelUp.Height = 360;
+            this.panelUp.Height = 25;
 #else            
-            this.scContainer.SplitterPosition = 25;
-            this.scContainer.IsSplitterFixed = true;
+            this.panelUp.Height = 25;
             this.txtCache.ReadOnly = true;
 #endif
         }

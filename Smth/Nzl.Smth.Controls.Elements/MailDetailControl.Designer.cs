@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.scContainer = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelUp = new DevExpress.XtraEditors.PanelControl();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.linklblDelete = new DevExpress.XtraEditors.HyperlinkLabelControl();
@@ -38,66 +37,43 @@
             this.linklblReply = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panelDown = new DevExpress.XtraEditors.PanelControl();
             this.richtxtContent = new Nzl.Controls.RichTextBoxEx();
-            ((System.ComponentModel.ISupportInitialize)(this.scContainer)).BeginInit();
-            this.scContainer.Panel1.SuspendLayout();
-            this.scContainer.Panel2.SuspendLayout();
-            this.scContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelUp)).BeginInit();
             this.panelUp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown)).BeginInit();
             this.panelDown.SuspendLayout();
             this.SuspendLayout();
             // 
-            // scContainer
-            // 
-            this.scContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scContainer.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel1;
-            this.scContainer.IsSplitterFixed = true;
-            this.scContainer.Location = new System.Drawing.Point(0, 0);
-            this.scContainer.Name = "scContainer";
-            this.scContainer.Horizontal = false;
-            // 
-            // scContainer.Panel1
-            // 
-            this.scContainer.Panel1.Controls.Add(this.panelUp);
-            // 
-            // scContainer.Panel2
-            // 
-            this.scContainer.Panel2.Controls.Add(this.panelDown);
-            this.scContainer.Size = new System.Drawing.Size(600, 480);
-            this.scContainer.SplitterPosition = 59;
-            this.scContainer.TabIndex = 13;
-            this.scContainer.TabStop = false;
-            // 
             // panelUp
             // 
-            this.panelUp.BackColor = System.Drawing.SystemColors.Window;
+            this.panelUp.Appearance.BackColor = System.Drawing.SystemColors.Window;
+            this.panelUp.Appearance.Options.UseBackColor = true;
             this.panelUp.Controls.Add(this.lblTitle);
             this.panelUp.Controls.Add(this.linklblDelete);
             this.panelUp.Controls.Add(this.linklblID);
             this.panelUp.Controls.Add(this.linklblTransfer);
             this.panelUp.Controls.Add(this.lblDateTime);
             this.panelUp.Controls.Add(this.linklblReply);
-            this.panelUp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelUp.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUp.Location = new System.Drawing.Point(0, 0);
             this.panelUp.Name = "panelUp";
-            this.panelUp.Size = new System.Drawing.Size(600, 59);
+            this.panelUp.Size = new System.Drawing.Size(700, 69);
             this.panelUp.TabIndex = 0;
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(12, 13);
+            this.lblTitle.Location = new System.Drawing.Point(14, 15);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(35, 12);
+            this.lblTitle.Size = new System.Drawing.Size(24, 14);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "Title";
             // 
             // linklblDelete
             // 
-            this.linklblDelete.AutoSize = true;
-            this.linklblDelete.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.linklblDelete.Location = new System.Drawing.Point(133, 36);
+            this.linklblDelete.Appearance.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linklblDelete.Appearance.Options.UseFont = true;
+            this.linklblDelete.Location = new System.Drawing.Point(155, 42);
             this.linklblDelete.Name = "linklblDelete";
-            this.linklblDelete.Size = new System.Drawing.Size(47, 12);
+            this.linklblDelete.Size = new System.Drawing.Size(36, 12);
             this.linklblDelete.TabIndex = 11;
             this.linklblDelete.TabStop = true;
             this.linklblDelete.Text = "Delete";
@@ -105,53 +81,56 @@
             // linklblID
             // 
             this.linklblID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linklblID.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.linklblID.Location = new System.Drawing.Point(499, 36);
+            this.linklblID.Appearance.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linklblID.Appearance.Options.UseFont = true;
+            this.linklblID.Location = new System.Drawing.Point(582, 42);
             this.linklblID.Name = "linklblID";
-            this.linklblID.Size = new System.Drawing.Size(89, 12);
+            this.linklblID.Size = new System.Drawing.Size(72, 12);
             this.linklblID.TabIndex = 2;
             this.linklblID.TabStop = true;
             this.linklblID.Text = "IDIDIDIDIDID";
             // 
             // linklblTransfer
             // 
-            this.linklblTransfer.AutoSize = true;
-            this.linklblTransfer.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.linklblTransfer.Location = new System.Drawing.Point(62, 36);
+            this.linklblTransfer.Appearance.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linklblTransfer.Appearance.Options.UseFont = true;
+            this.linklblTransfer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linklblTransfer.Location = new System.Drawing.Point(72, 42);
             this.linklblTransfer.Name = "linklblTransfer";
-            this.linklblTransfer.Size = new System.Drawing.Size(61, 12);
+            this.linklblTransfer.Size = new System.Drawing.Size(48, 12);
             this.linklblTransfer.TabIndex = 10;
             this.linklblTransfer.TabStop = true;
             this.linklblTransfer.Text = "Transfer";
             // 
             // lblDateTime
             // 
-            this.lblDateTime.AutoSize = true;
-            this.lblDateTime.Location = new System.Drawing.Point(190, 37);
+            this.lblDateTime.Location = new System.Drawing.Point(222, 43);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(119, 12);
+            this.lblDateTime.Size = new System.Drawing.Size(118, 14);
             this.lblDateTime.TabIndex = 4;
             this.lblDateTime.Text = "2013-02-22 23:53:35";
             // 
             // linklblReply
             // 
-            this.linklblReply.AutoSize = true;
-            this.linklblReply.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.linklblReply.Location = new System.Drawing.Point(12, 36);
+            this.linklblReply.Appearance.Font = new System.Drawing.Font("新宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.linklblReply.Appearance.Options.UseFont = true;
+            this.linklblReply.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linklblReply.Location = new System.Drawing.Point(14, 42);
             this.linklblReply.Name = "linklblReply";
-            this.linklblReply.Size = new System.Drawing.Size(40, 12);
+            this.linklblReply.Size = new System.Drawing.Size(30, 12);
             this.linklblReply.TabIndex = 9;
             this.linklblReply.TabStop = true;
             this.linklblReply.Text = "Reply";
             // 
             // panelDown
             // 
-            this.panelDown.BackColor = System.Drawing.SystemColors.Control;
+            this.panelDown.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.panelDown.Appearance.Options.UseBackColor = true;
             this.panelDown.Controls.Add(this.richtxtContent);
             this.panelDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDown.Location = new System.Drawing.Point(0, 0);
+            this.panelDown.Location = new System.Drawing.Point(0, 69);
             this.panelDown.Name = "panelDown";
-            this.panelDown.Size = new System.Drawing.Size(600, 420);
+            this.panelDown.Size = new System.Drawing.Size(700, 491);
             this.panelDown.TabIndex = 0;
             // 
             // richtxtContent
@@ -160,9 +139,9 @@
             this.richtxtContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richtxtContent.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.richtxtContent.HiglightColor = Nzl.Controls.RtfColor.White;
-            this.richtxtContent.Location = new System.Drawing.Point(11, 12);
+            this.richtxtContent.Location = new System.Drawing.Point(13, 14);
             this.richtxtContent.Name = "richtxtContent";
-            this.richtxtContent.Size = new System.Drawing.Size(578, 394);
+            this.richtxtContent.Size = new System.Drawing.Size(674, 460);
             this.richtxtContent.TabIndex = 12;
             this.richtxtContent.TabStop = false;
             this.richtxtContent.Text = "";
@@ -170,17 +149,16 @@
             // 
             // MailDetailControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.scContainer);
+            this.Controls.Add(this.panelDown);
+            this.Controls.Add(this.panelUp);
             this.Name = "MailDetailControl";
-            this.Size = new System.Drawing.Size(600, 480);
-            this.scContainer.Panel1.ResumeLayout(false);
-            this.scContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.scContainer)).EndInit();
-            this.scContainer.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(700, 560);
+            ((System.ComponentModel.ISupportInitialize)(this.panelUp)).EndInit();
             this.panelUp.ResumeLayout(false);
             this.panelUp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown)).EndInit();
             this.panelDown.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -194,7 +172,6 @@
         private DevExpress.XtraEditors.LabelControl lblDateTime;
         private DevExpress.XtraEditors.LabelControl lblTitle;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblID;
-        private DevExpress.XtraEditors.SplitContainerControl scContainer;
         private DevExpress.XtraEditors.PanelControl panelUp;
         private DevExpress.XtraEditors.PanelControl panelDown;
     }

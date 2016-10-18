@@ -74,7 +74,7 @@
                 /// The width margin is 10 and
                 /// the height margin is 29,
                 /// both number is not acurate actually.
-                this.Size = new Size(tbc.Width + 10, tbc.Height + 29);
+                this.Size = new Size(tbc.Width + 10, tbc.Height + 29 + this.panelContainer.Location.Y);
                 tp.Controls.Add(tbc);
             }
 

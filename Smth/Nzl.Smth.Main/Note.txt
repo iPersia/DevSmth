@@ -165,6 +165,17 @@
 			  2、更新日志
 			  3、更新压缩包（zip格式）
 
+    46、ThreadControl的SizeChanged事件，有可能会在已经被添加到Container后再起触发。
+	   
+	    思路：应该在ThreadControl中的RichEditControl加载完毕后，再添加到Container中。
+
+		      目前，不能确定如何判断RichEditControl是否完成加载，Size不再变化。
+
+			  Note: When an HTML document with external image references is loaded, the images are obtained asynchronously and the DocumentLoaded 
+                    event cannot guarantee image availability at the moment it is raised. The RichEditControl does not provide a technique that 
+					allows you to determine the moment when all images are downloaded and inserted in a document.
+
+
 经验
 
   1、不要奢望能够直接改动Dock=Fill控件的大小，只能通过改变其容器的大小来达到目的。

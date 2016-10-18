@@ -121,7 +121,7 @@
         private void RichtxtContent_DocumentLoaded(object sender, EventArgs e)
         {
 #if (X)
-            System.Diagnostics.Debug.WriteLine(this.GetHashCode() + "\t ThreadControl - RichtxtContent_DocumentLoaded");
+            System.Diagnostics.Debug.WriteLine(this.GetHashCode() + "\t ThreadControl - RichtxtContent_DocumentLoaded - this.Height" + this.Height);
 #endif
         }
 
@@ -132,10 +132,17 @@
         /// <param name="e"></param>
         private void RichtxtContent_SizeChanged(object sender, EventArgs e)
         {
-            this.Height = this.richtxtContent.Top
-                        + this.richtxtContent.Height
-                        + (this.richtxtContent.Top - this.panelTitle.Top - this.panelTitle.Height)
-                        + 2;            
+            if (this.Parent == null)
+            {
+                this.Height = this.richtxtContent.Top
+                            + this.richtxtContent.Height
+                            + (this.richtxtContent.Top - this.panelTitle.Top - this.panelTitle.Height)
+                            + 2;
+            }
+
+#if (X)
+            System.Diagnostics.Debug.WriteLine(this.GetHashCode() + "\t ThreadControl - RichtxtContent_SizeChanged - this.Height" + this.Height);
+#endif
         }
 
         /// <summary>

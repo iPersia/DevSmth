@@ -491,7 +491,11 @@
     /// </summary>
     internal class WebDownload : WebClient
     {
+        /// <summary>
+        /// 
+        /// </summary>
         private int _timeout;
+
         /// <summary>
         /// 超时时间(毫秒)
         /// </summary>
@@ -507,16 +511,28 @@
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public WebDownload()
         {
             this._timeout = 60000;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="timeout"></param>
         public WebDownload(int timeout)
         {
             this._timeout = timeout;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="address"></param>
+        /// <returns></returns>
         protected override WebRequest GetWebRequest(Uri address)
         {
             var result = base.GetWebRequest(address);

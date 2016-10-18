@@ -256,7 +256,7 @@
                 baseControlContainer.Width = this.GetPanelContainer().Width
                                            - Configuration.BaseControlContainerLocationMargin * 2
                                            - this.GetPanelContainerBoarderMargin();
-#if (DEBUG)
+#if (X)
                 System.Diagnostics.Debug.WriteLine(this.ToString() + " - OnSizeChanged - baseControlContainer.Width\t" + baseControlContainer.Width);
 #endif
             }
@@ -272,7 +272,7 @@
             PanelControl baseControlContainer = this.GetPanel();
             if (baseControlContainer != null)
             {
-#if (DEBUG)
+#if (X)
                 System.Diagnostics.Debug.WriteLine(this.ToString() + " - BaseContainer_SizeChanged - baseControlContainer.Width " + baseControlContainer.Width);
 #endif
                 int newWidth = this.GetPanelContainer().Width
@@ -377,7 +377,7 @@
         /// <param name="info"></param>
         protected virtual void DoWorkSrc(UrlInfo<TBaseControl, TBaseData> info)
         {
-#if (DEBUG)
+#if (X)
             System.Diagnostics.Stopwatch swDoWork = new System.Diagnostics.Stopwatch();
             swDoWork.Start();
 #endif
@@ -402,12 +402,12 @@
                         System.Threading.Thread.Sleep(0);
                     }
                 }
-#if (DEBUG)
+#if (X)
                 System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
                 sw.Restart();
 #endif
                 this.UpdateView(info.Controls);
-#if (DEBUG)
+#if (X)
                 sw.Stop();
                 System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - DoWork - UpdateView - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
 
@@ -423,7 +423,7 @@
         /// <param name="ctls"></param>
         protected void UpdateView(IList<TBaseControl> ctls)
         {
-#if (DEBUG)
+#if (X)
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 #endif
             foreach (TBaseControl ctl in ctls)
@@ -432,7 +432,7 @@
                 {
                     if (this.InvokeRequired)
                     {
-#if (DEBUG)
+#if (X)
                         sw.Restart();
 #endif
                         System.Threading.Thread.Sleep(0);
@@ -441,7 +441,7 @@
                             this.AddControl(ctl);
                         }));
                         System.Threading.Thread.Sleep(0);
-#if (DEBUG)
+#if (X)
                         sw.Stop();
                         System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - UpdateView - AddControl - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
 #endif
@@ -554,6 +554,9 @@
                         Nzl.Web.Util.CommonUtil.ShowMessage(this, "\tBaseContainer - AddControl\n" +
                                                                   "\t\t" + _urlInfo.BaseUrl + " - accumulateHeight:" + accumulateHeight + "\n" +
                                                                   "\t\t" + _urlInfo.BaseUrl + " - ctl name:" + ctl.Name);
+#endif
+#if (X)
+                        System.Diagnostics.Debug.WriteLine(ctl.GetHashCode() + "\t BaseControlContainer - AddControl - ctl.Height" + ctl.Height);
 #endif
                     }
                 }
@@ -848,18 +851,18 @@
         /// <param name="listThread"></param>
         private IList<TBaseControl> PrepareControls(IList<TBaseData> list)
         {
-#if (DEBUG)
+#if (X)
             System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
             sw.Start();
 #endif
             IList<TBaseControl> listThreacControl = new List<TBaseControl>();
             foreach (TBaseData data in list)
             {
-#if (DEBUG)
+#if (X)
                 sw.Restart();
 #endif
                 TBaseControl ctl = this.GetControl(data);
-#if (DEBUG)
+#if (X)
                 sw.Stop();
                 System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - PrepareControls - GetControl - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
 #endif
@@ -885,7 +888,7 @@
             {
                 if (this.InvokeRequired)
                 {
-#if (DEBUG)
+#if (X)
                     System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
 #endif
                     TBaseControl ctl = this.GetRecycledControl();
@@ -894,7 +897,7 @@
 #if (X)
                         System.Diagnostics.Debug.WriteLine("BaseContainer - GetControl - GetRecycledControl failed, type is " + typeof(TBaseControl).ToString());
 #endif
-#if (DEBUG)
+#if (X)
                         sw.Start();
 #endif
                         System.Threading.Thread.Sleep(0);
@@ -903,7 +906,7 @@
                             ctl = this.CreateBaseControl();
                         }));
                         System.Threading.Thread.Sleep(0);
-#if (DEBUG)
+#if (X)
                         sw.Stop();
                         System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - GetControl - CreateBaseControl - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
 #endif
@@ -916,7 +919,7 @@
                             if (this.InvokeRequired)
                             {
 
-#if (DEBUG)
+#if (X)
                                 sw.Restart();
 #endif
                                 System.Threading.Thread.Sleep(0);
@@ -925,7 +928,7 @@
                                     this.InitializeControl(ctl, data);
                                 }));
                                 System.Threading.Thread.Sleep(0);
-#if (DEBUG)
+#if (X)
                                 sw.Stop();
                                 System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - GetControl - InitializeControl - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
 #endif
@@ -979,7 +982,7 @@
                 {
                     BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.WaitOne();
 
-#if (DEBUG)
+#if (X)
                     System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - ShowInformation - MutexWaitFormShowing.WaitOne - " + text);
 #endif
 
@@ -996,7 +999,7 @@
                 catch { }
                 finally
                 {
-#if (DEBUG)
+#if (X)
                     System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - ShowInformation - MutexWaitFormShowing.ReleaseMutex - " + text);
 #endif
                     BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.ReleaseMutex();
@@ -1015,7 +1018,7 @@
             {
                 BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Stop();
                 BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.WaitOne();
-#if (DEBUG)
+#if (X)
                 System.Diagnostics.Debug.WriteLine("WaitFormTimer_Tick - MutexWaitFormShowing.WaitOne!");
 #endif
                 if (BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown)
@@ -1027,7 +1030,7 @@
             catch { }
             finally
             {
-#if (DEBUG)
+#if (X)
                 System.Diagnostics.Debug.WriteLine("WaitFormTimer_Tick - MutexWaitFormShowing.ReleaseMutex!");
 #endif
                 BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.ReleaseMutex();

@@ -51,7 +51,7 @@
             this.txtMsg.Location = new System.Drawing.Point(2, 2);
             this.txtMsg.Name = "txtMsg";
             this.txtMsg.ReadOnly = true;
-            this.txtMsg.Size = new System.Drawing.Size(911, 365);
+            this.txtMsg.Size = new System.Drawing.Size(781, 348);
             this.txtMsg.TabIndex = 0;
             this.txtMsg.Text = "";
             this.txtMsg.TextColor = Nzl.Controls.RtfColor.Black;
@@ -64,7 +64,7 @@
             this.scContainer.Name = "scContainer";
             this.scContainer.Panel1.Controls.Add(this.panelUp);
             this.scContainer.Panel2.Controls.Add(this.panelDown);
-            this.scContainer.Size = new System.Drawing.Size(915, 654);
+            this.scContainer.Size = new System.Drawing.Size(784, 561);
             this.scContainer.SplitterPosition = 240;
             this.scContainer.TabIndex = 1;
             // 
@@ -74,7 +74,7 @@
             this.panelUp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelUp.Location = new System.Drawing.Point(0, 0);
             this.panelUp.Name = "panelUp";
-            this.panelUp.Size = new System.Drawing.Size(915, 280);
+            this.panelUp.Size = new System.Drawing.Size(784, 206);
             this.panelUp.TabIndex = 0;
             // 
             // txtCache
@@ -86,7 +86,7 @@
             this.txtCache.Location = new System.Drawing.Point(2, 2);
             this.txtCache.Name = "txtCache";
             this.txtCache.ReadOnly = true;
-            this.txtCache.Size = new System.Drawing.Size(911, 276);
+            this.txtCache.Size = new System.Drawing.Size(781, 203);
             this.txtCache.TabIndex = 1;
             this.txtCache.Text = "";
             this.txtCache.TextColor = Nzl.Controls.RtfColor.Black;
@@ -97,15 +97,17 @@
             this.panelDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDown.Location = new System.Drawing.Point(0, 0);
             this.panelDown.Name = "panelDown";
-            this.panelDown.Size = new System.Drawing.Size(915, 369);
+            this.panelDown.Size = new System.Drawing.Size(784, 351);
             this.panelDown.TabIndex = 1;
             // 
             // MessageCenterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 654);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.scContainer);
+            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.Name = "MessageCenterForm";

@@ -164,6 +164,11 @@
         /// 
         /// </summary>
         private static string staticSkinName = "Money Twins";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static string staticUpdatingXmlUrl = "http://files.cnblogs.com/files/junier/DevSmthUpdating.xml";
         #endregion
 
         #region Properties

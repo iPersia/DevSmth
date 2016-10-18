@@ -113,9 +113,9 @@ namespace Nzl.Smth.AutoUpdater
                     clientDownload = new WebClient();
 
                     //Added the function to support proxy
-                    clientDownload.Proxy = System.Net.WebProxy.GetDefaultProxy();
+                    clientDownload.Proxy = WebRequest.DefaultWebProxy;
                     clientDownload.Proxy.Credentials = CredentialCache.DefaultCredentials;
-                    clientDownload.Credentials = System.Net.CredentialCache.DefaultCredentials;
+                    clientDownload.Credentials = CredentialCache.DefaultCredentials;
                     //End added
 
                     clientDownload.DownloadProgressChanged += (object sender, DownloadProgressChangedEventArgs e) =>

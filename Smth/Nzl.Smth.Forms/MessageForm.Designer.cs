@@ -60,6 +60,8 @@
             // richtxtMessage
             // 
             this.richtxtMessage.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.richtxtMessage.Appearance.Text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.richtxtMessage.Appearance.Text.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.richtxtMessage.Appearance.Text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richtxtMessage.Appearance.Text.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.richtxtMessage.Appearance.Text.Options.UseBackColor = true;

@@ -5,6 +5,7 @@
     using System.Windows.Forms;
     using System.Xml;
     using Nzl.Smth.Configs;
+    using Nzl.Smth.Updating;
     using DevExpress.XtraBars.Helpers;
 
     /// <summary>
@@ -46,7 +47,6 @@
             this.cmbNewMailCheckingInterval.Text = (Configuration.NewMailCheckingInterval / 1000).ToString();
             this.cmbSectionTopUpdatingInterval.Text = (Configuration.SectionTopsUpdatingInterval / 1000).ToString();
             this.cmbTop10sLoadingInterval.Text = (Configuration.Top10sLoadingInterval / 1000).ToString();
-            
         }
 
         /// <summary>
@@ -82,7 +82,9 @@
         /// <param name="e"></param>
         private void btnCheckNewVersion_Click(object sender, EventArgs e)
         {
-            
+            CheckUpdateForm form = new CheckUpdateForm();
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.ShowDialog(this);
         }
 
         #region private
@@ -245,6 +247,16 @@
 
                 cfg.Save();
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void labelControl3_HyperlinkClick(object sender, DevExpress.Utils.HyperlinkClickEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link);
         }
     }
 }

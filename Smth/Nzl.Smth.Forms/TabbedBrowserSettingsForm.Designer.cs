@@ -41,7 +41,6 @@
             this.label1 = new DevExpress.XtraEditors.LabelControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.xtcSettings = new DevExpress.XtraTab.XtraTabControl();
-            this.xtpUpdating = new DevExpress.XtraTab.XtraTabPage();
             this.xtpUISettings = new DevExpress.XtraTab.XtraTabPage();
             this.gcSkins = new DevExpress.XtraBars.Ribbon.GalleryControl();
             this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
@@ -53,6 +52,7 @@
             this.label11 = new DevExpress.XtraEditors.LabelControl();
             this.cmbBaseControlContainerLocationMargin = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label12 = new DevExpress.XtraEditors.LabelControl();
+            this.xtpUpdating = new DevExpress.XtraTab.XtraTabPage();
             this.xtpMisc = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.btnCheckNewVersion = new DevExpress.XtraEditors.SimpleButton();
@@ -60,6 +60,9 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
+            this.xtpAbout = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).BeginInit();
             this.gpAutoUpdating.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbNewMailCheckingInterval.Properties)).BeginInit();
@@ -69,7 +72,6 @@
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcSettings)).BeginInit();
             this.xtcSettings.SuspendLayout();
-            this.xtpUpdating.SuspendLayout();
             this.xtpUISettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcSkins)).BeginInit();
             this.gcSkins.SuspendLayout();
@@ -77,11 +79,15 @@
             this.gcUISettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlLocationMargin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlContainerLocationMargin.Properties)).BeginInit();
+            this.xtpUpdating.SuspendLayout();
             this.xtpMisc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            this.xtpAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
@@ -288,14 +294,8 @@
             this.xtcSettings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpUISettings,
             this.xtpUpdating,
-            this.xtpMisc});
-            // 
-            // xtpUpdating
-            // 
-            this.xtpUpdating.Controls.Add(this.gpAutoUpdating);
-            this.xtpUpdating.Name = "xtpUpdating";
-            this.xtpUpdating.Size = new System.Drawing.Size(334, 343);
-            this.xtpUpdating.Text = "Updating";
+            this.xtpMisc,
+            this.xtpAbout});
             // 
             // xtpUISettings
             // 
@@ -452,6 +452,13 @@
             this.label12.TabIndex = 4;
             this.label12.Text = "Panel container margin";
             // 
+            // xtpUpdating
+            // 
+            this.xtpUpdating.Controls.Add(this.gpAutoUpdating);
+            this.xtpUpdating.Name = "xtpUpdating";
+            this.xtpUpdating.Size = new System.Drawing.Size(334, 343);
+            this.xtpUpdating.Text = "Updating";
+            // 
             // xtpMisc
             // 
             this.xtpMisc.Controls.Add(this.groupControl2);
@@ -549,6 +556,37 @@
             this.btnClearCache.Text = "Clear cache";
             this.btnClearCache.Click += new System.EventHandler(this.btnClearCache_Click);
             // 
+            // xtpAbout
+            // 
+            this.xtpAbout.Controls.Add(this.panelControl1);
+            this.xtpAbout.Name = "xtpAbout";
+            this.xtpAbout.Size = new System.Drawing.Size(334, 343);
+            this.xtpAbout.Text = "About";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.labelControl3);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(334, 343);
+            this.panelControl1.TabIndex = 1;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.AllowHtmlString = true;
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
+            this.labelControl3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelControl3.Location = new System.Drawing.Point(8, 16);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(318, 24);
+            this.labelControl3.TabIndex = 0;
+            this.labelControl3.Text = "  The application is developed by Nesus, which is a NewSmth ID. You can visit my " +
+    "blog at <href=www.cnblogs.com/junier/p/5869972.html>cnblogs</href>.";
+            this.labelControl3.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.labelControl3_HyperlinkClick);
+            // 
             // TabbedBrowserSettingsForm
             // 
             this.Appearance.Options.UseFont = true;
@@ -571,7 +609,6 @@
             this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtcSettings)).EndInit();
             this.xtcSettings.ResumeLayout(false);
-            this.xtpUpdating.ResumeLayout(false);
             this.xtpUISettings.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcSkins)).EndInit();
             this.gcSkins.ResumeLayout(false);
@@ -580,11 +617,15 @@
             this.gcUISettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlLocationMargin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlContainerLocationMargin.Properties)).EndInit();
+            this.xtpUpdating.ResumeLayout(false);
             this.xtpMisc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            this.xtpAbout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -622,5 +663,8 @@
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton btnCheckNewVersion;
+        private DevExpress.XtraTab.XtraTabPage xtpAbout;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
     }
 }

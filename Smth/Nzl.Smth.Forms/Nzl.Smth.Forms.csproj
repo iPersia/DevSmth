@@ -184,7 +184,6 @@
     <Compile Include="TopicForm.Designer.cs">
       <DependentUpon>TopicForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateConfig.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -351,6 +350,10 @@
     <ProjectReference Include="..\Nzl.Smth.Logger\Nzl.Smth.Logger.csproj">
       <Project>{55e4f995-1273-44e1-aea1-52fed6442660}</Project>
       <Name>Nzl.Smth.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nzl.Smth.Updating\Nzl.Smth.Updating.csproj">
+      <Project>{bf2d57b3-ba7c-474d-9499-3f7c6fb7a52b}</Project>
+      <Name>Nzl.Smth.Updating</Name>
     </ProjectReference>
     <ProjectReference Include="..\Nzl.Smth.Utils\Nzl.Smth.Utils.csproj">
       <Project>{ed81bef2-92f1-474d-80e9-635644d7d0a3}</Project>

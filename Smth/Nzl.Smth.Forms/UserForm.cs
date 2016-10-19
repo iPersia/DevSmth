@@ -52,7 +52,6 @@
             base.OnShown(e);
             this.Text = "Query User - " + this._userID;
             LoadUserInfor();
-            this.txtUser.ContentsResized += TxtUser_ContentsResized;
             this.btnSendMail.Enabled = LogStatus.Instance.IsLogin;
         }
 
@@ -63,7 +62,7 @@
         {
             if (string.IsNullOrEmpty(this._userID))
             {
-                this.txtUser.AppendText("\n\t没有指定用户ID！");
+                this.txtUser.Document.AppendText("\n\t没有指定用户ID！");
                 return;
             }
 
@@ -95,13 +94,13 @@
                         userInfor = objReg.Replace(userInfor, "");
                         userInfor = CommonUtil.ReplaceSpecialChars(userInfor);
                         userInfor.TrimEnd('\n');
-                        this.txtUser.AppendText("\n");
-                        this.txtUser.AppendText(userInfor);
+                        this.txtUser.Document.AppendText("\n");
+                        this.txtUser.Document.AppendText(userInfor);
                         return;
                     }
                 }
 
-                this.txtUser.AppendText("\n\t没有查询到用户'" + this._userID + "'的信息！");
+                this.txtUser.Document.AppendText("\n\t没有查询到用户'" + this._userID + "'的信息！");
             }
             catch (Exception exp)
             {
@@ -110,7 +109,7 @@
                     Logger.Instance.Error(exp.Message + "\n" + exp.StackTrace);
                 }
 
-                this.txtUser.AppendText("\n\t没有查询到用户'" + this._userID + "'的信息！");
+                this.txtUser.Document.AppendText("\n\t没有查询到用户'" + this._userID + "'的信息！");
             }
         }
 
@@ -135,23 +134,7 @@
                 e.Result = null;
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void TxtUser_ContentsResized(object sender, ContentsResizedEventArgs e)
-        {
-            RichTextBox rtb = sender as RichTextBox;
-            if (rtb != null)
-            {
-                Size newSize = e.NewRectangle.Size;
-                this.Size = new Size(newSize.Width + this.Size.Width - rtb.Width, newSize.Height + this.Size.Height - rtb.Height);
-                rtb.Size = e.NewRectangle.Size;                
-            }
-        }
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -169,6 +152,18 @@
                 pl.Failed += NewMail_Failed;
                 pl.Start();
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtUser_SizeChanged(object sender, EventArgs e)
+        {
+            this.Height = this.txtUser.Height + (this.Height - this.panelContainer.Height) + this.txtUser.Top * 2;
+            //this.txtUser.Height
+            //this.Size = new Size(newSize.Width + this.Size.Width - rtb.Width, newSize.Height + this.Size.Height - rtb.Height);
         }
 
         #region NewMail - PageLoaded & PageFailed
@@ -244,6 +239,6 @@
                 }
             }
         }
-        #endregion
+        #endregion        
     }
 }

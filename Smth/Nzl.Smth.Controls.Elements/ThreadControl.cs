@@ -310,6 +310,8 @@
 
                 
                 this.richtxtContent.ReadOnly = true;
+                this.richtxtContent.Enabled = this.richtxtContent.Document.Images.Count > 0 || 
+                                              this.richtxtContent.Document.Hyperlinks.Count > 0;
             }
         }
 

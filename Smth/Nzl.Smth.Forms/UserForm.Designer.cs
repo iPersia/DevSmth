@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.btnSendMail = new DevExpress.XtraEditors.SimpleButton();
-            this.txtUser = new System.Windows.Forms.RichTextBox();
+            this.txtUser = new DevExpress.XtraRichEdit.RichEditControl();
             this.bgwFetchPage = new System.ComponentModel.BackgroundWorker();
             this.panelMenu = new DevExpress.XtraEditors.PanelControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
@@ -53,16 +53,19 @@
             // 
             // txtUser
             // 
-            this.txtUser.BackColor = System.Drawing.SystemColors.Control;
-            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUser.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtUser.Appearance.Text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser.Appearance.Text.Options.UseFont = true;
+            this.txtUser.AutoSizeMode = DevExpress.XtraRichEdit.AutoSizeMode.Vertical;
+            this.txtUser.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtUser.Enabled = false;
             this.txtUser.Location = new System.Drawing.Point(2, 2);
             this.txtUser.Name = "txtUser";
-            this.txtUser.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.txtUser.Size = new System.Drawing.Size(426, 290);
+            this.txtUser.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.txtUser.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.txtUser.Size = new System.Drawing.Size(426, 23);
             this.txtUser.TabIndex = 0;
-            this.txtUser.Text = "";
+            this.txtUser.SizeChanged += new System.EventHandler(this.txtUser_SizeChanged);
             // 
             // panelMenu
             // 
@@ -79,7 +82,7 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 40);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(430, 294);
+            this.panelContainer.Size = new System.Drawing.Size(430, 352);
             this.panelContainer.TabIndex = 0;
             // 
             // UserForm
@@ -87,7 +90,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 334);
+            this.ClientSize = new System.Drawing.Size(430, 392);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -105,7 +108,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.RichTextBox txtUser;
+        private DevExpress.XtraRichEdit.RichEditControl txtUser;
         private DevExpress.XtraEditors.SimpleButton btnSendMail;
         private System.ComponentModel.BackgroundWorker bgwFetchPage;
         private DevExpress.XtraEditors.PanelControl panelMenu;

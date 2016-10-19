@@ -34,7 +34,7 @@
             this.txtTitle = new DevExpress.XtraEditors.TextEdit();
             this.lblTitle = new DevExpress.XtraEditors.LabelControl();
             this.ckbSendMail = new DevExpress.XtraEditors.CheckEdit();
-            this.txtContent = new System.Windows.Forms.RichTextBox();
+            this.txtContent = new DevExpress.XtraRichEdit.RichEditControl();
             this.lblContent = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
@@ -101,14 +101,18 @@
             // 
             // txtContent
             // 
+            this.txtContent.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
             this.txtContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtContent.Appearance.Text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContent.Appearance.Text.Options.UseFont = true;
             this.txtContent.Location = new System.Drawing.Point(12, 88);
             this.txtContent.Name = "txtContent";
+            this.txtContent.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.txtContent.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
             this.txtContent.Size = new System.Drawing.Size(450, 232);
             this.txtContent.TabIndex = 2;
-            this.txtContent.Text = "";
             // 
             // lblContent
             // 
@@ -148,7 +152,7 @@
         private DevExpress.XtraEditors.SimpleButton btnSubmit;
         private DevExpress.XtraEditors.PanelControl panel;
         private DevExpress.XtraEditors.LabelControl lblContent;
-        private System.Windows.Forms.RichTextBox txtContent;
+        private DevExpress.XtraRichEdit.RichEditControl txtContent;
         private DevExpress.XtraEditors.CheckEdit ckbSendMail;
         private DevExpress.XtraEditors.TextEdit txtTitle;
         private DevExpress.XtraEditors.LabelControl lblTitle;

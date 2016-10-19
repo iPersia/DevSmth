@@ -25,11 +25,6 @@
         /// <summary>
         /// 
         /// </summary>
-        private RichTextBox _convertTxtBox = new RichTextBox();
-
-        /// <summary>
-        /// 
-        /// </summary>
         private Timer _updatingTimer = new Timer();
 
         /// <summary>

@@ -2,9 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Windows.Forms;
+    using System.Threading;
 
     /// <summary>
     /// Display temp information.
@@ -15,17 +13,17 @@
         /// <summary>
         /// 
         /// </summary>
+        private static Queue<string> _staticMsgQueue = new Queue<string>();
+
+        /// <summary>
+        /// 
+        /// </summary>
         private static bool _staticIsWaitFormShown = false;
 
         /// <summary>
         /// 
         /// </summary>
         private static System.Threading.Mutex _staticMutexWaitFormShowing = new System.Threading.Mutex();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private static Timer _staticWaitFormTimer = new Timer();
         #endregion
 
         /// <summary>
@@ -33,8 +31,7 @@
         /// </summary>
         static InformationCenter()
         {
-            _staticWaitFormTimer.Interval = 500;
-            _staticWaitFormTimer.Tick += WaitFormTimer_Tick;
+            (new Thread(Run)).Start();
         }
 
         /// <summary>
@@ -45,7 +42,7 @@
         {
             try
             {
-                DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(typeof(BaseWaitForm));
+                _staticMsgQueue.Enqueue(text);
             }
             catch { }
             finally
@@ -56,30 +53,37 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private static void WaitFormTimer_Tick(object sender, EventArgs e)
+        private static void Run()
         {
-            try
+            while (true)
             {
-                _staticWaitFormTimer.Stop();
-                _staticMutexWaitFormShowing.WaitOne();
-#if (X)
-                System.Diagnostics.Debug.WriteLine("WaitFormTimer_Tick - MutexWaitFormShowing.WaitOne!");
-#endif
-                if (_staticIsWaitFormShown)
+                try
                 {
-                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
-                    _staticIsWaitFormShown = false;
+                    if (_staticMsgQueue.Count > 0)
+                    {
+                        if (_staticIsWaitFormShown == false)
+                        {
+                            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(typeof(BaseWaitForm));
+                            _staticIsWaitFormShown = true;
+                        }
+
+                        DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormDescription(_staticMsgQueue.Dequeue());
+                    }
+                    else
+                    {
+                        if (_staticIsWaitFormShown)
+                        {
+                            Thread.Sleep(1000);
+                            DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
+                            _staticIsWaitFormShown = false;
+                        }
+                    }
+
+                    Thread.Sleep(10);
                 }
-            }
-            catch { }
-            finally
-            {
-#if (X)
-                System.Diagnostics.Debug.WriteLine("WaitFormTimer_Tick - MutexWaitFormShowing.ReleaseMutex!");
-#endif
-                _staticMutexWaitFormShowing.ReleaseMutex();
+                catch
+                {
+                }
             }
         }
     }

@@ -52,37 +52,10 @@
         /// <summary>
         /// 
         /// </summary>
-        private System.Threading.Mutex _mutexFetchPage = new System.Threading.Mutex();
-
-        #region static
-        /// <summary>
-        /// 
-        /// </summary>
-        private static bool _staticIsWaitFormShown = false;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private static System.Threading.Mutex _staticMutexWaitFormShowing = new System.Threading.Mutex();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private static Timer _staticWaitFormTimer = new Timer();
-        #endregion
-
+        private System.Threading.Mutex _mutexFetchPage = new System.Threading.Mutex();        
         #endregion
 
         #region Ctor
-        /// <summary>
-        /// 
-        /// </summary>
-        static BaseControlContainer()            
-        {
-            BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Interval = 500;
-            BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Tick += WaitFormTimer_Tick;
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -951,72 +924,7 @@
         /// <param name="text"></param>
         protected void ShowInformation(string text)
         {
-            if (this.InvokeRequired)
-            {
-                this.Invoke(new MethodInvoker(delegate ()
-                {
-                    this.ShowInformation(text);
-                }));
-            }
-            else
-            {
-                try
-                {
-                    BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.WaitOne();
-
-#if (X)
-                    System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - ShowInformation - MutexWaitFormShowing.WaitOne - " + text);
-#endif
-
-                    if (BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown == false)
-                    {
-                        DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(typeof(BaseWaitForm));
-                        BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown = true;
-                    }
-
-                    DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormDescription(text);
-                    BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Stop();
-                    BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Start();
-                }
-                catch { }
-                finally
-                {
-#if (X)
-                    System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - ShowInformation - MutexWaitFormShowing.ReleaseMutex - " + text);
-#endif
-                    BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.ReleaseMutex();
-                }
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private static void WaitFormTimer_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                BaseControlContainer<TBaseControl, TBaseData>._staticWaitFormTimer.Stop();
-                BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.WaitOne();
-#if (X)
-                System.Diagnostics.Debug.WriteLine("WaitFormTimer_Tick - MutexWaitFormShowing.WaitOne!");
-#endif
-                if (BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown)
-                {
-                    DevExpress.XtraSplashScreen.SplashScreenManager.CloseForm();
-                    BaseControlContainer<TBaseControl, TBaseData>._staticIsWaitFormShown = false;
-                }
-            }
-            catch { }
-            finally
-            {
-#if (X)
-                System.Diagnostics.Debug.WriteLine("WaitFormTimer_Tick - MutexWaitFormShowing.ReleaseMutex!");
-#endif
-                BaseControlContainer<TBaseControl, TBaseData>._staticMutexWaitFormShowing.ReleaseMutex();
-            }
+            InformationCenter.ShowInformation(text);
         }
 
         /// <summary>

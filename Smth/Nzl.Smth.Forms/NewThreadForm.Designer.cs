@@ -36,12 +36,17 @@
             this.ckbSendMail = new DevExpress.XtraEditors.CheckEdit();
             this.txtContent = new System.Windows.Forms.RichTextBox();
             this.lblContent = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
             this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTitle.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbSendMail.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSubmit
             // 
             this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSubmit.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Appearance.Options.UseFont = true;
             this.btnSubmit.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnSubmit.Location = new System.Drawing.Point(187, 356);
             this.btnSubmit.Name = "btnSubmit";
@@ -70,26 +75,28 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTitle.Location = new System.Drawing.Point(14, 35);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(448, 21);
+            this.txtTitle.Size = new System.Drawing.Size(448, 20);
             this.txtTitle.TabIndex = 1;
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
+            this.lblTitle.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Appearance.Options.UseFont = true;
             this.lblTitle.Location = new System.Drawing.Point(16, 15);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(41, 12);
+            this.lblTitle.Size = new System.Drawing.Size(36, 12);
             this.lblTitle.TabIndex = 6;
             this.lblTitle.Text = "Title:";
             // 
             // ckbSendMail
             // 
-            this.ckbSendMail.AutoSize = true;
             this.ckbSendMail.Location = new System.Drawing.Point(14, 331);
             this.ckbSendMail.Name = "ckbSendMail";
-            this.ckbSendMail.Size = new System.Drawing.Size(78, 16);
+            this.ckbSendMail.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbSendMail.Properties.Appearance.Options.UseFont = true;
+            this.ckbSendMail.Properties.Caption = "Send Mail";
+            this.ckbSendMail.Size = new System.Drawing.Size(78, 19);
             this.ckbSendMail.TabIndex = 3;
-            this.ckbSendMail.Text = "Send Mail";
             this.ckbSendMail.Visible = false;
             // 
             // txtContent
@@ -105,29 +112,33 @@
             // 
             // lblContent
             // 
-            this.lblContent.AutoSize = true;
+            this.lblContent.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContent.Appearance.Options.UseFont = true;
             this.lblContent.Location = new System.Drawing.Point(15, 68);
             this.lblContent.Name = "lblContent";
-            this.lblContent.Size = new System.Drawing.Size(47, 12);
+            this.lblContent.Size = new System.Drawing.Size(42, 12);
             this.lblContent.TabIndex = 1;
             this.lblContent.Text = "Content";
             // 
             // NewThreadForm
             // 
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 392);
             this.Controls.Add(this.panel);
+            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewThreadForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Text = "New Thread";
+            ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTitle.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbSendMail.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

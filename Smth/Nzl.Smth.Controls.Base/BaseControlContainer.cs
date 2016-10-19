@@ -203,16 +203,18 @@
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+
+#if (DEBUG)
+            ///Degisn mode
+            if (DesignMode)
+            {
+                return;
+            }
+#endif
+
             if (this.GetPanelContainer() == null || this.GetPanel() == null)
             {
-                if (System.ComponentModel.LicenseManager.UsageMode == System.ComponentModel.LicenseUsageMode.Designtime)
-                {
-                    return;
-                }
-                else
-                {
-                    throw new Exception("The PanelControl or the PanelControl container is null!");
-                }
+                throw new Exception("The PanelControl or the PanelControl container is null!");
             }
             
             ///Set BorderStyle.

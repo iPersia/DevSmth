@@ -60,9 +60,9 @@
             this.btnOK.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(130, 344);
+            this.btnOK.Location = new System.Drawing.Point(111, 295);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(87, 27);
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 4;
             this.btnOK.TabStop = false;
             this.btnOK.Text = "OK";
@@ -72,9 +72,9 @@
             // 
             this.rbShowTops.AutoSize = true;
             this.rbShowTops.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbShowTops.Location = new System.Drawing.Point(21, 38);
+            this.rbShowTops.Location = new System.Drawing.Point(18, 33);
             this.rbShowTops.Name = "rbShowTops";
-            this.rbShowTops.Size = new System.Drawing.Size(77, 16);
+            this.rbShowTops.Size = new System.Drawing.Size(66, 14);
             this.rbShowTops.TabIndex = 0;
             this.rbShowTops.Text = "Show tops";
             this.rbShowTops.UseVisualStyleBackColor = true;
@@ -83,9 +83,9 @@
             // 
             this.rbNoTops.AutoSize = true;
             this.rbNoTops.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbNoTops.Location = new System.Drawing.Point(189, 38);
+            this.rbNoTops.Location = new System.Drawing.Point(162, 33);
             this.rbNoTops.Name = "rbNoTops";
-            this.rbNoTops.Size = new System.Drawing.Size(65, 16);
+            this.rbNoTops.Size = new System.Drawing.Size(56, 14);
             this.rbNoTops.TabIndex = 1;
             this.rbNoTops.Text = "No tops";
             this.rbNoTops.UseVisualStyleBackColor = true;
@@ -98,9 +98,9 @@
             this.gcBrowseMode.AppearanceCaption.Options.UseFont = true;
             this.gcBrowseMode.Controls.Add(this.rbNoTops);
             this.gcBrowseMode.Controls.Add(this.rbShowTops);
-            this.gcBrowseMode.Location = new System.Drawing.Point(12, 12);
+            this.gcBrowseMode.Location = new System.Drawing.Point(10, 10);
             this.gcBrowseMode.Name = "gcBrowseMode";
-            this.gcBrowseMode.Size = new System.Drawing.Size(325, 78);
+            this.gcBrowseMode.Size = new System.Drawing.Size(279, 67);
             this.gcBrowseMode.TabIndex = 2;
             this.gcBrowseMode.Text = "Browse Mode";
             // 
@@ -114,9 +114,9 @@
             this.gcTopicType.Controls.Add(this.rbDigest);
             this.gcTopicType.Controls.Add(this.rbClassic);
             this.gcTopicType.Controls.Add(this.rbSubject);
-            this.gcTopicType.Location = new System.Drawing.Point(12, 96);
+            this.gcTopicType.Location = new System.Drawing.Point(10, 82);
             this.gcTopicType.Name = "gcTopicType";
-            this.gcTopicType.Size = new System.Drawing.Size(325, 100);
+            this.gcTopicType.Size = new System.Drawing.Size(279, 86);
             this.gcTopicType.TabIndex = 4;
             this.gcTopicType.Text = "Topic type";
             // 
@@ -124,9 +124,9 @@
             // 
             this.rbReserved.AutoSize = true;
             this.rbReserved.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbReserved.Location = new System.Drawing.Point(189, 67);
+            this.rbReserved.Location = new System.Drawing.Point(162, 57);
             this.rbReserved.Name = "rbReserved";
-            this.rbReserved.Size = new System.Drawing.Size(71, 16);
+            this.rbReserved.Size = new System.Drawing.Size(61, 14);
             this.rbReserved.TabIndex = 7;
             this.rbReserved.Text = "Reserved";
             this.rbReserved.UseVisualStyleBackColor = true;
@@ -135,9 +135,9 @@
             // 
             this.rbDigest.AutoSize = true;
             this.rbDigest.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbDigest.Location = new System.Drawing.Point(21, 68);
+            this.rbDigest.Location = new System.Drawing.Point(18, 58);
             this.rbDigest.Name = "rbDigest";
-            this.rbDigest.Size = new System.Drawing.Size(59, 16);
+            this.rbDigest.Size = new System.Drawing.Size(51, 14);
             this.rbDigest.TabIndex = 6;
             this.rbDigest.Text = "Digest";
             this.rbDigest.UseVisualStyleBackColor = true;
@@ -146,9 +146,9 @@
             // 
             this.rbClassic.AutoSize = true;
             this.rbClassic.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbClassic.Location = new System.Drawing.Point(189, 33);
+            this.rbClassic.Location = new System.Drawing.Point(162, 28);
             this.rbClassic.Name = "rbClassic";
-            this.rbClassic.Size = new System.Drawing.Size(65, 16);
+            this.rbClassic.Size = new System.Drawing.Size(56, 14);
             this.rbClassic.TabIndex = 5;
             this.rbClassic.Text = "Classic";
             this.rbClassic.UseVisualStyleBackColor = true;
@@ -157,9 +157,9 @@
             // 
             this.rbSubject.AutoSize = true;
             this.rbSubject.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbSubject.Location = new System.Drawing.Point(21, 33);
+            this.rbSubject.Location = new System.Drawing.Point(18, 28);
             this.rbSubject.Name = "rbSubject";
-            this.rbSubject.Size = new System.Drawing.Size(65, 16);
+            this.rbSubject.Size = new System.Drawing.Size(56, 14);
             this.rbSubject.TabIndex = 4;
             this.rbSubject.Text = "Subject";
             this.rbSubject.UseVisualStyleBackColor = true;
@@ -174,9 +174,9 @@
             this.gcAutoUpdating.Controls.Add(this.cmbInterval);
             this.gcAutoUpdating.Controls.Add(this.label1);
             this.gcAutoUpdating.Controls.Add(this.ckbAutoUpdating);
-            this.gcAutoUpdating.Location = new System.Drawing.Point(12, 202);
+            this.gcAutoUpdating.Location = new System.Drawing.Point(10, 173);
             this.gcAutoUpdating.Name = "gcAutoUpdating";
-            this.gcAutoUpdating.Size = new System.Drawing.Size(325, 125);
+            this.gcAutoUpdating.Size = new System.Drawing.Size(279, 107);
             this.gcAutoUpdating.TabIndex = 6;
             this.gcAutoUpdating.Text = "Auto Updating in Latest Reply";
             // 
@@ -184,7 +184,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(192, 74);
+            this.labelControl1.Location = new System.Drawing.Point(176, 64);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(12, 12);
             this.labelControl1.TabIndex = 9;
@@ -192,7 +192,7 @@
             // 
             // cmbInterval
             // 
-            this.cmbInterval.Location = new System.Drawing.Point(98, 72);
+            this.cmbInterval.Location = new System.Drawing.Point(92, 61);
             this.cmbInterval.Name = "cmbInterval";
             this.cmbInterval.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbInterval.Properties.Appearance.Options.UseFont = true;
@@ -207,7 +207,7 @@
             "300",
             "600"});
             this.cmbInterval.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbInterval.Size = new System.Drawing.Size(87, 18);
+            this.cmbInterval.Size = new System.Drawing.Size(75, 18);
             this.cmbInterval.TabIndex = 8;
             this.cmbInterval.TabStop = false;
             // 
@@ -215,7 +215,7 @@
             // 
             this.label1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Appearance.Options.UseFont = true;
-            this.label1.Location = new System.Drawing.Point(23, 75);
+            this.label1.Location = new System.Drawing.Point(20, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 12);
             this.label1.TabIndex = 7;
@@ -223,12 +223,12 @@
             // 
             // ckbAutoUpdating
             // 
-            this.ckbAutoUpdating.Location = new System.Drawing.Point(21, 38);
+            this.ckbAutoUpdating.Location = new System.Drawing.Point(18, 33);
             this.ckbAutoUpdating.Name = "ckbAutoUpdating";
             this.ckbAutoUpdating.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ckbAutoUpdating.Properties.Appearance.Options.UseFont = true;
             this.ckbAutoUpdating.Properties.Caption = "Auto updating";
-            this.ckbAutoUpdating.Size = new System.Drawing.Size(119, 19);
+            this.ckbAutoUpdating.Size = new System.Drawing.Size(102, 19);
             this.ckbAutoUpdating.TabIndex = 6;
             this.ckbAutoUpdating.TabStop = false;
             // 
@@ -241,15 +241,17 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(351, 383);
+            this.panelContainer.Size = new System.Drawing.Size(301, 328);
             this.panelContainer.TabIndex = 7;
             // 
             // BoardSettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 383);
+            this.ClientSize = new System.Drawing.Size(301, 328);
             this.Controls.Add(this.panelContainer);
+            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "BoardSettingsForm";
             this.Text = "Settings";

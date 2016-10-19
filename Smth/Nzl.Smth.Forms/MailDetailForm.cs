@@ -1,17 +1,13 @@
 ﻿namespace Nzl.Smth.Forms
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
     using System.Drawing;
-    using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
-    using Nzl.Web.Util;
-    using Nzl.Web.Page;
-    using Nzl.Smth.Datas;
     using Nzl.Smth.Controls.Containers;
+    using Nzl.Smth.Datas;
+    using Nzl.Smth.Utils;
 
     /// <summary>
     /// Class.
@@ -48,6 +44,7 @@
                                  this._mccContainer.Height + this.Height - this.panelContainer.Height + 2);
             this.panelContainer.Controls.Add(this._mccContainer);
 
+            ///
             this.HideWhenDeactivate = false;
 
             ///First loading.
@@ -92,7 +89,7 @@
                 Mail mail = linkLabel.Tag as Mail;
                 if (mail != null)
                 {
-                    string content = GetReplyContent(mail.Title, mail.Content);
+                    string content = SmthUtil.GetReplyContent(mail.Title, mail.Content);
                     NewMailForm newMailForm = new NewMailForm(mail.Author, mail.Title, content);
                     newMailForm.StartPosition = FormStartPosition.CenterParent;
                     this.Tag = null;
@@ -145,59 +142,6 @@
                 userForm.StartPosition = FormStartPosition.CenterParent;
                 userForm.ShowDialog(this);
             }
-        }
-        #endregion
-
-        #region private
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="content"></param>
-        /// <returns></returns>
-        private string GetReplyContent(string id, string content)
-        {
-            if (string.IsNullOrEmpty(content) == false)
-            {
-                Regex regex = new Regex(@"\s*--\sFROM\s[\d, \., \*]+");
-                content = regex.Replace(content, "");
-
-                //删除上层回复
-                regex = new Regex(@"【\s在\s.+\s的大作中提到\: 】");
-                content = new Regex(@"(?m)<a[^>]*>(\w|\W)*?</a[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(content, "");
-                MatchCollection mtCollection = regex.Matches(content);
-                if (mtCollection != null && mtCollection.Count > 0)
-                {
-                    content = content.Substring(0, content.IndexOf(mtCollection[0].Groups[0].Value.ToString()));
-                }
-
-                //替换多次换行
-                content = new Regex(@"[\n]+", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(content, "\n");
-                content = new Regex(@"[\r]+", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(content, "\n");
-
-                //删除尾部换行
-                content = content.TrimEnd('\n');
-
-                //保留一定的回复行数 （saveLastReplyLineCount + 1）
-                mtCollection = new Regex(@"[\n]+", RegexOptions.Multiline | RegexOptions.IgnoreCase).Matches(content);
-                int saveLastReplyLineCount = 5;
-                string tail = string.Empty;
-                string head = "\n\n【 在 " + id + " 的大作中提到: 】\n: ";
-                if (mtCollection != null && mtCollection.Count > saveLastReplyLineCount)
-                {
-                    for (int i = mtCollection.Count; i > saveLastReplyLineCount; i--)
-                    {
-                        content = content.Substring(0, content.LastIndexOf("\n"));
-                    }
-
-                    tail += "\n: ...................";
-                }
-
-                //添加回复头和尾
-                content = head + content.Replace("\n", "\n: ") + tail;
-                return content;
-            }
-
-            return null;
         }
         #endregion
     }

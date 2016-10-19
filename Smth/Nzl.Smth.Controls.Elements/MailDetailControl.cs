@@ -5,6 +5,7 @@ namespace Nzl.Smth.Controls.Elements
     using System.Text;
     using System.Windows.Forms;
     using DevExpress.Utils;
+    using DevExpress.XtraRichEdit.API.Native;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Datas;
 
@@ -121,12 +122,39 @@ namespace Nzl.Smth.Controls.Elements
                     }
 
                     ///Content.
-                    this.richtxtContent.ReadOnly = true;
-                    this.richtxtContent.Clear();
-                    if (mail.Content != null)
+                    ///Add content.
+                    this.richtxtContent.ReadOnly = false;
+                    this.richtxtContent.BeginUpdate();
+                    Document doc = this.richtxtContent.Document;
+                    doc.BeginUpdate();
+                    try
                     {
-                        this.richtxtContent.AppendText(mail.Content);
+                        this.richtxtContent.Text = mail.Content;
+
+                        {
+                            ///Set default font.
+                            {
+                                CharacterProperties cp = doc.BeginUpdateCharacters(0, doc.Length);
+                                cp.FontName = "宋体";
+                                cp.FontSize = 9.0F;
+                                doc.EndUpdateCharacters(cp);
+                            }
+
+                            this.richtxtContent.DeselectAll();
+                        }
                     }
+                    catch
+                    {
+
+                    }
+                    finally
+                    {
+                        doc.EndUpdate();
+                        this.richtxtContent.EndUpdate();
+                    }
+
+
+                    this.richtxtContent.ReadOnly = true;
                 }
                 catch (Exception exp)
                 {

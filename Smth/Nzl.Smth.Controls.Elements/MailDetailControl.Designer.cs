@@ -36,7 +36,7 @@
             this.lblDateTime = new DevExpress.XtraEditors.LabelControl();
             this.linklblReply = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panelDown = new DevExpress.XtraEditors.PanelControl();
-            this.richtxtContent = new Nzl.Controls.RichTextBoxEx();
+            this.richtxtContent = new DevExpress.XtraRichEdit.RichEditControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelUp)).BeginInit();
             this.panelUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelDown)).BeginInit();
@@ -135,17 +135,21 @@
             // 
             // richtxtContent
             // 
-            this.richtxtContent.BackColor = System.Drawing.SystemColors.Control;
-            this.richtxtContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtxtContent.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.richtxtContent.HiglightColor = Nzl.Controls.RtfColor.White;
-            this.richtxtContent.Location = new System.Drawing.Point(13, 14);
+            this.richtxtContent.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.richtxtContent.Appearance.Text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richtxtContent.Appearance.Text.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.richtxtContent.Appearance.Text.Options.UseBackColor = true;
+            this.richtxtContent.Appearance.Text.Options.UseFont = true;
+            this.richtxtContent.Appearance.Text.Options.UseTextOptions = true;
+            this.richtxtContent.Appearance.Text.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.richtxtContent.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.richtxtContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richtxtContent.Location = new System.Drawing.Point(2, 2);
             this.richtxtContent.Name = "richtxtContent";
-            this.richtxtContent.Size = new System.Drawing.Size(674, 460);
-            this.richtxtContent.TabIndex = 12;
-            this.richtxtContent.TabStop = false;
-            this.richtxtContent.Text = "";
-            this.richtxtContent.TextColor = Nzl.Controls.RtfColor.Black;
+            this.richtxtContent.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.richtxtContent.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.richtxtContent.Size = new System.Drawing.Size(696, 487);
+            this.richtxtContent.TabIndex = 13;
             // 
             // MailDetailControl
             // 
@@ -165,7 +169,6 @@
         }
 
         #endregion
-        private Nzl.Controls.RichTextBoxEx richtxtContent;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblDelete;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblTransfer;
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblReply;
@@ -174,5 +177,6 @@
         private DevExpress.XtraEditors.HyperlinkLabelControl linklblID;
         private DevExpress.XtraEditors.PanelControl panelUp;
         private DevExpress.XtraEditors.PanelControl panelDown;
+        private DevExpress.XtraRichEdit.RichEditControl richtxtContent;
     }
 }

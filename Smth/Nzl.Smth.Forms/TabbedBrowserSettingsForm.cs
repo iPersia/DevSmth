@@ -233,6 +233,11 @@
         }
         #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClearCache_Click(object sender, EventArgs e)
         {
             Nzl.Repository.Repository.Clear();

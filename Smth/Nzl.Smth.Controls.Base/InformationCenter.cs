@@ -24,6 +24,11 @@
         /// 
         /// </summary>
         private static System.Threading.Mutex _staticMutexWaitFormShowing = new System.Threading.Mutex();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static bool _staticIsRunning = true;
         #endregion
 
         /// <summary>
@@ -31,7 +36,23 @@
         /// </summary>
         static InformationCenter()
         {
+            
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static void ThreadStart()
+        {
             (new Thread(Run)).Start();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static void ThreadStop()
+        {
+            _staticIsRunning = false;
         }
 
         /// <summary>
@@ -55,7 +76,7 @@
         /// </summary>
         private static void Run()
         {
-            while (true)
+            while (_staticIsRunning)
             {
                 try
                 {
@@ -79,7 +100,7 @@
                         }
                     }
 
-                    Thread.Sleep(10);
+                    Thread.Sleep(100);
                 }
                 catch
                 {

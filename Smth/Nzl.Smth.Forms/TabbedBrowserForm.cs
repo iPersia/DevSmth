@@ -173,6 +173,9 @@
             this._entryAssemblyTitle = this.GetEntryAssemblyTitle();
             this.Text = Configuration.ApplicationTitle;
 
+            ///
+            Nzl.Smth.Controls.Base.InformationCenter.ThreadStart();
+
 #if (DEBUG)
             ////Just for testing.
             {

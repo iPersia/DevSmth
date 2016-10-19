@@ -19,7 +19,7 @@ md Smth
 echo move dll to directory
 
 move DevExpress.*.dll ./DevExpress
-move Nzl.Smth.*.dll ./Smth
+move Nzl.Smth*.dll ./Smth
 move Nzl.*.dll ./Components
 
 echo All is done!

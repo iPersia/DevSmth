@@ -944,27 +944,7 @@
 
             return null;
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="text"></param>
-        private void ShowInformationInPanel(string text)
-        {
-            PanelControl baseControlContainer = this.GetPanel();
-            if (baseControlContainer != null)
-            {
-                Label lbl = new Label();
-                lbl.AutoSize = true;
-                lbl.Text = text;
-                baseControlContainer.Controls.Add(lbl);
-                lbl.Top = 30;
-                lbl.Left = (baseControlContainer.Width - lbl.Width) / 2;
-                baseControlContainer.Height = 60 + lbl.Height;
-                baseControlContainer.Top = Configuration.BaseControlContainerLocationMargin;
-            }
-        }
-
+        
         /// <summary>
         /// 
         /// </summary>

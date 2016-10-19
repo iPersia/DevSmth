@@ -33,13 +33,9 @@
         MessageCenterForm()
         {
             InitializeComponent();
-            this._updatingTimer.Interval = 1000;
-            this._updatingTimer.Tick += _updatingTimer_Tick;
-            this._updatingTimer.Start();
 
 #if (DEBUG)
             this.panelUp.Height = 360;
-            this.panelUp.Height = 25;
 #else            
             this.panelUp.Height = 25;
             this.txtCache.ReadOnly = true;
@@ -55,16 +51,16 @@
         {
             if (this.Visible)
             {
-                this.txtCache.Clear();
+                this.txtCache.Text = "";
 #if (DEBUG)
-                this.txtCache.AppendText("PageDispatcher queue count is "
-                                       + PageDispatcher.Instance.Count
-                                       + "\n"
-                                       + Nzl.Recycling.RecycledQueues.GetStatistics());
+                this.txtCache.Document.AppendText("PageDispatcher queue count is "
+                                                 + PageDispatcher.Instance.Count
+                                                 + "\n"
+                                                 + Nzl.Recycling.RecycledQueues.GetStatistics());
 #else
-                this.txtCache.AppendText("The number of page which will be fetched in queue is "
-                                       + PageDispatcher.Instance.Count 
-                                       + "!");
+                this.txtCache.Document.AppendText("The number of page which will be fetched in queue is "
+                                                 + PageDispatcher.Instance.Count 
+                                                 + "!");
 #endif
             }
         }
@@ -86,11 +82,17 @@
         {
             base.OnShown(e);
 
+            ///Message queue.
             this.bgwMessager.WorkerReportsProgress = true;
             this.bgwMessager.DoWork +=new DoWorkEventHandler(bgwMessager_DoWork);
             this.bgwMessager.ProgressChanged += new ProgressChangedEventHandler(bgwMessager_ProgressChanged);
             this.bgwMessager.RunWorkerCompleted +=new RunWorkerCompletedEventHandler(bgwMessager_RunWorkerCompleted);
             this.bgwMessager.RunWorkerAsync();
+            
+            ///Page queue.
+            this._updatingTimer.Interval = 1000;
+            this._updatingTimer.Tick += _updatingTimer_Tick;
+            this._updatingTimer.Start();
         }
 
         /// <summary>
@@ -137,8 +139,8 @@
             Nzl.Messaging.Message msg = e.UserState as Nzl.Messaging.Message;
             if (msg != null)
             {
-                this.txtMsg.AppendText(msg.DateTime.TimeOfDay.ToString() + "\t\t" + msg.Source + "\n");
-                this.txtMsg.AppendText(msg.Detail + "\n");
+                this.txtMsg.Document.AppendText(msg.DateTime.TimeOfDay.ToString() + "\t\t" + msg.Source + Environment.NewLine);
+                this.txtMsg.Document.AppendText(msg.Detail + Environment.NewLine);
             }
         }
 
@@ -151,11 +153,11 @@
         {
             if (e.Error != null)
             {
-                this.txtMsg.AppendText(e.Error.Message);
+                this.txtMsg.Document.AppendText(e.Error.Message);
             }
             else if (e.Cancelled)
             {
-                this.txtMsg.AppendText("MessageQueue Error!");
+                this.txtMsg.Document.AppendText("MessageQueue Error!");
             }
         }
 

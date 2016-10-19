@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.bgwMessager = new System.ComponentModel.BackgroundWorker();
-            this.txtMsg = new Nzl.Controls.RichTextBoxEx();
+            this.txtMsg = new DevExpress.XtraRichEdit.RichEditControl();
             this.panelUp = new DevExpress.XtraEditors.PanelControl();
-            this.txtCache = new Nzl.Controls.RichTextBoxEx();
+            this.txtCache = new DevExpress.XtraRichEdit.RichEditControl();
             this.panelDown = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelUp)).BeginInit();
             this.panelUp.SuspendLayout();
@@ -41,17 +41,18 @@
             // 
             // txtMsg
             // 
+            this.txtMsg.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtMsg.Appearance.Text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMsg.Appearance.Text.Options.UseFont = true;
             this.txtMsg.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMsg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMsg.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMsg.HiglightColor = Nzl.Controls.RtfColor.White;
             this.txtMsg.Location = new System.Drawing.Point(2, 2);
             this.txtMsg.Name = "txtMsg";
+            this.txtMsg.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.txtMsg.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
             this.txtMsg.ReadOnly = true;
             this.txtMsg.Size = new System.Drawing.Size(780, 351);
             this.txtMsg.TabIndex = 0;
-            this.txtMsg.Text = "";
-            this.txtMsg.TextColor = Nzl.Controls.RtfColor.Black;
             // 
             // panelUp
             // 
@@ -64,17 +65,18 @@
             // 
             // txtCache
             // 
+            this.txtCache.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtCache.Appearance.Text.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCache.Appearance.Text.Options.UseFont = true;
             this.txtCache.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCache.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCache.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCache.HiglightColor = Nzl.Controls.RtfColor.White;
             this.txtCache.Location = new System.Drawing.Point(2, 2);
             this.txtCache.Name = "txtCache";
+            this.txtCache.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
+            this.txtCache.Options.VerticalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
             this.txtCache.ReadOnly = true;
             this.txtCache.Size = new System.Drawing.Size(780, 202);
             this.txtCache.TabIndex = 1;
-            this.txtCache.Text = "";
-            this.txtCache.TextColor = Nzl.Controls.RtfColor.Black;
             // 
             // panelDown
             // 
@@ -109,10 +111,10 @@
 
         #endregion
 
-        private Nzl.Controls.RichTextBoxEx txtMsg;
+        private DevExpress.XtraRichEdit.RichEditControl txtMsg;
         private System.ComponentModel.BackgroundWorker bgwMessager;
         private DevExpress.XtraEditors.PanelControl panelUp;
         private DevExpress.XtraEditors.PanelControl panelDown;
-        private Nzl.Controls.RichTextBoxEx txtCache;
+        private DevExpress.XtraRichEdit.RichEditControl txtCache;
     }
 }

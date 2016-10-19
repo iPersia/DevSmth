@@ -80,6 +80,8 @@
         TabbedBrowserForm()
         {
             InitializeComponent();
+
+            ///
             LogStatus.Instance.OnLoginStatusChanged += LogStatusInstance_OnLoginStatusChanged;
             AtStatus.Instance.OnNewArrived += AtStatusInstance_OnNewArrived;
             MailStatus.Instance.OnNewArrived += MailStatusInstance_OnNewArrived;
@@ -170,7 +172,6 @@
             LoginForm.Instance.OnLogoutFailed += LoginForm_OnLogoutFailed;
             this._entryAssemblyTitle = this.GetEntryAssemblyTitle();
             this.Text = Configuration.ApplicationTitle;
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(Configuration.SkinName);  // 设置皮肤样式
 
 #if (DEBUG)
             ////Just for testing.
@@ -224,7 +225,7 @@
                 ThreadControlContainer tbc = RecycledQueues.GetRecycled<ThreadControlContainer>();
                 if (tbc == null)
                 {
-                    
+
                     tbc = new ThreadControlContainer();
                 }
 
@@ -234,7 +235,7 @@
                 tbc.Dock = DockStyle.Fill;
                 tbc.OnThreadDeleteLinkClicked += Common_OnThreadDeleteLinkClicked;
                 tbc.OnThreadEditLinkClicked += Common_OnThreadEditLinkClicked;
-                tbc.OnThreadMailLinkClicked += Common_OnThreadMailLinkClicked;                
+                tbc.OnThreadMailLinkClicked += Common_OnThreadMailLinkClicked;
                 tbc.OnThreadQueryTypeLinkClicked += ThreadControlContainer_OnThreadQueryTypeLinkClicked;
                 tbc.OnThreadReplyLinkClicked += Common_OnThreadReplyLinkClicked;
                 tbc.OnThreadTransferLinkClicked += Common_OnThreadTransferLinkClicked;
@@ -288,7 +289,7 @@
         /// <param name="e"></param>
         private void ThreadControlContainer_OnBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            DevExpress.XtraBars.BarManager bm= sender as DevExpress.XtraBars.BarManager;
+            DevExpress.XtraBars.BarManager bm = sender as DevExpress.XtraBars.BarManager;
             if (bm != null)
             {
                 this.AddBoard(e.Link, TopicBrowserType.Subject, e.Text);
@@ -322,7 +323,7 @@
         /// <param name="e"></param>
         private void ThreadControlContainer_OnThreadQueryTypeLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (hlc != null)
             {
                 string userID = Nzl.Web.Util.CommonUtil.GetMatch(@"au=(?'ID'[a-zA-z][a-zA-Z0-9]{1,11})", e.Link, 1);
@@ -451,7 +452,7 @@
         /// <param name="e"></param>
         private void TopicControlContainer_OnPostLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (hlc != null)
             {
                 this.AddPost(e.Link, hlc.PlainText);
@@ -466,7 +467,7 @@
         /// <param name="e"></param>
         private void TopicControlContainer_OnTopicLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (hlc != null)
             {
                 this.AddTopic(e.Link, hlc.PlainText);
@@ -547,7 +548,7 @@
                 this.AddTopic(e.Link, hlc.Tag.ToString());
             }
         }
-       
+
         /// <summary>
         /// 
         /// </summary>
@@ -569,7 +570,7 @@
         /// <param name="e"></param>
         private void PostControlContainer_OnBoardClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (hlc != null)
             {
                 this.AddBoard(e.Link, TopicBrowserType.Classic, hlc.PlainText);
@@ -587,9 +588,9 @@
         {
             lock (this.xtcBrowser)
             {
-                foreach(XtraTabPage xtp in this.xtcBrowser.TabPages)
+                foreach (XtraTabPage xtp in this.xtcBrowser.TabPages)
                 {
-                    if (xtp.Name==ctlName)
+                    if (xtp.Name == ctlName)
                     {
                         return xtp;
                     }
@@ -695,7 +696,7 @@
             }
         }
 
-         /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="sender"></param>
@@ -722,7 +723,7 @@
                 this.AddPost(e.Link, hlc.PlainText);
             }
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -907,7 +908,7 @@
         /// <param name="e"></param>
         private void Top10sForm_OnTopBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (hlc != null)
             {
                 this.AddBoard(e.Link, TopicBrowserType.Subject, hlc.PlainText);
@@ -921,7 +922,7 @@
         /// <param name="e"></param>
         private void Top10sForm_OnTopLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            HyperlinkLabelControl hlc= sender as HyperlinkLabelControl;
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (hlc != null)
             {
                 this.AddTopic(e.Link, hlc.PlainText);
@@ -1464,7 +1465,7 @@
                 }
             }
             return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
-        }        
+        }
 
         /// <summary>
         /// 

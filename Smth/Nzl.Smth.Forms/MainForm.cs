@@ -46,6 +46,49 @@
         /// <summary>
         /// 
         /// </summary>
+        private void Initializing()
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(delegate ()
+                {
+                    this.Initializing();
+                }));
+            }
+            else
+            {
+                ///DevExpress default setting.
+                SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "default application settings");
+                DevExpress.Utils.AppearanceObject.DefaultFont = new System.Drawing.Font("宋体", 9);
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-CHS");//使用DEV汉化资源文件
+                                                                                                                        //设置程序区域语言设置中日期格式
+                System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("zh-CHS");
+                System.Globalization.DateTimeFormatInfo di = (System.Globalization.DateTimeFormatInfo)System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.Clone();
+                di.DateSeparator = "-";
+                di.ShortDatePattern = "yyyy-MM-dd";
+                di.LongDatePattern = "yyyy'年'M'月'd'日'";
+                di.ShortTimePattern = "H:mm:ss";
+                di.LongTimePattern = "H'时'mm'分'ss'秒'";
+                ci.DateTimeFormat = di;
+                System.Threading.Thread.CurrentThread.CurrentCulture = ci;
+
+                ///Should excute before loading of TabbedBrowserForm.Instance.
+                SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "user settings");
+                TabbedBrowserSettingsForm.Instance.LoadSettings();
+
+                ///Set the skin.
+                SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "skins");
+                DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(Configuration.SkinName);
+
+                ///Loading the browser
+                SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "browser");
+                TabbedBrowserForm.Instance.CreateControl();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -76,7 +119,11 @@
         {
             try
             {
+                ///Initializing the controls.
                 this.AddControls(this.GetInitializingControls());
+
+                ///Initializing the forms.
+                this.Initializing();
             }
             catch
             { }
@@ -158,11 +205,6 @@
                 }
             }
         }
-
-        private void LoginFormInstance_OnLoginFailed(object sender, MessageEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
         #endregion
 
         #region override
@@ -177,10 +219,7 @@
             ///Hide the main form.
             this.Hide();
             this.ShowInTaskbar = false;
-            this.nfiMain.Visible = true;
-
-            ///Should excute before loading of TabbedBrowserForm.Instance.
-            TabbedBrowserSettingsForm.Instance.LoadSettings();
+            this.nfiMain.Visible = true;            
         }
         #endregion
 

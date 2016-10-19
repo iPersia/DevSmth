@@ -42,21 +42,6 @@
                 AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
                 ////应用程序的主入口点
-                #region 设置DevExpress默认字体、日期格式、汉化
-                DevExpress.Utils.AppearanceObject.DefaultFont = new System.Drawing.Font("宋体", 9);
-                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("zh-CHS");//使用DEV汉化资源文件
-                                                                                                                        //设置程序区域语言设置中日期格式
-                System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("zh-CHS");
-                System.Globalization.DateTimeFormatInfo di = (System.Globalization.DateTimeFormatInfo)System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.Clone();
-                di.DateSeparator = "-";
-                di.ShortDatePattern = "yyyy-MM-dd";
-                di.LongDatePattern = "yyyy'年'M'月'd'日'";
-                di.ShortTimePattern = "H:mm:ss";
-                di.LongTimePattern = "H'时'mm'分'ss'秒'";
-                ci.DateTimeFormat = di;
-                System.Threading.Thread.CurrentThread.CurrentCulture = ci;
-                #endregion
-
 #if (DEBUG)
                 Application.Run(new MainForm());
                 //Application.Run(new TestForm());
@@ -70,11 +55,15 @@
                     }
                     else
                     {
-                        MessageForm msg = new MessageForm("Information", "The application is already running!");
-                        msg.StartPosition = FormStartPosition.CenterScreen;
-                        msg.ShowDialog();
+                        MessageBox.Show("The application is already running!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         System.Threading.Thread.Sleep(1000);
                         System.Environment.Exit(1);
+                        //MessageForm msg = new MessageForm("Information", "The application is already running!");
+                        //msg.TopMost = true;
+                        //msg.StartPosition = FormStartPosition.CenterScreen;
+                        //msg.ShowDialog();
+                        //System.Threading.Thread.Sleep(1000);
+                        //System.Environment.Exit(1);
                     }
                 }
 #endif

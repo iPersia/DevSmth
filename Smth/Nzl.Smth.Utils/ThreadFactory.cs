@@ -108,6 +108,16 @@
         /// <returns></returns>
         public static IList<Thread> CreateThreads(WebPage page)
         {
+            return CreateThreads(page, true);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="html"></param>
+        /// <returns></returns>
+        public static IList<Thread> CreateThreads(WebPage page, bool isGettingImage)
+        {
             try
             {
                 MatchCollection mtContentCollection = CommonUtil.GetMatchCollection("<div class=\"sp\">", page.Html);
@@ -135,23 +145,31 @@
                                 string content = thread.Content;
                                 thread.Tag = content;
                                 IList<string> imageUrls = GetImageUrls(ref content);
-                                if (imageUrls.Count > 0)
+                                if (isGettingImage)
                                 {
-                                    thread.ImageUrls = imageUrls;
-                                    foreach (string imageUrl in imageUrls)
-                                    {
-                                        CommonUtil.GetWebImage(imageUrl);
-                                    }
-                                }                               
-
-                                IList<string> iconUrls = GetIconUrls(ref content);
-                                if (iconUrls.Count > 0)
-                                {
-                                    foreach (string iconUrl in iconUrls)
-                                    {
-                                        CommonUtil.GetWebImage(iconUrl);
+                                    if (imageUrls.Count > 0)
+                                    {                                        
+                                        foreach (string imageUrl in imageUrls)
+                                        {
+                                            CommonUtil.GetWebImage(imageUrl);
+                                        }
                                     }
                                 }
+
+                                IList<string> iconUrls = GetIconUrls(ref content);
+                                if (isGettingImage)
+                                {                                    
+                                    if (iconUrls.Count > 0)
+                                    {
+                                        foreach (string iconUrl in iconUrls)
+                                        {
+                                            CommonUtil.GetWebImage(iconUrl);
+                                        }
+                                    }
+                                }
+
+                                thread.ImageUrls = imageUrls;
+                                thread.IconUrls = iconUrls;
                             }
                         }
                     }

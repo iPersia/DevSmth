@@ -3,9 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Drawing;
     using Nzl.Smth.Datas;
     using Nzl.Smth.Utils;
     using Nzl.Web.Page;
+    using Nzl.Web.Util;
 
     /// <summary>
     /// 
@@ -259,7 +261,7 @@
             {
                 BackgroundWorker bw = sender as BackgroundWorker;
                 WebPage wp = e.Argument as WebPage;
-                IList<Thread> threads = ThreadFactory.CreateThreads(wp);
+                IList<Thread> threads = ThreadFactory.CreateThreads(wp, false);
                 PictureTopic pt = new PictureTopic();
                 pt.Title = SmthUtil.GetTopic(wp);
                 foreach (Thread thread in threads)
@@ -268,7 +270,12 @@
                     {
                         foreach (string url in thread.ImageUrls)
                         {
-                            pt.PictureUrls.Add(url);
+                            string largeImageUrl = url.Replace("/middle", "");
+                            Image image = CommonUtil.GetWebImage(largeImageUrl);
+                            if (image != null)
+                            {
+                                pt.PictureUrls.Add(largeImageUrl);
+                            }
                         }
                     }
                 }

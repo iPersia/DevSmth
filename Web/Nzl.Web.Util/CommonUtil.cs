@@ -463,13 +463,14 @@
                                 Repository.Add<Image>(url, image);
                             }
 
+                            return image;
                         }                        
                     }
                 }
 
                 return null;
             }
-            catch
+            catch (Exception exp)
             {
                 return null;
             }

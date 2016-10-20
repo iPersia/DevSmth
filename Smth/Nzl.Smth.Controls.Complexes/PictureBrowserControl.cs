@@ -21,11 +21,6 @@
         /// </summary>
         private LinkedListNode<PictureTopic> _currentPictureTopicNode = null;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private int _imageIndex = 0;
-
         #region Ctor.
         /// <summary>
         /// 
@@ -48,27 +43,35 @@
             this._currentPictureTopicNode = PictureTopicLoader.Instance.PictureTopics.First;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void RefreshEx()
         {
-            this._imageIndex = 0;
-            this.imageSlider.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.MiddleCenter;
             if (this._currentPictureTopicNode != null)
             {
-                this.labelControl1.Text = this._currentPictureTopicNode.Value.Title;
-                this.imageSlider.Images.Clear();
-                foreach(string url in this._currentPictureTopicNode.Value.PictureUrls)
-                {
-                    this.imageSlider.Images.Add(Nzl.Repository.Repository.GetValue<Image>(url));
-                }
-
-                //this.picture.Image = Nzl.Repository.Repository.GetValue<Image>(this._currentPictureTopicNode.Value.PictureUrls[_imageIndex]);
+                this.Set(this._currentPictureTopicNode.Value);
             }
             else
             {
                 this._currentPictureTopicNode = this._currentPictureTopicNode = PictureTopicLoader.Instance.PictureTopics.First;
             }
-            
-            this.JudgeImageIndex();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void Set(PictureTopic pt)
+        {
+            if (pt != null)
+            {
+                this.labelControl1.Text = pt.Title;
+                this.imageSlider.Images.Clear();
+                foreach (string url in pt.PictureUrls)
+                {
+                    this.imageSlider.Images.Add(Nzl.Repository.Repository.GetValue<Image>(url));
+                }
+            }
         }
 
         #region eventhandler
@@ -91,7 +94,7 @@
                     pc.Height = 50;
                 }
 
-                if (pc.Name== "panelDown" && pc.Height != 80)
+                if (pc.Name == "panelDown" && pc.Height != 80)
                 {
                     pc.Height = 80;
 
@@ -111,38 +114,15 @@
             }
         }
         #endregion
-
-        private void pictureRight_Click(object sender, EventArgs e)
-        {
-            _imageIndex++;
-            this.JudgeImageIndex();
-            if (_imageIndex < this._currentPictureTopicNode.Value.PictureUrls.Count)
-            {
-                //this.picture.Image = Nzl.Repository.Repository.GetValue<Image>(this._currentPictureTopicNode.Value.PictureUrls[_imageIndex]);
-            }
-        }
-
-        private void pictureLeft_Click(object sender, EventArgs e)
-        {
-            _imageIndex--;
-            this.JudgeImageIndex();
-            if (_imageIndex >= 0)
-            {
-                //this.picture.Image = Nzl.Repository.Repository.GetValue<Image>(this._currentPictureTopicNode.Value.PictureUrls[_imageIndex]);
-            }
-        }
-
+        
         /// <summary>
         /// 
         /// </summary>
-        private void JudgeImageIndex()
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void picture_PopupMenuShowing(object sender, DevExpress.XtraEditors.Events.PopupMenuShowingEventArgs e)
         {
-            _imageIndex = _imageIndex < 0 ? 0 : _imageIndex;
-            _imageIndex = _imageIndex > this._currentPictureTopicNode.Value.PictureUrls.Count - 1 ? this._currentPictureTopicNode.Value.PictureUrls.Count - 1 : _imageIndex;
-
-
-            this.pictureLeft.Visible = _imageIndex != 0;
-            this.pictureRight.Visible = _imageIndex != this._currentPictureTopicNode.Value.PictureUrls.Count - 1;
+            e.Cancel = true;
         }
 
         /// <summary>
@@ -150,33 +130,40 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pictureDownLeft_Click(object sender, EventArgs e)
+        private void pictureRight_MouseClick(object sender, MouseEventArgs e)
         {
-            if (this._currentPictureTopicNode.Previous != PictureTopicLoader.Instance.PictureTopics.First)
+            if (e.Button == MouseButtons.Left)
             {
-                this._currentPictureTopicNode = this._currentPictureTopicNode.Previous;
-            }
+                if (this._currentPictureTopicNode != null)
+                {
+                    if (this._currentPictureTopicNode != PictureTopicLoader.Instance.PictureTopics.Last)
+                    {
+                        this._currentPictureTopicNode = this._currentPictureTopicNode.Next;
+                    }
+                    else
+                    {
+                        PictureTopicLoader.Instance.LoadNext();
+                    }
+                }
 
-            this.RefreshEx();
+                this.RefreshEx();
+            }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void pictureDownRight_Click(object sender, EventArgs e)
+        private void pictureLeft_MouseClick(object sender, MouseEventArgs e)
         {
-            if (this._currentPictureTopicNode != PictureTopicLoader.Instance.PictureTopics.Last)
+            if (e.Button == MouseButtons.Left)
             {
-                this._currentPictureTopicNode = this._currentPictureTopicNode.Next;
-            }
-            else
-            {
-                PictureTopicLoader.Instance.LoadNext();
-            }
+                if (this._currentPictureTopicNode != null)
+                {
+                    if (this._currentPictureTopicNode.Previous != PictureTopicLoader.Instance.PictureTopics.First)
+                    {
+                        this._currentPictureTopicNode = this._currentPictureTopicNode.Previous;
+                    }
+                }
 
-            this.RefreshEx();
+                this.RefreshEx();
+            }
         }
     }
 }

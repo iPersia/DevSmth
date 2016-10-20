@@ -72,9 +72,33 @@
             }
             else
             {
-                ///Loading the browser
-                SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "browser");
-                TabbedBrowserForm.Instance.CreateControl();
+                /////Loading the board components
+                //SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "board navigator");
+                //BoardNavigatorForm.Instance.Validate();
+
+                /////Loading the favor components
+                //SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "favor components");
+                //FavorForm.Instance.CreateControl();
+
+                /////Loading the login components
+                //SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "login components");
+                //LoginForm.Instance.CreateControl();
+
+                /////Loading the mailbox components
+                //SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "mailbox components");
+                //MailBoxForm.Instance.CreateControl();
+
+                /////Loading the refer components
+                //SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "refer components");
+                //ReferForm.Instance.CreateControl();
+
+                ///Loading the main browser
+                //SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "main browser");
+                //TabbedBrowserForm.Instance.CreateControl();
+
+                /////Loading the settings components
+                //SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "settings components");
+                //TabbedBrowserSettingsForm.Instance.CreateControl();
             }
         }
 
@@ -85,6 +109,47 @@
         /// <param name="e"></param>
         private void Bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            ///Loading the board components
+            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "board navigator");
+            System.Threading.Thread.Sleep(0);
+            BoardNavigatorForm.Instance.CreateControl();
+            System.Threading.Thread.Sleep(0);
+
+            ///Loading the favor components
+            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "favor components");
+            System.Threading.Thread.Sleep(0);
+            FavorForm.Instance.CreateControl();
+            
+            ///Loading the login components
+            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "login components");
+            System.Threading.Thread.Sleep(0);
+            LoginForm.Instance.CreateControl();
+            System.Threading.Thread.Sleep(0);
+
+            ///Loading the mailbox components
+            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "mailbox components");
+            System.Threading.Thread.Sleep(0);
+            MailBoxForm.Instance.CreateControl();
+            System.Threading.Thread.Sleep(0);
+
+            ///Loading the refer components
+            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "refer components");
+            System.Threading.Thread.Sleep(0);
+            ReferForm.Instance.CreateControl();
+            System.Threading.Thread.Sleep(0);
+
+            /// Loading the main browser
+            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "main browser");
+            System.Threading.Thread.Sleep(0);
+            TabbedBrowserForm.Instance.CreateControl();
+            System.Threading.Thread.Sleep(0);
+
+            ///Loading the settings components
+            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "settings components");
+            System.Threading.Thread.Sleep(0);
+            TabbedBrowserSettingsForm.Instance.CreateControl();
+            System.Threading.Thread.Sleep(0);
+
             ///Initializing is completed.
             SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loaded, null);
             System.Threading.Thread.Sleep(1000);
@@ -238,19 +303,20 @@
                 return;
             }
 
-            e.Cancel = MessageBox.Show(this,
-                                      "There exists some window active, do you want close the form?",
-                                      "Warning",
-                                      MessageBoxButtons.YesNo,
-                                      MessageBoxIcon.Warning) != System.Windows.Forms.DialogResult.Yes;
+            MessageForm form = new MessageForm("Warning", "There exists some window active, do you want close the form?");
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.TopMost = true;
+            e.Cancel = form.ShowDialog(this) == System.Windows.Forms.DialogResult.Cancel;
 
-            if (e.Cancel == true)
+            if (e.Cancel)
             {
                 return;
             }
 
             try
             {
+                Nzl.Smth.Controls.Base.InformationCenter.ThreadStop();
+
                 TabbedBrowserForm.Instance.Hide();
                 TabbedBrowserForm.Instance.Clear();
                 TabbedBrowserForm.Instance.Dispose();

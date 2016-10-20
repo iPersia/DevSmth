@@ -32,7 +32,7 @@ namespace Nzl.Smth.Forms
             if (ssCmd == SplashScreenCommand.Loaded)
             {
                 string status = arg as string;
-                this.lblMsg.Text = "Initializing is completed, the browser will be shown!";
+                this.lblMsg.Text = "Initializing is completed!";
             }
         }
 

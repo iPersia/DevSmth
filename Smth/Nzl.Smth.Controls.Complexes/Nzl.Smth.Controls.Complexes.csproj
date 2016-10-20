@@ -45,11 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PictureBrowserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PictureBrowserControl.Designer.cs">
+      <DependentUpon>PictureBrowserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="LoginControl.Designer.cs">
       <DependentUpon>LoginControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ReferControl.cs">
       <SubType>UserControl</SubType>
@@ -72,10 +83,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="PictureBrowserControl.resx">
+      <DependentUpon>PictureBrowserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginControl.resx">
       <DependentUpon>LoginControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReferControl.resx">
       <DependentUpon>ReferControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +112,10 @@
     <ProjectReference Include="..\..\Components\Nzl.Log4Net\Nzl.Log4Net.csproj">
       <Project>{181fe707-e161-4722-9f38-6aaab6faa106}</Project>
       <Name>Nzl.Log4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\Nzl.Repository\Nzl.Repository.csproj">
+      <Project>{34e73dff-0b1d-4820-9df9-f9efe29e23ac}</Project>
+      <Name>Nzl.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Components\Nzl.Util\Nzl.Utils.csproj">
       <Project>{b9de9cff-d84e-4bf9-a615-cf7f4519f139}</Project>
@@ -118,6 +140,10 @@
     <ProjectReference Include="..\Nzl.Smth.Controls.Base\Nzl.Smth.Controls.Base.csproj">
       <Project>{08b0d4de-d38a-466d-8afc-e436bb30e4a6}</Project>
       <Name>Nzl.Smth.Controls.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nzl.Smth.Datas\Nzl.Smth.Datas.csproj">
+      <Project>{bbc9010b-cb89-4f7e-b418-5b653e5eb005}</Project>
+      <Name>Nzl.Smth.Datas</Name>
     </ProjectReference>
     <ProjectReference Include="..\Nzl.Smth.Loaders\Nzl.Smth.Loaders.csproj">
       <Project>{091bca06-33fb-4785-8169-81cc64deab80}</Project>

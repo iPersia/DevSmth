@@ -45,6 +45,7 @@
     <Compile Include="ImageStreamProvider.cs" />
     <Compile Include="LogStatus.cs" />
     <Compile Include="AtStatus.cs" />
+    <Compile Include="PictureTopicLoader.cs" />
     <Compile Include="ReplyStatus.cs" />
     <Compile Include="PostLoader.cs" />
     <Compile Include="MailStatus.cs" />

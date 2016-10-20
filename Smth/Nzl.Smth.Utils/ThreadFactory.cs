@@ -137,11 +137,12 @@
                                 IList<string> imageUrls = GetImageUrls(ref content);
                                 if (imageUrls.Count > 0)
                                 {
+                                    thread.ImageUrls = imageUrls;
                                     foreach (string imageUrl in imageUrls)
                                     {
                                         CommonUtil.GetWebImage(imageUrl);
                                     }
-                                }
+                                }                               
 
                                 IList<string> iconUrls = GetIconUrls(ref content);
                                 if (iconUrls.Count > 0)

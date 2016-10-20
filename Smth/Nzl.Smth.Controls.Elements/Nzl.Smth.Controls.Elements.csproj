@@ -69,6 +69,12 @@
       <DependentUpon>AtControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlUtil.cs" />
+    <Compile Include="ImageBrowserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImageBrowserControl.Designer.cs">
+      <DependentUpon>ImageBrowserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

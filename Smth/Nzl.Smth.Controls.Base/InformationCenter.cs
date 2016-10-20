@@ -88,6 +88,7 @@
                             _staticIsWaitFormShown = true;
                         }
 
+                        Thread.Sleep(0);
                         DevExpress.XtraSplashScreen.SplashScreenManager.Default.SetWaitFormDescription(_staticMsgQueue.Dequeue());
                     }
                     else

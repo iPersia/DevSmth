@@ -177,6 +177,12 @@
             Nzl.Smth.Controls.Base.InformationCenter.ThreadStart();
 
 #if (DEBUG)
+            this.bbiMessage.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+#else
+            this.bbiMessage.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+#endif
+
+#if (DEBUG)
             ////Just for testing.
             {
             }
@@ -190,10 +196,10 @@
             base.OnShown(e);
             this.TopicReply_PageLoaded(this, new EventArgs());
         }
-#endif       
-        #endregion
+#endif
+#endregion
 
-        #region Topic
+#region Topic
         /// <summary>
         /// 
         /// </summary>
@@ -336,9 +342,9 @@
                 //e.Link.Visited = true;
             }
         }
-        #endregion
+#endregion
 
-        #region Board
+#region Board
         /// <summary>
         /// 
         /// </summary>
@@ -477,9 +483,9 @@
                 //e.Link.Visited = true;
             }
         }
-        #endregion
+#endregion
 
-        #region Post
+#region Post
         /// <summary>
         /// 
         /// </summary>
@@ -579,9 +585,9 @@
                 this.AddBoard(e.Link, TopicBrowserType.Classic, hlc.PlainText);
             }
         }
-        #endregion
+#endregion
 
-        #region TabPages
+#region TabPages
         /// <summary>
         /// 
         /// </summary>
@@ -667,9 +673,9 @@
             tp.Controls.Clear();
             tp.Dispose();
         }
-        #endregion
+#endregion
 
-        #region Event handler
+#region Event handler
         /// <summary>
         /// 
         /// </summary>
@@ -1095,9 +1101,9 @@
                 this._checkNewInforTimer.Stop();
             }
         }
-        #endregion
+#endregion
 
-        #region Common
+#region Common
         /// <summary>
         /// 
         /// </summary>
@@ -1291,9 +1297,9 @@
                 }
             }
         }
-        #endregion
+#endregion
 
-        #region Private
+#region Private
         /// <summary>
         /// 
         /// </summary>
@@ -1479,6 +1485,6 @@
         {
             return "tp" + url;
         }
-        #endregion
+#endregion
     }
 }

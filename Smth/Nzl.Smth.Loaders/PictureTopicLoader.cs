@@ -34,10 +34,14 @@
         /// <summary>
         /// 
         /// </summary>
+        private Dictionary<string, PictureTopic> _dicPictureTopics = new Dictionary<string, PictureTopic>();
+
+        /// <summary>
+        /// 
+        /// </summary>
         PictureTopicLoader()
         {
-            this.IsWorking = false;
-            Initialize();
+            this.Initialize();
         }
 
         /// <summary>
@@ -50,30 +54,63 @@
                 return this._pictureTopics;
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void LoadNext()
-        {
-
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        protected bool IsWorking
-        {
-            get;
-            private set;
-        }
-
+        
         /// <summary>
         /// 
         /// </summary>
         private void Initialize()
         {
-            this.FetchTopics(1);
+            for (int i = 1; i < 2; i++)
+            {
+                this.FetchTopics(i);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void Add(PictureTopic pt)
+        {
+            lock (this._pictureTopics)
+            {
+                ///
+                if (pt == null || this._dicPictureTopics.ContainsKey(pt.Url))
+                {
+                    return;
+                }
+
+                try
+                {
+                    this._dicPictureTopics.Add(pt.Url, pt);
+                }
+                catch { }
+
+                if (this._pictureTopics.First == null || string.Compare(this._pictureTopics.First.Value.Url, pt.Url) < 0)
+                {
+                    this._pictureTopics.AddFirst(pt);
+                    return;
+                }
+
+                if (this._pictureTopics.Last != null && string.Compare(this._pictureTopics.Last.Value.Url, pt.Url) > 0)
+                {
+                    this._pictureTopics.AddLast(pt);
+                    return;
+                }
+
+                ///Insert into the sorted list.
+                LinkedListNode<PictureTopic> ptNode = this._pictureTopics.First;
+                while(ptNode != null)
+                {
+                    if (string.Compare(ptNode.Value.Url, pt.Url) < 0)
+                    {
+                        break;
+                    }
+
+                    ptNode = ptNode.Next;
+                }
+
+                this._pictureTopics.AddBefore(ptNode, pt);
+            }
         }
 
         #region Topic loading
@@ -85,18 +122,14 @@
             try
             {
                 //this._mutexFetchPage.WaitOne();
-                if (index > 0 && this.IsWorking == false)
+                if (index > 0)
                 {   
                     string url = this._url + "?p=" + index;
                     PageLoader pl = new PageLoader(url);
                     pl.PageLoaded += new EventHandler(TopicsPageLoader_PageLoaded);
                     pl.PageFailed += new EventHandler(TopicsPageLoader_PageFailed);
                     PageDispatcher.Instance.Add(pl);
-                    this.IsWorking = true;
                     return true;
-                }
-                else
-                {
                 }
 
                 return false;
@@ -123,10 +156,6 @@
                     {
                         this.TopicsPageLoaded(wp);
                     }
-                    else
-                    {
-                        this.IsWorking = false;
-                    }
                 }
             }
         }
@@ -140,7 +169,6 @@
         {
             lock (this)
             {
-                this.IsWorking = false;
             }
         }
 
@@ -171,13 +199,22 @@
                 BackgroundWorker bw = sender as BackgroundWorker;
                 WebPage wp = e.Argument as WebPage;
                 IList<Topic> topics = TopicFactory.CreateTopics(wp);
-                foreach(Topic topic in topics)
+#if (DEBUG)
+                int counter = 0;
+#endif
+                foreach (Topic topic in topics)
                 {
                     if (topic.Mode != TopicStatus.Top)
                     {
                         PageLoader pl = new PageLoader(topic.Uri);
                         pl.PageLoaded += new EventHandler(AriticlePageLoader_PageLoaded);
                         PageDispatcher.Instance.Add(pl);
+#if (DEBUG)
+                        if (counter++ > 5)
+                        {
+                            break;
+                        }
+#endif
                     }                    
                 }
             }
@@ -195,15 +232,12 @@
         {
             try
             {
-                ///The work is done actually in here.
-                this.IsWorking = false; 
             }
             catch (Exception exp)
             {
             }
             finally
             {
-                this.IsWorking = false;
             }
         }
         #endregion
@@ -227,10 +261,6 @@
                     {
                         this.AriticlePageLoaded(wp);
                     }
-                    else
-                    {
-                        this.IsWorking = false;
-                    }
                 }
             }
         }
@@ -243,7 +273,7 @@
         {
             WebPage wp = pageInfor as WebPage;
             System.ComponentModel.BackgroundWorker bwAriticleLoading = new System.ComponentModel.BackgroundWorker();
-            bwAriticleLoading.DoWork += new System.ComponentModel.DoWorkEventHandler(AriticleLoding_DoWork);
+            bwAriticleLoading.DoWork += new System.ComponentModel.DoWorkEventHandler(AriticleLoading_DoWork);
             bwAriticleLoading.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(AriticleLoading_RunWorkerCompleted);
             bwAriticleLoading.WorkerReportsProgress = true;
             bwAriticleLoading.RunWorkerAsync(wp);
@@ -255,7 +285,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AriticleLoding_DoWork(object sender, DoWorkEventArgs e)
+        private void AriticleLoading_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
@@ -264,6 +294,7 @@
                 IList<Thread> threads = ThreadFactory.CreateThreads(wp, false);
                 PictureTopic pt = new PictureTopic();
                 pt.Title = SmthUtil.GetTopic(wp);
+                pt.Url = wp.URL;
                 foreach (Thread thread in threads)
                 {
                     if (thread.ImageUrls != null)
@@ -282,12 +313,11 @@
 
                 if (pt.PictureUrls.Count > 0)
                 {
-                    this._pictureTopics.AddLast(pt);
+                    this.Add(pt);
                 }
             }
-            catch (Exception exp)
+            catch
             {
-                int x = 1;
             }
         }
 
@@ -300,15 +330,12 @@
         {
             try
             {
-                ///The work is done actually in here.
-                this.IsWorking = false;
             }
             catch (Exception exp)
             {
             }
             finally
             {
-                this.IsWorking = false;
             }
         }
         #endregion

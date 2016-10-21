@@ -6,6 +6,8 @@
     using System.Windows.Forms;
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
+    using DevExpress.XtraEditors.Controls;
+    using Nzl.Repository;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Datas;
     using Nzl.Smth.Loaders;
@@ -21,6 +23,11 @@
         /// </summary>
         private LinkedListNode<PictureTopic> _currentPictureTopicNode = null;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        private IList<ImageSlider> _thumbImageSliders = new List<ImageSlider>();
+
         #region Ctor.
         /// <summary>
         /// 
@@ -28,6 +35,28 @@
         public PictureBrowserControl()
         {
             InitializeComponent();
+
+            ///
+            _thumbImageSliders.Add(this.imageSliderDown1);
+            _thumbImageSliders.Add(this.imageSliderDown2);
+            _thumbImageSliders.Add(this.imageSliderDown3);
+            _thumbImageSliders.Add(this.imageSliderDown4);
+            _thumbImageSliders.Add(this.imageSliderDown5);
+
+            ///
+            this.imageSlider.MouseWheel += ImageSlider_MouseWheel;
+        }
+
+        private void ImageSlider_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta < 0)
+            {
+                this.imageSlider.SlideNext();
+            }
+            else
+            {
+                this.imageSlider.SlidePrev();
+            }
         }
         #endregion
 
@@ -41,6 +70,11 @@
 
             ///
             this._currentPictureTopicNode = PictureTopicLoader.Instance.PictureTopics.First;
+
+            ///
+            this.RefreshEx();
+
+            ///
         }
 
         /// <summary>
@@ -48,13 +82,49 @@
         /// </summary>
         public void RefreshEx()
         {
+            if (this._currentPictureTopicNode == null)
+            {
+                this._currentPictureTopicNode = this._currentPictureTopicNode = PictureTopicLoader.Instance.PictureTopics.First;
+            }
+
             if (this._currentPictureTopicNode != null)
             {
                 this.Set(this._currentPictureTopicNode.Value);
             }
-            else
+
+            ///
+            foreach(ImageSlider slider in this._thumbImageSliders)
             {
-                this._currentPictureTopicNode = this._currentPictureTopicNode = PictureTopicLoader.Instance.PictureTopics.First;
+                slider.Images.Clear();
+                slider.Tag = null;
+            }
+
+            this.pictureLeft.Visible = this._currentPictureTopicNode != PictureTopicLoader.Instance.PictureTopics.First;
+            this.pictureRight.Visible = this._currentPictureTopicNode != PictureTopicLoader.Instance.PictureTopics.Last;
+
+            ///Set thumb image
+            {
+                LinkedListNode<PictureTopic> sttNode = this._currentPictureTopicNode;
+                LinkedListNode<PictureTopic> prevNode = sttNode.Previous;
+                LinkedListNode<PictureTopic> nextNode = sttNode.Next;
+                this._thumbImageSliders[2].Images.Add(Repository.GetValue<Image>(sttNode.Value.PictureUrls[0]));
+                this._thumbImageSliders[2].Tag = sttNode;
+                for (int i = 1; i < 3; i++)
+                {
+                    if (prevNode != null)
+                    {
+                        this._thumbImageSliders[2 - i].Images.Add(Repository.GetValue<Image>(prevNode.Value.PictureUrls[0]));
+                        this._thumbImageSliders[2 - i].Tag = prevNode;
+                        prevNode = prevNode.Previous;
+                    }
+
+                    if (nextNode != null)
+                    {
+                        this._thumbImageSliders[2 + i].Images.Add(Repository.GetValue<Image>(nextNode.Value.PictureUrls[0]));
+                        this._thumbImageSliders[2 + i].Tag = nextNode;
+                        nextNode = nextNode.Next;
+                    }
+                }
             }
         }
 
@@ -65,56 +135,16 @@
         {
             if (pt != null)
             {
-                this.labelControl1.Text = pt.Title;
+                this.lcTitle.Text = "<href=" + pt.Url + ">" + pt.Title + "</href>";
                 this.imageSlider.Images.Clear();
                 foreach (string url in pt.PictureUrls)
                 {
-                    this.imageSlider.Images.Add(Nzl.Repository.Repository.GetValue<Image>(url));
+                    this.imageSlider.Images.Add(Repository.GetValue<Image>(url));
                 }
             }
         }
 
-        #region eventhandler
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void panel_SizeChanged(object sender, EventArgs e)
-        {
-            PanelControl pc = sender as PanelControl;
-            if (pc != null)
-            {
-#if (DEBUG)
-                System.Diagnostics.Debug.WriteLine("ImageBrowserControl - panel_SizeChanged - Name " + pc.Name + " - Size " + pc.Size);
-#endif
-
-                if (pc.Name == "panelUp" && pc.Height != 50)
-                {
-                    pc.Height = 50;
-                }
-
-                if (pc.Name == "panelDown" && pc.Height != 80)
-                {
-                    pc.Height = 80;
-
-                    //this.panelDownLeft.Width = pc.Width / 2;
-                    //this.panelDownRight.Width = pc.Width / 2;
-                }
-
-                if (pc.Name == "panelLeft" && pc.Width != 60)
-                {
-                    pc.Width = 60;
-                }
-
-                if (pc.Name == "panelRigth" && pc.Width != 60)
-                {
-                    pc.Width = 60;
-                }
-            }
-        }
-        #endregion
-        
+        #region eventhandler        
         /// <summary>
         /// 
         /// </summary>
@@ -140,23 +170,24 @@
                     {
                         this._currentPictureTopicNode = this._currentPictureTopicNode.Next;
                     }
-                    else
-                    {
-                        PictureTopicLoader.Instance.LoadNext();
-                    }
                 }
 
                 this.RefreshEx();
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureLeft_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 if (this._currentPictureTopicNode != null)
                 {
-                    if (this._currentPictureTopicNode.Previous != PictureTopicLoader.Instance.PictureTopics.First)
+                    if (this._currentPictureTopicNode.Previous != null)
                     {
                         this._currentPictureTopicNode = this._currentPictureTopicNode.Previous;
                     }
@@ -165,5 +196,56 @@
                 this.RefreshEx();
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void imageSliderDown_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ImageSlider slider = sender as ImageSlider;
+                if (slider != null && slider.Tag != null)
+                {
+                    LinkedListNode<PictureTopic> ptNode = slider.Tag as LinkedListNode<PictureTopic>;
+                    if (ptNode != null)
+                    {
+                        this._currentPictureTopicNode = ptNode;
+                    }
+                }
+
+                this.RefreshEx();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lcTitle_HyperlinkClick(object sender, HyperlinkClickEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Link);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PictureBrowserControl_SizeChanged(object sender, EventArgs e)
+        {
+            this.panelUp.Height = 50;
+            this.panelDown.Height = 80;
+            this.panelLeft.Width = 60;
+            this.panelRight.Width = 60;
+            this.panelDown1.Width = this.panelDown.Width / 5;
+            this.panelDown2.Width = this.panelDown.Width / 5;
+            this.panelDown3.Width = this.panelDown.Width / 5;
+            this.panelDown4.Width = this.panelDown.Width / 5;
+        }
+        #endregion        
     }
 }

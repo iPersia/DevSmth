@@ -28,11 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PictureBrowserControl));
             this.panelUp = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lcTitle = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panelDown = new DevExpress.XtraEditors.PanelControl();
+            this.panelDown5 = new DevExpress.XtraEditors.PanelControl();
+            this.imageSliderDown5 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.panelDown4 = new DevExpress.XtraEditors.PanelControl();
+            this.imageSliderDown4 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.panelDown3 = new DevExpress.XtraEditors.PanelControl();
+            this.imageSliderDown3 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.panelDown2 = new DevExpress.XtraEditors.PanelControl();
+            this.imageSliderDown2 = new DevExpress.XtraEditors.Controls.ImageSlider();
+            this.panelDown1 = new DevExpress.XtraEditors.PanelControl();
+            this.imageSliderDown1 = new DevExpress.XtraEditors.Controls.ImageSlider();
             this.panelMiddle = new DevExpress.XtraEditors.PanelControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.imageSlider = new DevExpress.XtraEditors.Controls.ImageSlider();
@@ -40,10 +49,25 @@
             this.pictureRight = new DevExpress.XtraEditors.PictureEdit();
             this.panelLeft = new DevExpress.XtraEditors.PanelControl();
             this.pictureLeft = new DevExpress.XtraEditors.PictureEdit();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelUp)).BeginInit();
             this.panelUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelDown)).BeginInit();
+            this.panelDown.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown5)).BeginInit();
+            this.panelDown5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown4)).BeginInit();
+            this.panelDown4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown3)).BeginInit();
+            this.panelDown3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown2)).BeginInit();
+            this.panelDown2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown1)).BeginInit();
+            this.panelDown1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelMiddle)).BeginInit();
             this.panelMiddle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
@@ -59,37 +83,182 @@
             // 
             // panelUp
             // 
-            this.panelUp.Controls.Add(this.labelControl1);
+            this.panelUp.Controls.Add(this.lcTitle);
             this.panelUp.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUp.Location = new System.Drawing.Point(0, 0);
             this.panelUp.Name = "panelUp";
             this.panelUp.Size = new System.Drawing.Size(891, 58);
             this.panelUp.TabIndex = 0;
-            this.panelUp.SizeChanged += new System.EventHandler(this.panel_SizeChanged);
             // 
-            // labelControl1
+            // lcTitle
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseTextOptions = true;
-            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.Location = new System.Drawing.Point(2, 2);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(887, 54);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "主题：这个天气来坝上草原，那叫一个凉爽~";
+            this.lcTitle.Appearance.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lcTitle.Appearance.Options.UseFont = true;
+            this.lcTitle.Appearance.Options.UseTextOptions = true;
+            this.lcTitle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lcTitle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lcTitle.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lcTitle.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lcTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lcTitle.Location = new System.Drawing.Point(2, 2);
+            this.lcTitle.Name = "lcTitle";
+            this.lcTitle.Size = new System.Drawing.Size(887, 54);
+            this.lcTitle.TabIndex = 0;
+            this.lcTitle.Text = "主题";
+            this.lcTitle.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.lcTitle_HyperlinkClick);
             // 
             // panelDown
             // 
+            this.panelDown.Controls.Add(this.panelDown5);
+            this.panelDown.Controls.Add(this.panelDown4);
+            this.panelDown.Controls.Add(this.panelDown3);
+            this.panelDown.Controls.Add(this.panelDown2);
+            this.panelDown.Controls.Add(this.panelDown1);
             this.panelDown.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelDown.Location = new System.Drawing.Point(0, 444);
             this.panelDown.Name = "panelDown";
             this.panelDown.Size = new System.Drawing.Size(891, 86);
             this.panelDown.TabIndex = 0;
-            this.panelDown.SizeChanged += new System.EventHandler(this.panel_SizeChanged);
+            // 
+            // panelDown5
+            // 
+            this.panelDown5.Controls.Add(this.imageSliderDown5);
+            this.panelDown5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDown5.Location = new System.Drawing.Point(714, 2);
+            this.panelDown5.Name = "panelDown5";
+            this.panelDown5.Size = new System.Drawing.Size(175, 82);
+            this.panelDown5.TabIndex = 4;
+            // 
+            // imageSliderDown5
+            // 
+            this.imageSliderDown5.Appearance.BackColor = System.Drawing.Color.White;
+            this.imageSliderDown5.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imageSliderDown5.Appearance.Options.UseBackColor = true;
+            this.imageSliderDown5.Appearance.Options.UseFont = true;
+            this.imageSliderDown5.CurrentImageIndex = -1;
+            this.imageSliderDown5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.imageSliderDown5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageSliderDown5.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Squeeze;
+            this.imageSliderDown5.Location = new System.Drawing.Point(2, 2);
+            this.imageSliderDown5.Name = "imageSliderDown5";
+            this.imageSliderDown5.ScrollButtonFadeAnimationTime = 1;
+            this.imageSliderDown5.Size = new System.Drawing.Size(171, 78);
+            this.imageSliderDown5.TabIndex = 1;
+            this.imageSliderDown5.Text = "imageSlider1";
+            this.imageSliderDown5.UseDisabledStatePainter = true;
+            this.imageSliderDown5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imageSliderDown_MouseClick);
+            // 
+            // panelDown4
+            // 
+            this.panelDown4.Controls.Add(this.imageSliderDown4);
+            this.panelDown4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelDown4.Location = new System.Drawing.Point(536, 2);
+            this.panelDown4.Name = "panelDown4";
+            this.panelDown4.Size = new System.Drawing.Size(178, 82);
+            this.panelDown4.TabIndex = 3;
+            // 
+            // imageSliderDown4
+            // 
+            this.imageSliderDown4.Appearance.BackColor = System.Drawing.Color.White;
+            this.imageSliderDown4.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imageSliderDown4.Appearance.Options.UseBackColor = true;
+            this.imageSliderDown4.Appearance.Options.UseFont = true;
+            this.imageSliderDown4.CurrentImageIndex = -1;
+            this.imageSliderDown4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.imageSliderDown4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageSliderDown4.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Squeeze;
+            this.imageSliderDown4.Location = new System.Drawing.Point(2, 2);
+            this.imageSliderDown4.Name = "imageSliderDown4";
+            this.imageSliderDown4.ScrollButtonFadeAnimationTime = 1;
+            this.imageSliderDown4.Size = new System.Drawing.Size(174, 78);
+            this.imageSliderDown4.TabIndex = 1;
+            this.imageSliderDown4.Text = "imageSlider1";
+            this.imageSliderDown4.UseDisabledStatePainter = true;
+            this.imageSliderDown4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imageSliderDown_MouseClick);
+            // 
+            // panelDown3
+            // 
+            this.panelDown3.Controls.Add(this.imageSliderDown3);
+            this.panelDown3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelDown3.Location = new System.Drawing.Point(358, 2);
+            this.panelDown3.Name = "panelDown3";
+            this.panelDown3.Size = new System.Drawing.Size(178, 82);
+            this.panelDown3.TabIndex = 2;
+            // 
+            // imageSliderDown3
+            // 
+            this.imageSliderDown3.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.imageSliderDown3.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imageSliderDown3.Appearance.Options.UseBackColor = true;
+            this.imageSliderDown3.Appearance.Options.UseFont = true;
+            this.imageSliderDown3.CurrentImageIndex = -1;
+            this.imageSliderDown3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.imageSliderDown3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageSliderDown3.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Squeeze;
+            this.imageSliderDown3.Location = new System.Drawing.Point(2, 2);
+            this.imageSliderDown3.Name = "imageSliderDown3";
+            this.imageSliderDown3.ScrollButtonFadeAnimationTime = 1;
+            this.imageSliderDown3.Size = new System.Drawing.Size(174, 78);
+            this.imageSliderDown3.TabIndex = 1;
+            this.imageSliderDown3.Text = "imageSlider1";
+            this.imageSliderDown3.UseDisabledStatePainter = true;
+            this.imageSliderDown3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imageSliderDown_MouseClick);
+            // 
+            // panelDown2
+            // 
+            this.panelDown2.Controls.Add(this.imageSliderDown2);
+            this.panelDown2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelDown2.Location = new System.Drawing.Point(180, 2);
+            this.panelDown2.Name = "panelDown2";
+            this.panelDown2.Size = new System.Drawing.Size(178, 82);
+            this.panelDown2.TabIndex = 1;
+            // 
+            // imageSliderDown2
+            // 
+            this.imageSliderDown2.Appearance.BackColor = System.Drawing.Color.White;
+            this.imageSliderDown2.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imageSliderDown2.Appearance.Options.UseBackColor = true;
+            this.imageSliderDown2.Appearance.Options.UseFont = true;
+            this.imageSliderDown2.CurrentImageIndex = -1;
+            this.imageSliderDown2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.imageSliderDown2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageSliderDown2.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Squeeze;
+            this.imageSliderDown2.Location = new System.Drawing.Point(2, 2);
+            this.imageSliderDown2.Name = "imageSliderDown2";
+            this.imageSliderDown2.ScrollButtonFadeAnimationTime = 1;
+            this.imageSliderDown2.Size = new System.Drawing.Size(174, 78);
+            this.imageSliderDown2.TabIndex = 1;
+            this.imageSliderDown2.Text = "imageSlider1";
+            this.imageSliderDown2.UseDisabledStatePainter = true;
+            this.imageSliderDown2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imageSliderDown_MouseClick);
+            // 
+            // panelDown1
+            // 
+            this.panelDown1.Controls.Add(this.imageSliderDown1);
+            this.panelDown1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelDown1.Location = new System.Drawing.Point(2, 2);
+            this.panelDown1.Name = "panelDown1";
+            this.panelDown1.Size = new System.Drawing.Size(178, 82);
+            this.panelDown1.TabIndex = 0;
+            // 
+            // imageSliderDown1
+            // 
+            this.imageSliderDown1.Appearance.BackColor = System.Drawing.Color.White;
+            this.imageSliderDown1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imageSliderDown1.Appearance.Options.UseBackColor = true;
+            this.imageSliderDown1.Appearance.Options.UseFont = true;
+            this.imageSliderDown1.CurrentImageIndex = -1;
+            this.imageSliderDown1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.imageSliderDown1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageSliderDown1.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Squeeze;
+            this.imageSliderDown1.Location = new System.Drawing.Point(2, 2);
+            this.imageSliderDown1.Name = "imageSliderDown1";
+            this.imageSliderDown1.ScrollButtonFadeAnimationTime = 1;
+            this.imageSliderDown1.Size = new System.Drawing.Size(174, 78);
+            this.imageSliderDown1.TabIndex = 1;
+            this.imageSliderDown1.Text = "imageSlider1";
+            this.imageSliderDown1.UseDisabledStatePainter = true;
+            this.imageSliderDown1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imageSliderDown_MouseClick);
             // 
             // panelMiddle
             // 
@@ -101,7 +270,6 @@
             this.panelMiddle.Name = "panelMiddle";
             this.panelMiddle.Size = new System.Drawing.Size(891, 386);
             this.panelMiddle.TabIndex = 0;
-            this.panelMiddle.SizeChanged += new System.EventHandler(this.panel_SizeChanged);
             // 
             // panelContainer
             // 
@@ -121,7 +289,7 @@
             this.imageSlider.CurrentImageIndex = -1;
             this.imageSlider.Cursor = System.Windows.Forms.Cursors.Default;
             this.imageSlider.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imageSlider.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.MiddleCenter;
+            this.imageSlider.LayoutMode = DevExpress.Utils.Drawing.ImageLayoutMode.Squeeze;
             this.imageSlider.Location = new System.Drawing.Point(2, 2);
             this.imageSlider.Name = "imageSlider";
             this.imageSlider.Size = new System.Drawing.Size(763, 378);
@@ -137,7 +305,6 @@
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(60, 382);
             this.panelRight.TabIndex = 2;
-            this.panelRight.SizeChanged += new System.EventHandler(this.panel_SizeChanged);
             // 
             // pictureRight
             // 
@@ -165,7 +332,6 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(60, 382);
             this.panelLeft.TabIndex = 1;
-            this.panelLeft.SizeChanged += new System.EventHandler(this.panel_SizeChanged);
             // 
             // pictureLeft
             // 
@@ -185,12 +351,6 @@
             this.pictureLeft.PopupMenuShowing += new DevExpress.XtraEditors.Events.PopupMenuShowingEventHandler(this.picture_PopupMenuShowing);
             this.pictureLeft.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureLeft_MouseClick);
             // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
             // PictureBrowserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -200,9 +360,26 @@
             this.Controls.Add(this.panelUp);
             this.Name = "PictureBrowserControl";
             this.Size = new System.Drawing.Size(891, 530);
+            this.SizeChanged += new System.EventHandler(this.PictureBrowserControl_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.panelUp)).EndInit();
             this.panelUp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelDown)).EndInit();
+            this.panelDown.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown5)).EndInit();
+            this.panelDown5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown4)).EndInit();
+            this.panelDown4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown3)).EndInit();
+            this.panelDown3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown2)).EndInit();
+            this.panelDown2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDown1)).EndInit();
+            this.panelDown1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageSliderDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelMiddle)).EndInit();
             this.panelMiddle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
@@ -223,13 +400,22 @@
         private DevExpress.XtraEditors.PanelControl panelUp;
         private DevExpress.XtraEditors.PanelControl panelDown;
         private DevExpress.XtraEditors.PanelControl panelMiddle;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.HyperlinkLabelControl lcTitle;
         private DevExpress.XtraEditors.PanelControl panelRight;
         private DevExpress.XtraEditors.PanelControl panelLeft;
         private DevExpress.XtraEditors.PanelControl panelContainer;
         private DevExpress.XtraEditors.PictureEdit pictureRight;
         private DevExpress.XtraEditors.PictureEdit pictureLeft;
         private DevExpress.XtraEditors.Controls.ImageSlider imageSlider;
-        private System.Windows.Forms.ImageList imageList1;
+        private DevExpress.XtraEditors.PanelControl panelDown5;
+        private DevExpress.XtraEditors.PanelControl panelDown4;
+        private DevExpress.XtraEditors.PanelControl panelDown3;
+        private DevExpress.XtraEditors.PanelControl panelDown2;
+        private DevExpress.XtraEditors.PanelControl panelDown1;
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSliderDown5;
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSliderDown4;
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSliderDown3;
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSliderDown2;
+        private DevExpress.XtraEditors.Controls.ImageSlider imageSliderDown1;
     }
 }

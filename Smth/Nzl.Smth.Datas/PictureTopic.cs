@@ -26,12 +26,30 @@
         /// <summary>
         /// 
         /// </summary>
+        public string Url
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public IList<string> PictureUrls
         {
             get
             {
                 return this._pictureUrls;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.Url;
         }
     }
 }

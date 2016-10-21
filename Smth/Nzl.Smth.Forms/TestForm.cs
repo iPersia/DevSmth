@@ -56,5 +56,37 @@
         {
             ibc.RefreshEx();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void simpleButton1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                //Nzl.Web.Page.WebPage page = Nzl.Web.Page.WebPageFactory.CreateWebPage(this.textEdit1.Text);
+                //if (page.IsGood && page.IsGood)
+                //{
+                //    this.richtxtContent.Text = page.Html;
+                //}
+
+                string result = Nzl.Web.Page.WebPageFactory.Post("http://www.newsmth.net/nForum/user/ajax_login.json", "id=Nesus&passwd=GHT_NEWSMTH_WHT");
+                if (result != null)
+                {
+                    this.richtxtContent.Text = result;
+                }
+            }
+            catch (Exception exp)
+            {
+                this.richtxtContent.Text = exp.ToString();
+            }             
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            LoginForm.Instance.Show();
+        }
     }
 }

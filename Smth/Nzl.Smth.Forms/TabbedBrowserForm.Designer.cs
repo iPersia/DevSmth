@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabbedBrowserForm));
             this.xtcBrowser = new DevExpress.XtraTab.XtraTabControl();
-            this.bmManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.bmManager = new DevExpress.XtraBars.BarManager();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.bsiWelcome = new DevExpress.XtraBars.BarStaticItem();
             this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
@@ -51,6 +50,7 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.riteGo = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.bbiPhotos = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtcBrowser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bmManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riteGo)).BeginInit();
@@ -101,9 +101,10 @@
             this.bbiMails,
             this.bbiRefers,
             this.bbiSettings,
-            this.bbiClear});
+            this.bbiClear,
+            this.bbiPhotos});
             this.bmManager.MainMenu = this.bar4;
-            this.bmManager.MaxItemId = 36;
+            this.bmManager.MaxItemId = 37;
             this.bmManager.OptionsLayout.AllowAddNewItems = false;
             this.bmManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riteGo,
@@ -130,6 +131,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiLogin),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiTop10s),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiBoards),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiPhotos),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiMessage),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiFavors),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiMails),
@@ -307,6 +309,13 @@
             this.repositoryItemHyperLinkEdit1.AutoHeight = false;
             this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
             // 
+            // bbiPhotos
+            // 
+            this.bbiPhotos.Caption = "Photos";
+            this.bbiPhotos.Id = 36;
+            this.bbiPhotos.Name = "bbiPhotos";
+            this.bbiPhotos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPhotos_ItemClick);
+            // 
             // TabbedBrowserForm
             // 
             this.Appearance.Options.UseFont = true;
@@ -359,5 +368,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiRefers;
         private DevExpress.XtraBars.BarButtonItem bbiSettings;
         private DevExpress.XtraBars.BarButtonItem bbiClear;
+        private DevExpress.XtraBars.BarButtonItem bbiPhotos;
     }
 }

@@ -181,6 +181,9 @@
 
                 ///Initializing the forms.
                 this.Initializing();
+
+                ///Load the photos.
+                int x = Nzl.Smth.Loaders.PictureTopicLoader.Instance.PictureTopics.Count;
             }
             catch
             { }

@@ -21,6 +21,11 @@
         /// <summary>
         /// 
         /// </summary>
+        public event HyperlinkClickEventHandler OnPictureTopicLinkClicked;
+
+        /// <summary>
+        /// 
+        /// </summary>
         private LinkedListNode<PictureTopic> _currentPictureTopicNode = null;
 
         /// <summary>
@@ -227,7 +232,10 @@
         /// <param name="e"></param>
         private void lcTitle_HyperlinkClick(object sender, HyperlinkClickEventArgs e)
         {
-            System.Diagnostics.Process.Start(e.Link);
+            if (this.OnPictureTopicLinkClicked != null)
+            {
+                this.OnPictureTopicLinkClicked(sender, e);
+            }
         }
 
         /// <summary>

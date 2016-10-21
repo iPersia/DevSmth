@@ -768,6 +768,37 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        private void bbiPhotos_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            PictureBrowserControl pbc = new PictureBrowserControl();
+            pbc.OnPictureTopicLinkClicked += PictureBrowserControl_OnPictureTopicLinkClicked;
+            pbc.Dock = DockStyle.Fill;
+            XtraTabPage xtp = new XtraTabPage();
+            xtp.Text = "【照片合集】";
+            xtp.Controls.Add(pbc);
+            this.xtcBrowser.TabPages.Add(xtp);
+            this.xtcBrowser.SelectedTabPage = xtp;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PictureBrowserControl_OnPictureTopicLinkClicked(object sender, HyperlinkClickEventArgs e)
+        {
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (hlc != null)
+            {
+                this.AddTopic(e.Link, e.Text);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bbiMessage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.ShowFormOnCenterParent(MessageCenterForm.Instance);
@@ -1485,6 +1516,6 @@
         {
             return "tp" + url;
         }
-#endregion
+        #endregion
     }
 }

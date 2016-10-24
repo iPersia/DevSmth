@@ -74,7 +74,7 @@
             this.rbShowTops.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rbShowTops.Location = new System.Drawing.Point(18, 33);
             this.rbShowTops.Name = "rbShowTops";
-            this.rbShowTops.Size = new System.Drawing.Size(66, 14);
+            this.rbShowTops.Size = new System.Drawing.Size(77, 16);
             this.rbShowTops.TabIndex = 0;
             this.rbShowTops.Text = "Show tops";
             this.rbShowTops.UseVisualStyleBackColor = true;
@@ -85,13 +85,15 @@
             this.rbNoTops.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rbNoTops.Location = new System.Drawing.Point(162, 33);
             this.rbNoTops.Name = "rbNoTops";
-            this.rbNoTops.Size = new System.Drawing.Size(56, 14);
+            this.rbNoTops.Size = new System.Drawing.Size(65, 16);
             this.rbNoTops.TabIndex = 1;
             this.rbNoTops.Text = "No tops";
             this.rbNoTops.UseVisualStyleBackColor = true;
             // 
             // gcBrowseMode
             // 
+            this.gcBrowseMode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gcBrowseMode.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcBrowseMode.Appearance.Options.UseFont = true;
             this.gcBrowseMode.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,6 +108,8 @@
             // 
             // gcTopicType
             // 
+            this.gcTopicType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gcTopicType.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcTopicType.Appearance.Options.UseFont = true;
             this.gcTopicType.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,7 +130,7 @@
             this.rbReserved.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rbReserved.Location = new System.Drawing.Point(162, 57);
             this.rbReserved.Name = "rbReserved";
-            this.rbReserved.Size = new System.Drawing.Size(61, 14);
+            this.rbReserved.Size = new System.Drawing.Size(71, 16);
             this.rbReserved.TabIndex = 7;
             this.rbReserved.Text = "Reserved";
             this.rbReserved.UseVisualStyleBackColor = true;
@@ -137,7 +141,7 @@
             this.rbDigest.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rbDigest.Location = new System.Drawing.Point(18, 58);
             this.rbDigest.Name = "rbDigest";
-            this.rbDigest.Size = new System.Drawing.Size(51, 14);
+            this.rbDigest.Size = new System.Drawing.Size(59, 16);
             this.rbDigest.TabIndex = 6;
             this.rbDigest.Text = "Digest";
             this.rbDigest.UseVisualStyleBackColor = true;
@@ -148,7 +152,7 @@
             this.rbClassic.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rbClassic.Location = new System.Drawing.Point(162, 28);
             this.rbClassic.Name = "rbClassic";
-            this.rbClassic.Size = new System.Drawing.Size(56, 14);
+            this.rbClassic.Size = new System.Drawing.Size(65, 16);
             this.rbClassic.TabIndex = 5;
             this.rbClassic.Text = "Classic";
             this.rbClassic.UseVisualStyleBackColor = true;
@@ -159,13 +163,15 @@
             this.rbSubject.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rbSubject.Location = new System.Drawing.Point(18, 28);
             this.rbSubject.Name = "rbSubject";
-            this.rbSubject.Size = new System.Drawing.Size(56, 14);
+            this.rbSubject.Size = new System.Drawing.Size(65, 16);
             this.rbSubject.TabIndex = 4;
             this.rbSubject.Text = "Subject";
             this.rbSubject.UseVisualStyleBackColor = true;
             // 
             // gcAutoUpdating
             // 
+            this.gcAutoUpdating.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gcAutoUpdating.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcAutoUpdating.Appearance.Options.UseFont = true;
             this.gcAutoUpdating.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

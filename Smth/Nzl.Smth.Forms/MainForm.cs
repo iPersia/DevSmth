@@ -130,9 +130,6 @@
             SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loaded, null);
             System.Threading.Thread.Sleep(1000);
 
-            ///
-            SplashScreenManager.CloseForm();
-
             ///Load board's infor.
             //Boards.Instance.Initilize();
 
@@ -141,6 +138,9 @@
             TabbedBrowserForm.Instance.Show();
             TabbedBrowserForm.Instance.Activate();
             TabbedBrowserForm.Instance.Focus();
+
+            ///Close the splash screen.
+            SplashScreenManager.CloseForm();
         }
 
         /// <summary>

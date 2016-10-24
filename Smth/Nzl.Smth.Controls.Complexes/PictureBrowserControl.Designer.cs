@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PictureBrowserControl));
             this.panelUp = new DevExpress.XtraEditors.PanelControl();
             this.lcTitle = new DevExpress.XtraEditors.HyperlinkLabelControl();
@@ -49,6 +50,8 @@
             this.pictureRight = new DevExpress.XtraEditors.PictureEdit();
             this.panelLeft = new DevExpress.XtraEditors.PanelControl();
             this.pictureLeft = new DevExpress.XtraEditors.PictureEdit();
+            this.cmsImageSlider = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelUp)).BeginInit();
             this.panelUp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelDown)).BeginInit();
@@ -79,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelLeft)).BeginInit();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLeft.Properties)).BeginInit();
+            this.cmsImageSlider.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelUp
@@ -286,6 +290,8 @@
             this.imageSlider.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imageSlider.Appearance.Options.UseBackColor = true;
             this.imageSlider.Appearance.Options.UseFont = true;
+            this.imageSlider.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.imageSlider.ContextMenuStrip = this.cmsImageSlider;
             this.imageSlider.CurrentImageIndex = -1;
             this.imageSlider.Cursor = System.Windows.Forms.Cursors.Default;
             this.imageSlider.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -294,7 +300,7 @@
             this.imageSlider.Name = "imageSlider";
             this.imageSlider.Size = new System.Drawing.Size(763, 378);
             this.imageSlider.TabIndex = 0;
-            this.imageSlider.Text = "imageSlider1";
+            this.imageSlider.Text = "Image slider";
             this.imageSlider.UseDisabledStatePainter = true;
             // 
             // panelRight
@@ -317,6 +323,7 @@
             this.pictureRight.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pictureRight.Properties.Appearance.Options.UseBackColor = true;
             this.pictureRight.Properties.Appearance.Options.UseFont = true;
+            this.pictureRight.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureRight.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureRight.Properties.ZoomAccelerationFactor = 1D;
             this.pictureRight.Size = new System.Drawing.Size(56, 378);
@@ -344,12 +351,29 @@
             this.pictureLeft.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pictureLeft.Properties.Appearance.Options.UseBackColor = true;
             this.pictureLeft.Properties.Appearance.Options.UseFont = true;
+            this.pictureLeft.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureLeft.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureLeft.Properties.ZoomAccelerationFactor = 1D;
             this.pictureLeft.Size = new System.Drawing.Size(56, 378);
             this.pictureLeft.TabIndex = 1;
             this.pictureLeft.PopupMenuShowing += new DevExpress.XtraEditors.Events.PopupMenuShowingEventHandler(this.picture_PopupMenuShowing);
             this.pictureLeft.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureLeft_MouseClick);
+            // 
+            // cmsImageSlider
+            // 
+            this.cmsImageSlider.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmsImageSlider.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem});
+            this.cmsImageSlider.Name = "cmsImageSlider";
+            this.cmsImageSlider.Size = new System.Drawing.Size(113, 26);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // PictureBrowserControl
             // 
@@ -391,6 +415,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelLeft)).EndInit();
             this.panelLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureLeft.Properties)).EndInit();
+            this.cmsImageSlider.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -417,5 +442,7 @@
         private DevExpress.XtraEditors.Controls.ImageSlider imageSliderDown3;
         private DevExpress.XtraEditors.Controls.ImageSlider imageSliderDown2;
         private DevExpress.XtraEditors.Controls.ImageSlider imageSliderDown1;
+        private System.Windows.Forms.ContextMenuStrip cmsImageSlider;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
     }
 }

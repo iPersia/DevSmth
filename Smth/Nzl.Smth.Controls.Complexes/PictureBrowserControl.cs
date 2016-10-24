@@ -144,7 +144,11 @@
                 this.imageSlider.Images.Clear();
                 foreach (string url in pt.PictureUrls)
                 {
-                    this.imageSlider.Images.Add(Repository.GetValue<Image>(url));
+                    Image image = Repository.GetValue<Image>(url);
+                    if (image!=null)
+                    {
+                        this.imageSlider.Images.Add(image);
+                    }                    
                 }
             }
         }
@@ -254,6 +258,16 @@
             this.panelDown3.Width = this.panelDown.Width / 5;
             this.panelDown4.Width = this.panelDown.Width / 5;
         }
-        #endregion        
+        #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

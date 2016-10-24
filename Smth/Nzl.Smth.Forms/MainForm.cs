@@ -3,17 +3,16 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.Net;
     using System.Windows.Forms;
-    using System.Xml;
     using DevExpress.XtraSplashScreen;
-    using Nzl.Smth.Configs;
-    using Nzl.Smth.Logger;
+    using Nzl.Smth.Configs;    
     using Nzl.Smth.Datas;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Controls.Elements;
     using Nzl.Smth.Controls.Complexes;
     using Nzl.Smth.Controls.Containers;
+    using Nzl.Smth.Loaders;
+    using Nzl.Smth.Logger;
     using DevExpress.XtraRichEdit;
 
     public partial class MainForm : BaseForm
@@ -109,35 +108,6 @@
         /// <param name="e"></param>
         private void Bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            ///Loading the board components
-            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "board navigator");
-            System.Threading.Thread.Sleep(0);
-            BoardNavigatorForm.Instance.CreateControl();
-            System.Threading.Thread.Sleep(0);
-
-            ///Loading the favor components
-            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "favor components");
-            System.Threading.Thread.Sleep(0);
-            FavorForm.Instance.CreateControl();
-            
-            ///Loading the login components
-            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "login components");
-            System.Threading.Thread.Sleep(0);
-            LoginForm.Instance.CreateControl();
-            System.Threading.Thread.Sleep(0);
-
-            ///Loading the mailbox components
-            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "mailbox components");
-            System.Threading.Thread.Sleep(0);
-            MailBoxForm.Instance.CreateControl();
-            System.Threading.Thread.Sleep(0);
-
-            ///Loading the refer components
-            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "refer components");
-            System.Threading.Thread.Sleep(0);
-            ReferForm.Instance.CreateControl();
-            System.Threading.Thread.Sleep(0);
-
             /// Loading the main browser
             SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "main browser");
             System.Threading.Thread.Sleep(0);
@@ -148,6 +118,12 @@
             SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "settings components");
             System.Threading.Thread.Sleep(0);
             TabbedBrowserSettingsForm.Instance.CreateControl();
+            System.Threading.Thread.Sleep(0);
+
+            ///Loading the photo components
+            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "photo components");
+            System.Threading.Thread.Sleep(0);
+            int count = PictureTopicLoader.Instance.PictureTopics.Count;
             System.Threading.Thread.Sleep(0);
 
             ///Initializing is completed.

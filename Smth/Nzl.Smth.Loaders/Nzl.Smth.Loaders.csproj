@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BoardNode.cs" />
     <Compile Include="Boards.cs" />
+    <Compile Include="ImageDownloader.cs" />
     <Compile Include="ImageStreamProvider.cs" />
     <Compile Include="LogStatus.cs" />
     <Compile Include="AtStatus.cs" />

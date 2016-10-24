@@ -18,13 +18,23 @@
         /// <summary>
         /// 
         /// </summary>
-        public static readonly PictureTopicLoader Instance = new PictureTopicLoader();
+        public static readonly PictureTopicLoader PictureInstance = new PictureTopicLoader("http://m.newsmth.net/board/picture");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly PictureTopicLoader PhotoInstance = new PictureTopicLoader("http://m.newsmth.net/board/myPhoto");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly PictureTopicLoader Instance = PictureInstance;
         #endregion
 
         /// <summary>
         /// 
         /// </summary>
-        private string _url = "http://m.newsmth.net/board/MyPhoto";
+        private string _url = "";
 
         /// <summary>
         /// 
@@ -39,8 +49,9 @@
         /// <summary>
         /// 
         /// </summary>
-        PictureTopicLoader()
+        PictureTopicLoader(string url)
         {
+            this._url = url;
             this.Initialize();
         }
 
@@ -60,7 +71,7 @@
         /// </summary>
         private void Initialize()
         {
-            for (int i = 1; i < 5; i++)
+            for (int i = 1; i < 2; i++)
             {
                 this.FetchTopics(i);
             }
@@ -121,7 +132,6 @@
         {
             try
             {
-                //this._mutexFetchPage.WaitOne();
                 if (index > 0)
                 {   
                     string url = this._url + "?p=" + index;
@@ -210,9 +220,9 @@
                         pl.PageLoaded += new EventHandler(AriticlePageLoader_PageLoaded);
                         PageDispatcher.Instance.Add(pl);
 #if (DEBUG)
-                        if (counter++ > 5)
+                        if (counter++ > 2)
                         {
-                            break;
+                        //    break;
                         }
 #endif
                     }                    

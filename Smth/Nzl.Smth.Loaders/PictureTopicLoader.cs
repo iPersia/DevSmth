@@ -60,7 +60,7 @@
         /// </summary>
         private void Initialize()
         {
-            for (int i = 1; i < 2; i++)
+            for (int i = 1; i < 5; i++)
             {
                 this.FetchTopics(i);
             }

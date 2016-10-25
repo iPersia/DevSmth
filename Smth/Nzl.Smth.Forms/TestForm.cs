@@ -53,5 +53,12 @@
 
             this.pictureGalleryControl1.ShowEx();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            this.pictureGalleryControl1.ShowEx();
+
+            this.pictureBrowserControl1.RefreshEx();
+        }
     }
 }

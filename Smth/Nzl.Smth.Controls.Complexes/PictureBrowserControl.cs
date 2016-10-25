@@ -28,11 +28,6 @@
         /// </summary>
         private LinkedListNode<PictureTopic> _currentPictureTopicNode = null;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private IList<ImageSlider> _thumbImageSliders = new List<ImageSlider>();
-
         #region Ctor.
         /// <summary>
         /// 
@@ -42,16 +37,14 @@
             InitializeComponent();
 
             ///
-            _thumbImageSliders.Add(this.imageSliderDown1);
-            _thumbImageSliders.Add(this.imageSliderDown2);
-            _thumbImageSliders.Add(this.imageSliderDown3);
-            _thumbImageSliders.Add(this.imageSliderDown4);
-            _thumbImageSliders.Add(this.imageSliderDown5);
-
-            ///
             this.imageSlider.MouseWheel += ImageSlider_MouseWheel;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ImageSlider_MouseWheel(object sender, MouseEventArgs e)
         {
             if (e.Delta < 0)
@@ -72,14 +65,14 @@
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            if (!DesignMode)
+            {
+                ///
+                this._currentPictureTopicNode = PictureTopicLoader.Instance.PictureTopics.First;
 
-            ///
-            this._currentPictureTopicNode = PictureTopicLoader.Instance.PictureTopics.First;
-
-            ///
-            this.RefreshEx();
-
-            ///
+                ///
+                this.RefreshEx();
+            }
         }
 
         /// <summary>
@@ -87,6 +80,8 @@
         /// </summary>
         public void RefreshEx()
         {
+            this.RefreshPictures();
+
             if (this._currentPictureTopicNode == null)
             {
                 this._currentPictureTopicNode = this._currentPictureTopicNode = PictureTopicLoader.Instance.PictureTopics.First;
@@ -97,40 +92,8 @@
                 this.Set(this._currentPictureTopicNode.Value);
             }
 
-            ///
-            foreach(ImageSlider slider in this._thumbImageSliders)
-            {
-                slider.Images.Clear();
-                slider.Tag = null;
-            }
-
             this.pictureLeft.Visible = this._currentPictureTopicNode != PictureTopicLoader.Instance.PictureTopics.First;
             this.pictureRight.Visible = this._currentPictureTopicNode != PictureTopicLoader.Instance.PictureTopics.Last;
-
-            ///Set thumb image
-            {
-                LinkedListNode<PictureTopic> sttNode = this._currentPictureTopicNode;
-                LinkedListNode<PictureTopic> prevNode = sttNode.Previous;
-                LinkedListNode<PictureTopic> nextNode = sttNode.Next;
-                this._thumbImageSliders[2].Images.Add(Repository.GetValue<Image>(sttNode.Value.PictureUrls[0]));
-                this._thumbImageSliders[2].Tag = sttNode;
-                for (int i = 1; i < 3; i++)
-                {
-                    if (prevNode != null)
-                    {
-                        this._thumbImageSliders[2 - i].Images.Add(Repository.GetValue<Image>(prevNode.Value.PictureUrls[0]));
-                        this._thumbImageSliders[2 - i].Tag = prevNode;
-                        prevNode = prevNode.Previous;
-                    }
-
-                    if (nextNode != null)
-                    {
-                        this._thumbImageSliders[2 + i].Images.Add(Repository.GetValue<Image>(nextNode.Value.PictureUrls[0]));
-                        this._thumbImageSliders[2 + i].Tag = nextNode;
-                        nextNode = nextNode.Next;
-                    }
-                }
-            }
         }
 
         /// <summary>
@@ -253,10 +216,6 @@
             this.panelDown.Height = 80;
             this.panelLeft.Width = 60;
             this.panelRight.Width = 60;
-            this.panelDown1.Width = this.panelDown.Width / 5;
-            this.panelDown2.Width = this.panelDown.Width / 5;
-            this.panelDown3.Width = this.panelDown.Width / 5;
-            this.panelDown4.Width = this.panelDown.Width / 5;
         }
         #endregion
 
@@ -268,6 +227,30 @@
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        private void RefreshPictures()
+        {
+            IList<Image> images = new List<Image>();
+            LinkedListNode<PictureTopic> node = PictureTopicLoader.Instance.PictureTopics.First;
+            while(node != null)
+            {
+                string url = node.Value.PictureUrls[0];
+                Image image = Repository.GetValue<Image>(url);
+                if (image != null)
+                {
+                    image.Tag = node;
+                }
+
+                images.Add(image);
+                node = node.Next;
+            }
+
+            this.pgcGallery.Pictures = images;
+            this.pgcGallery.ShowEx();
         }
     }
 }

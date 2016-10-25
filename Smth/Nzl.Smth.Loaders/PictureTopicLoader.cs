@@ -28,7 +28,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public static readonly PictureTopicLoader Instance = PictureInstance;
+        public static readonly PictureTopicLoader Instance = new PictureTopicLoader("http://m.newsmth.net/board/myPhoto");
         #endregion
 
         /// <summary>

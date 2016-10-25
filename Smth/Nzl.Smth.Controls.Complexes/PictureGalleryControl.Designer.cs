@@ -28,19 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PictureGalleryControl));
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.panel = new DevExpress.XtraEditors.PanelControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panel)).BeginInit();
-            this.panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
             // 
+            this.panelContainer.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelContainer.Controls.Add(this.panel);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
@@ -50,25 +47,11 @@
             // 
             // panel
             // 
-            this.panel.Controls.Add(this.pictureEdit1);
+            this.panel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panel.Location = new System.Drawing.Point(1, 1);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(810, 149);
             this.panel.TabIndex = 0;
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(207, 28);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.NullText = "Loading";
-            this.pictureEdit1.Properties.ReadOnly = true;
-            this.pictureEdit1.Properties.ShowMenu = false;
-            this.pictureEdit1.Properties.ZoomAccelerationFactor = 1D;
-            this.pictureEdit1.Properties.ZoomPercent = 9D;
-            this.pictureEdit1.Size = new System.Drawing.Size(100, 96);
-            this.pictureEdit1.TabIndex = 0;
             // 
             // PictureGalleryControl
             // 
@@ -80,8 +63,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panel)).EndInit();
-            this.panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,6 +71,5 @@
 
         private DevExpress.XtraEditors.PanelControl panelContainer;
         private DevExpress.XtraEditors.PanelControl panel;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }

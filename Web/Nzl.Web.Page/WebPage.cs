@@ -652,12 +652,16 @@
                 _url = uurl;
             }
             catch { };
-            Regex re = new Regex("(?<h>[^\x00-\xff]+)");
-            Match mc = re.Match(_url);
-            if (mc.Success)
+
+            if (_url.Contains("m.newsmth.net") == false)
             {
-                string han = mc.Groups["h"].Value;
-                _url = _url.Replace(han, System.Web.HttpUtility.UrlEncode(han, Encoding.GetEncoding("GB2312")));
+                Regex re = new Regex("(?<h>[^\x00-\xff]+)");
+                Match mc = re.Match(_url);
+                if (mc.Success)
+                {
+                    string han = mc.Groups["h"].Value;
+                    _url = _url.Replace(han, System.Web.HttpUtility.UrlEncode(han, Encoding.GetEncoding("GB2312")));
+                }
             }
 
             Init(_url);

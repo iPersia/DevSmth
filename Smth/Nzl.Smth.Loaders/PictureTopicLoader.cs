@@ -14,6 +14,13 @@
     /// </summary>
     public class PictureTopicLoader
     {
+        #region Event.
+        /// <summary>
+        /// 
+        /// </summary>
+        public event EventHandler OnNewPictureLoaded;
+        #endregion
+
         #region Singleton
         /// <summary>
         /// 
@@ -65,7 +72,7 @@
                 return this._pictureTopics;
             }
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -110,7 +117,7 @@
 
                 ///Insert into the sorted list.
                 LinkedListNode<PictureTopic> ptNode = this._pictureTopics.First;
-                while(ptNode != null)
+                while (ptNode != null)
                 {
                     if (string.Compare(ptNode.Value.Url, pt.Url) < 0)
                     {
@@ -133,7 +140,7 @@
             try
             {
                 if (index > 0)
-                {   
+                {
                     string url = this._url + "?p=" + index;
                     PageLoader pl = new PageLoader(url);
                     pl.PageLoaded += new EventHandler(TopicsPageLoader_PageLoaded);
@@ -220,12 +227,12 @@
                         pl.PageLoaded += new EventHandler(AriticlePageLoader_PageLoaded);
                         PageDispatcher.Instance.Add(pl);
 #if (DEBUG)
-                        if (counter++ > 2)
+                        if (counter++ > 5)
                         {
-                        //    break;
+                            break;
                         }
 #endif
-                    }                    
+                    }
                 }
             }
             catch

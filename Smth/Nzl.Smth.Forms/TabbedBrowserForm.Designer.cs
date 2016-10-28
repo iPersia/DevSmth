@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabbedBrowserForm));
             this.xtcBrowser = new DevExpress.XtraTab.XtraTabControl();
-            this.bmManager = new DevExpress.XtraBars.BarManager();
+            this.bmManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.bsiWelcome = new DevExpress.XtraBars.BarStaticItem();
             this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiTop10s = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBoards = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPhotos = new DevExpress.XtraBars.BarButtonItem();
             this.bbiMessage = new DevExpress.XtraBars.BarButtonItem();
             this.bbiFavors = new DevExpress.XtraBars.BarButtonItem();
             this.bbiMails = new DevExpress.XtraBars.BarButtonItem();
@@ -50,7 +52,6 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.riteGo = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
-            this.bbiPhotos = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtcBrowser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bmManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riteGo)).BeginInit();
@@ -184,6 +185,15 @@
             this.bbiBoards.Size = new System.Drawing.Size(75, 0);
             this.bbiBoards.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBoards_ItemClick);
             // 
+            // bbiPhotos
+            // 
+            this.bbiPhotos.Caption = "Photos";
+            this.bbiPhotos.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiPhotos.Id = 36;
+            this.bbiPhotos.Name = "bbiPhotos";
+            this.bbiPhotos.Size = new System.Drawing.Size(75, 0);
+            this.bbiPhotos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPhotos_ItemClick);
+            // 
             // bbiMessage
             // 
             this.bbiMessage.Caption = "Message";
@@ -308,13 +318,6 @@
             // 
             this.repositoryItemHyperLinkEdit1.AutoHeight = false;
             this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
-            // 
-            // bbiPhotos
-            // 
-            this.bbiPhotos.Caption = "Photos";
-            this.bbiPhotos.Id = 36;
-            this.bbiPhotos.Name = "bbiPhotos";
-            this.bbiPhotos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPhotos_ItemClick);
             // 
             // TabbedBrowserForm
             // 

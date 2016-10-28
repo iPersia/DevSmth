@@ -30,6 +30,9 @@
         {
             InitializeComponent();
             this.HideWhenDeactivate = false;
+
+            ///Begin fetch photos.
+            int count = Nzl.Smth.Loaders.PictureTopicLoader.Instance.PictureTopics.Count;
         }
 
         private void TestForm_Load(object sender, EventArgs e)

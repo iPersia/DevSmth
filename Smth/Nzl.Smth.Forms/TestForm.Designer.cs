@@ -38,6 +38,9 @@
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.pictureBrowserControl1 = new Nzl.Smth.Controls.Complexes.PictureBrowserControl();
+            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -93,7 +96,10 @@
             this.xtraTabControl1.TabIndex = 3;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
-            this.xtraTabPage2});
+            this.xtraTabPage2,
+            this.xtraTabPage3,
+            this.xtraTabPage4,
+            this.xtraTabPage5});
             // 
             // xtraTabPage1
             // 
@@ -117,6 +123,24 @@
             this.pictureBrowserControl1.Name = "pictureBrowserControl1";
             this.pictureBrowserControl1.Size = new System.Drawing.Size(991, 481);
             this.pictureBrowserControl1.TabIndex = 0;
+            // 
+            // xtraTabPage3
+            // 
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(991, 481);
+            this.xtraTabPage3.Text = "xtraTabPage3";
+            // 
+            // xtraTabPage4
+            // 
+            this.xtraTabPage4.Name = "xtraTabPage4";
+            this.xtraTabPage4.Size = new System.Drawing.Size(0, 0);
+            this.xtraTabPage4.Text = "xtraTabPage4";
+            // 
+            // xtraTabPage5
+            // 
+            this.xtraTabPage5.Name = "xtraTabPage5";
+            this.xtraTabPage5.Size = new System.Drawing.Size(0, 0);
+            this.xtraTabPage5.Text = "xtraTabPage5";
             // 
             // TestForm
             // 
@@ -147,6 +171,9 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private Controls.Complexes.PictureBrowserControl pictureBrowserControl1;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
 
         #endregion
 

@@ -167,6 +167,7 @@
             Top10sForm.Instance.OnTopLinkClicked += Top10sForm_OnTopLinkClicked;
             Top10sForm.Instance.OnTopBoardLinkClicked += Top10sForm_OnTopBoardLinkClicked;
             BoardNavigatorForm.Instance.OnBoardLinkLableClicked += FavorForm_OnBoardLinkLableClicked;
+            BoardQueryForm.Instance.OnBoardLinkLableClicked += FavorForm_OnBoardLinkLableClicked;
             FavorForm.Instance.OnFavorBoardLinkLableClicked += FavorForm_OnBoardLinkLableClicked;
             LoginForm.Instance.OnLoginFailed += LoginForm_OnLoginFailed;
             LoginForm.Instance.OnLogoutFailed += LoginForm_OnLogoutFailed;
@@ -761,6 +762,16 @@
         private void bbiBoards_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.ShowFormOnCenterParent(BoardNavigatorForm.Instance);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiGo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.ShowFormOnCenterParent(BoardQueryForm.Instance);
         }
 
         /// <summary>

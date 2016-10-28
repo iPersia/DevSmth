@@ -10,6 +10,14 @@
         /// <summary>
         /// 
         /// </summary>
+        public BaseData()
+        {
+            this.IsRecycled = false;
+        }
+            
+        /// <summary>
+        /// 
+        /// </summary>
         public virtual string ID
         {
             set;

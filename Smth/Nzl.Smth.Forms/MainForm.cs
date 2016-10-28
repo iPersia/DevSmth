@@ -120,11 +120,11 @@
             TabbedBrowserSettingsForm.Instance.CreateControl();
             System.Threading.Thread.Sleep(0);
 
-            ///Loading the photo components
-            SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "photo components");
-            System.Threading.Thread.Sleep(0);
-            int count = PictureTopicLoader.Instance.PictureTopics.Count;
-            System.Threading.Thread.Sleep(0);
+            /////Loading the photo components
+            //SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "photo components");
+            //System.Threading.Thread.Sleep(0);
+            //int count = PictureTopicLoader.Instance.PictureTopics.Count;
+            //System.Threading.Thread.Sleep(0);
 
             ///Initializing is completed.
             SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loaded, null);
@@ -159,7 +159,7 @@
                 this.Initializing();
 
                 ///Load the photos.
-                int x = Nzl.Smth.Loaders.PictureTopicLoader.Instance.PictureTopics.Count;
+                //int x = Nzl.Smth.Loaders.PictureTopicLoader.Instance.PictureTopics.Count;
             }
             catch
             { }

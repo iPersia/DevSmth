@@ -37,6 +37,7 @@
             this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiTop10s = new DevExpress.XtraBars.BarButtonItem();
             this.bbiBoards = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiGo = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPhotos = new DevExpress.XtraBars.BarButtonItem();
             this.bbiMessage = new DevExpress.XtraBars.BarButtonItem();
             this.bbiFavors = new DevExpress.XtraBars.BarButtonItem();
@@ -103,9 +104,10 @@
             this.bbiRefers,
             this.bbiSettings,
             this.bbiClear,
-            this.bbiPhotos});
+            this.bbiPhotos,
+            this.bbiGo});
             this.bmManager.MainMenu = this.bar4;
-            this.bmManager.MaxItemId = 37;
+            this.bmManager.MaxItemId = 38;
             this.bmManager.OptionsLayout.AllowAddNewItems = false;
             this.bmManager.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riteGo,
@@ -132,6 +134,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiLogin),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiTop10s),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiBoards),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiGo),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiPhotos),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiMessage),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiFavors),
@@ -185,6 +188,15 @@
             this.bbiBoards.Size = new System.Drawing.Size(75, 0);
             this.bbiBoards.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiBoards_ItemClick);
             // 
+            // bbiGo
+            // 
+            this.bbiGo.Caption = "Go to";
+            this.bbiGo.ContentHorizontalAlignment = DevExpress.XtraBars.BarItemContentAlignment.Center;
+            this.bbiGo.Id = 37;
+            this.bbiGo.Name = "bbiGo";
+            this.bbiGo.Size = new System.Drawing.Size(75, 0);
+            this.bbiGo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGo_ItemClick);
+            // 
             // bbiPhotos
             // 
             this.bbiPhotos.Caption = "Photos";
@@ -192,6 +204,7 @@
             this.bbiPhotos.Id = 36;
             this.bbiPhotos.Name = "bbiPhotos";
             this.bbiPhotos.Size = new System.Drawing.Size(75, 0);
+            this.bbiPhotos.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiPhotos.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPhotos_ItemClick);
             // 
             // bbiMessage
@@ -372,5 +385,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiSettings;
         private DevExpress.XtraBars.BarButtonItem bbiClear;
         private DevExpress.XtraBars.BarButtonItem bbiPhotos;
+        private DevExpress.XtraBars.BarButtonItem bbiGo;
     }
 }

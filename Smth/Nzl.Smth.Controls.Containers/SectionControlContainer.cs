@@ -58,8 +58,7 @@
             InitializeComponent();
             ///For ToString.
             this.Text = "The section container";
-
-            this.btnRefresh.Left = this.panelMenu.Width / 2 - this.btnRefresh.Width / 2;
+            
             this.linklblPrevious.HyperlinkClick += LinklblPrevious_LinkClicked;
             this.linklblPrevious.LostFocus += LinklblPrevious_LostFocus;
             this.SetBaseUrl(@"http://m.newsmth.net/section");
@@ -77,8 +76,19 @@
             this._parentControl = ctl;
         }
         #endregion
-        
+
         #region override
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.btnRefresh.Left = this.panelMenu.Width / 2 - this.btnRefresh.Width / 2;
+        }
+
         /// <summary>
         /// 
         /// </summary>

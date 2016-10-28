@@ -6,19 +6,19 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class FavorForm : BaseForm
+    public partial class BoardQueryForm : BaseForm
     {
         #region Singleton
         /// <summary>
         /// 
         /// </summary>
-        public static readonly FavorForm Instance = new FavorForm();
+        public static readonly BoardQueryForm Instance = new BoardQueryForm();
         #endregion
 
         /// <summary>
         /// 
         /// </summary>
-        public event HyperlinkClickEventHandler OnFavorBoardLinkLableClicked;
+        public event HyperlinkClickEventHandler OnBoardLinkLableClicked;
 
         /// <summary>
         /// 
@@ -28,13 +28,10 @@
         /// <summary>
         /// 
         /// </summary>
-        FavorForm()
+        BoardQueryForm()
         {
             InitializeComponent();
-            this.bccFavor.OnBoardLinkClicked += FcFavor_OnBoardLinkClicked;
-
-            ///
-            this.btnRefresh.Left = (this.panelMenu.Width - this.btnRefresh.Width) / 2;
+            this.bccBoards.OnBoardLinkClicked += BoardControlContainer_OnBoardLinkClicked;
         }
 
         /// <summary>
@@ -42,11 +39,11 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FcFavor_OnBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
+        private void BoardControlContainer_OnBoardLinkClicked(object sender, HyperlinkClickEventArgs e)
         {  
-            if (this.OnFavorBoardLinkLableClicked != null)
+            if (this.OnBoardLinkLableClicked != null)
             {
-                this.OnFavorBoardLinkLableClicked(sender, e);
+                this.OnBoardLinkLableClicked(sender, e);
             }
         }
 
@@ -70,9 +67,12 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnRefresh_Click(object sender, System.EventArgs e)
+        private void btnGo_Click(object sender, System.EventArgs e)
         {
-            this.bccFavor.Refetch();
+            this.bccBoards.Url = "http://m.newsmth.net/go?name=" + this.txtBoard.Text;
+            this.bccBoards.Recycling();
+            this.bccBoards.Reusing();
+            this.bccBoards.Refetch();
         }
     }
 }

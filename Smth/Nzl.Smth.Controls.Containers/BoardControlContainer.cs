@@ -27,7 +27,7 @@
         /// <summary>
         /// 
         /// </summary>
-        private int _margin = 4;
+        private string _url = null;
         #endregion
 
         #region Ctor.
@@ -39,26 +39,44 @@
             InitializeComponent();
             ///For ToString.
             this.Text = "The board container";
-
-            ///
-            this.SizeChanged += BoardControlContainer_SizeChanged;
             
             ///
-            this.SetBaseUrl(@"http://m.newsmth.net/favor");            
+            ///this.SetBaseUrl(@"http://m.newsmth.net/favor");
+        }
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// 
+        /// </summary>
+        [DXBrowsable]
+        public string Url
+        {
+            get
+            {
+                return this._url;
+            }
+
+            set
+            {
+                this._url = value;
+                this.SetBaseUrl(this._url);
+            }
+        }
+        #endregion
+
+        #region Public
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Refetch()
+        {
+            this.SetUrlInfo(false);
+            this.FetchPage();
         }
         #endregion
 
         #region override
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="e"></param>
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);            
-            this.btnRefresh.Left = this.panelMenu.Width / 2 - this.btnRefresh.Width / 2;
-        }
-
         /// <summary>
         /// 
         /// </summary>
@@ -94,7 +112,25 @@
         /// <returns></returns>
         protected override IList<Board> GetItems(WebPage wp)
         {
-            return SectionUtil.GetFavorBoards(wp);
+            IList<Board> boards = SectionUtil.GetFavorBoards(wp);
+
+            ///In search mode, we need to find the direct loading.
+            if (boards != null && 
+                boards.Count == 0 && 
+                wp != null && 
+                wp.IsGood)
+            {
+                string boardName = SmthUtil.GetBoard(wp);
+                if (string.IsNullOrEmpty(boardName) == false)
+                {
+                    Board board = new Board();
+                    board.Name = boardName.Substring(0, boardName.IndexOf("("));
+                    board.Code = boardName.Replace(board.Name, "").Replace("(", "").Replace(")", "");
+                    boards.Add(board);
+                }
+            }
+
+            return boards;
         }
 
         /// <summary>
@@ -146,27 +182,6 @@
             {
                 this.OnBoardLinkClicked(sender, e);
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            this.SetUrlInfo(false);
-            this.FetchPage();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BoardControlContainer_SizeChanged(object sender, EventArgs e)
-        {
-            this.btnRefresh.Left = (this.panelMenu.Width - this.btnRefresh.Width) / 2;
         }
         #endregion
 

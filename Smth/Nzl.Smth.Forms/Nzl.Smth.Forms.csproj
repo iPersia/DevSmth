@@ -64,6 +64,12 @@
     <Compile Include="BoardNavigatorForm.Designer.cs">
       <DependentUpon>BoardNavigatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BoardQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoardQueryForm.Designer.cs">
+      <DependentUpon>BoardQueryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FavorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
   <ItemGroup>
     <EmbeddedResource Include="BoardNavigatorForm.resx">
       <DependentUpon>BoardNavigatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BoardQueryForm.resx">
+      <DependentUpon>BoardQueryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FavorForm.resx">
       <DependentUpon>FavorForm.cs</DependentUpon>

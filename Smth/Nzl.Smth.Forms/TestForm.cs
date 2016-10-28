@@ -30,14 +30,13 @@
         {
             InitializeComponent();
             this.HideWhenDeactivate = false;
-
-            ///Begin fetch photos.
-            int count = Nzl.Smth.Loaders.PictureTopicLoader.Instance.PictureTopics.Count;
         }
+
+        IList<Image> images = new List<Image>();
 
         private void TestForm_Load(object sender, EventArgs e)
         {
-            IList<Image> images = new List<Image>();
+            
             images.Add(Image.FromFile(@"d:\Images\Camera-K910\20150630\20150531045005.jpg"));
             images.Add(Image.FromFile(@"d:\Images\Camera-K910\20150630\20150608191242.jpg"));
             images.Add(Image.FromFile(@"d:\Images\Camera-K910\20150630\20150609184731.jpg"));
@@ -53,15 +52,11 @@
             images.Add(Image.FromFile(@"d:\Images\Camera-K910\20150630\20150614180038.jpg"));
             images.Add(Image.FromFile(@"d:\Images\Camera-K910\20150630\20150614180039.jpg"));
             this.pictureGalleryControl1.Pictures = images;
-
-            this.pictureGalleryControl1.ShowEx();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            this.pictureGalleryControl1.ShowEx();
-
-            this.pictureBrowserControl1.RefreshEx();
+            this.pictureGalleryControl1.SelectImage(images[5]);
         }
     }
 }

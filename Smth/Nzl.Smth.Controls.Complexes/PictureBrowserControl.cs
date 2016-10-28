@@ -250,7 +250,6 @@
             }
 
             this.pgcGallery.Pictures = images;
-            this.pgcGallery.ShowEx();
         }
     }
 }

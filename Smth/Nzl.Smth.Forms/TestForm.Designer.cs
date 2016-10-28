@@ -37,7 +37,6 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.pictureBrowserControl1 = new Nzl.Smth.Controls.Complexes.PictureBrowserControl();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
@@ -47,7 +46,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
-            this.xtraTabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageCollection1
@@ -111,18 +109,9 @@
             // 
             // xtraTabPage2
             // 
-            this.xtraTabPage2.Controls.Add(this.pictureBrowserControl1);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(991, 481);
             this.xtraTabPage2.Text = "xtraTabPage2";
-            // 
-            // pictureBrowserControl1
-            // 
-            this.pictureBrowserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBrowserControl1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBrowserControl1.Name = "pictureBrowserControl1";
-            this.pictureBrowserControl1.Size = new System.Drawing.Size(991, 481);
-            this.pictureBrowserControl1.TabIndex = 0;
             // 
             // xtraTabPage3
             // 
@@ -133,13 +122,13 @@
             // xtraTabPage4
             // 
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(0, 0);
+            this.xtraTabPage4.Size = new System.Drawing.Size(991, 481);
             this.xtraTabPage4.Text = "xtraTabPage4";
             // 
             // xtraTabPage5
             // 
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(0, 0);
+            this.xtraTabPage5.Size = new System.Drawing.Size(991, 481);
             this.xtraTabPage5.Text = "xtraTabPage5";
             // 
             // TestForm
@@ -159,7 +148,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
-            this.xtraTabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -170,7 +158,6 @@
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
-        private Controls.Complexes.PictureBrowserControl pictureBrowserControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;

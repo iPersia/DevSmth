@@ -24,6 +24,13 @@
         /// <summary>
         /// 
         /// </summary>
+        /// <typeparam name="Image"></typeparam>
+        /// <param name=""></param>
+        private IList<Image> _pictures = null;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public PictureGalleryControl()
         {
             InitializeComponent();
@@ -111,14 +118,51 @@
         /// </summary>
         public IList<Image> Pictures
         {
-            get;
-            set;
+            get
+            {
+                return this._pictures;
+            }
+
+            set
+            {
+                this._pictures = value;
+                if (this._pictures != null)
+                {
+                    this.ShowEx();
+                }
+            }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void ShowEx()
+        /// <param name="image"></param>
+        public void SelectImage(Image image)
+        {
+            foreach(Control ctl in this.panel.Controls)
+            {
+                PictureEdit pe = ctl as PictureEdit;
+                if (pe!=null && pe.Image == image)
+                {
+                    pe.Focus();
+
+                    int maxLeft = Configuration.BaseControlLocationMargin;
+                    int minLeft = this.panelContainer.Width
+                                - this.panel.Width
+                                - Configuration.BaseControlContainerLocationMargin;
+                    int newYPos = 0 - pe.Left + this.panelContainer.Width / 2;
+                    newYPos = newYPos > maxLeft ? maxLeft : newYPos;
+                    newYPos = newYPos < minLeft ? minLeft : newYPos;
+
+                    this.panel.Left = newYPos;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void ShowEx()
         {
             this.Clear();
             int leftPos = Configuration.BaseControlLocationMargin;
@@ -133,6 +177,7 @@
                 pe.Left = leftPos;
                 pe.ReadOnly = true;
                 pe.Properties.NullText = "Loading";
+                pe.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 
                 int zoomFactor = image.Height / len;
                 zoomFactor = zoomFactor > image.Width / len ? zoomFactor : image.Width / len;
@@ -140,10 +185,40 @@
 
                 leftPos += len + Configuration.BaseControlLocationMargin;
                 pe.MouseClick += PictureEdit_MouseClick;
+                pe.GotFocus += PictureEdit_GotFocus;
+                pe.LostFocus += PictureEdit_LostFocus;
                 this.panel.Controls.Add(pe);
             }
 
             this.panel.Width = this.Pictures.Count * len + Configuration.BaseControlLocationMargin * (this.Pictures.Count + 1);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PictureEdit_LostFocus(object sender, EventArgs e)
+        {
+            PictureEdit pe = sender as PictureEdit;
+            if (pe != null)
+            {
+                pe.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PictureEdit_GotFocus(object sender, EventArgs e)
+        {
+            PictureEdit pe = sender as PictureEdit;
+            if (pe != null)
+            {
+                pe.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            }
         }
 
         /// <summary>

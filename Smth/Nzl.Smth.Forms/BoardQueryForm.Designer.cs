@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BoardQueryForm));
             this.bccBoards = new Nzl.Smth.Controls.Containers.BoardControlContainer();
             this.panelMenu = new DevExpress.XtraEditors.PanelControl();
-            this.btnGo = new DevExpress.XtraEditors.SimpleButton();
             this.txtBoard = new DevExpress.XtraEditors.TextEdit();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelMenu)).BeginInit();
@@ -48,35 +47,34 @@
             this.bccBoards.IsRecycled = false;
             this.bccBoards.Location = new System.Drawing.Point(2, 2);
             this.bccBoards.Name = "bccBoards";
-            this.bccBoards.Size = new System.Drawing.Size(361, 495);
+            this.bccBoards.Size = new System.Drawing.Size(300, 417);
             this.bccBoards.Status = Nzl.Recycling.RecycledStatus.Using;
             this.bccBoards.TabIndex = 0;
+            this.bccBoards.Url = null;
             // 
             // panelMenu
             // 
-            this.panelMenu.Controls.Add(this.btnGo);
             this.panelMenu.Controls.Add(this.txtBoard);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(365, 40);
+            this.panelMenu.Size = new System.Drawing.Size(304, 40);
             this.panelMenu.TabIndex = 1;
-            // 
-            // btnGo
-            // 
-            this.btnGo.Location = new System.Drawing.Point(317, 8);
-            this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(36, 23);
-            this.btnGo.TabIndex = 1;
-            this.btnGo.Text = "Go";
-            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // txtBoard
             // 
             this.txtBoard.Location = new System.Drawing.Point(12, 11);
             this.txtBoard.Name = "txtBoard";
-            this.txtBoard.Size = new System.Drawing.Size(299, 20);
+            this.txtBoard.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoard.Properties.Appearance.Options.UseFont = true;
+            this.txtBoard.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtBoard.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtBoard.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.txtBoard.Size = new System.Drawing.Size(280, 18);
             this.txtBoard.TabIndex = 0;
+            this.txtBoard.ToolTip = "Press Enter to find the boards you want.";
+            this.txtBoard.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
+            this.txtBoard.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoard_KeyUp);
             // 
             // panelContainer
             // 
@@ -84,7 +82,7 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 40);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(365, 499);
+            this.panelContainer.Size = new System.Drawing.Size(304, 421);
             this.panelContainer.TabIndex = 2;
             // 
             // BoardQueryForm
@@ -92,7 +90,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 539);
+            this.ClientSize = new System.Drawing.Size(304, 461);
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,6 +115,5 @@
         private DevExpress.XtraEditors.PanelControl panelMenu;
         private DevExpress.XtraEditors.PanelControl panelContainer;
         private DevExpress.XtraEditors.TextEdit txtBoard;
-        private DevExpress.XtraEditors.SimpleButton btnGo;
     }
 }

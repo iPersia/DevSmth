@@ -74,5 +74,21 @@
             this.bccBoards.Reusing();
             this.bccBoards.Refetch();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtBoard_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && string.IsNullOrEmpty(this.txtBoard.Text) == false)
+            {
+                this.bccBoards.Url = "http://m.newsmth.net/go?name=" + this.txtBoard.Text;
+                this.bccBoards.Recycling();
+                this.bccBoards.Reusing();
+                this.bccBoards.Refetch();
+            }
+        }
     }
 }

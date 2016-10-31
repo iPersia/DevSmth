@@ -1,4 +1,8 @@
-﻿[assembly: Nzl.Log4Net.Config.XmlConfigurator(Watch = true)]
+﻿#if (RELEASE)
+[assembly: Nzl.Log4Net.Config.XmlConfigurator(Watch = false)]
+#else
+[assembly: Nzl.Log4Net.Config.XmlConfigurator(Watch = true)]
+#endif
 namespace Nzl.Smth.Logger
 {
     using System;
@@ -11,10 +15,17 @@ namespace Nzl.Smth.Logger
     /// </summary>
     public class Logger
     {
+#if (RELEASE)
+        /// <summary>
+        /// 
+        /// </summary>
+        private static bool _loggerEnabled = false;
+#else
         /// <summary>
         /// 
         /// </summary>
         private static bool _loggerEnabled = true;
+#endif
 
         /// <summary>
         /// 

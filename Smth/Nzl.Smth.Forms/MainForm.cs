@@ -34,6 +34,7 @@
 
             ///
             SplashScreenManager.ShowForm(typeof(SplashScreenForm));
+            System.Threading.Thread.Sleep(1000);
 
             ///DevExpress default setting.
             SplashScreenManager.Default.SendCommand(SplashScreenForm.SplashScreenCommand.Loading, "default application settings");

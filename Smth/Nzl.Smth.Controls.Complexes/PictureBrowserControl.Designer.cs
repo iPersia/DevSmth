@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PictureBrowserControl));
             this.panelUp = new DevExpress.XtraEditors.PanelControl();
             this.lcTitle = new DevExpress.XtraEditors.HyperlinkLabelControl();
@@ -36,7 +37,7 @@
             this.panelMiddle = new DevExpress.XtraEditors.PanelControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.imageSlider = new DevExpress.XtraEditors.Controls.ImageSlider();
-            this.cmsImageSlider = new System.Windows.Forms.ContextMenuStrip();
+            this.cmsImageSlider = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelRight = new DevExpress.XtraEditors.PanelControl();
             this.pictureRight = new DevExpress.XtraEditors.PictureEdit();
@@ -149,7 +150,7 @@
             this.cmsImageSlider.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.refreshToolStripMenuItem});
             this.cmsImageSlider.Name = "cmsImageSlider";
-            this.cmsImageSlider.Size = new System.Drawing.Size(113, 26);
+            this.cmsImageSlider.Size = new System.Drawing.Size(153, 48);
             // 
             // refreshToolStripMenuItem
             // 

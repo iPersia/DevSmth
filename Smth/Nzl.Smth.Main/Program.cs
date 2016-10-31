@@ -5,7 +5,6 @@
     using System.Text;
     using System.Windows.Forms;
     using System.Runtime.CompilerServices;
-    using DevExpress.Utils;
     using Nzl.Messaging;
     using Nzl.Smth.Forms;
     using Nzl.Smth.Logger;

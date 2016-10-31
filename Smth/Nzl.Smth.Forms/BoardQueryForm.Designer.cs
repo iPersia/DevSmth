@@ -51,7 +51,6 @@
             this.bccBoards.Size = new System.Drawing.Size(361, 495);
             this.bccBoards.Status = Nzl.Recycling.RecycledStatus.Using;
             this.bccBoards.TabIndex = 0;
-            this.bccBoards.Url = "http://m.newsmth.net/favor";
             // 
             // panelMenu
             // 

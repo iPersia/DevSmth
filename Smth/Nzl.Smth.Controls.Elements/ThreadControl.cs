@@ -222,82 +222,93 @@
                 ///Add content.
                 this.richtxtContent.ReadOnly = false;
                 this.richtxtContent.BeginUpdate();
-                Document doc = this.richtxtContent.Document;
-                doc.BeginUpdate();
+                Document doc = this.richtxtContent.Document;                
                 try
                 {
-                    this.richtxtContent.HtmlText = thread.ContentHtml;
+                    string newlineToken = "__TOKEN__";
+                    this.richtxtContent.HtmlText = thread.ContentHtml.Replace("<br>", newlineToken).Replace("<br />", newlineToken).Replace("<br/>", newlineToken);
                     {
-                        ///Set default font.
+                        ///Set default font.                        
                         {
+                            doc.BeginUpdate();
                             CharacterProperties cp = doc.BeginUpdateCharacters(0, doc.Length);
                             cp.FontName = "宋体";
                             cp.FontSize = 10.5F;
                             doc.EndUpdateCharacters(cp);
+                            doc.EndUpdate();
                         }
 
                         ///Colored the replied thread content.
                         {
-                            string replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】\S*\s+(:( )?.*\s+)*";
-                            DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
-                            foreach (DocumentRange dr in drs)
+                            doc.BeginUpdate();
+
+                            //string replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】\S*\s+(:( )?.*\s+)*";
+                            //DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
+                            //foreach (DocumentRange dr in drs)
+                            //{
+                            //    doc.Selection = dr;
+                            //    CharacterProperties cp = doc.BeginUpdateCharacters(dr);
+                            //    cp.FontName = "宋体";
+                            //    cp.FontSize = 9;
+                            //    cp.ForeColor = Color.FromArgb(96, 96, 96);
+                            //    doc.EndUpdateCharacters(cp);
+                            //}
+
+
+                            ///Find the reply head.
+                            DocumentRange drReplyHeader = null;
                             {
-                                doc.Selection = dr;
-                                CharacterProperties cp = doc.BeginUpdateCharacters(dr);
-                                cp.FontName = "宋体";
-                                cp.FontSize = 9;
-                                cp.ForeColor = Color.FromArgb(96, 96, 96);
-                                doc.EndUpdateCharacters(cp);
+                                string replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】";
+                                DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
+                                foreach (DocumentRange dr in drs)
+                                {
+                                    doc.Selection = dr;
+                                    CharacterProperties cp = doc.BeginUpdateCharacters(dr);
+                                    cp.FontName = "宋体";
+                                    cp.FontSize = 9;
+                                    cp.ForeColor = Color.FromArgb(96, 96, 96);
+                                    doc.EndUpdateCharacters(cp);
+
+                                    drReplyHeader = dr;
+                                    break;
+                                }
                             }
 
+                            ///Find the reply content.
+                            {
+                                if (drReplyHeader != null)
+                                {
+                                    string replayPattern = @"\s*\:[^" + newlineToken + "]*" + newlineToken;
+                                    //replayPattern = @"\:[^<]*";
+                                    DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
+                                    foreach (DocumentRange dr in drs)
+                                    {
+                                        System.Diagnostics.Debug.WriteLine(this.Data.ID + "\t" + dr.Length + "\t" + doc.GetText(dr));
+                                        //if (dr.Start > drReplyHeader.End)
+                                        {
+                                            doc.Selection = dr;
+                                            CharacterProperties cp = doc.BeginUpdateCharacters(dr);
+                                            cp.FontName = "宋体";
+                                            cp.FontSize = 9;
+                                            cp.ForeColor = Color.FromArgb(96, 96, 96);
+                                            doc.EndUpdateCharacters(cp);
+                                        }
+                                    }
+                                }
+                            }
 
-                            /////Find the reply head.
-                            //DocumentRange drReplyHeader = null;
-                            //{
-                            //    string replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】";
-                            //    DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
-                            //    foreach (DocumentRange dr in drs)
-                            //    {
-                            //        doc.Selection = dr;
-                            //        CharacterProperties cp = doc.BeginUpdateCharacters(dr);
-                            //        cp.FontName = "宋体";
-                            //        cp.FontSize = 9;
-                            //        cp.ForeColor = Color.FromArgb(96, 96, 96);
-                            //        doc.EndUpdateCharacters(cp);
-
-                            //        drReplyHeader = dr;
-                            //        break;
-                            //    }
-                            //}
-
-                            /////Find the reply content.
-                            //{
-                            //    if (drReplyHeader != null)
-                            //    {
-                            //        string replayPattern = @"\s*\:.*";
-                            //        DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
-                            //        foreach (DocumentRange dr in drs)
-                            //        {
-                            //            //if (dr.Start > drReplyHeader.End)
-                            //            {
-                            //                doc.Selection = dr;
-                            //                CharacterProperties cp = doc.BeginUpdateCharacters(dr);
-                            //                cp.FontName = "宋体";
-                            //                cp.FontSize = 9;
-                            //                cp.ForeColor = Color.FromArgb(96, 96, 96);
-                            //                doc.EndUpdateCharacters(cp);
-                            //            }
-                            //        }
-                            //    }
-                            //}
-                        }
+                            doc.EndUpdate();
+                        }                        
 
                         ///Colored the From IP.
                         {
-                            string ipPattern = @"--\s+(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)\s+)?FROM (\d+\.){3}(\*|\d+)";
+                            doc.BeginUpdate();
+                            string ipPattern = newlineToken + @"\s*--\s*" + newlineToken + @"\s*(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)\s*" + newlineToken + @"\s*)?FROM (\d+\.){3}(\*|\d+)";
                             DocumentRange[] drsa = doc.FindAll(new Regex(ipPattern));
                             foreach (DocumentRange dr in drsa)
                             {
+                                System.Diagnostics.Debug.WriteLine(this.Data.ID + "\t" + dr.Length + "\t" + doc.GetText(dr));
+
                                 doc.Selection = dr;
                                 CharacterProperties cp = doc.BeginUpdateCharacters(dr);
                                 cp.FontName = "宋体";
@@ -306,31 +317,52 @@
                                 doc.EndUpdateCharacters(cp);
                             }
 
-                            ipPattern = @"修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)";
-                            DocumentRange[] drsb = doc.FindAll(new Regex(ipPattern));
-                            foreach (DocumentRange dr in drsb)
-                            {
-                                doc.Selection = dr;
-                                CharacterProperties cp = doc.BeginUpdateCharacters(dr);
-                                cp.FontName = "宋体";
-                                cp.FontSize = 9;
-                                cp.ForeColor = Color.FromArgb(160, 160, 160);
-                                doc.EndUpdateCharacters(cp);
-                            }
+                            //ipPattern = @"修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)";
+                            //DocumentRange[] drsb = doc.FindAll(new Regex(ipPattern));
+                            //foreach (DocumentRange dr in drsb)
+                            //{
+                            //    System.Diagnostics.Debug.WriteLine(this.Data.ID + "\t" + dr.Length + "\t" + doc.GetText(dr));
+
+                            //    doc.Selection = dr;
+                            //    CharacterProperties cp = doc.BeginUpdateCharacters(dr);
+                            //    cp.FontName = "宋体";
+                            //    cp.FontSize = 9;
+                            //    cp.ForeColor = Color.FromArgb(160, 160, 160);
+                            //    doc.EndUpdateCharacters(cp);
+                            //}
+
+                            doc.EndUpdate();
                         }
 
                         ///Colored the reply tail.
                         {
+                            doc.BeginUpdate();
                             string repleyContent = SmthUtil.GetReplyText();
                             DocumentRange[] drs = doc.FindAll(new Regex(repleyContent));
                             foreach (DocumentRange dr in drs)
                             {
+                                System.Diagnostics.Debug.WriteLine(this.Data.ID + "\t" + dr.Length + "\t" + doc.GetText(dr));
+
                                 doc.Selection = dr;
                                 CharacterProperties cp = doc.BeginUpdateCharacters(dr);
                                 cp.FontName = "宋体";
                                 cp.FontSize = 9;
                                 doc.EndUpdateCharacters(cp);
                             }
+
+                            doc.EndUpdate();
+                        }
+
+                        ///Replace by newline
+                        {
+                            doc.BeginUpdate();
+                            DocumentRange[] drs = doc.FindAll(newlineToken, SearchOptions.None);
+                            for (int i = drs.Length - 1; i >= 0; i--)
+                            {
+                                doc.Replace(drs[i], Environment.NewLine);
+                            }
+
+                            doc.EndUpdate();
                         }
 
                         this.richtxtContent.DeselectAll();

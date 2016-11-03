@@ -63,7 +63,10 @@
                 }
 
                 this.linklblSection.AllowHtmlString = true;
-                this.linklblSection.Text = ControlUtil.GetHyperlinkText(section.Name, section.Code);
+                //this.linklblSection.Text = ControlUtil.GetHyperlinkText(section.Name, section.Code);
+                //this.linklblSection.LinkVisited = ControlCenter.IsVisitedUrl(section.Code);
+
+                this.InitializeLinkLabel(this.linklblSection, section.Name, section.Code);
             }
         }
 

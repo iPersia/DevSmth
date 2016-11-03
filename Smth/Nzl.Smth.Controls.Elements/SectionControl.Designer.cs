@@ -60,13 +60,7 @@ namespace Nzl.Smth.Controls.Elements
             // linklblSection
             // 
             this.linklblSection.Appearance.Font = new System.Drawing.Font("宋体", 9F);
-            this.linklblSection.Appearance.LinkColor = System.Drawing.Color.Blue;
             this.linklblSection.Appearance.Options.UseFont = true;
-            this.linklblSection.Appearance.Options.UseLinkColor = true;
-            this.linklblSection.Appearance.Options.UsePressedColor = true;
-            this.linklblSection.Appearance.Options.UseVisitedColor = true;
-            this.linklblSection.Appearance.PressedColor = System.Drawing.Color.Red;
-            this.linklblSection.Appearance.VisitedColor = System.Drawing.Color.Green;
             this.linklblSection.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linklblSection.Location = new System.Drawing.Point(56, 7);
             this.linklblSection.Name = "linklblSection";

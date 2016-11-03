@@ -62,10 +62,16 @@
             base.Initialize(refer);
             if (refer != null)
             {
-                this.linklblTitle.Text = CommonUtil.ReplaceSpecialChars(refer.Title);
-                this.linklblTitle.Text = ControlUtil.GetHyperlinkText(this.linklblTitle.Text, refer.Url);
-                this.linklblAuthor.Text = refer.Author;
-                this.linklblAuthor.Text = ControlUtil.GetHyperlinkText(this.linklblAuthor.Text, refer.Author);
+                //this.linklblTitle.Text = CommonUtil.ReplaceSpecialChars(refer.Title);
+                //this.linklblTitle.Text = ControlUtil.GetHyperlinkText(this.linklblTitle.Text, refer.Url);
+
+                this.InitializeLinkLabel(this.linklblTitle, CommonUtil.ReplaceSpecialChars(refer.Title), refer.Url);
+
+                //this.linklblAuthor.Text = refer.Author;
+                //this.linklblAuthor.Text = ControlUtil.GetHyperlinkText(this.linklblAuthor.Text, refer.Author);
+
+                this.InitializeLinkLabel(this.linklblAuthor, refer.Author, refer.Author);
+
                 this.lblDT.Text = refer.DateTime;
             }
         }

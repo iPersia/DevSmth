@@ -69,8 +69,9 @@ namespace Nzl.Smth.Controls.Elements
             if (topic != null)
             {
                 this.lblIndex.Text = topic.Sequence.ToString("00");
-                this.linklblTop.Text = "";
-                this.linklblTop.Text = ControlUtil.GetHyperlinkText(topic.Title, topic.Uri);
+                //this.linklblTop.Text = "";
+                //this.linklblTop.Text = ControlUtil.GetHyperlinkText(topic.Title, topic.Uri);
+                this.InitializeLinkLabel(this.linklblTop, topic.Title, topic.Uri);
                 if (topic.Replies > 0)
                 {
                     this.lblReplies.Visible = true;
@@ -84,8 +85,10 @@ namespace Nzl.Smth.Controls.Elements
 
                 //string boardName = Boards.Instance.GetBoardName(topic.Board);
                 //this.linklblBoard.Text = string.IsNullOrEmpty(boardName) ? topic.Board : boardName;
-                this.linklblBoard.Text = topic.Board;
-                this.linklblBoard.Text = ControlUtil.GetHyperlinkText(topic.Board, topic.Board);
+                //this.linklblBoard.Text = topic.Board;
+                //this.linklblBoard.Text = ControlUtil.GetHyperlinkText(topic.Board, topic.Board);
+
+                this.InitializeLinkLabel(this.linklblBoard, topic.Board, topic.Board);
             }
         }
 

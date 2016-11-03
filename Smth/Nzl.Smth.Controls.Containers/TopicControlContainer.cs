@@ -53,6 +53,11 @@
         /// 
         /// </summary>
         public event EventHandler<BoardSettingEventArgs> OnBoardSettingsClicked;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public event EventHandler<MessageEventArgs> OnCaptionChanged;
         #endregion
 
         #region Variable
@@ -595,8 +600,10 @@
                 if (this.Parent != null && this.Text != null)
                 {
                     string boardName = this.Text.Substring(0, this.Text.IndexOf("("));
-                    this.Parent.Text = "【" + boardName + "】";
-                    this.Parent.Tag = "版面-" + this.Text;
+                    if (this.OnCaptionChanged != null)
+                    {
+                        this.OnCaptionChanged(this, new MessageEventArgs(boardName));
+                    }
                 }
             }
         }

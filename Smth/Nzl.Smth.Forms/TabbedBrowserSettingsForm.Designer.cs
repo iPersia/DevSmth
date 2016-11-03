@@ -63,10 +63,13 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
             this.xtpAbout = new DevExpress.XtraTab.XtraTabPage();
-            this.panelXtp = new DevExpress.XtraEditors.PanelControl();
+            this.panelAbout = new DevExpress.XtraEditors.PanelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.panelCachingUpdating = new DevExpress.XtraEditors.PanelControl();
+            this.panelRefreshing = new DevExpress.XtraEditors.PanelControl();
+            this.panelUI = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).BeginInit();
             this.gpAutoUpdating.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbNewMailCheckingInterval.Properties)).BeginInit();
@@ -94,8 +97,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.xtpAbout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelXtp)).BeginInit();
-            this.panelXtp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelAbout)).BeginInit();
+            this.panelAbout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelCachingUpdating)).BeginInit();
+            this.panelCachingUpdating.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelRefreshing)).BeginInit();
+            this.panelRefreshing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelUI)).BeginInit();
+            this.panelUI.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
@@ -129,7 +138,7 @@
             this.gpAutoUpdating.Controls.Add(this.label2);
             this.gpAutoUpdating.Controls.Add(this.cmbSectionTopUpdatingInterval);
             this.gpAutoUpdating.Controls.Add(this.label1);
-            this.gpAutoUpdating.Location = new System.Drawing.Point(12, 12);
+            this.gpAutoUpdating.Location = new System.Drawing.Point(11, 11);
             this.gpAutoUpdating.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gpAutoUpdating.Name = "gpAutoUpdating";
             this.gpAutoUpdating.Size = new System.Drawing.Size(308, 128);
@@ -325,8 +334,7 @@
             // 
             // xtpUISettings
             // 
-            this.xtpUISettings.Controls.Add(this.gcSkins);
-            this.xtpUISettings.Controls.Add(this.gcUISettings);
+            this.xtpUISettings.Controls.Add(this.panelUI);
             this.xtpUISettings.Name = "xtpUISettings";
             this.xtpUISettings.Size = new System.Drawing.Size(330, 354);
             this.xtpUISettings.Text = "UI";
@@ -343,10 +351,10 @@
             this.gcSkins.Gallery.Appearance.FilterPanelCaption.Options.UseFont = true;
             this.gcSkins.Gallery.Appearance.GroupCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcSkins.Gallery.Appearance.GroupCaption.Options.UseFont = true;
-            this.gcSkins.Location = new System.Drawing.Point(12, 121);
+            this.gcSkins.Location = new System.Drawing.Point(11, 120);
             this.gcSkins.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcSkins.Name = "gcSkins";
-            this.gcSkins.Size = new System.Drawing.Size(308, 215);
+            this.gcSkins.Size = new System.Drawing.Size(308, 229);
             this.gcSkins.TabIndex = 3;
             this.gcSkins.Text = "galleryControl1";
             // 
@@ -355,7 +363,7 @@
             this.galleryControlClient1.GalleryControl = this.gcSkins;
             this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
             this.galleryControlClient1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.galleryControlClient1.Size = new System.Drawing.Size(287, 211);
+            this.galleryControlClient1.Size = new System.Drawing.Size(287, 225);
             // 
             // gcUISettings
             // 
@@ -370,7 +378,7 @@
             this.gcUISettings.Controls.Add(this.label11);
             this.gcUISettings.Controls.Add(this.cmbBaseControlContainerLocationMargin);
             this.gcUISettings.Controls.Add(this.label12);
-            this.gcUISettings.Location = new System.Drawing.Point(12, 12);
+            this.gcUISettings.Location = new System.Drawing.Point(11, 11);
             this.gcUISettings.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcUISettings.Name = "gcUISettings";
             this.gcUISettings.Size = new System.Drawing.Size(308, 103);
@@ -480,15 +488,14 @@
             // 
             // xtpUpdating
             // 
-            this.xtpUpdating.Controls.Add(this.gpAutoUpdating);
+            this.xtpUpdating.Controls.Add(this.panelRefreshing);
             this.xtpUpdating.Name = "xtpUpdating";
             this.xtpUpdating.Size = new System.Drawing.Size(330, 354);
             this.xtpUpdating.Text = "Refreshing";
             // 
             // xtpMisc
             // 
-            this.xtpMisc.Controls.Add(this.groupControl2);
-            this.xtpMisc.Controls.Add(this.groupControl1);
+            this.xtpMisc.Controls.Add(this.panelCachingUpdating);
             this.xtpMisc.Name = "xtpMisc";
             this.xtpMisc.Size = new System.Drawing.Size(330, 354);
             this.xtpMisc.Text = "Caching && Updating";
@@ -503,7 +510,7 @@
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.Controls.Add(this.btnCheckNewVersion);
             this.groupControl2.Controls.Add(this.labelControl2);
-            this.groupControl2.Location = new System.Drawing.Point(12, 116);
+            this.groupControl2.Location = new System.Drawing.Point(11, 115);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(308, 77);
@@ -547,7 +554,7 @@
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.btnClearCache);
-            this.groupControl1.Location = new System.Drawing.Point(12, 12);
+            this.groupControl1.Location = new System.Drawing.Point(11, 11);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(308, 98);
@@ -584,21 +591,21 @@
             // 
             // xtpAbout
             // 
-            this.xtpAbout.Controls.Add(this.panelXtp);
+            this.xtpAbout.Controls.Add(this.panelAbout);
             this.xtpAbout.Name = "xtpAbout";
             this.xtpAbout.Size = new System.Drawing.Size(330, 354);
             this.xtpAbout.Text = "About";
             // 
-            // panelXtp
+            // panelAbout
             // 
-            this.panelXtp.Controls.Add(this.labelControl5);
-            this.panelXtp.Controls.Add(this.labelControl4);
-            this.panelXtp.Controls.Add(this.labelControl3);
-            this.panelXtp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelXtp.Location = new System.Drawing.Point(0, 0);
-            this.panelXtp.Name = "panelXtp";
-            this.panelXtp.Size = new System.Drawing.Size(330, 354);
-            this.panelXtp.TabIndex = 1;
+            this.panelAbout.Controls.Add(this.labelControl5);
+            this.panelAbout.Controls.Add(this.labelControl4);
+            this.panelAbout.Controls.Add(this.labelControl3);
+            this.panelAbout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAbout.Location = new System.Drawing.Point(0, 0);
+            this.panelAbout.Name = "panelAbout";
+            this.panelAbout.Size = new System.Drawing.Size(330, 354);
+            this.panelAbout.TabIndex = 1;
             // 
             // labelControl5
             // 
@@ -642,6 +649,35 @@
     "blog at <href=www.cnblogs.com/junier/p/5869972.html>cnblogs</href>.";
             this.labelControl3.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.labelControl3_HyperlinkClick);
             // 
+            // panelCachingUpdating
+            // 
+            this.panelCachingUpdating.Controls.Add(this.groupControl1);
+            this.panelCachingUpdating.Controls.Add(this.groupControl2);
+            this.panelCachingUpdating.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCachingUpdating.Location = new System.Drawing.Point(0, 0);
+            this.panelCachingUpdating.Name = "panelCachingUpdating";
+            this.panelCachingUpdating.Size = new System.Drawing.Size(330, 354);
+            this.panelCachingUpdating.TabIndex = 4;
+            // 
+            // panelRefreshing
+            // 
+            this.panelRefreshing.Controls.Add(this.gpAutoUpdating);
+            this.panelRefreshing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRefreshing.Location = new System.Drawing.Point(0, 0);
+            this.panelRefreshing.Name = "panelRefreshing";
+            this.panelRefreshing.Size = new System.Drawing.Size(330, 354);
+            this.panelRefreshing.TabIndex = 6;
+            // 
+            // panelUI
+            // 
+            this.panelUI.Controls.Add(this.gcUISettings);
+            this.panelUI.Controls.Add(this.gcSkins);
+            this.panelUI.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelUI.Location = new System.Drawing.Point(0, 0);
+            this.panelUI.Name = "panelUI";
+            this.panelUI.Size = new System.Drawing.Size(330, 354);
+            this.panelUI.TabIndex = 4;
+            // 
             // TabbedBrowserSettingsForm
             // 
             this.Appearance.Options.UseFont = true;
@@ -683,8 +719,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.xtpAbout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelXtp)).EndInit();
-            this.panelXtp.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelAbout)).EndInit();
+            this.panelAbout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelCachingUpdating)).EndInit();
+            this.panelCachingUpdating.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelRefreshing)).EndInit();
+            this.panelRefreshing.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelUI)).EndInit();
+            this.panelUI.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -724,10 +766,13 @@
         private DevExpress.XtraEditors.SimpleButton btnCheckNewVersion;
         private DevExpress.XtraTab.XtraTabPage xtpAbout;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.PanelControl panelXtp;
+        private DevExpress.XtraEditors.PanelControl panelAbout;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.PanelControl panelXtc;
         private DevExpress.XtraEditors.PanelControl panelMenu;
+        private DevExpress.XtraEditors.PanelControl panelCachingUpdating;
+        private DevExpress.XtraEditors.PanelControl panelRefreshing;
+        private DevExpress.XtraEditors.PanelControl panelUI;
     }
 }

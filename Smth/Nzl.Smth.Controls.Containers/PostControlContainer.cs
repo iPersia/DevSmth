@@ -81,6 +81,11 @@ namespace Nzl.Smth.Controls.Containers
         /// 
         /// </summary>
         public event LinkClickedEventHandler OnContentLinkClicked;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public event EventHandler<MessageEventArgs> OnCaptionChanged;
         #endregion
 
         #region variable
@@ -240,11 +245,11 @@ namespace Nzl.Smth.Controls.Containers
         {
             base.WorkCompleted(info);
 
-            ///Set parent text.
-            if (this.Parent != null)
+            ///
+            if (this.OnCaptionChanged != null)
             {
-                this.Parent.Text = MiscUtil.GetFormattedTitle(this, (info.Result[0] as Post).Subject);
-                this.Parent.Tag = (info.Result[0] as Post).Subject;
+                string msg = (info.Result[0] as Post).Subject + " - " + SmthUtil.GetBoard(info.WebPage);
+                this.OnCaptionChanged(this, new MessageEventArgs(msg));
             }
         }
         #endregion

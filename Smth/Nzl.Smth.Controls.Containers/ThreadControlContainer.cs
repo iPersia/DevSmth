@@ -87,6 +87,11 @@ namespace Nzl.Smth.Controls.Containers
         /// 
         /// </summary>
         public event LinkClickedEventHandler OnThreadContentLinkClicked;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public event EventHandler<MessageEventArgs> OnCaptionChanged;
         #endregion
 
         #region variable
@@ -1005,12 +1010,12 @@ namespace Nzl.Smth.Controls.Containers
             {
                 this.Text = "只看" + this._targetUserID + " - " + this.Text;
             }
-            
-            ///Set parent text.
-            if (this.Parent != null)
+
+            ///
+            if (this.OnCaptionChanged != null)
             {
-                this.Parent.Text = MiscUtil.GetFormattedTitle(this, this._topic);
-                this.Parent.Tag = "主题:" + this._topic + " - " + SmthUtil.GetBoard(wp);
+                string msg = "主题:" + this._topic + " - " + SmthUtil.GetBoard(wp);
+                this.OnCaptionChanged(this, new MessageEventArgs(msg));
             }
 
             this._subject = this._topic;//CommonUtil.GetMatch(@"<input type=\Whidden\W name=\Wsubject\W value=\W(?'subject'Re[0-9A-Z,%,~,-]+)\W\s/>", html, 1);

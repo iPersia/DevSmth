@@ -42,13 +42,28 @@
             this.linklblTitle.HyperlinkClick += new HyperlinkClickEventHandler(linklblTitle_LinkClicked);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void PrepareControls()
+        {
+            base.PrepareControls();
+
+            ///
+            this.HyperlinkLabelControls.Add(this.linklblAuthor);
+            this.HyperlinkLabelControls.Add(this.linklblDelete);
+            this.HyperlinkLabelControls.Add(this.linklblTitle);
+        }
+
         public override void Initialize(At at)
         {
             base.Initialize(at);
             if (at != null)
             {
                 this.linklblTitle.Text = ControlUtil.GetHyperlinkText(CommonUtil.ReplaceSpecialChars(at.Title), at.Url);
+                this.linklblTitle.LinkVisited = ControlCenter.IsVisitedUrl(at.Url);
                 this.linklblAuthor.Text = ControlUtil.GetHyperlinkText(at.Author, at.Author);
+                this.linklblAuthor.LinkVisited = ControlCenter.IsVisitedUrl(at.Author);
                 this.lblDT.Text = at.DateTime;
             }
         }
@@ -105,3 +120,4 @@
         }
     }
 }
+

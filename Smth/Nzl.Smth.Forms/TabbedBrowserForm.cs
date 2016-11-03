@@ -50,16 +50,6 @@
         /// <summary>
         /// 
         /// </summary>
-        private const int CLOSE_SIZE = 16;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private const int PADDING_SIZE = 4;
-
-        /// <summary>
-        /// 
-        /// </summary>
         private UserActivityHook _uahKey = new UserActivityHook(false, true);
 
         /// <summary>
@@ -198,9 +188,9 @@
             this.TopicReply_PageLoaded(this, new EventArgs());
         }
 #endif
-#endregion
+        #endregion
 
-#region Topic
+        #region Topic
         /// <summary>
         /// 
         /// </summary>
@@ -225,44 +215,71 @@
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
 #endif
+                ///Create XtraTabPage
                 XtraTabPage tp = new XtraTabPage();
                 tp.Name = key;
                 tp.Text = subject;
                 this.xtcBrowser.TabPages.Add(tp);
                 this.xtcBrowser.SelectedTabPage = tp;
 
-                //TopicBrowserControl tbc = new TopicBrowserControl();
-                ThreadControlContainer tbc = RecycledQueues.GetRecycled<ThreadControlContainer>();
-                if (tbc == null)
+                ///Create PanelControl
+                PanelControl pc = new PanelControl();
+                pc.Dock = DockStyle.Fill;
+                tp.Controls.Add(pc);
+
+                ///Create ThreadControlContainer
+                ThreadControlContainer tcc = RecycledQueues.GetRecycled<ThreadControlContainer>();
+                if (tcc == null)
                 {
 
-                    tbc = new ThreadControlContainer();
+                    tcc = new ThreadControlContainer();
                 }
 
-                tbc.Name = "tbc" + url;
-                tbc.Url = url;
-                tbc.TargetUserID = null;
-                tbc.Dock = DockStyle.Fill;
-                tbc.OnThreadDeleteLinkClicked += Common_OnThreadDeleteLinkClicked;
-                tbc.OnThreadEditLinkClicked += Common_OnThreadEditLinkClicked;
-                tbc.OnThreadMailLinkClicked += Common_OnThreadMailLinkClicked;
-                tbc.OnThreadQueryTypeLinkClicked += ThreadControlContainer_OnThreadQueryTypeLinkClicked;
-                tbc.OnThreadReplyLinkClicked += Common_OnThreadReplyLinkClicked;
-                tbc.OnThreadTransferLinkClicked += Common_OnThreadTransferLinkClicked;
-                tbc.OnThreadUserLinkClicked += Common_OnUserLinkClicked;
-                tbc.OnTopicReplyLinkClicked += ThreadControlContainer_OnTopicReplyLinkClicked;
-                tbc.OnThreadContentLinkClicked += Common_OnRichTextBoxContentLinkClicked;
-                tbc.OnBoardLinkClicked += ThreadControlContainer_OnBoardLinkClicked;
-                tbc.OnWorkerFailed += Common_OnWorkerFailed;
-                tbc.OnWorkerCancelled += Common_OnWorkerCancelled;
-                tbc.OnTopicSettingsClicked += ThreadControlContainer_OnTopicSettingsClicked;
-                tp.Controls.Add(tbc);
+                tcc.Name = "tcc" + url;
+                tcc.Url = url;
+                tcc.TargetUserID = null;
+                tcc.Dock = DockStyle.Fill;
+                tcc.OnThreadDeleteLinkClicked += Common_OnThreadDeleteLinkClicked;
+                tcc.OnThreadEditLinkClicked += Common_OnThreadEditLinkClicked;
+                tcc.OnThreadMailLinkClicked += Common_OnThreadMailLinkClicked;
+                tcc.OnThreadQueryTypeLinkClicked += ThreadControlContainer_OnThreadQueryTypeLinkClicked;
+                tcc.OnThreadReplyLinkClicked += Common_OnThreadReplyLinkClicked;
+                tcc.OnThreadTransferLinkClicked += Common_OnThreadTransferLinkClicked;
+                tcc.OnThreadUserLinkClicked += Common_OnUserLinkClicked;
+                tcc.OnTopicReplyLinkClicked += ThreadControlContainer_OnTopicReplyLinkClicked;
+                tcc.OnThreadContentLinkClicked += Common_OnRichTextBoxContentLinkClicked;
+                tcc.OnBoardLinkClicked += ThreadControlContainer_OnBoardLinkClicked;
+                tcc.OnWorkerFailed += Common_OnWorkerFailed;
+                tcc.OnWorkerCancelled += Common_OnWorkerCancelled;
+                tcc.OnTopicSettingsClicked += ThreadControlContainer_OnTopicSettingsClicked;
+                tcc.OnCaptionChanged += ThreadControlContainer_OnCaptionChanged;
+                pc.Controls.Add(tcc);
 #if (DEBUG)
                 sw.Stop();
                 System.Diagnostics.Debug.WriteLine(this.GetType().ToString() + " - AddTopic - Create ThreadControlContainer - ElapsedMilliseconds - " + sw.ElapsedMilliseconds);
 #endif
-                tbc.RefreshingOnSizeChanged(true);
-                tbc.Reusing();
+                tcc.RefreshingOnSizeChanged(true);
+                tcc.Reusing();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ThreadControlContainer_OnCaptionChanged(object sender, MessageEventArgs e)
+        {
+            ThreadControlContainer tcc = sender as ThreadControlContainer;
+            if (tcc != null && tcc.Parent != null && tcc.Parent.Parent != null && string.IsNullOrEmpty(e.Message) == false)
+            {
+                string title = e.Message.Replace("主题:", "").Substring(0, e.Message.LastIndexOf("-"));
+                tcc.Parent.Parent.Text = MiscUtil.GetFormattedTitle(tcc, title);
+                tcc.Parent.Parent.Tag = e.Message;
+                if (this.xtcBrowser.SelectedTabPage == tcc.Parent.Parent as XtraTabPage)
+                {
+                    this.Text = e.Message;
+                }
             }
         }
 
@@ -343,9 +360,9 @@
                 //e.Link.Visited = true;
             }
         }
-#endregion
+        #endregion
 
-#region Board
+        #region Board
         /// <summary>
         /// 
         /// </summary>
@@ -371,6 +388,7 @@
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
 #endif
+                ///Create XtraTabPage
                 XtraTabPage tp = new XtraTabPage();
                 tp.Name = key;
                 tp.Text = "[ " + title + " ]";
@@ -378,33 +396,59 @@
                 this.xtcBrowser.TabPages.Add(tp);
                 this.xtcBrowser.SelectedTabPage = tp;
 
-                TopicControlContainer bbc = RecycledQueues.GetRecycled<TopicControlContainer>();
-                if (bbc == null)
+                ///Create PanelControl
+                PanelControl pc = new PanelControl();
+                pc.Dock = DockStyle.Fill;
+                tp.Controls.Add(pc);
+
+                ///Create TopicControlContainer
+                TopicControlContainer tcc = RecycledQueues.GetRecycled<TopicControlContainer>();
+                if (tcc == null)
                 {
-                    bbc = new TopicControlContainer();
+                    tcc = new TopicControlContainer();
                 }
 
-                bbc.Name = "bbc" + boardCode;
-                bbc.Board = boardCode;
-                bbc.BrowserType = browserType;
-                bbc.OnNewClicked += Common_OnNewClicked;
-                bbc.OnTopicLinkClicked += TopicControlContainer_OnTopicLinkClicked;
-                bbc.OnPostLinkClicked += TopicControlContainer_OnPostLinkClicked;
-                bbc.OnTopicCreateIDLinkClicked += Common_OnUserLinkClicked;
-                bbc.OnTopicLastIDLinkClicked += Common_OnUserLinkClicked;
-                bbc.OnWorkerFailed += Common_OnWorkerFailed;
-                bbc.OnWorkerCancelled += Common_OnWorkerCancelled;
-                bbc.OnBoardSettingsClicked += TopicControlContainer_OnBoardSettingsClicked;
-                bbc.Dock = DockStyle.Fill;
-                tp.Controls.Add(bbc);
+                tcc.Name = "tcc" + boardCode;
+                tcc.Board = boardCode;
+                tcc.BrowserType = browserType;
+                tcc.OnNewClicked += Common_OnNewClicked;
+                tcc.OnTopicLinkClicked += TopicControlContainer_OnTopicLinkClicked;
+                tcc.OnPostLinkClicked += TopicControlContainer_OnPostLinkClicked;
+                tcc.OnTopicCreateIDLinkClicked += Common_OnUserLinkClicked;
+                tcc.OnTopicLastIDLinkClicked += Common_OnUserLinkClicked;
+                tcc.OnWorkerFailed += Common_OnWorkerFailed;
+                tcc.OnWorkerCancelled += Common_OnWorkerCancelled;
+                tcc.OnBoardSettingsClicked += TopicControlContainer_OnBoardSettingsClicked;
+                tcc.OnCaptionChanged += TopicControlContainer_OnCaptionChanged;
+                tcc.Dock = DockStyle.Fill;
+                pc.Controls.Add(tcc);
 
 #if (DEBUG)
                 sw.Stop();
                 System.Diagnostics.Debug.WriteLine("AddBoard - ElapsedMilliseconds " + sw.ElapsedMilliseconds);
 #endif
                 ///
-                bbc.RefreshingOnSizeChanged(true);
-                bbc.Reusing();
+                tcc.RefreshingOnSizeChanged(true);
+                tcc.Reusing();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TopicControlContainer_OnCaptionChanged(object sender, MessageEventArgs e)
+        {
+            TopicControlContainer tcc = sender as TopicControlContainer;
+            if (tcc != null && tcc.Parent != null && tcc.Parent.Parent != null && string.IsNullOrEmpty(e.Message) == false)
+            {
+                tcc.Parent.Parent.Text = "【" + e.Message + "】";
+                tcc.Parent.Parent.Tag = "版面-" + e.Message;
+                if (this.xtcBrowser.SelectedTabPage == tcc.Parent.Parent as XtraTabPage)
+                {
+                    this.Text = e.Message;
+                }
             }
         }
 
@@ -484,9 +528,9 @@
                 //e.Link.Visited = true;
             }
         }
-#endregion
+        #endregion
 
-#region Post
+        #region Post
         /// <summary>
         /// 
         /// </summary>
@@ -514,7 +558,12 @@
                 this.xtcBrowser.TabPages.Add(tp);
                 this.xtcBrowser.SelectedTabPage = tp;
 
-                //BoardBrowserControl bbc = new BoardBrowserControl(url);
+                ///Create PanelControl
+                PanelControl pc = new PanelControl();
+                pc.Dock = DockStyle.Fill;
+                tp.Controls.Add(pc);
+
+                ///Create PostControlContainer
                 PostControlContainer pcc = RecycledQueues.GetRecycled<PostControlContainer>();
                 if (pcc == null)
                 {
@@ -536,12 +585,33 @@
                 pcc.OnUserClicked += Common_OnUserLinkClicked;
                 pcc.OnWorkerCancelled += Common_OnWorkerCancelled;
                 pcc.OnWorkerFailed += Common_OnWorkerFailed;
+                pcc.OnCaptionChanged += PostControlContainer_OnCaptionChanged;
                 pcc.Dock = DockStyle.Fill;
-                tp.Controls.Add(pcc);
+                pc.Controls.Add(pcc);
 
                 ///
                 pcc.RefreshingOnSizeChanged(true);
                 pcc.Reusing();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PostControlContainer_OnCaptionChanged(object sender, MessageEventArgs e)
+        {
+            PostControlContainer pcc = sender as PostControlContainer;
+            if (pcc != null && pcc.Parent != null && pcc.Parent.Parent != null && string.IsNullOrEmpty(e.Message) == false)
+            {
+                string title = e.Message.Replace("主题:", "").Substring(0, e.Message.LastIndexOf("-"));
+                pcc.Parent.Parent.Text = MiscUtil.GetFormattedTitle(pcc, title);
+                pcc.Parent.Parent.Tag = e.Message;
+                if (this.xtcBrowser.SelectedTabPage == pcc.Parent.Parent as XtraTabPage)
+                {
+                    this.Text = e.Message;
+                }
             }
         }
 
@@ -586,9 +656,9 @@
                 this.AddBoard(e.Link, TopicBrowserType.Classic, hlc.PlainText);
             }
         }
-#endregion
+        #endregion
 
-#region TabPages
+        #region TabPages
         /// <summary>
         /// 
         /// </summary>
@@ -664,19 +734,26 @@
         /// <param name="tp"></param>
         private void DisposeTabPage(XtraTabPage tp)
         {
-            foreach (Control ctl in tp.Controls)
+            if (tp != null)
             {
-                Recycling(ctl as ThreadControlContainer);
-                Recycling(ctl as TopicControlContainer);
-                Recycling(ctl as PostControlContainer);
+                PanelControl pc = tp.Controls[0] as PanelControl;
+                if (pc != null)
+                {
+                    foreach (Control ctl in pc.Controls)
+                    {
+                        Recycling(ctl as ThreadControlContainer);
+                        Recycling(ctl as TopicControlContainer);
+                        Recycling(ctl as PostControlContainer);
+                    }
+                }
+
+                tp.Controls.Clear();
+                tp.Dispose();
             }
-
-            tp.Controls.Clear();
-            tp.Dispose();
         }
-#endregion
+        #endregion
 
-#region Event handler
+        #region Event handler
         /// <summary>
         /// 
         /// </summary>
@@ -886,24 +963,25 @@
         /// 
         /// </summary>
         /// <param name="tbc"></param>
-        private void Recycling(ThreadControlContainer tbc)
+        private void Recycling(ThreadControlContainer tcc)
         {
-            if (tbc != null)
+            if (tcc != null)
             {
-                tbc.OnThreadDeleteLinkClicked -= Common_OnThreadDeleteLinkClicked;
-                tbc.OnThreadEditLinkClicked -= Common_OnThreadEditLinkClicked;
-                tbc.OnThreadMailLinkClicked -= Common_OnThreadMailLinkClicked;
-                tbc.OnThreadQueryTypeLinkClicked -= ThreadControlContainer_OnThreadQueryTypeLinkClicked;
-                tbc.OnThreadReplyLinkClicked -= Common_OnThreadReplyLinkClicked;
-                tbc.OnThreadTransferLinkClicked -= Common_OnThreadTransferLinkClicked;
-                tbc.OnThreadUserLinkClicked -= Common_OnUserLinkClicked;
-                tbc.OnTopicReplyLinkClicked -= ThreadControlContainer_OnTopicReplyLinkClicked;
-                tbc.OnThreadContentLinkClicked -= Common_OnRichTextBoxContentLinkClicked;
-                tbc.OnBoardLinkClicked -= ThreadControlContainer_OnBoardLinkClicked;
-                tbc.OnWorkerFailed -= Common_OnWorkerFailed;
-                tbc.OnWorkerCancelled -= Common_OnWorkerCancelled;
-                tbc.OnTopicSettingsClicked -= ThreadControlContainer_OnTopicSettingsClicked;
-                RecycledQueues.AddRecycled<ThreadControlContainer>(tbc);
+                tcc.OnThreadDeleteLinkClicked -= Common_OnThreadDeleteLinkClicked;
+                tcc.OnThreadEditLinkClicked -= Common_OnThreadEditLinkClicked;
+                tcc.OnThreadMailLinkClicked -= Common_OnThreadMailLinkClicked;
+                tcc.OnThreadQueryTypeLinkClicked -= ThreadControlContainer_OnThreadQueryTypeLinkClicked;
+                tcc.OnThreadReplyLinkClicked -= Common_OnThreadReplyLinkClicked;
+                tcc.OnThreadTransferLinkClicked -= Common_OnThreadTransferLinkClicked;
+                tcc.OnThreadUserLinkClicked -= Common_OnUserLinkClicked;
+                tcc.OnTopicReplyLinkClicked -= ThreadControlContainer_OnTopicReplyLinkClicked;
+                tcc.OnThreadContentLinkClicked -= Common_OnRichTextBoxContentLinkClicked;
+                tcc.OnBoardLinkClicked -= ThreadControlContainer_OnBoardLinkClicked;
+                tcc.OnWorkerFailed -= Common_OnWorkerFailed;
+                tcc.OnWorkerCancelled -= Common_OnWorkerCancelled;
+                tcc.OnTopicSettingsClicked -= ThreadControlContainer_OnTopicSettingsClicked;
+                tcc.OnCaptionChanged -= ThreadControlContainer_OnCaptionChanged;
+                RecycledQueues.AddRecycled<ThreadControlContainer>(tcc);
             }
         }
 
@@ -911,19 +989,20 @@
         /// 
         /// </summary>
         /// <param name="tbc"></param>
-        private void Recycling(TopicControlContainer bbc)
+        private void Recycling(TopicControlContainer tcc)
         {
-            if (bbc != null)
+            if (tcc != null)
             {
-                bbc.OnNewClicked -= Common_OnNewClicked;
-                bbc.OnTopicLinkClicked -= TopicControlContainer_OnTopicLinkClicked;
-                bbc.OnPostLinkClicked -= TopicControlContainer_OnPostLinkClicked;
-                bbc.OnTopicCreateIDLinkClicked -= Common_OnUserLinkClicked;
-                bbc.OnTopicLastIDLinkClicked -= Common_OnUserLinkClicked;
-                bbc.OnWorkerFailed -= Common_OnWorkerFailed;
-                bbc.OnWorkerCancelled -= Common_OnWorkerCancelled;
-                bbc.OnBoardSettingsClicked -= TopicControlContainer_OnBoardSettingsClicked;
-                RecycledQueues.AddRecycled<TopicControlContainer>(bbc);
+                tcc.OnNewClicked -= Common_OnNewClicked;
+                tcc.OnTopicLinkClicked -= TopicControlContainer_OnTopicLinkClicked;
+                tcc.OnPostLinkClicked -= TopicControlContainer_OnPostLinkClicked;
+                tcc.OnTopicCreateIDLinkClicked -= Common_OnUserLinkClicked;
+                tcc.OnTopicLastIDLinkClicked -= Common_OnUserLinkClicked;
+                tcc.OnWorkerFailed -= Common_OnWorkerFailed;
+                tcc.OnWorkerCancelled -= Common_OnWorkerCancelled;
+                tcc.OnBoardSettingsClicked -= TopicControlContainer_OnBoardSettingsClicked;
+                tcc.OnCaptionChanged -= TopicControlContainer_OnCaptionChanged;
+                RecycledQueues.AddRecycled<TopicControlContainer>(tcc);
             }
         }
 
@@ -948,6 +1027,7 @@
                 pcc.OnUserClicked -= Common_OnUserLinkClicked;
                 pcc.OnWorkerCancelled -= Common_OnWorkerCancelled;
                 pcc.OnWorkerFailed -= Common_OnWorkerFailed;
+                pcc.OnCaptionChanged -= PostControlContainer_OnCaptionChanged;
                 RecycledQueues.AddRecycled<PostControlContainer>(pcc);
             }
         }
@@ -1143,9 +1223,9 @@
                 this._checkNewInforTimer.Stop();
             }
         }
-#endregion
+        #endregion
 
-#region Common
+        #region Common
         /// <summary>
         /// 
         /// </summary>
@@ -1262,6 +1342,7 @@
             if (hlc != null && hlc.Tag != null)
             {
                 string replyContent = hlc.Tag.ToString();
+                hlc.Tag = null;
                 if (replyContent != null)
                 {
                     Regex regex = new Regex(@"\s*FROM\s[\d, \., \*]+");
@@ -1276,7 +1357,6 @@
                     if (DialogResult.OK == threadForm.ShowDialog(this))
                     {
                         hlc.Tag = threadForm.GetPostString();
-                        //e.Link.Visited = true;
                     }
                 }
             }
@@ -1325,6 +1405,7 @@
             if (hlc != null && hlc.Tag != null)
             {
                 string replyContent = hlc.Tag.ToString();
+                hlc.Tag = null;
                 if (replyContent != null)
                 {
                     NewThreadForm threadForm = new NewThreadForm(this.xtcBrowser.SelectedTabPage.Text,
@@ -1339,9 +1420,9 @@
                 }
             }
         }
-#endregion
+        #endregion
 
-#region Private
+        #region Private
         /// <summary>
         /// 
         /// </summary>

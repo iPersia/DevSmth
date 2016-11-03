@@ -5,6 +5,7 @@
     using System.Windows.Forms;
     using DevExpress.XtraEditors;
     using Nzl.Recycling;
+    using Nzl.Smth;
     using Nzl.Smth.Datas;
     using Nzl.Smth.Utils;
 
@@ -42,6 +43,22 @@
             foreach (HyperlinkLabelControl ctl in this.HyperlinkLabelControls)
             {
                 ctl.Initialize();
+                ctl.HyperlinkClick += HyperlinkLabelControl_HyperlinkClick;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HyperlinkLabelControl_HyperlinkClick(object sender, DevExpress.Utils.HyperlinkClickEventArgs e)
+        {
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (hlc != null)
+            {
+                hlc.LinkVisited = true;
+                ControlCenter.AddVisitedUrl(e.Link);
             }
         }
 
@@ -144,8 +161,9 @@
                 lbl.Visible = false;
                 if (string.IsNullOrEmpty(url) == false)
                 {
-                    lbl.Visible = true;
+                    lbl.Visible = true;                    
                     lbl.Text = "<href=" + url + ">" + text + "</href>";
+                    lbl.LinkVisited = ControlCenter.IsVisitedUrl(url);
                 }
             }
         }

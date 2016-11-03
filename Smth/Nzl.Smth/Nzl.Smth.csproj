@@ -54,6 +54,7 @@
     <Compile Include="TopicStatus.cs" />
     <Compile Include="TopicSettingEventArgs.cs" />
     <Compile Include="TopicBrowserType.cs" />
+    <Compile Include="ControlCenter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -85,41 +85,49 @@ namespace Nzl.Smth.Controls.Elements
                 try
                 {
                     this.lblTitle.Text = mail.Title;
-                    this.linklblID.Text = mail.Author;
                     this.lblDateTime.Text = mail.DateTime;
 
-                    ///Delete url.
-                    this.linklblDelete.Visible = false;
-                    if (string.IsNullOrEmpty(mail.DeleteUrl) == false)
-                    {
-                        this.linklblDelete.Visible = true;
-                        this.linklblDelete.Text = ControlUtil.GetHyperlinkText(this.linklblDelete.Text, mail.DeleteUrl);
-                    }
+                    this.InitializeLinkLabel(this.linklblDelete, mail.DeleteUrl);
 
-                    ///ID url.
-                    this.linklblID.Visible = false;
-                    if (string.IsNullOrEmpty(mail.Author) == false)
-                    {
-                        this.linklblID.Text = mail.Author;
-                        this.linklblID.Text = ControlUtil.GetHyperlinkText(mail.Author, mail.Author);
-                    }
+                    /////Delete url.
+                    //this.linklblDelete.Visible = false;
+                    //if (string.IsNullOrEmpty(mail.DeleteUrl) == false)
+                    //{
+                    //    this.linklblDelete.Visible = true;
+                    //    this.linklblDelete.Text = ControlUtil.GetHyperlinkText(this.linklblDelete.Text, mail.DeleteUrl);
+                    //    this.linklblDelete.LinkVisited = ControlCenter.IsVisitedUrl(mail.DeleteUrl);
+                    //}
 
-                    ///Reply url.
-                    this.linklblReply.Visible = false;
-                    if (string.IsNullOrEmpty(mail.ReplyUrl) == false)
-                    {
-                        this.linklblReply.Visible = true;
-                        this.linklblReply.Text = ControlUtil.GetHyperlinkText(this.linklblReply.Text, mail.ReplyUrl);
-                        this.linklblReply.Tag = mail;
-                    }
+                    this.InitializeLinkLabel(this.linklblID, mail.Author, mail.Author);
 
-                    ///Reply url.
-                    this.linklblTransfer.Visible = false;
-                    if (string.IsNullOrEmpty(mail.TransferUrl) == false)
-                    {
-                        this.linklblTransfer.Visible = true;
-                        this.linklblTransfer.Text = ControlUtil.GetHyperlinkText(this.linklblTransfer.Text, mail.TransferUrl);
-                    }
+                    /////ID url.
+                    //this.linklblID.Visible = false;
+                    //if (string.IsNullOrEmpty(mail.Author) == false)
+                    //{
+                    //    this.linklblID.Text = mail.Author;
+                    //    this.linklblID.Text = ControlUtil.GetHyperlinkText(mail.Author, mail.Author);
+                    //}
+
+                    this.InitializeLinkLabel(this.linklblReply, mail.ReplyUrl);
+
+                    /////Reply url.
+                    //this.linklblReply.Visible = false;
+                    //if (string.IsNullOrEmpty(mail.ReplyUrl) == false)
+                    //{
+                    //    this.linklblReply.Visible = true;
+                    //    this.linklblReply.Text = ControlUtil.GetHyperlinkText(this.linklblReply.Text, mail.ReplyUrl);
+                    //    this.linklblReply.Tag = mail;
+                    //}
+
+                    this.InitializeLinkLabel(this.linklblTransfer, mail.TransferUrl);
+
+                    /////Transfer url.
+                    //this.linklblTransfer.Visible = false;
+                    //if (string.IsNullOrEmpty(mail.TransferUrl) == false)
+                    //{
+                    //    this.linklblTransfer.Visible = true;
+                    //    this.linklblTransfer.Text = ControlUtil.GetHyperlinkText(this.linklblTransfer.Text, mail.TransferUrl);
+                    //}
 
                     ///Content.
                     ///Add content.

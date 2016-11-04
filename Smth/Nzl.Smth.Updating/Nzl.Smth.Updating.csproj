@@ -97,6 +97,12 @@
   <ItemGroup>
     <Content Include="DevSmthUpdating.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nzl.Smth.Configurations\Nzl.Smth.Configs.csproj">
+      <Project>{7a3921a8-a2e3-4ffb-84c8-9bb605772ebd}</Project>
+      <Name>Nzl.Smth.Configs</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -169,6 +169,11 @@
         /// 
         /// </summary>
         private static string staticUpdatingXmlUrl = "http://files.cnblogs.com/files/junier/DevSmthUpdating.xml";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static bool staticShowIPinTopic = true;
         #endregion
 
         #region Properties
@@ -402,6 +407,28 @@
                 return staticSkinName;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string UpdatingXmlUrl
+        {
+            get
+            {
+                return staticUpdatingXmlUrl;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static bool ShowIPinTopic
+        {
+            get
+            {
+                return staticShowIPinTopic;
+            }
+        }
         #endregion
 
         #region Public methods
@@ -481,6 +508,27 @@
             {
                 staticSkinName = value;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        public static void SetUpdatingXmlUrl(string value)
+        {
+            if (string.IsNullOrEmpty(value) == false)
+            {
+                staticUpdatingXmlUrl = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        public static void SetShowIPinTopic(bool flag)
+        {
+            staticShowIPinTopic = flag;
         }
         #endregion
     }

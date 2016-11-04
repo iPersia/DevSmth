@@ -182,6 +182,10 @@
       <Project>{6cba8f35-e6f4-4a6d-876f-38ea9de4649a}</Project>
       <Name>Nzl.Web.Util</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Nzl.Smth.Configurations\Nzl.Smth.Configs.csproj">
+      <Project>{7a3921a8-a2e3-4ffb-84c8-9bb605772ebd}</Project>
+      <Name>Nzl.Smth.Configs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Nzl.Smth.Controls.Base\Nzl.Smth.Controls.Base.csproj">
       <Project>{08b0d4de-d38a-466d-8afc-e436bb30e4a6}</Project>
       <Name>Nzl.Smth.Controls.Base</Name>

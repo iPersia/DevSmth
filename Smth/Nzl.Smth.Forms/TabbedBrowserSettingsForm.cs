@@ -60,6 +60,7 @@
             this.cmbNewMailCheckingInterval.Text = (Configuration.NewMailCheckingInterval / 1000).ToString();
             this.cmbSectionTopUpdatingInterval.Text = (Configuration.SectionTopsUpdatingInterval / 1000).ToString();
             this.cmbTop10sLoadingInterval.Text = (Configuration.Top10sLoadingInterval / 1000).ToString();
+            this.ckbShowIPinTopic.Checked = Configuration.ShowIPinTopic;
         }
 
         /// <summary>
@@ -69,21 +70,28 @@
         /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
+            ///Set NewMailCheckingInterval
             if (string.IsNullOrEmpty(this.cmbNewMailCheckingInterval.Text) == false)
             {
                 Configuration.SetNewMailCheckingInterval(Convert.ToInt32(this.cmbNewMailCheckingInterval.Text) * 1000);
             }
 
+            ///Set SectionTopUpdatingInterval
             if (string.IsNullOrEmpty(this.cmbSectionTopUpdatingInterval.Text) == false)
             {
                 Configuration.SetSectionTopsUpdatingInterval(Convert.ToInt32(this.cmbSectionTopUpdatingInterval.Text) * 1000);
             }
 
+            ///Set Top10sLoadingInterval
             if (string.IsNullOrEmpty(this.cmbTop10sLoadingInterval.Text) == false)
             {
                 Configuration.SetTop10sLoadingInterval(Convert.ToInt32(this.cmbTop10sLoadingInterval.Text) * 1000);
             }
 
+            ///Set ShowIPinTopic
+            Configuration.SetShowIPinTopic(this.ckbShowIPinTopic.Checked);
+
+            ///Save settings to app.config file.
             this.SaveSettings();
             this.Close();
         }
@@ -166,6 +174,26 @@
                     }
                     catch { }
                 }
+
+                if (cfg.AppSettings.Settings["UpdatingXmlUrl"] != null &&
+                    cfg.AppSettings.Settings["UpdatingXmlUrl"].Value != null)
+                {
+                    try
+                    {
+                        Configuration.SetUpdatingXmlUrl(cfg.AppSettings.Settings["UpdatingXmlUrl"].Value);
+                    }
+                    catch { }
+                }
+
+                if (cfg.AppSettings.Settings["ShowIPinTopic"] != null &&
+                    cfg.AppSettings.Settings["ShowIPinTopic"].Value != null)
+                {
+                    try
+                    {
+                        Configuration.SetShowIPinTopic(cfg.AppSettings.Settings["ShowIPinTopic"].Value.ToString() == "Yes");
+                    }
+                    catch { }
+                }
             }
         }
 
@@ -228,6 +256,16 @@
                     catch { }
                 }
 
+                if (cfg.AppSettings.Settings["ShowIPinTopic"] != null)
+                {
+                    try
+                    {
+                        cfg.AppSettings.Settings["ShowIPinTopic"].Value = 
+                            this.ckbShowIPinTopic.Checked ? "Yes" : "No";
+                    }
+                    catch { }
+                }
+
                 cfg.Save();
             }
         }
@@ -275,6 +313,11 @@
         private void labelControl3_HyperlinkClick(object sender, DevExpress.Utils.HyperlinkClickEventArgs e)
         {
             System.Diagnostics.Process.Start(e.Link);
+        }
+
+        private void rbLatestReply_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

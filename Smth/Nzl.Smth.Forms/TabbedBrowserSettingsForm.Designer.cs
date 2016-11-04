@@ -44,8 +44,7 @@
             this.panelXtc = new DevExpress.XtraEditors.PanelControl();
             this.xtcSettings = new DevExpress.XtraTab.XtraTabControl();
             this.xtpUISettings = new DevExpress.XtraTab.XtraTabPage();
-            this.gcSkins = new DevExpress.XtraBars.Ribbon.GalleryControl();
-            this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
+            this.panelUI = new DevExpress.XtraEditors.PanelControl();
             this.gcUISettings = new DevExpress.XtraEditors.GroupControl();
             this.label7 = new DevExpress.XtraEditors.LabelControl();
             this.label9 = new DevExpress.XtraEditors.LabelControl();
@@ -54,22 +53,27 @@
             this.label11 = new DevExpress.XtraEditors.LabelControl();
             this.cmbBaseControlContainerLocationMargin = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label12 = new DevExpress.XtraEditors.LabelControl();
+            this.gcSkins = new DevExpress.XtraBars.Ribbon.GalleryControl();
+            this.galleryControlClient1 = new DevExpress.XtraBars.Ribbon.GalleryControlClient();
+            this.xtpBrowsing = new DevExpress.XtraTab.XtraTabPage();
+            this.panelBrowsing = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.ckbShowIPinTopic = new DevExpress.XtraEditors.CheckEdit();
             this.xtpUpdating = new DevExpress.XtraTab.XtraTabPage();
+            this.panelRefreshing = new DevExpress.XtraEditors.PanelControl();
             this.xtpMisc = new DevExpress.XtraTab.XtraTabPage();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.btnCheckNewVersion = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.panelCachingUpdating = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnClearCache = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.btnCheckNewVersion = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.xtpAbout = new DevExpress.XtraTab.XtraTabPage();
             this.panelAbout = new DevExpress.XtraEditors.PanelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.panelCachingUpdating = new DevExpress.XtraEditors.PanelControl();
-            this.panelRefreshing = new DevExpress.XtraEditors.PanelControl();
-            this.panelUI = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gpAutoUpdating)).BeginInit();
             this.gpAutoUpdating.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbNewMailCheckingInterval.Properties)).BeginInit();
@@ -84,27 +88,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtcSettings)).BeginInit();
             this.xtcSettings.SuspendLayout();
             this.xtpUISettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSkins)).BeginInit();
-            this.gcSkins.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelUI)).BeginInit();
+            this.panelUI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcUISettings)).BeginInit();
             this.gcUISettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlLocationMargin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlContainerLocationMargin.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSkins)).BeginInit();
+            this.gcSkins.SuspendLayout();
+            this.xtpBrowsing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelBrowsing)).BeginInit();
+            this.panelBrowsing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbShowIPinTopic.Properties)).BeginInit();
             this.xtpUpdating.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelRefreshing)).BeginInit();
+            this.panelRefreshing.SuspendLayout();
             this.xtpMisc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelCachingUpdating)).BeginInit();
+            this.panelCachingUpdating.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
             this.xtpAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelAbout)).BeginInit();
             this.panelAbout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelCachingUpdating)).BeginInit();
-            this.panelCachingUpdating.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelRefreshing)).BeginInit();
-            this.panelRefreshing.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelUI)).BeginInit();
-            this.panelUI.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
@@ -112,7 +122,7 @@
             this.btnOK.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(134, 6);
+            this.btnOK.Location = new System.Drawing.Point(177, 6);
             this.btnOK.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(74, 23);
@@ -123,6 +133,8 @@
             // 
             // gpAutoUpdating
             // 
+            this.gpAutoUpdating.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gpAutoUpdating.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.gpAutoUpdating.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpAutoUpdating.Appearance.Options.UseBackColor = true;
@@ -141,15 +153,16 @@
             this.gpAutoUpdating.Location = new System.Drawing.Point(11, 11);
             this.gpAutoUpdating.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gpAutoUpdating.Name = "gpAutoUpdating";
-            this.gpAutoUpdating.Size = new System.Drawing.Size(308, 128);
+            this.gpAutoUpdating.Size = new System.Drawing.Size(396, 128);
             this.gpAutoUpdating.TabIndex = 5;
             this.gpAutoUpdating.Text = "Refreshing intervals";
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Appearance.Options.UseFont = true;
-            this.label6.Location = new System.Drawing.Point(276, 97);
+            this.label6.Location = new System.Drawing.Point(369, 96);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(12, 12);
@@ -158,7 +171,8 @@
             // 
             // cmbNewMailCheckingInterval
             // 
-            this.cmbNewMailCheckingInterval.Location = new System.Drawing.Point(194, 95);
+            this.cmbNewMailCheckingInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbNewMailCheckingInterval.Location = new System.Drawing.Point(287, 94);
             this.cmbNewMailCheckingInterval.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbNewMailCheckingInterval.Name = "cmbNewMailCheckingInterval";
             this.cmbNewMailCheckingInterval.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -194,9 +208,10 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Appearance.Options.UseFont = true;
-            this.label4.Location = new System.Drawing.Point(276, 67);
+            this.label4.Location = new System.Drawing.Point(369, 66);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(12, 12);
@@ -205,7 +220,8 @@
             // 
             // cmbTop10sLoadingInterval
             // 
-            this.cmbTop10sLoadingInterval.Location = new System.Drawing.Point(194, 64);
+            this.cmbTop10sLoadingInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbTop10sLoadingInterval.Location = new System.Drawing.Point(287, 63);
             this.cmbTop10sLoadingInterval.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbTop10sLoadingInterval.Name = "cmbTop10sLoadingInterval";
             this.cmbTop10sLoadingInterval.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -241,9 +257,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Appearance.Options.UseFont = true;
-            this.label2.Location = new System.Drawing.Point(276, 37);
+            this.label2.Location = new System.Drawing.Point(369, 36);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(12, 12);
@@ -252,7 +269,8 @@
             // 
             // cmbSectionTopUpdatingInterval
             // 
-            this.cmbSectionTopUpdatingInterval.Location = new System.Drawing.Point(194, 32);
+            this.cmbSectionTopUpdatingInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbSectionTopUpdatingInterval.Location = new System.Drawing.Point(287, 31);
             this.cmbSectionTopUpdatingInterval.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbSectionTopUpdatingInterval.Name = "cmbSectionTopUpdatingInterval";
             this.cmbSectionTopUpdatingInterval.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -296,7 +314,7 @@
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(344, 427);
+            this.panelContainer.Size = new System.Drawing.Size(432, 427);
             this.panelContainer.TabIndex = 6;
             // 
             // panelMenu
@@ -305,7 +323,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMenu.Location = new System.Drawing.Point(2, 389);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(340, 36);
+            this.panelMenu.Size = new System.Drawing.Size(428, 36);
             this.panelMenu.TabIndex = 10;
             // 
             // panelXtc
@@ -314,7 +332,7 @@
             this.panelXtc.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelXtc.Location = new System.Drawing.Point(2, 2);
             this.panelXtc.Name = "panelXtc";
-            this.panelXtc.Size = new System.Drawing.Size(340, 387);
+            this.panelXtc.Size = new System.Drawing.Size(428, 387);
             this.panelXtc.TabIndex = 9;
             // 
             // xtcSettings
@@ -324,10 +342,11 @@
             this.xtcSettings.Location = new System.Drawing.Point(2, 2);
             this.xtcSettings.Name = "xtcSettings";
             this.xtcSettings.SelectedTabPage = this.xtpUISettings;
-            this.xtcSettings.Size = new System.Drawing.Size(336, 383);
+            this.xtcSettings.Size = new System.Drawing.Size(424, 383);
             this.xtcSettings.TabIndex = 8;
             this.xtcSettings.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpUISettings,
+            this.xtpBrowsing,
             this.xtpUpdating,
             this.xtpMisc,
             this.xtpAbout});
@@ -336,37 +355,23 @@
             // 
             this.xtpUISettings.Controls.Add(this.panelUI);
             this.xtpUISettings.Name = "xtpUISettings";
-            this.xtpUISettings.Size = new System.Drawing.Size(330, 354);
+            this.xtpUISettings.Size = new System.Drawing.Size(418, 354);
             this.xtpUISettings.Text = "UI";
             // 
-            // gcSkins
+            // panelUI
             // 
-            this.gcSkins.Controls.Add(this.galleryControlClient1);
-            this.gcSkins.DesignGalleryGroupIndex = 0;
-            this.gcSkins.DesignGalleryItemIndex = 0;
-            // 
-            // 
-            // 
-            this.gcSkins.Gallery.Appearance.FilterPanelCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gcSkins.Gallery.Appearance.FilterPanelCaption.Options.UseFont = true;
-            this.gcSkins.Gallery.Appearance.GroupCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gcSkins.Gallery.Appearance.GroupCaption.Options.UseFont = true;
-            this.gcSkins.Location = new System.Drawing.Point(11, 120);
-            this.gcSkins.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gcSkins.Name = "gcSkins";
-            this.gcSkins.Size = new System.Drawing.Size(308, 229);
-            this.gcSkins.TabIndex = 3;
-            this.gcSkins.Text = "galleryControl1";
-            // 
-            // galleryControlClient1
-            // 
-            this.galleryControlClient1.GalleryControl = this.gcSkins;
-            this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
-            this.galleryControlClient1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.galleryControlClient1.Size = new System.Drawing.Size(287, 225);
+            this.panelUI.Controls.Add(this.gcUISettings);
+            this.panelUI.Controls.Add(this.gcSkins);
+            this.panelUI.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelUI.Location = new System.Drawing.Point(0, 0);
+            this.panelUI.Name = "panelUI";
+            this.panelUI.Size = new System.Drawing.Size(418, 354);
+            this.panelUI.TabIndex = 4;
             // 
             // gcUISettings
             // 
+            this.gcUISettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gcUISettings.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.gcUISettings.Appearance.Options.UseBackColor = true;
             this.gcUISettings.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -381,28 +386,36 @@
             this.gcUISettings.Location = new System.Drawing.Point(11, 11);
             this.gcUISettings.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gcUISettings.Name = "gcUISettings";
-            this.gcUISettings.Size = new System.Drawing.Size(308, 103);
+            this.gcUISettings.Size = new System.Drawing.Size(396, 103);
             this.gcUISettings.TabIndex = 6;
             this.gcUISettings.Text = "UI settings";
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Appearance.ForeColor = System.Drawing.Color.Red;
             this.label7.Appearance.Options.UseFont = true;
             this.label7.Appearance.Options.UseForeColor = true;
-            this.label7.Location = new System.Drawing.Point(18, 83);
+            this.label7.Appearance.Options.UseTextOptions = true;
+            this.label7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.label7.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.label7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.label7.Location = new System.Drawing.Point(17, 83);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(270, 12);
+            this.label7.Size = new System.Drawing.Size(363, 12);
             this.label7.TabIndex = 10;
             this.label7.Text = "UI settings take effect need restart the App.";
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Appearance.Options.UseFont = true;
-            this.label9.Location = new System.Drawing.Point(276, 59);
+            this.label9.Location = new System.Drawing.Point(368, 59);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(12, 12);
@@ -411,7 +424,9 @@
             // 
             // cmbBaseControlLocationMargin
             // 
-            this.cmbBaseControlLocationMargin.Location = new System.Drawing.Point(194, 56);
+            this.cmbBaseControlLocationMargin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBaseControlLocationMargin.Location = new System.Drawing.Point(286, 56);
             this.cmbBaseControlLocationMargin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbBaseControlLocationMargin.Name = "cmbBaseControlLocationMargin";
             this.cmbBaseControlLocationMargin.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -444,9 +459,11 @@
             // 
             // label11
             // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Appearance.Options.UseFont = true;
-            this.label11.Location = new System.Drawing.Point(276, 30);
+            this.label11.Location = new System.Drawing.Point(368, 30);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(12, 12);
@@ -455,7 +472,9 @@
             // 
             // cmbBaseControlContainerLocationMargin
             // 
-            this.cmbBaseControlContainerLocationMargin.Location = new System.Drawing.Point(194, 25);
+            this.cmbBaseControlContainerLocationMargin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBaseControlContainerLocationMargin.Location = new System.Drawing.Point(286, 25);
             this.cmbBaseControlContainerLocationMargin.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cmbBaseControlContainerLocationMargin.Name = "cmbBaseControlContainerLocationMargin";
             this.cmbBaseControlContainerLocationMargin.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -486,22 +505,161 @@
             this.label12.TabIndex = 4;
             this.label12.Text = "Panel container margin";
             // 
+            // gcSkins
+            // 
+            this.gcSkins.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gcSkins.Controls.Add(this.galleryControlClient1);
+            this.gcSkins.DesignGalleryGroupIndex = 0;
+            this.gcSkins.DesignGalleryItemIndex = 0;
+            // 
+            // 
+            // 
+            this.gcSkins.Gallery.Appearance.FilterPanelCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcSkins.Gallery.Appearance.FilterPanelCaption.Options.UseFont = true;
+            this.gcSkins.Gallery.Appearance.GroupCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gcSkins.Gallery.Appearance.GroupCaption.Options.UseFont = true;
+            this.gcSkins.Location = new System.Drawing.Point(11, 120);
+            this.gcSkins.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gcSkins.Name = "gcSkins";
+            this.gcSkins.Size = new System.Drawing.Size(396, 229);
+            this.gcSkins.TabIndex = 3;
+            this.gcSkins.Text = "galleryControl1";
+            // 
+            // galleryControlClient1
+            // 
+            this.galleryControlClient1.GalleryControl = this.gcSkins;
+            this.galleryControlClient1.Location = new System.Drawing.Point(2, 2);
+            this.galleryControlClient1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.galleryControlClient1.Size = new System.Drawing.Size(375, 225);
+            // 
+            // xtpBrowsing
+            // 
+            this.xtpBrowsing.Controls.Add(this.panelBrowsing);
+            this.xtpBrowsing.Name = "xtpBrowsing";
+            this.xtpBrowsing.Size = new System.Drawing.Size(418, 354);
+            this.xtpBrowsing.Text = "Browsing";
+            // 
+            // panelBrowsing
+            // 
+            this.panelBrowsing.Controls.Add(this.groupControl3);
+            this.panelBrowsing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBrowsing.Location = new System.Drawing.Point(0, 0);
+            this.panelBrowsing.Name = "panelBrowsing";
+            this.panelBrowsing.Size = new System.Drawing.Size(418, 354);
+            this.panelBrowsing.TabIndex = 5;
+            // 
+            // groupControl3
+            // 
+            this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl3.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.groupControl3.Appearance.Options.UseBackColor = true;
+            this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl3.AppearanceCaption.Options.UseFont = true;
+            this.groupControl3.Controls.Add(this.ckbShowIPinTopic);
+            this.groupControl3.Location = new System.Drawing.Point(11, 11);
+            this.groupControl3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(396, 64);
+            this.groupControl3.TabIndex = 7;
+            this.groupControl3.Text = "Topic browsing settings";
+            // 
+            // ckbShowIPinTopic
+            // 
+            this.ckbShowIPinTopic.EditValue = true;
+            this.ckbShowIPinTopic.Location = new System.Drawing.Point(15, 33);
+            this.ckbShowIPinTopic.Name = "ckbShowIPinTopic";
+            this.ckbShowIPinTopic.Properties.Caption = "Show IP in content.";
+            this.ckbShowIPinTopic.Size = new System.Drawing.Size(359, 19);
+            this.ckbShowIPinTopic.TabIndex = 7;
+            // 
             // xtpUpdating
             // 
             this.xtpUpdating.Controls.Add(this.panelRefreshing);
             this.xtpUpdating.Name = "xtpUpdating";
-            this.xtpUpdating.Size = new System.Drawing.Size(330, 354);
+            this.xtpUpdating.Size = new System.Drawing.Size(418, 354);
             this.xtpUpdating.Text = "Refreshing";
+            // 
+            // panelRefreshing
+            // 
+            this.panelRefreshing.Controls.Add(this.gpAutoUpdating);
+            this.panelRefreshing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRefreshing.Location = new System.Drawing.Point(0, 0);
+            this.panelRefreshing.Name = "panelRefreshing";
+            this.panelRefreshing.Size = new System.Drawing.Size(418, 354);
+            this.panelRefreshing.TabIndex = 6;
             // 
             // xtpMisc
             // 
             this.xtpMisc.Controls.Add(this.panelCachingUpdating);
             this.xtpMisc.Name = "xtpMisc";
-            this.xtpMisc.Size = new System.Drawing.Size(330, 354);
+            this.xtpMisc.Size = new System.Drawing.Size(418, 354);
             this.xtpMisc.Text = "Caching && Updating";
+            // 
+            // panelCachingUpdating
+            // 
+            this.panelCachingUpdating.Controls.Add(this.groupControl1);
+            this.panelCachingUpdating.Controls.Add(this.groupControl2);
+            this.panelCachingUpdating.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCachingUpdating.Location = new System.Drawing.Point(0, 0);
+            this.panelCachingUpdating.Name = "panelCachingUpdating";
+            this.panelCachingUpdating.Size = new System.Drawing.Size(418, 354);
+            this.panelCachingUpdating.TabIndex = 4;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.groupControl1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.Appearance.Options.UseBackColor = true;
+            this.groupControl1.Appearance.Options.UseFont = true;
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.Controls.Add(this.labelControl1);
+            this.groupControl1.Controls.Add(this.btnClearCache);
+            this.groupControl1.Location = new System.Drawing.Point(11, 11);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(396, 98);
+            this.groupControl1.TabIndex = 8;
+            this.groupControl1.Text = "Image cache.";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseTextOptions = true;
+            this.labelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(10, 23);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(378, 41);
+            this.labelControl1.TabIndex = 8;
+            this.labelControl1.Text = "  The image displayed is cached in memory, you can clear the cache whenever in ne" +
+    "ed.";
+            // 
+            // btnClearCache
+            // 
+            this.btnClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClearCache.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearCache.Appearance.Options.UseFont = true;
+            this.btnClearCache.Location = new System.Drawing.Point(290, 67);
+            this.btnClearCache.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnClearCache.Name = "btnClearCache";
+            this.btnClearCache.Size = new System.Drawing.Size(98, 23);
+            this.btnClearCache.TabIndex = 7;
+            this.btnClearCache.TabStop = false;
+            this.btnClearCache.Text = "Clear cache";
+            this.btnClearCache.Click += new System.EventHandler(this.btnClearCache_Click);
             // 
             // groupControl2
             // 
+            this.groupControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl2.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.groupControl2.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupControl2.Appearance.Options.UseBackColor = true;
@@ -513,7 +671,7 @@
             this.groupControl2.Location = new System.Drawing.Point(11, 115);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(308, 77);
+            this.groupControl2.Size = new System.Drawing.Size(396, 77);
             this.groupControl2.TabIndex = 9;
             this.groupControl2.Text = "Check new version.";
             // 
@@ -522,7 +680,7 @@
             this.btnCheckNewVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCheckNewVersion.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckNewVersion.Appearance.Options.UseFont = true;
-            this.btnCheckNewVersion.Location = new System.Drawing.Point(202, 46);
+            this.btnCheckNewVersion.Location = new System.Drawing.Point(290, 46);
             this.btnCheckNewVersion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCheckNewVersion.Name = "btnCheckNewVersion";
             this.btnCheckNewVersion.Size = new System.Drawing.Size(98, 23);
@@ -540,60 +698,15 @@
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl2.Location = new System.Drawing.Point(10, 23);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(293, 27);
+            this.labelControl2.Size = new System.Drawing.Size(376, 27);
             this.labelControl2.TabIndex = 8;
             this.labelControl2.Text = "  Check the new version.";
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.groupControl1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl1.Appearance.Options.UseBackColor = true;
-            this.groupControl1.Appearance.Options.UseFont = true;
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl1.AppearanceCaption.Options.UseFont = true;
-            this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.btnClearCache);
-            this.groupControl1.Location = new System.Drawing.Point(11, 11);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(308, 98);
-            this.groupControl1.TabIndex = 8;
-            this.groupControl1.Text = "Image cache.";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseTextOptions = true;
-            this.labelControl1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(10, 23);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(293, 41);
-            this.labelControl1.TabIndex = 8;
-            this.labelControl1.Text = "  The image displayed is cached in memory, you can clear the cache whenever in ne" +
-    "ed.";
-            // 
-            // btnClearCache
-            // 
-            this.btnClearCache.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearCache.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearCache.Appearance.Options.UseFont = true;
-            this.btnClearCache.Location = new System.Drawing.Point(202, 67);
-            this.btnClearCache.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnClearCache.Name = "btnClearCache";
-            this.btnClearCache.Size = new System.Drawing.Size(98, 23);
-            this.btnClearCache.TabIndex = 7;
-            this.btnClearCache.TabStop = false;
-            this.btnClearCache.Text = "Clear cache";
-            this.btnClearCache.Click += new System.EventHandler(this.btnClearCache_Click);
             // 
             // xtpAbout
             // 
             this.xtpAbout.Controls.Add(this.panelAbout);
             this.xtpAbout.Name = "xtpAbout";
-            this.xtpAbout.Size = new System.Drawing.Size(330, 354);
+            this.xtpAbout.Size = new System.Drawing.Size(418, 354);
             this.xtpAbout.Text = "About";
             // 
             // panelAbout
@@ -604,19 +717,21 @@
             this.panelAbout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAbout.Location = new System.Drawing.Point(0, 0);
             this.panelAbout.Name = "panelAbout";
-            this.panelAbout.Size = new System.Drawing.Size(330, 354);
+            this.panelAbout.Size = new System.Drawing.Size(418, 354);
             this.panelAbout.TabIndex = 1;
             // 
             // labelControl5
             // 
             this.labelControl5.AllowHtmlString = true;
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl5.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.labelControl5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelControl5.Location = new System.Drawing.Point(8, 90);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(318, 36);
+            this.labelControl5.Size = new System.Drawing.Size(406, 24);
             this.labelControl5.TabIndex = 2;
             this.labelControl5.Text = "  Please be free to contact me via you convenient way, as refered above: the smth" +
     " forum email, the cnblogs, the email.";
@@ -624,66 +739,41 @@
             // labelControl4
             // 
             this.labelControl4.AllowHtmlString = true;
+            this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl4.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.labelControl4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelControl4.Location = new System.Drawing.Point(8, 59);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(318, 12);
+            this.labelControl4.Size = new System.Drawing.Size(406, 12);
             this.labelControl4.TabIndex = 1;
             this.labelControl4.Text = "  My email is <href=nesus@sina.com>nesus@sina.com</href>.";
             // 
             // labelControl3
             // 
             this.labelControl3.AllowHtmlString = true;
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl3.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.labelControl3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelControl3.Location = new System.Drawing.Point(8, 16);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(318, 24);
+            this.labelControl3.Size = new System.Drawing.Size(406, 24);
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "  The application is developed by Nesus, which is a NewSmth ID. You can visit my " +
     "blog at <href=www.cnblogs.com/junier/p/5869972.html>cnblogs</href>.";
             this.labelControl3.HyperlinkClick += new DevExpress.Utils.HyperlinkClickEventHandler(this.labelControl3_HyperlinkClick);
-            // 
-            // panelCachingUpdating
-            // 
-            this.panelCachingUpdating.Controls.Add(this.groupControl1);
-            this.panelCachingUpdating.Controls.Add(this.groupControl2);
-            this.panelCachingUpdating.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCachingUpdating.Location = new System.Drawing.Point(0, 0);
-            this.panelCachingUpdating.Name = "panelCachingUpdating";
-            this.panelCachingUpdating.Size = new System.Drawing.Size(330, 354);
-            this.panelCachingUpdating.TabIndex = 4;
-            // 
-            // panelRefreshing
-            // 
-            this.panelRefreshing.Controls.Add(this.gpAutoUpdating);
-            this.panelRefreshing.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRefreshing.Location = new System.Drawing.Point(0, 0);
-            this.panelRefreshing.Name = "panelRefreshing";
-            this.panelRefreshing.Size = new System.Drawing.Size(330, 354);
-            this.panelRefreshing.TabIndex = 6;
-            // 
-            // panelUI
-            // 
-            this.panelUI.Controls.Add(this.gcUISettings);
-            this.panelUI.Controls.Add(this.gcSkins);
-            this.panelUI.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelUI.Location = new System.Drawing.Point(0, 0);
-            this.panelUI.Name = "panelUI";
-            this.panelUI.Size = new System.Drawing.Size(330, 354);
-            this.panelUI.TabIndex = 4;
             // 
             // TabbedBrowserSettingsForm
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 427);
+            this.ClientSize = new System.Drawing.Size(432, 427);
             this.Controls.Add(this.panelContainer);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -705,28 +795,34 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtcSettings)).EndInit();
             this.xtcSettings.ResumeLayout(false);
             this.xtpUISettings.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcSkins)).EndInit();
-            this.gcSkins.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelUI)).EndInit();
+            this.panelUI.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcUISettings)).EndInit();
             this.gcUISettings.ResumeLayout(false);
             this.gcUISettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlLocationMargin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbBaseControlContainerLocationMargin.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSkins)).EndInit();
+            this.gcSkins.ResumeLayout(false);
+            this.xtpBrowsing.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelBrowsing)).EndInit();
+            this.panelBrowsing.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ckbShowIPinTopic.Properties)).EndInit();
             this.xtpUpdating.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelRefreshing)).EndInit();
+            this.panelRefreshing.ResumeLayout(false);
             this.xtpMisc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelCachingUpdating)).EndInit();
+            this.panelCachingUpdating.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
             this.xtpAbout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelAbout)).EndInit();
             this.panelAbout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelCachingUpdating)).EndInit();
-            this.panelCachingUpdating.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelRefreshing)).EndInit();
-            this.panelRefreshing.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelUI)).EndInit();
-            this.panelUI.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -774,5 +870,9 @@
         private DevExpress.XtraEditors.PanelControl panelCachingUpdating;
         private DevExpress.XtraEditors.PanelControl panelRefreshing;
         private DevExpress.XtraEditors.PanelControl panelUI;
+        private DevExpress.XtraTab.XtraTabPage xtpBrowsing;
+        private DevExpress.XtraEditors.PanelControl panelBrowsing;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private DevExpress.XtraEditors.CheckEdit ckbShowIPinTopic;
     }
 }

@@ -8,11 +8,11 @@
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
     using DevExpress.XtraRichEdit.API.Native;
+    using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Loaders;
     using Nzl.Smth.Datas;
     using Nzl.Smth.Utils;
-    using Nzl.Web.Util;
 
     /// <summary>
     /// Thread control.
@@ -225,7 +225,13 @@
                 Document doc = this.richtxtContent.Document;                
                 try
                 {
-                    string newlineToken = "__TOKEN__";
+                    ///Trim ip.
+                    if (Configuration.ShowIPinTopic == false)
+                    {
+                        thread.ContentHtml = thread.ContentHtml.Substring(0, thread.ContentHtml.LastIndexOf("--"));
+                    }
+
+                    string newlineToken = "_TOKEN_";
                     this.richtxtContent.HtmlText = thread.ContentHtml.Replace("<br>", newlineToken).Replace("<br />", newlineToken).Replace("<br/>", newlineToken);
                     {
                         ///Set default font.                        
@@ -242,19 +248,6 @@
                         {
                             doc.BeginUpdate();
 
-                            //string replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】\S*\s+(:( )?.*\s+)*";
-                            //DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
-                            //foreach (DocumentRange dr in drs)
-                            //{
-                            //    doc.Selection = dr;
-                            //    CharacterProperties cp = doc.BeginUpdateCharacters(dr);
-                            //    cp.FontName = "宋体";
-                            //    cp.FontSize = 9;
-                            //    cp.ForeColor = Color.FromArgb(96, 96, 96);
-                            //    doc.EndUpdateCharacters(cp);
-                            //}
-
-
                             ///Find the reply head.
                             DocumentRange drReplyHeader = null;
                             {
@@ -262,7 +255,6 @@
                                 DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
                                 foreach (DocumentRange dr in drs)
                                 {
-                                    doc.Selection = dr;
                                     CharacterProperties cp = doc.BeginUpdateCharacters(dr);
                                     cp.FontName = "宋体";
                                     cp.FontSize = 9;
@@ -278,21 +270,28 @@
                             {
                                 if (drReplyHeader != null)
                                 {
-                                    string replayPattern = @"\s*\:[^" + newlineToken + "]*" + newlineToken;
-                                    //replayPattern = @"\:[^<]*";
-                                    DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
+                                    DocumentRange[] drs = doc.FindAll(newlineToken, SearchOptions.None);
+                                    DocumentRange drPrev = drReplyHeader;
                                     foreach (DocumentRange dr in drs)
                                     {
-                                        System.Diagnostics.Debug.WriteLine(this.Data.ID + "\t" + dr.Length + "\t" + doc.GetText(dr));
-                                        //if (dr.Start > drReplyHeader.End)
+                                        if (dr.Start > drReplyHeader.End)
                                         {
-                                            doc.Selection = dr;
-                                            CharacterProperties cp = doc.BeginUpdateCharacters(dr);
-                                            cp.FontName = "宋体";
-                                            cp.FontSize = 9;
-                                            cp.ForeColor = Color.FromArgb(96, 96, 96);
-                                            doc.EndUpdateCharacters(cp);
+                                            DocumentRange targetRange = doc.CreateRange(drPrev.End, dr.End.ToInt() - drPrev.End.ToInt());
+                                            string content = doc.GetText(targetRange);
+                                            {
+                                                content = content.Replace(newlineToken, "");
+                                                if (content.StartsWith(":"))
+                                                {
+                                                    CharacterProperties cp = doc.BeginUpdateCharacters(targetRange);
+                                                    cp.FontName = "宋体";
+                                                    cp.FontSize = 9;
+                                                    cp.ForeColor = Color.FromArgb(96, 96, 96);
+                                                    doc.EndUpdateCharacters(cp);                                                    
+                                                }
+                                            }
                                         }
+
+                                        drPrev = dr;
                                     }
                                 }
                             }
@@ -307,9 +306,9 @@
                             DocumentRange[] drsa = doc.FindAll(new Regex(ipPattern));
                             foreach (DocumentRange dr in drsa)
                             {
+#if (DEBUG)
                                 System.Diagnostics.Debug.WriteLine(this.Data.ID + "\t" + dr.Length + "\t" + doc.GetText(dr));
-
-                                doc.Selection = dr;
+#endif
                                 CharacterProperties cp = doc.BeginUpdateCharacters(dr);
                                 cp.FontName = "宋体";
                                 cp.FontSize = 9;
@@ -317,33 +316,20 @@
                                 doc.EndUpdateCharacters(cp);
                             }
 
-                            //ipPattern = @"修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)";
-                            //DocumentRange[] drsb = doc.FindAll(new Regex(ipPattern));
-                            //foreach (DocumentRange dr in drsb)
-                            //{
-                            //    System.Diagnostics.Debug.WriteLine(this.Data.ID + "\t" + dr.Length + "\t" + doc.GetText(dr));
-
-                            //    doc.Selection = dr;
-                            //    CharacterProperties cp = doc.BeginUpdateCharacters(dr);
-                            //    cp.FontName = "宋体";
-                            //    cp.FontSize = 9;
-                            //    cp.ForeColor = Color.FromArgb(160, 160, 160);
-                            //    doc.EndUpdateCharacters(cp);
-                            //}
-
                             doc.EndUpdate();
                         }
 
                         ///Colored the reply tail.
                         {
                             doc.BeginUpdate();
-                            string repleyContent = SmthUtil.GetReplyText();
+                            string repleyContent = SmthUtil.GetReplyText().Replace(@"\s+",newlineToken);
                             DocumentRange[] drs = doc.FindAll(new Regex(repleyContent));
                             foreach (DocumentRange dr in drs)
                             {
+#if (DEBUG)
                                 System.Diagnostics.Debug.WriteLine(this.Data.ID + "\t" + dr.Length + "\t" + doc.GetText(dr));
+#endif
 
-                                doc.Selection = dr;
                                 CharacterProperties cp = doc.BeginUpdateCharacters(dr);
                                 cp.FontName = "宋体";
                                 cp.FontSize = 9;

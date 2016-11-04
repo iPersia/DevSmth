@@ -6,6 +6,7 @@
     using System.Net;
     using System.Threading;
     using System.Windows.Forms;
+    using Nzl.Smth.Configs;
 
     /// <summary>
     /// 
@@ -16,11 +17,6 @@
         /// 
         /// </summary>
         private WebClient clientDownload = null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private string _updateXmlUrl = null;
 
         /// <summary>
         /// 
@@ -61,22 +57,6 @@
         {
             base.OnLoad(e);
 
-            /// Load UpdatingXmlUrl.
-            System.Configuration.Configuration cfg =
-              System.Configuration.ConfigurationManager.OpenExeConfiguration(System.Configuration.ConfigurationUserLevel.None);
-            if (cfg != null)
-            {
-                if (cfg.AppSettings.Settings["UpdatingXmlUrl"] != null &&
-                    cfg.AppSettings.Settings["UpdatingXmlUrl"].Value != null)
-                {
-                    try
-                    {
-                        this._updateXmlUrl = cfg.AppSettings.Settings["UpdatingXmlUrl"].Value.ToString();
-                    }
-                    catch { }
-                }
-            }
-
             ///Get current version.
             System.Diagnostics.FileVersionInfo fvi =
                     System.Diagnostics.FileVersionInfo.GetVersionInfo(Application.ExecutablePath);
@@ -104,7 +84,7 @@
                 clientDownload.DownloadFileCompleted += ClientDownload_DownloadFileCompleted;
 
                 ///New file.
-                string fileName = this._updateXmlUrl.Substring(this._updateXmlUrl.LastIndexOf("/") + 1);
+                string fileName = Configuration.UpdatingXmlUrl.Substring(Configuration.UpdatingXmlUrl.LastIndexOf("/") + 1);
                 if (!string.IsNullOrEmpty(fileName))
                 {
                     if (Directory.Exists(this._updatingDirectory) == false)
@@ -118,7 +98,7 @@
                         File.Delete(filePath);
                     }
 
-                    clientDownload.DownloadFileAsync(new Uri(this._updateXmlUrl),
+                    clientDownload.DownloadFileAsync(new Uri(Configuration.UpdatingXmlUrl),
                                                      filePath,
                                                      filePath);
                 }
@@ -225,7 +205,7 @@
         private void bbiCheck_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ///Download the xml.
-            if (this._updateXmlUrl != null)
+            if (Configuration.UpdatingXmlUrl != null)
             {
                 evtDownload = new ManualResetEvent(true);
                 evtDownload.Reset();

@@ -31,7 +31,7 @@
             this.tcTop10s = new DevExpress.XtraTab.XtraTabControl();
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
             this.panelMenu = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblCaption = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tcTop10s)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
@@ -68,27 +68,27 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.Controls.Add(this.labelControl1);
+            this.panelMenu.Controls.Add(this.lblCaption);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(797, 40);
             this.panelMenu.TabIndex = 0;
             // 
-            // labelControl1
+            // lblCaption
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseTextOptions = true;
-            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.Location = new System.Drawing.Point(2, 2);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(793, 36);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "水   木   社   区   十   大   合   集";
+            this.lblCaption.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblCaption.Appearance.Options.UseFont = true;
+            this.lblCaption.Appearance.Options.UseTextOptions = true;
+            this.lblCaption.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblCaption.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblCaption.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblCaption.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCaption.Location = new System.Drawing.Point(2, 2);
+            this.lblCaption.Name = "lblCaption";
+            this.lblCaption.Size = new System.Drawing.Size(793, 36);
+            this.lblCaption.TabIndex = 0;
+            this.lblCaption.Text = "水   木   社   区   十   大   合   集";
             // 
             // Top10sBrowserControl
             // 
@@ -113,6 +113,6 @@
         private DevExpress.XtraTab.XtraTabControl tcTop10s;
         private DevExpress.XtraEditors.PanelControl panelContainer;
         private DevExpress.XtraEditors.PanelControl panelMenu;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl lblCaption;
     }
 }

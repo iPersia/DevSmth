@@ -62,7 +62,7 @@
             // rbFirstReply
             // 
             this.rbFirstReply.AutoSize = true;
-            this.rbFirstReply.Location = new System.Drawing.Point(188, 39);
+            this.rbFirstReply.Location = new System.Drawing.Point(162, 39);
             this.rbFirstReply.Name = "rbFirstReply";
             this.rbFirstReply.Size = new System.Drawing.Size(89, 16);
             this.rbFirstReply.TabIndex = 1;
@@ -81,7 +81,7 @@
             this.gpBrowseMode.Controls.Add(this.rbLatestReply);
             this.gpBrowseMode.Location = new System.Drawing.Point(12, 12);
             this.gpBrowseMode.Name = "gpBrowseMode";
-            this.gpBrowseMode.Size = new System.Drawing.Size(327, 75);
+            this.gpBrowseMode.Size = new System.Drawing.Size(280, 75);
             this.gpBrowseMode.TabIndex = 2;
             this.gpBrowseMode.Text = "Browse Mode";
             // 
@@ -101,7 +101,7 @@
             this.btnOK.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(135, 241);
+            this.btnOK.Location = new System.Drawing.Point(109, 240);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.TabIndex = 4;
@@ -123,7 +123,7 @@
             this.gpAutoUpdating.Controls.Add(this.ckbAutoUpdating);
             this.gpAutoUpdating.Location = new System.Drawing.Point(12, 93);
             this.gpAutoUpdating.Name = "gpAutoUpdating";
-            this.gpAutoUpdating.Size = new System.Drawing.Size(327, 126);
+            this.gpAutoUpdating.Size = new System.Drawing.Size(280, 126);
             this.gpAutoUpdating.TabIndex = 5;
             this.gpAutoUpdating.Text = "Auto Updating in Latest Reply";
             // 
@@ -176,7 +176,7 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(351, 291);
+            this.panelContainer.Size = new System.Drawing.Size(304, 291);
             this.panelContainer.TabIndex = 6;
             // 
             // TopicSettingsForm
@@ -184,7 +184,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(351, 291);
+            this.ClientSize = new System.Drawing.Size(304, 291);
             this.Controls.Add(this.panelContainer);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

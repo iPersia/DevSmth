@@ -60,7 +60,7 @@
             this.btnOK.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(111, 295);
+            this.btnOK.Location = new System.Drawing.Point(113, 283);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 4;
@@ -102,7 +102,7 @@
             this.gcBrowseMode.Controls.Add(this.rbShowTops);
             this.gcBrowseMode.Location = new System.Drawing.Point(10, 10);
             this.gcBrowseMode.Name = "gcBrowseMode";
-            this.gcBrowseMode.Size = new System.Drawing.Size(279, 67);
+            this.gcBrowseMode.Size = new System.Drawing.Size(284, 67);
             this.gcBrowseMode.TabIndex = 2;
             this.gcBrowseMode.Text = "Browse Mode";
             // 
@@ -120,7 +120,7 @@
             this.gcTopicType.Controls.Add(this.rbSubject);
             this.gcTopicType.Location = new System.Drawing.Point(10, 82);
             this.gcTopicType.Name = "gcTopicType";
-            this.gcTopicType.Size = new System.Drawing.Size(279, 86);
+            this.gcTopicType.Size = new System.Drawing.Size(284, 86);
             this.gcTopicType.TabIndex = 4;
             this.gcTopicType.Text = "Topic type";
             // 
@@ -182,7 +182,7 @@
             this.gcAutoUpdating.Controls.Add(this.ckbAutoUpdating);
             this.gcAutoUpdating.Location = new System.Drawing.Point(10, 173);
             this.gcAutoUpdating.Name = "gcAutoUpdating";
-            this.gcAutoUpdating.Size = new System.Drawing.Size(279, 107);
+            this.gcAutoUpdating.Size = new System.Drawing.Size(284, 95);
             this.gcAutoUpdating.TabIndex = 6;
             this.gcAutoUpdating.Text = "Auto Updating in Latest Reply";
             // 
@@ -247,7 +247,7 @@
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(301, 328);
+            this.panelContainer.Size = new System.Drawing.Size(304, 321);
             this.panelContainer.TabIndex = 7;
             // 
             // BoardSettingsForm
@@ -255,7 +255,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 328);
+            this.ClientSize = new System.Drawing.Size(304, 321);
             this.Controls.Add(this.panelContainer);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

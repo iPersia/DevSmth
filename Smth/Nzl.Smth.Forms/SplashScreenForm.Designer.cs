@@ -49,18 +49,22 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.labelControl1.Location = new System.Drawing.Point(23, 264);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(167, 14);
+            this.labelControl1.Size = new System.Drawing.Size(162, 12);
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Copyright © Nesus 2016-2018";
             // 
             // lblMsg
             // 
+            this.lblMsg.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMsg.Appearance.Options.UseFont = true;
             this.lblMsg.Location = new System.Drawing.Point(23, 190);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(55, 14);
+            this.lblMsg.Size = new System.Drawing.Size(66, 12);
             this.lblMsg.TabIndex = 7;
             this.lblMsg.Text = "Starting...";
             // 

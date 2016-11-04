@@ -228,7 +228,13 @@
                     ///Trim ip.
                     if (Configuration.ShowIPinTopic == false)
                     {
-                        thread.ContentHtml = thread.ContentHtml.Substring(0, thread.ContentHtml.LastIndexOf("--"));
+                        Regex ipPattern = new Regex(@"(--)?<br />(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)<br />)?FROM (\d+\.){3}(\*|\d+)(<br />)?");
+                        Regex mobileModifyPattern = new Regex(@"※ 修改:·[a-zA-z][a-zA-Z0-9]{1,11} 于 [A-Z][a-z]{2}[^\d]+\d+ \d{2}:\d{2}:\d{2} \d{4} 修改本文·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>※ 来源:·水木社区 <a target=\W_blank\W href=\Whttp://m.newsmth.net\W>http://m.newsmth.net</a>·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>");
+                        Regex forumModifyPattern = new Regex(@"※ 修改:·[a-zA-z][a-zA-Z0-9]{1,11} 于 [A-Z][a-z]{2}[^\d]+\d+ \d{2}:\d{2}:\d{2} \d{4} 修改本文·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>※ 来源:·水木社区 <a target=\W_blank\W href=\Whttp://www.newsmth.net\W>http://www.newsmth.net</a>·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>");
+                        string contentHtml = ipPattern.Replace(thread.ContentHtml, "");
+                        contentHtml = mobileModifyPattern.Replace(contentHtml, "");
+                        contentHtml = forumModifyPattern.Replace(contentHtml, "");
+                        thread.ContentHtml = contentHtml;
                     }
 
                     string newlineToken = "_TOKEN_";
@@ -297,9 +303,10 @@
                             }
 
                             doc.EndUpdate();
-                        }                        
+                        }
 
                         ///Colored the From IP.
+                        if (Configuration.ShowIPinTopic)
                         {
                             doc.BeginUpdate();
                             string ipPattern = newlineToken + @"\s*--\s*" + newlineToken + @"\s*(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)\s*" + newlineToken + @"\s*)?FROM (\d+\.){3}(\*|\d+)";

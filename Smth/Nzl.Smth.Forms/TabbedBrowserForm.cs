@@ -447,7 +447,7 @@
                 tcc.Parent.Parent.Tag = "版面-" + e.Message;
                 if (this.xtcBrowser.SelectedTabPage == tcc.Parent.Parent as XtraTabPage)
                 {
-                    this.Text = e.Message;
+                    this.Text = "版面-" + e.Message;
                 }
             }
         }

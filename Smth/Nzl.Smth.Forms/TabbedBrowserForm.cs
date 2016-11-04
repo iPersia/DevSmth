@@ -1345,13 +1345,9 @@
                 hlc.Tag = null;
                 if (replyContent != null)
                 {
-                    Regex regex = new Regex(@"\s*FROM\s[\d, \., \*]+");
-                    string content = regex.Replace(replyContent, "");
-                    content = CommonUtil.ReplaceSpecialChars(content);
-                    content = SmthUtil.TrimUrls(content);
                     NewThreadForm threadForm = new NewThreadForm(this.xtcBrowser.SelectedTabPage.Text,
                                                                     "Re: " + this.xtcBrowser.SelectedTabPage.Text,
-                                                                    content,
+                                                                    replyContent,
                                                                     false);
                     threadForm.StartPosition = FormStartPosition.CenterParent;
                     if (DialogResult.OK == threadForm.ShowDialog(this))

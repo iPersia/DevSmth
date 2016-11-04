@@ -352,6 +352,11 @@
         /// <summary>
         /// 
         /// </summary>
+        private static Regex _staticFontRegex = new Regex("<font[^>]*>");
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="divstr"></param>
         /// <returns></returns>
         public static string TrimHtmlTag(string divstr)
@@ -365,11 +370,7 @@
                 divstr = divstr.Replace("&nbsp;", " ");
                 divstr = divstr.Replace("</div>", "");
                 divstr = divstr.Replace("</font>", "");
-                //divstr = divstr.Replace("<b>", "『");
-                //divstr = divstr.Replace("</b>", "』");
-                string pattern = "<font[^>]*>";
-                Regex regex = new Regex(pattern);
-                divstr = regex.Replace(divstr, "");
+                divstr = _staticFontRegex.Replace(divstr, "");
                 return divstr;
             }
 

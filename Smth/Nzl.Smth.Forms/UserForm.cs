@@ -74,6 +74,16 @@
         /// <summary>
         /// 
         /// </summary>
+        private static Regex _staticNewlineRegex = new Regex(@"[\n]", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticHtmlRegex = new Regex("(<[^>]+?>)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BgwFetchPage_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
@@ -87,11 +97,9 @@
                     if (string.IsNullOrEmpty(userInfor) == false)
                     {
                         userInfor = userInfor.Replace(@"<li>", "\t");
-                        Regex objReg = new System.Text.RegularExpressions.Regex(@"[\n]", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-                        userInfor = objReg.Replace(userInfor, "");
+                        userInfor = _staticNewlineRegex.Replace(userInfor, "");
                         userInfor = userInfor.Replace(@"</li>", "\n\n");
-                        objReg = new System.Text.RegularExpressions.Regex("(<[^>]+?>)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-                        userInfor = objReg.Replace(userInfor, "");
+                        userInfor = _staticHtmlRegex.Replace(userInfor, "");
                         userInfor = CommonUtil.ReplaceSpecialChars(userInfor);
                         userInfor.TrimEnd('\n');
                         this.txtUser.Document.AppendText("\n");
@@ -162,8 +170,6 @@
         private void txtUser_SizeChanged(object sender, EventArgs e)
         {
             this.Height = this.txtUser.Height + (this.Height - this.panelContainer.Height) + this.txtUser.Top * 2;
-            //this.txtUser.Height
-            //this.Size = new Size(newSize.Width + this.Size.Width - rtb.Width, newSize.Height + this.Size.Height - rtb.Height);
         }
 
         #region NewMail - PageLoaded & PageFailed

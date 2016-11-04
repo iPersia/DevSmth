@@ -8,6 +8,7 @@
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
     using DevExpress.XtraRichEdit.API.Native;
+    using Nzl.Smth;
     using Nzl.Smth.Configs;
     using Nzl.Smth.Controls.Base;
     using Nzl.Smth.Loaders;
@@ -176,6 +177,36 @@
         /// <summary>
         /// 
         /// </summary>
+        private static string _staticNewlineToken = "_TOKEN_";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticThreadContentIPRegex = new Regex(@"(--)?<br />(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)<br />)?FROM (\d+\.){3}(\*|\d+)(<br />)?");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticThreadContentMobileModifyRegex = new Regex(@"※ 修改:·[a-zA-z][a-zA-Z0-9]{1,11} 于 [A-Z][a-z]{2}[^\d]+\d+ \d{2}:\d{2}:\d{2} \d{4} 修改本文·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>※ 来源:·水木社区 <a target=\W_blank\W href=\Whttp://m.newsmth.net\W>http://m.newsmth.net</a>·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticThreadContentForumModifyRegex = new Regex(@"※ 修改:·[a-zA-z][a-zA-Z0-9]{1,11} 于 [A-Z][a-z]{2}[^\d]+\d+ \d{2}:\d{2}:\d{2} \d{4} 修改本文·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>※ 来源:·水木社区 <a target=\W_blank\W href=\Whttp://www.newsmth.net\W>http://www.newsmth.net</a>·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticThreadReplyPattern = new Regex(@"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticIPRegexForColor = new Regex(_staticNewlineToken + @"\s*--\s*" + _staticNewlineToken + @"\s*(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)\s*" + _staticNewlineToken + @"\s*)?FROM (\d+\.){3}(\*|\d+)");
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="thread"></param>
         public override void Initialize(Thread thread)
         {
@@ -228,17 +259,14 @@
                     ///Trim ip.
                     if (Configuration.ShowIPinTopic == false)
                     {
-                        Regex ipPattern = new Regex(@"(--)?<br />(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)<br />)?FROM (\d+\.){3}(\*|\d+)(<br />)?");
-                        Regex mobileModifyPattern = new Regex(@"※ 修改:·[a-zA-z][a-zA-Z0-9]{1,11} 于 [A-Z][a-z]{2}[^\d]+\d+ \d{2}:\d{2}:\d{2} \d{4} 修改本文·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>※ 来源:·水木社区 <a target=\W_blank\W href=\Whttp://m.newsmth.net\W>http://m.newsmth.net</a>·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>");
-                        Regex forumModifyPattern = new Regex(@"※ 修改:·[a-zA-z][a-zA-Z0-9]{1,11} 于 [A-Z][a-z]{2}[^\d]+\d+ \d{2}:\d{2}:\d{2} \d{4} 修改本文·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>※ 来源:·水木社区 <a target=\W_blank\W href=\Whttp://www.newsmth.net\W>http://www.newsmth.net</a>·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>");
-                        string contentHtml = ipPattern.Replace(thread.ContentHtml, "");
-                        contentHtml = mobileModifyPattern.Replace(contentHtml, "");
-                        contentHtml = forumModifyPattern.Replace(contentHtml, "");
+                        string contentHtml = _staticThreadContentIPRegex.Replace(thread.ContentHtml, "");
+                        contentHtml = _staticThreadContentMobileModifyRegex.Replace(contentHtml, "");
+                        contentHtml = _staticThreadContentForumModifyRegex.Replace(contentHtml, "");
                         thread.ContentHtml = contentHtml;
                     }
 
-                    string newlineToken = "_TOKEN_";
-                    this.richtxtContent.HtmlText = thread.ContentHtml.Replace("<br>", newlineToken).Replace("<br />", newlineToken).Replace("<br/>", newlineToken);
+                    
+                    this.richtxtContent.HtmlText = thread.ContentHtml.Replace("<br>", _staticNewlineToken).Replace("<br />", _staticNewlineToken).Replace("<br/>", _staticNewlineToken);
                     {
                         ///Set default font.                        
                         {
@@ -257,8 +285,7 @@
                             ///Find the reply head.
                             DocumentRange drReplyHeader = null;
                             {
-                                string replayPattern = @"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】";
-                                DocumentRange[] drs = doc.FindAll(new Regex(replayPattern));
+                                DocumentRange[] drs = doc.FindAll(_staticThreadReplyPattern);
                                 foreach (DocumentRange dr in drs)
                                 {
                                     CharacterProperties cp = doc.BeginUpdateCharacters(dr);
@@ -276,7 +303,7 @@
                             {
                                 if (drReplyHeader != null)
                                 {
-                                    DocumentRange[] drs = doc.FindAll(newlineToken, SearchOptions.None);
+                                    DocumentRange[] drs = doc.FindAll(_staticNewlineToken, SearchOptions.None);
                                     DocumentRange drPrev = drReplyHeader;
                                     foreach (DocumentRange dr in drs)
                                     {
@@ -285,7 +312,7 @@
                                             DocumentRange targetRange = doc.CreateRange(drPrev.End, dr.End.ToInt() - drPrev.End.ToInt());
                                             string content = doc.GetText(targetRange);
                                             {
-                                                content = content.Replace(newlineToken, "");
+                                                content = content.Replace(_staticNewlineToken, "");
                                                 if (content.StartsWith(":"))
                                                 {
                                                     CharacterProperties cp = doc.BeginUpdateCharacters(targetRange);
@@ -309,8 +336,7 @@
                         if (Configuration.ShowIPinTopic)
                         {
                             doc.BeginUpdate();
-                            string ipPattern = newlineToken + @"\s*--\s*" + newlineToken + @"\s*(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)\s*" + newlineToken + @"\s*)?FROM (\d+\.){3}(\*|\d+)";
-                            DocumentRange[] drsa = doc.FindAll(new Regex(ipPattern));
+                            DocumentRange[] drsa = doc.FindAll(_staticIPRegexForColor);
                             foreach (DocumentRange dr in drsa)
                             {
 #if (DEBUG)
@@ -329,8 +355,8 @@
                         ///Colored the reply tail.
                         {
                             doc.BeginUpdate();
-                            string repleyContent = SmthUtil.GetReplyText().Replace(@"\s+",newlineToken);
-                            DocumentRange[] drs = doc.FindAll(new Regex(repleyContent));
+                            string repleyContent = SmthUtil.GetReplyText().Replace(@"\s+", _staticNewlineToken);
+                            DocumentRange[] drs = doc.FindAll(repleyContent, SearchOptions.None);
                             foreach (DocumentRange dr in drs)
                             {
 #if (DEBUG)
@@ -349,7 +375,7 @@
                         ///Replace by newline
                         {
                             doc.BeginUpdate();
-                            DocumentRange[] drs = doc.FindAll(newlineToken, SearchOptions.None);
+                            DocumentRange[] drs = doc.FindAll(_staticNewlineToken, SearchOptions.None);
                             for (int i = drs.Length - 1; i >= 0; i--)
                             {
                                 doc.Replace(drs[i], Environment.NewLine);

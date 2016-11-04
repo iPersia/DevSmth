@@ -388,6 +388,37 @@
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticHtmlRegex1 = new Regex(@"(?m)<script[^>]*>(\w|\W)*?</script[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticHtmlRegex2 = new Regex(@"(?m)<style[^>]*>(\w|\W)*?</style[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticHtmlRegex3 = new Regex(@"(?m)<select[^>]*>(\w|\W)*?</select[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticHtmlRegex4 = new Regex(@"<[^<>]+>", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticHtmlRegex5 = new Regex(@"(<[^>]+?>)|&nbsp;", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticHtmlRegex6 = new Regex(@"(\s)+", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+
+        /// <summary>
         /// 此私有方法从一段HTML文本中提取纯文本
         /// </summary>
         /// <param name="instr">HTML代码</param>
@@ -396,15 +427,22 @@
         {
             if (html != null)
             {
-                html = new Regex(@"(?m)<script[^>]*>(\w|\W)*?</script[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(html, "");
-                html = new Regex(@"(?m)<style[^>]*>(\w|\W)*?</style[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(html, "");
-                html = new Regex(@"(?m)<select[^>]*>(\w|\W)*?</select[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(html, "");
-                //html = new Regex(@"(?m)<a[^>]*>(\w|\W)*?</a[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(html, "");
-                html = new Regex(@"<[^<>]+>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(html, "");
-                Regex objReg = new System.Text.RegularExpressions.Regex("(<[^>]+?>)|&nbsp;", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-                html = objReg.Replace(html, "");
-                Regex objReg2 = new System.Text.RegularExpressions.Regex("(\\s)+", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-                html = objReg2.Replace(html, " ");
+                //html = new Regex(@"(?m)<script[^>]*>(\w|\W)*?</script[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(html, "");
+                //html = new Regex(@"(?m)<style[^>]*>(\w|\W)*?</style[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(html, "");
+                //html = new Regex(@"(?m)<select[^>]*>(\w|\W)*?</select[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(html, "");
+                ////html = new Regex(@"(?m)<a[^>]*>(\w|\W)*?</a[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(html, "");
+                //html = new Regex(@"<[^<>]+>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(html, "");
+                //Regex objReg = new Regex("(<[^>]+?>)|&nbsp;", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+                //html = objReg.Replace(html, "");
+                //Regex objReg2 = new Regex("(\\s)+", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+                //html = objReg2.Replace(html, " ");
+
+                html = _staticHtmlRegex1.Replace(html, "");
+                html = _staticHtmlRegex2.Replace(html, "");
+                html = _staticHtmlRegex3.Replace(html, "");
+                html = _staticHtmlRegex4.Replace(html, "");
+                html = _staticHtmlRegex5.Replace(html, "");
+                html = _staticHtmlRegex6.Replace(html, "");
             }
 
             return html;

@@ -80,8 +80,8 @@
             if (m_links.Count == 0)
             {
                 Regex[] regex = new Regex[2];
-                regex[0] = new Regex("(?m)<a[^><]+href=(\"|')?(?<url>([^>\"'\\s)])+)(\"|')?[^>]*>(?<text>(\\w|\\W)*?)</", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-                regex[1] = new Regex("<[i]*frame[^><]+src=(\"|')?(?<url>([^>\"'\\s)])+)(\"|')?[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+                regex[0] = _staticUrlRegex1;
+                regex[1] = _staticUrlRegex2;
                 for (int i = 0; i < 2; i++)
                 {
                     Match match = regex[i].Match(m_html);
@@ -122,15 +122,18 @@
         {
             if (m_outstr == "")
             {
+                //m_outstr = instr.Clone() as string;
+                //m_outstr = new Regex(@"(?m)<script[^>]*>(\w|\W)*?</script[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(m_outstr, "");
+                //m_outstr = new Regex(@"(?m)<style[^>]*>(\w|\W)*?</style[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(m_outstr, "");
+                //m_outstr = new Regex(@"(?m)<select[^>]*>(\w|\W)*?</select[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(m_outstr, "");
+                //if (!withLink) m_outstr = new Regex(@"(?m)<a[^>]*>(\w|\W)*?</a[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(m_outstr, "");
+                //Regex objReg = new Regex("(<[^>]+?>)|&nbsp;", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+                //m_outstr = objReg.Replace(m_outstr, "");
+                //Regex objReg2 = new Regex("(\\s)+", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+                //m_outstr = objReg2.Replace(m_outstr, " ");
+
                 m_outstr = instr.Clone() as string;
-                m_outstr = new Regex(@"(?m)<script[^>]*>(\w|\W)*?</script[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(m_outstr, "");
-                m_outstr = new Regex(@"(?m)<style[^>]*>(\w|\W)*?</style[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(m_outstr, "");
-                m_outstr = new Regex(@"(?m)<select[^>]*>(\w|\W)*?</select[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(m_outstr, "");
-                if (!withLink) m_outstr = new Regex(@"(?m)<a[^>]*>(\w|\W)*?</a[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase).Replace(m_outstr, "");
-                Regex objReg = new System.Text.RegularExpressions.Regex("(<[^>]+?>)|&nbsp;", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-                m_outstr = objReg.Replace(m_outstr, "");
-                Regex objReg2 = new System.Text.RegularExpressions.Regex("(\\s)+", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-                m_outstr = objReg2.Replace(m_outstr, " ");
+                m_outstr = CommonUtil.TrimHtml(m_outstr);
             }
 
             return m_outstr.Length > firstN ? m_outstr.Substring(0, firstN) : m_outstr;
@@ -531,6 +534,33 @@
 
         #endregion
 
+        #region Regex
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticCharsetRegex = new Regex("charset=(?<cding>[^=]+)?\"", RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticHexRegex = new Regex("(?<h>[^\x00-\xff]+)");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticTitleRegex = new Regex(@"(?m)<title[^>]*>(?<title>(?:\w|\W)*?)</title[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticUrlRegex1 = new Regex("(?m)<a[^><]+href=(\"|')?(?<url>([^>\"'\\s)])+)(\"|')?[^>]*>(?<text>(\\w|\\W)*?)</", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private static Regex _staticUrlRegex2 = new Regex("<[i]*frame[^><]+src=(\"|')?(?<url>([^>\"'\\s)])+)(\"|')?[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+        #endregion
+
         #region 构造函数
         /// <summary>
         /// 初始化
@@ -606,9 +636,8 @@
                 }
                 else
                 {
-                    m_html = new StreamReader(sm, m_encoding).ReadToEnd();
-                    Regex regex = new Regex("charset=(?<cding>[^=]+)?\"", RegexOptions.IgnoreCase);
-                    string strcding = regex.Match(m_html).Groups["cding"].Value;
+                    m_html = new StreamReader(sm, m_encoding).ReadToEnd();                    
+                    string strcding = _staticCharsetRegex.Match(m_html).Groups["cding"].Value;
                     try
                     {
                         m_encoding = Encoding.GetEncoding(strcding);
@@ -654,9 +683,8 @@
             catch { };
 
             if (_url.Contains("m.newsmth.net") == false)
-            {
-                Regex re = new Regex("(?<h>[^\x00-\xff]+)");
-                Match mc = re.Match(_url);
+            {                
+                Match mc = _staticHexRegex.Match(_url);
                 if (mc.Success)
                 {
                     string han = mc.Groups["h"].Value;
@@ -682,8 +710,8 @@
                 _url = uurl;
             }
             catch { };
-            Regex re = new Regex("(?<h>[^\x00-\xff]+)");
-            Match mc = re.Match(_url);
+            
+            Match mc = _staticHexRegex.Match(_url);
             if (mc.Success)
             {
                 string han = mc.Groups["h"].Value;
@@ -812,7 +840,7 @@
                 return m_uri.AbsoluteUri;
             }
         }
-
+        
         /// <summary>
         /// 通过此属性可获得本网页的标题，只读
         /// </summary>
@@ -822,8 +850,7 @@
             {
                 if (m_title == "")
                 {
-                    Regex reg = new Regex(@"(?m)<title[^>]*>(?<title>(?:\w|\W)*?)</title[^>]*>", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-                    Match mc = reg.Match(m_html);
+                    Match mc = _staticTitleRegex.Match(m_html);
                     if (mc.Success)
                     {
                         m_title = mc.Groups["title"].Value.Trim();

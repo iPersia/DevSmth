@@ -15,12 +15,12 @@
     /// <summary>
     /// 
     /// </summary>
-    internal partial class BaseWaitForm : WaitForm
+    internal partial class WaitForm : DevExpress.XtraWaitForm.WaitForm
     {
         /// <summary>
         /// 
         /// </summary>
-        public BaseWaitForm()
+        public WaitForm()
         {
             InitializeComponent();
             this.ppWaitInfor.AutoHeight = true;

@@ -1,6 +1,6 @@
 ﻿namespace Nzl.Smth.Controls.Base
 {
-    partial class BaseWaitForm
+    partial class WaitForm
     {
         /// <summary>
         /// Required designer variable.

@@ -466,7 +466,7 @@
             HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (this.OnMailLinkClicked != null && hlc != null)
             {
-                hlc.Tag = null;
+                //hlc.Tag = null;
                 this.OnMailLinkClicked(sender, e);
                 if (hlc.Tag != null)
                 {

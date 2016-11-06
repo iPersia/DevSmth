@@ -227,9 +227,12 @@ namespace Nzl.Smth.Controls.Elements
         /// <param name="e"></param>
         private void LinklblReply_LinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            if (this.OnReplyLinkClicked != null)
+            DevExpress.XtraEditors.HyperlinkLabelControl hlc = sender as DevExpress.XtraEditors.HyperlinkLabelControl;
+            if (this.OnReplyLinkClicked != null && hlc != null)
             {
+                hlc.Tag = this.Data;
                 this.OnReplyLinkClicked(sender, e);
+                hlc.Tag = null;
             }
         }
 

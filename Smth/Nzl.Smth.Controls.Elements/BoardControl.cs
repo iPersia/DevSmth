@@ -11,7 +11,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class BoardControl : BaseControl<Board>
+    public partial class BoardControl : BaseElementControl<Board>
     {
         /// <summary>
         /// 

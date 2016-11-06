@@ -23,7 +23,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class MailControlContainer : BaseControlContainer<MailControl, Mail>
+    public partial class MailControlContainer : BaseElementControlContainer<MailControl, Mail>
     {
         #region Event
         /// <summary>

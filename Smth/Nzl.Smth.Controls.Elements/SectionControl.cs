@@ -9,7 +9,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class SectionControl : BaseControl<Section>
+    public partial class SectionControl : BaseElementControl<Section>
     {
         /// <summary>
         /// 

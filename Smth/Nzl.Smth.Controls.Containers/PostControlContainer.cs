@@ -21,7 +21,7 @@ namespace Nzl.Smth.Controls.Containers
 #if (DESIGNMODE)
     public partial class ReferDetailControlContainer : UserControl
 #else
-    public partial class PostControlContainer : BaseControlContainer<PostControl, Post>
+    public partial class PostControlContainer : BaseElementControlContainer<PostControl, Post>
 #endif
     {
 #if (DESIGNMODE)

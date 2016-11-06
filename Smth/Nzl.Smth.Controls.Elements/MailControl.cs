@@ -10,7 +10,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class MailControl : BaseControl<Mail>
+    public partial class MailControl : BaseElementControl<Mail>
     {
         /// <summary>
         /// 

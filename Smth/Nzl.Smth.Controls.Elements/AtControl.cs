@@ -12,7 +12,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class AtControl : BaseControl<At>
+    public partial class AtControl : BaseElementControl<At>
     {
         /// <summary>
         /// 

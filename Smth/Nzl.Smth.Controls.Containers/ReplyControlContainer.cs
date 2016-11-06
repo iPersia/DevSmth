@@ -22,7 +22,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class ReplyControlContainer : BaseControlContainer<ReplyControl, Reply>
+    public partial class ReplyControlContainer : BaseElementControlContainer<ReplyControl, Reply>
     {
         #region Event
         /// <summary>

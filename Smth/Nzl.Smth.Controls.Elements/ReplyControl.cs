@@ -10,7 +10,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class ReplyControl : BaseControl<Reply>
+    public partial class ReplyControl : BaseElementControl<Reply>
     {
         /// <summary>
         /// 

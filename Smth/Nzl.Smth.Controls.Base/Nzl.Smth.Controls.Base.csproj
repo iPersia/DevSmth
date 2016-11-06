@@ -47,10 +47,10 @@
     <Compile Include="BaseComplexControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BaseControlContainer.cs">
+    <Compile Include="BaseElementControlContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BaseControl.cs">
+    <Compile Include="BaseElementControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="InformationCenter.cs" />
@@ -63,8 +63,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="BaseControlContainer.resx">
-      <DependentUpon>BaseControlContainer.cs</DependentUpon>
+    <EmbeddedResource Include="BaseElementControlContainer.resx">
+      <DependentUpon>BaseElementControlContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseWaitForm.resx">
       <DependentUpon>BaseWaitForm.cs</DependentUpon>

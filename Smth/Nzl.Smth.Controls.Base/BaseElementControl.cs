@@ -12,8 +12,8 @@
     /// <summary>
     /// 
     /// </summary>
-    //public class BaseControl<TBaseData> : DevExpress.Utils.Controls.ControlBase, IRecycled
-    public class BaseControl<TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
+    //public class BaseElementControl<TBaseData> : DevExpress.Utils.Controls.ControlBase, IRecycled
+    public class BaseElementControl<TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
         where TBaseData : BaseData
     {
         /// <summary>
@@ -24,7 +24,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public BaseControl()
+        public BaseElementControl()
             : base()
         {
         }

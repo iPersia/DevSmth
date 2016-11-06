@@ -18,7 +18,7 @@
     /// <summary>
     /// Thread control.
     /// </summary>
-    public partial class ThreadControl : BaseControl<Thread>
+    public partial class ThreadControl : BaseElementControl<Thread>
     {
         #region events.
         /// <summary>

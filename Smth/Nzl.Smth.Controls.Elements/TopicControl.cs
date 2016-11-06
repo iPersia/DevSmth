@@ -9,7 +9,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class TopicControl : BaseControl<Topic>
+    public partial class TopicControl : BaseElementControl<Topic>
     {
         /// <summary>
         /// 

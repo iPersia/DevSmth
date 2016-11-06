@@ -21,7 +21,7 @@ namespace Nzl.Smth.Controls.Containers
 #if (DESIGNMODE)
     public partial class MailDetailContainerControl : UserControl
 #else
-    public partial class MailDetailControlContainer : BaseControlContainer<MailDetailControl, Mail>
+    public partial class MailDetailControlContainer : BaseElementControlContainer<MailDetailControl, Mail>
 #endif
     {
 #if (DESIGNMODE)

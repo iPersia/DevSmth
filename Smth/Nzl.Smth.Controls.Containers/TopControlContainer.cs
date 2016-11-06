@@ -17,7 +17,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class TopControlContainer : BaseControlContainer<TopControl, Top>
+    public partial class TopControlContainer : BaseElementControlContainer<TopControl, Top>
     {
         #region event
         /// <summary>

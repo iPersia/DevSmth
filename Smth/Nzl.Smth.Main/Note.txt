@@ -90,7 +90,7 @@
 			文摘区
 			保留区
 
-    25、BaseControlContainer.IsWorking=true时，不做回收。如果一直处于Working状态，重复利用时，将导致不能FetchPage。（基本解决）
+    25、BaseElementControlContainer.IsWorking=true时，不做回收。如果一直处于Working状态，重复利用时，将导致不能FetchPage。（基本解决）
 
 	    Finally中加入IsWorking=false的处理。
 
@@ -100,7 +100,7 @@
 
 	    现有方法，在ThreadControlContainer的WorkCompleted中重置Topic的Url，去除所有参数，包括p和au和s。
 
-		后面将评估放入BaseControlContainer中。
+		后面将评估放入BaseElementControlContainer中。
 
     28、邮件删除功能放在前台。（已完成）
 
@@ -108,7 +108,7 @@
 
 	    关联问题27。
 
-		重置Url不能放在BaseControlContainer，放在ThreadControlContainer即可。
+		重置Url不能放在BaseElementControlContainer，放在ThreadControlContainer即可。
 
 	30、WorkComplete自动加载下一页，有bug。（已解决）
 
@@ -174,6 +174,10 @@
 			  Note: When an HTML document with external image references is loaded, the images are obtained asynchronously and the DocumentLoaded 
                     event cannot guarantee image availability at the moment it is raised. The RichEditControl does not provide a technique that 
 					allows you to determine the moment when all images are downloaded and inserted in a document.
+
+    47、加入转寄功能
+	   
+	     
 
 
 经验

@@ -22,7 +22,7 @@
     /// <summary>
     /// Class.
     /// </summary>
-    public partial class AtControlContainer : BaseControlContainer<AtControl, At>
+    public partial class AtControlContainer : BaseElementControlContainer<AtControl, At>
     {
         #region Event
         /// <summary>

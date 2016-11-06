@@ -14,7 +14,7 @@ namespace Nzl.Smth.Controls.Elements
 #if (DESIGNMODE)
     public partial class TopControl : UserControl
 #else
-    public partial class TopControl : BaseControl<Top>
+    public partial class TopControl : BaseElementControl<Top>
 #endif
     {
 #if (DESIGNMODE)

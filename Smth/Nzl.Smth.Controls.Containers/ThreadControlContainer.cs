@@ -27,7 +27,7 @@ namespace Nzl.Smth.Controls.Containers
 #if (DESIGNMODE)
     public partial class ThreadControlContainer : UserControl
 #else
-    public partial class ThreadControlContainer : BaseControlContainer<ThreadControl, Thread>
+    public partial class ThreadControlContainer : BaseElementControlContainer<ThreadControl, Thread>
 #endif
     {
 #if (DESIGNMODE)

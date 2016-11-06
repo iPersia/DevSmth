@@ -14,7 +14,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public partial class BoardControlContainer : BaseControlContainer<BoardControl, Board>
+    public partial class BoardControlContainer : BaseElementControlContainer<BoardControl, Board>
     {
         #region event
         /// <summary>

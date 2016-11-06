@@ -15,7 +15,7 @@ namespace Nzl.Smth.Controls.Elements
 #if (DESIGNMODE)
     public partial class MailDetailControl : UserControl
 #else
-    public partial class MailDetailControl : BaseControl<Mail>
+    public partial class MailDetailControl : BaseElementControl<Mail>
 #endif
     {
 #if (DESIGNMODE)

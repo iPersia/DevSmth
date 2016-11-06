@@ -15,7 +15,7 @@
     /// <summary>
     /// Thread control.
     /// </summary>
-    public partial class PostControl : BaseControl<Post>
+    public partial class PostControl : BaseElementControl<Post>
     {
         #region events.
         /// <summary>

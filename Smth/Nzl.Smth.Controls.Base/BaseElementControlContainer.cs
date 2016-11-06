@@ -22,8 +22,8 @@
     /// <summary>
     /// 
     /// </summary>
-    public class BaseControlContainer<TBaseControl, TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
-        where TBaseControl : BaseControl<TBaseData>, new()
+    public class BaseElementControlContainer<TBaseControl, TBaseData> : DevExpress.XtraEditors.XtraUserControl, IRecycled
+        where TBaseControl : BaseElementControl<TBaseData>, new()
         where TBaseData : BaseData
     {
         #region event
@@ -59,7 +59,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public BaseControlContainer()
+        public BaseElementControlContainer()
             : base()
         {
             this.IsWorking = false;
@@ -531,7 +531,7 @@
                                                                   "\t\t" + _urlInfo.BaseUrl + " - ctl name:" + ctl.Name);
 #endif
 #if (X)
-                        System.Diagnostics.Debug.WriteLine(ctl.GetHashCode() + "\t BaseControlContainer - AddControl - ctl.Height" + ctl.Height);
+                        System.Diagnostics.Debug.WriteLine(ctl.GetHashCode() + "\t BaseElementControlContainer - AddControl - ctl.Height" + ctl.Height);
 #endif
                     }
                 }

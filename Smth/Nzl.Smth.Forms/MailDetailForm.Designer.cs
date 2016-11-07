@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.panelContainer = new DevExpress.XtraEditors.PanelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
             // 
-            this.panelContainer.BackColor = System.Drawing.SystemColors.Control;
+            this.panelContainer.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.panelContainer.Appearance.Options.UseBackColor = true;
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
@@ -42,6 +44,7 @@
             // 
             // MailDetailForm
             // 
+            this.Appearance.Options.UseFont = true;
             this.ClientSize = new System.Drawing.Size(594, 472);
             this.Controls.Add(this.panelContainer);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -49,8 +52,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MailDetailForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
+            ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -13,6 +13,7 @@
     /// Class.
     /// </summary>
     public partial class TransferControl : BaseElementControl<Transfer>
+    //public partial class TransferControl : XtraUserControl
     {
         /// <summary>
         /// 
@@ -54,12 +55,12 @@
 
                     if (this.ckbNoRef.Checked)
                     {
-                        postString += "&&noref=on";
+                        postString += "&noref=on";
                     }
 
                     if (this.ckbNoAtt.Checked)
                     {
-                        postString += "&&noatt=on";
+                        postString += "&noatt=on";
                     }
 
                     e.Text = postString;
@@ -98,8 +99,7 @@
                 this.ckbNoAtt.Checked = false;
 
                 this.ckbThreads.Visible = transfer.IsShowThreads;
-                this.ckbNoRef.Visible = transfer.IsShowNoRef;
-                this.ckbNoAtt.Visible = transfer.IsShowNoAtt;
+                this.ckbNoAtt.Visible = transfer.IsShowNoRef;
             }
         }
 

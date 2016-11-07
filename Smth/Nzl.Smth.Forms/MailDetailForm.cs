@@ -14,6 +14,13 @@
     /// </summary>
     public partial class MailDetailForm : BaseForm
     {
+        #region event
+        /// <summary>
+        /// 
+        /// </summary>
+        public event HyperlinkClickEventHandler OnTransferLinkClicked;
+        #endregion 
+
         #region variable
         /// <summary>
         /// 
@@ -74,6 +81,10 @@
         /// <param name="e"></param>
         private void Mdcc_OnMailTransferLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
+            if (this.OnTransferLinkClicked != null)
+            {
+                this.OnTransferLinkClicked(sender, e);
+            }
         }
 
         /// <summary>

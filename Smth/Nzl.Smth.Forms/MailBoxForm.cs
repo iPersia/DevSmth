@@ -15,6 +15,13 @@
         public static readonly MailBoxForm Instance = new MailBoxForm();
         #endregion
 
+        #region event
+        /// <summary>
+        /// 
+        /// </summary>
+        public event HyperlinkClickEventHandler OnTransferLinkClicked;
+        #endregion 
+
         /// <summary>
         /// 
         /// </summary>
@@ -41,6 +48,22 @@
             mbcMails.Dock = DockStyle.Fill;
             this.panelContainer.Controls.Clear();
             this.panelContainer.Controls.Add(mbcMails);
+
+            ///
+            this._mailDetailForm.OnTransferLinkClicked += MailDetailForm_OnTransferLinkClicked;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MailDetailForm_OnTransferLinkClicked(object sender, HyperlinkClickEventArgs e)
+        {
+            if (this.OnTransferLinkClicked != null)
+            {
+                this.OnTransferLinkClicked(sender, e);
+            }
         }
 
         /// <summary>

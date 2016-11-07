@@ -22,6 +22,7 @@
     /// Class.
     /// </summary>
     public partial class TransferControlContainer : BaseElementControlContainer<TransferControl, Transfer>
+    //public partial class TransferControlContainer : XtraUserControl //: BaseElementControlContainer<TransferControl, Transfer>
     {
         #region Event
         /// <summary>
@@ -47,6 +48,9 @@
 
             ///For ToString.
             this.Text = "The at container";
+
+            ///
+            this.btnRefresh.Left = (this.panelMenu.Width - this.btnRefresh.Width) / 2;
         }
         #endregion
 
@@ -219,5 +223,16 @@
             base.WorkCompleted(info);
         }
         #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            this.SetUrlInfo(false);
+            this.FetchPage();
+        }
     }
 }

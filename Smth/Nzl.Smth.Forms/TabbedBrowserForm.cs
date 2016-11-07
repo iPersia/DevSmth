@@ -166,6 +166,7 @@
             FavorForm.Instance.OnFavorBoardLinkLableClicked += FavorForm_OnBoardLinkLableClicked;
             LoginForm.Instance.OnLoginFailed += LoginForm_OnLoginFailed;
             LoginForm.Instance.OnLogoutFailed += LoginForm_OnLogoutFailed;
+            MailBoxForm.Instance.OnTransferLinkClicked += Common_OnThreadTransferLinkClicked;
             this._entryAssemblyTitle = this.GetEntryAssemblyTitle();
             this.Text = Configuration.ApplicationTitle;
 

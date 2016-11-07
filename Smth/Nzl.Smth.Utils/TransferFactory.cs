@@ -15,7 +15,7 @@
         /// <summary>
         /// 
         /// </summary>
-        private static Regex _staticActionRegex = new Regex(@"<form action=\W[A-Za-z0-9/]*\W method=\Wpost\W>");
+        private static Regex _staticActionRegex = new Regex(@"<form action=\W(?'Url'[A-Za-z0-9/]*)\W method=\Wpost\W>");
 
         /// <summary>
         /// 
@@ -51,10 +51,8 @@
                 Match match = _staticActionRegex.Match(wp.Html);
                 if (match.Success)
                 {
-                    transfer.Url = match.Value.ToString();
+                    transfer.Url = match.Groups["Url"].ToString();
                 }
-
-                transfer.Url = wp.URL;
 
                 MatchCollection mtCollection = _staticUsersRegex.Matches(wp.Html);
                 if (mtCollection != null)

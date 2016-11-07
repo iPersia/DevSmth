@@ -53,6 +53,7 @@
     <Compile Include="Thread.cs" />
     <Compile Include="Top.cs" />
     <Compile Include="Topic.cs" />
+    <Compile Include="Transfer.cs" />
     <Compile Include="UrlInfo.cs" />
   </ItemGroup>
   <ItemGroup>

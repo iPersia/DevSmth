@@ -84,7 +84,7 @@
                     {
                         if (_staticIsWaitFormShown == false)
                         {
-                            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(typeof(WaitForm));
+                            DevExpress.XtraSplashScreen.SplashScreenManager.ShowForm(typeof(WaitingForm));
                             _staticIsWaitFormShown = true;
                         }
 

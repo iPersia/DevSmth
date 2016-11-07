@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TransferControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransferControl.Designer.cs">
+      <DependentUpon>TransferControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="BoardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="TransferControl.resx">
+      <DependentUpon>TransferControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BoardControl.resx">
       <DependentUpon>BoardControl.cs</DependentUpon>
     </EmbeddedResource>

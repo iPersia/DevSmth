@@ -148,6 +148,12 @@
     <Compile Include="TabbedBrowserForm.Designer.cs">
       <DependentUpon>TabbedBrowserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransferForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferForm.Designer.cs">
+      <DependentUpon>TransferForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TabbedBrowserForm.resx">
       <DependentUpon>TabbedBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferForm.resx">
+      <DependentUpon>TransferForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>

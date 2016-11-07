@@ -58,6 +58,7 @@
     <Compile Include="ThreadFactory.cs" />
     <Compile Include="TopFactory.cs" />
     <Compile Include="TopicFactory.cs" />
+    <Compile Include="TransferFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Components\Nzl.Log4Net\Nzl.Log4Net.csproj">

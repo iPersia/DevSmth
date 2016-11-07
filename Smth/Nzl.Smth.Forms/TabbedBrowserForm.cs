@@ -61,6 +61,11 @@
         /// 
         /// </summary>
         private Timer _checkNewInforTimer = new Timer();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private TransferForm _transferForm = new TransferForm();
         #endregion
 
         #region Ctor
@@ -1387,7 +1392,13 @@
         /// <param name="e"></param>
         private void Common_OnThreadTransferLinkClicked(object sender, HyperlinkClickEventArgs e)
         {
-            ///throw new NotImplementedException();
+            HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
+            if (hlc != null)
+            {
+                this._transferForm.SetUrl(e.Link);
+                this._transferForm.StartPosition = FormStartPosition.CenterParent;
+                this._transferForm.ShowDialog(this);
+            }
         }
 
         /// <summary>

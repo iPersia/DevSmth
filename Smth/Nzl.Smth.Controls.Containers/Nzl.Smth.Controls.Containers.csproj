@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TransferControlContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransferControlContainer.Designer.cs">
+      <DependentUpon>TransferControlContainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="AtControlContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="TransferControlContainer.resx">
+      <DependentUpon>TransferControlContainer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AtControlContainer.resx">
       <DependentUpon>AtControlContainer.cs</DependentUpon>
     </EmbeddedResource>

@@ -203,18 +203,6 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="thread"></param>
-        /// <returns></returns>
-        private MailControl CreateMailControl(Mail mail)
-        {
-            MailControl mc = new MailControl();
-
-            return mc;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ReplyControl_OnUserLinkClicked(object sender, HyperlinkClickEventArgs e)

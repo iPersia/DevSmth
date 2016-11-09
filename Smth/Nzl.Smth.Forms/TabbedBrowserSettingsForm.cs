@@ -279,7 +279,6 @@
         private void btnClearCache_Click(object sender, EventArgs e)
         {
             Nzl.Repository.Repository.Clear();
-            Nzl.Smth.Loaders.PageDispatcher.Instance.Reset();
         }
 
         /// <summary>

@@ -40,7 +40,7 @@
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(474, 260);
+            this.panel.Size = new System.Drawing.Size(304, 231);
             this.panel.TabIndex = 0;
             // 
             // tccContainer
@@ -49,16 +49,18 @@
             this.tccContainer.IsRecycled = false;
             this.tccContainer.Location = new System.Drawing.Point(2, 2);
             this.tccContainer.Name = "tccContainer";
-            this.tccContainer.Size = new System.Drawing.Size(470, 256);
+            this.tccContainer.Size = new System.Drawing.Size(300, 227);
             this.tccContainer.Status = Nzl.Recycling.RecycledStatus.Using;
             this.tccContainer.TabIndex = 0;
             // 
             // TransferForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 260);
+            this.ClientSize = new System.Drawing.Size(304, 231);
             this.Controls.Add(this.panel);
+            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "TransferForm";
             this.ShowIcon = true;

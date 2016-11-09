@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
+    using Nzl.Smth.Configs;
     using Nzl.Smth.Datas;
     using Nzl.Web.Page;
 
@@ -44,14 +45,21 @@
         /// <returns></returns>
         public static Transfer GetTransfer(WebPage wp)
         {
-            Transfer transfer = new Transfer();
+            Transfer transfer = Nzl.Recycling.RecycledQueues.GetRecycled<Transfer>();
+            if (transfer == null)
+            {
+                transfer = new Transfer();
+            }
+
             if (wp != null && wp.IsGood)
             {
                 transfer.Url = wp.URL;
                 Match match = _staticActionRegex.Match(wp.Html);
-                if (match.Success)
-                {
-                    transfer.Url = match.Groups["Url"].ToString();
+                if (match.Success && 
+                    match.Groups["Url"].Value != null &&
+                    match.Groups["Url"].Value.ToString() != "")
+                {                    
+                    transfer.Url = Configuration.BaseUrl + match.Groups["Url"].ToString();
                 }
 
                 MatchCollection mtCollection = _staticUsersRegex.Matches(wp.Html);

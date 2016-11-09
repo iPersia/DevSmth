@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.cmbUsers = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.txtUser = new DevExpress.XtraEditors.TextEdit();
             this.ckbThreads = new DevExpress.XtraEditors.CheckEdit();
             this.ckbNoRef = new DevExpress.XtraEditors.CheckEdit();
             this.ckbNoAtt = new DevExpress.XtraEditors.CheckEdit();
             this.linklblTransfer = new DevExpress.XtraEditors.HyperlinkLabelControl();
             this.panel = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.cmbUsers.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbThreads.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbNoRef.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbNoAtt.Properties)).BeginInit();
@@ -56,35 +53,16 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "User";
             // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(175, 22);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(78, 12);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Select friend";
-            // 
             // cmbUsers
             // 
-            this.cmbUsers.Location = new System.Drawing.Point(259, 19);
+            this.cmbUsers.Location = new System.Drawing.Point(53, 19);
             this.cmbUsers.Name = "cmbUsers";
             this.cmbUsers.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUsers.Properties.Appearance.Options.UseFont = true;
             this.cmbUsers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbUsers.Size = new System.Drawing.Size(86, 18);
+            this.cmbUsers.Size = new System.Drawing.Size(225, 18);
             this.cmbUsers.TabIndex = 2;
-            // 
-            // txtUser
-            // 
-            this.txtUser.Location = new System.Drawing.Point(53, 19);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.Properties.Appearance.Options.UseFont = true;
-            this.txtUser.Size = new System.Drawing.Size(86, 18);
-            this.txtUser.TabIndex = 3;
             // 
             // ckbThreads
             // 
@@ -104,7 +82,7 @@
             this.ckbNoRef.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbNoRef.Properties.Appearance.Options.UseFont = true;
             this.ckbNoRef.Properties.Caption = "No references";
-            this.ckbNoRef.Size = new System.Drawing.Size(150, 19);
+            this.ckbNoRef.Size = new System.Drawing.Size(103, 19);
             this.ckbNoRef.TabIndex = 5;
             // 
             // ckbNoAtt
@@ -128,9 +106,9 @@
             this.linklblTransfer.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.linklblTransfer.Cursor = System.Windows.Forms.Cursors.Default;
             this.linklblTransfer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.linklblTransfer.Location = new System.Drawing.Point(2, 129);
+            this.linklblTransfer.Location = new System.Drawing.Point(2, 123);
             this.linklblTransfer.Name = "linklblTransfer";
-            this.linklblTransfer.Size = new System.Drawing.Size(368, 35);
+            this.linklblTransfer.Size = new System.Drawing.Size(296, 35);
             this.linklblTransfer.TabIndex = 7;
             this.linklblTransfer.Text = "Transfer";
             // 
@@ -138,16 +116,14 @@
             // 
             this.panel.Controls.Add(this.labelControl1);
             this.panel.Controls.Add(this.linklblTransfer);
-            this.panel.Controls.Add(this.labelControl2);
             this.panel.Controls.Add(this.cmbUsers);
             this.panel.Controls.Add(this.ckbNoAtt);
-            this.panel.Controls.Add(this.txtUser);
             this.panel.Controls.Add(this.ckbNoRef);
             this.panel.Controls.Add(this.ckbThreads);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(372, 166);
+            this.panel.Size = new System.Drawing.Size(300, 160);
             this.panel.TabIndex = 8;
             // 
             // TransferControl
@@ -158,9 +134,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel);
             this.Name = "TransferControl";
-            this.Size = new System.Drawing.Size(372, 166);
+            this.Size = new System.Drawing.Size(300, 160);
             ((System.ComponentModel.ISupportInitialize)(this.cmbUsers.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbThreads.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbNoRef.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckbNoAtt.Properties)).EndInit();
@@ -174,9 +149,7 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.ComboBoxEdit cmbUsers;
-        private DevExpress.XtraEditors.TextEdit txtUser;
         private DevExpress.XtraEditors.CheckEdit ckbThreads;
         private DevExpress.XtraEditors.CheckEdit ckbNoRef;
         private DevExpress.XtraEditors.CheckEdit ckbNoAtt;

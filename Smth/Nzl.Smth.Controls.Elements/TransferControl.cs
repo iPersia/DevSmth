@@ -45,9 +45,9 @@
             if (this.OnTransferClikced != null)
             {
                 if (string.IsNullOrEmpty(this.Data.Url) == false &&
-                    string.IsNullOrWhiteSpace(this.txtUser.Text) == false)
+                    string.IsNullOrWhiteSpace(this.cmbUsers.Text) == false)
                 {
-                    string postString = "target=" + this.txtUser.Text;
+                    string postString = "target=" + this.cmbUsers.Text;
                     if (this.ckbThreads.Checked)
                     {
                         postString += "&threads=on";
@@ -77,12 +77,14 @@
         {
             base.Initialize(transfer);
             this.cmbUsers.Properties.Items.Clear();
+            this.cmbUsers.SelectedIndex = -1;
             this.ckbThreads.Checked = false;
             this.ckbNoRef.Checked = false;
             this.ckbNoAtt.Checked = false;
             this.ckbThreads.Visible = false;
             this.ckbNoRef.Visible = false;
             this.ckbNoAtt.Visible = false;
+            this.linklblTransfer.Text = "Transfer";
             if (transfer != null)
             {
                 this.InitializeLinkLabel(this.linklblTransfer, transfer.Url);
@@ -92,7 +94,7 @@
                     {
                         this.cmbUsers.Properties.Items.Add(user);
                     }
-                }
+                }                
 
                 this.ckbThreads.Checked = false;
                 this.ckbNoRef.Checked = false;

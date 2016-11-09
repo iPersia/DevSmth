@@ -51,6 +51,10 @@
 
             ///
             this.btnRefresh.Left = (this.panelMenu.Width - this.btnRefresh.Width) / 2;
+
+
+            ///
+            this.SizeChanged += TransferControlContainer_SizeChanged;
         }
         #endregion
 
@@ -233,6 +237,16 @@
         {
             this.SetUrlInfo(false);
             this.FetchPage();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TransferControlContainer_SizeChanged(object sender, EventArgs e)
+        {
+            this.btnRefresh.Left = (this.panelMenu.Width - this.btnRefresh.Width) / 2;
         }
     }
 }

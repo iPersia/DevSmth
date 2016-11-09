@@ -165,8 +165,7 @@
             BoardQueryForm.Instance.OnBoardLinkLableClicked += FavorForm_OnBoardLinkLableClicked;
             FavorForm.Instance.OnFavorBoardLinkLableClicked += FavorForm_OnBoardLinkLableClicked;
             LoginForm.Instance.OnLoginFailed += LoginForm_OnLoginFailed;
-            LoginForm.Instance.OnLogoutFailed += LoginForm_OnLogoutFailed;
-            MailBoxForm.Instance.OnTransferLinkClicked += Common_OnThreadTransferLinkClicked;
+            LoginForm.Instance.OnLogoutFailed += LoginForm_OnLogoutFailed;            
             this._entryAssemblyTitle = this.GetEntryAssemblyTitle();
             this.Text = Configuration.ApplicationTitle;
 
@@ -915,7 +914,7 @@
         /// <param name="e"></param>
         private void bbiMails_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MailBoxForm.Instance.SetParent(this);
+            MailBoxForm.Instance.SetParent(this);            
             this.ShowFormOnCenterParent(MailBoxForm.Instance);
         }
 
@@ -1460,12 +1459,16 @@
                             this.bsiWelcome.Caption = welcomeStr + " <href=" + LogStatus.Instance.UserID + ">" + LogStatus.Instance.UserID + "</href>" + "!";
                             this.bsiWelcome.HyperlinkClick -= new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
                             this.bsiWelcome.HyperlinkClick += new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
+                            MailBoxForm.Instance.OnTransferLinkClicked -= Common_OnThreadTransferLinkClicked;
+                            MailBoxForm.Instance.OnTransferLinkClicked += Common_OnThreadTransferLinkClicked;
                             this.bbiLogin.Caption = "Log Out";
                         }
                         else
                         {
                             this.bsiWelcome.Caption = "Welcome!";
                             this.bbiLogin.Caption = "Log In";
+                            this.bsiWelcome.HyperlinkClick -= new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
+                            MailBoxForm.Instance.OnTransferLinkClicked -= Common_OnThreadTransferLinkClicked;
                         }
 
                         this._checkNewInforTimer.Stop();

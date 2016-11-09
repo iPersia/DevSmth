@@ -47,12 +47,12 @@
         /// <summary>
         /// 
         /// </summary>
-        private System.ComponentModel.BackgroundWorker bwFetchPage;
+        private Dictionary<PageLoader, PageLoader> _dictCurrentPageLoaders = new Dictionary<PageLoader, PageLoader>();
 
         /// <summary>
         /// 
         /// </summary>
-        private System.Threading.Mutex _mutexFetchPage = new System.Threading.Mutex();        
+        private Dictionary<BackgroundWorker, BackgroundWorker> _dictCurrentBackgroundWorkers = new Dictionary<BackgroundWorker, BackgroundWorker>();
         #endregion
 
         #region Ctor
@@ -62,7 +62,7 @@
         public BaseElementControlContainer()
             : base()
         {
-            this.IsWorking = false;
+            //this.IsWorking = false;
             this.IsRecycled = false;
             this.Status = RecycledStatus.Using;
             //Configuration.OnLocationMarginChanged += Configuration_OnLocationMarginChanged;
@@ -91,8 +91,11 @@
         /// </summary>
         protected bool IsWorking
         {
-            get;
-            private set;
+            get
+            {
+                return this._dictCurrentBackgroundWorkers.Count > 0 ||
+                       this._dictCurrentPageLoaders.Count > 0;
+            }
         }
         #endregion
 
@@ -964,7 +967,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void bwFetchPage_DoWork(object sender, DoWorkEventArgs e)
+        private void UIUpdatingBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
@@ -1026,40 +1029,46 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void bwFetchPage_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void UIUpdatingBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            try
+            BackgroundWorker bw = sender as BackgroundWorker;
+            if (bw != null)
             {
-                ///The work is done actually in here.
-                this.IsWorking = false;
+                try
+                {
+                    ///The work is done actually in here.
+                    ///this.IsWorking = false;
 
-                ///Judge the work result.
-                if (e.Error != null)
-                {
-                    WorkFailedBase(e);
-                }
-                else if (e.Cancelled)
-                {
-                    WorkCancelledBase(e);
-                }
-                else
-                {
-                    WorkCompletedBase(e);
+                    ///Judge the work result.
+                    if (e.Error != null)
+                    {
+                        WorkFailedBase(e);
+                    }
+                    else if (e.Cancelled)
+                    {
+                        WorkCancelledBase(e);
+                    }
+                    else
+                    {
+                        WorkCompletedBase(e);
+                    }
+
+                    ///Set control enable.
+                    this.SetControlEnabled(true);
+                    this._dictCurrentBackgroundWorkers.Remove(bw);
                 }
 
-                ///Set control enable.
-                this.SetControlEnabled(true);
-            }
-            catch (Exception exp)
-            {
-                if (Logger.Enabled)
+                catch (Exception exp)
                 {
-                    Logger.Instance.Error(exp.Message + "\n" + exp.StackTrace);
+                    if (Logger.Enabled)
+                    {
+                        Logger.Instance.Error(exp.Message + "\n" + exp.StackTrace);
+                    }
                 }
-            }
-            finally
-            {
-                this.IsWorking = false;
+                finally
+                {
+                    //this.IsWorking = false;
+                }
             }
         }
 
@@ -1140,19 +1149,22 @@
         {
             try
             {
-                //this._mutexFetchPage.WaitOne();
                 if (urlInfo.Index > 0 &&
                     urlInfo.Index <= urlInfo.Total &&
                     string.IsNullOrEmpty(urlInfo.BaseUrl) == false &&
-                    this.IsWorking == false &&
+                    //this.IsWorking == false &&
+                    this._dictCurrentPageLoaders.Count == 0 &&
                     this.Status == RecycledStatus.Using)
                 {
-                    this.IsWorking = true;
+                    //this.IsWorking = true;
                     PageLoader pl = new PageLoader(this.GetUrl(urlInfo));
                     pl.Tag = urlInfo;
                     pl.PageLoaded += new EventHandler(PageLoader_PageLoaded);
                     pl.PageFailed += new EventHandler(PageLoader_PageFailed);
                     PageDispatcher.Instance.Add(pl);
+
+                    ///Add current page loader.
+                    this._dictCurrentPageLoaders.Add(pl, pl);
 #if (X)
                     Nzl.Web.Util.CommonUtil.ShowMessage(this, "BaseContainer - FetchPage(UrlInfo's index is equal to " + urlInfo.Index + ")!");
 #endif
@@ -1165,7 +1177,7 @@
                 }
                 else
                 {
-                    if (this.IsWorking)
+                    //if (this.IsWorking)
                     {
 #if (DEBUG)
                         this.ShowInformation("Page loading is already in progess!");
@@ -1177,7 +1189,6 @@
             }
             finally
             {
-                //this._mutexFetchPage.ReleaseMutex();
             }
         }
 
@@ -1188,35 +1199,38 @@
         /// <param name="e"></param>
         private void PageLoader_PageLoaded(object sender, EventArgs e)
         {
-            lock (this)
+            PageLoader pl = sender as PageLoader;
+            if (pl != null)
             {
-                PageLoader pl = sender as PageLoader;
-                if (pl != null)
+                try
                 {
-                    WebPage wp = pl.GetResult() as WebPage;
-                    if (wp != null && wp.IsGood)
+                    this._dictCurrentPageLoaders.Remove(pl);
+                }
+                catch { };
+
+                WebPage wp = pl.GetResult() as WebPage;
+                if (wp != null && wp.IsGood)
+                {
+                    UrlInfo<TBaseControl, TBaseData> info = pl.Tag as UrlInfo<TBaseControl, TBaseData>;
+                    info.WebPage = wp;
+                    if (this.IsHandleCreated)
                     {
-                        UrlInfo<TBaseControl, TBaseData> info = pl.Tag as UrlInfo<TBaseControl, TBaseData>;
-                        info.WebPage = wp;
-                        if (this.IsHandleCreated)
+                        if (this.InvokeRequired)
                         {
-                            if (this.InvokeRequired)
+                            System.Threading.Thread.Sleep(0);
+                            this.Invoke(new MethodInvoker(delegate ()
                             {
-                                System.Threading.Thread.Sleep(0);
-                                this.Invoke(new MethodInvoker(delegate ()
-                                {
-                                    this.PageLoaded(info);
-                                }));
-                                System.Threading.Thread.Sleep(0);
-                            }
+                                this.PageLoaded(info);
+                            }));
+                            System.Threading.Thread.Sleep(0);
                         }
                     }
-                    else
-                    {
-                        this.ShowInformation("The page getted is bad!");
-                        this.IsWorking = false;
-                        SetControlEnabled(true);
-                    }
+                }
+                else
+                {
+                    this.ShowInformation("The page getted is bad!");
+                    //this.IsWorking = false;
+                    SetControlEnabled(true);
                 }
             }
         }
@@ -1228,10 +1242,16 @@
         /// <param name="e"></param>
         private void PageLoader_PageFailed(object sender, EventArgs e)
         {
-            lock (this)
+            //this.IsWorking = false;
+            SetControlEnabled(true);
+            PageLoader pl = sender as PageLoader;
+            if (pl != null)
             {
-                this.IsWorking = false;
-                SetControlEnabled(true);
+                try
+                {
+                    this._dictCurrentPageLoaders.Remove(pl);
+                }
+                catch { };
             }
         }
 
@@ -1242,12 +1262,17 @@
         private void PageLoaded(object pageInfor)
         {
             UrlInfo<TBaseControl, TBaseData> info = pageInfor as UrlInfo<TBaseControl, TBaseData>;
-            this.bwFetchPage = new System.ComponentModel.BackgroundWorker();
-            this.bwFetchPage.DoWork += new System.ComponentModel.DoWorkEventHandler(bwFetchPage_DoWork);
-            this.bwFetchPage.ProgressChanged += BwFetchPage_ProgressChanged;
-            this.bwFetchPage.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(bwFetchPage_RunWorkerCompleted);
-            this.bwFetchPage.WorkerReportsProgress = true;
-            this.bwFetchPage.RunWorkerAsync(info);
+            if (info != null &&
+                this._dictCurrentBackgroundWorkers.Count == 0)
+            {
+                BackgroundWorker bwUIUpdating = new BackgroundWorker();
+                bwUIUpdating.DoWork += new DoWorkEventHandler(UIUpdatingBackgroundWorker_DoWork);
+                bwUIUpdating.ProgressChanged += UIUpdatingBackgroundWorker_ProgressChanged;
+                bwUIUpdating.RunWorkerCompleted += new RunWorkerCompletedEventHandler(UIUpdatingBackgroundWorker_RunWorkerCompleted);
+                bwUIUpdating.WorkerReportsProgress = true;
+                bwUIUpdating.RunWorkerAsync(info);
+                this._dictCurrentBackgroundWorkers.Add(bwUIUpdating, bwUIUpdating);
+            }
         }
 
         /// <summary>
@@ -1255,7 +1280,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BwFetchPage_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void UIUpdatingBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             UpdateProgress(e.ProgressPercentage);
         }

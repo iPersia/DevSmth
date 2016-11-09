@@ -23,11 +23,6 @@
         /// <summary>
         /// 
         /// </summary>
-        private static System.Threading.Mutex _staticMutexWaitFormShowing = new System.Threading.Mutex();
-
-        /// <summary>
-        /// 
-        /// </summary>
         private static bool _staticIsRunning = true;
         #endregion
 

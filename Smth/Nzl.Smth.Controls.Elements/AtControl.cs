@@ -60,10 +60,8 @@
             base.Initialize(at);
             if (at != null)
             {
-                this.linklblTitle.Text = ControlUtil.GetHyperlinkText(CommonUtil.ReplaceSpecialChars(at.Title), at.Url);
-                this.linklblTitle.LinkVisited = ControlCenter.IsVisitedUrl(at.Url);
-                this.linklblAuthor.Text = ControlUtil.GetHyperlinkText(at.Author, at.Author);
-                this.linklblAuthor.LinkVisited = ControlCenter.IsVisitedUrl(at.Author);
+                this.InitializeLinkLabel(this.linklblTitle, CommonUtil.ReplaceSpecialChars(at.Title), at.Url);
+                this.InitializeLinkLabel(this.linklblAuthor, at.Author, at.Author);
                 this.lblDT.Text = at.DateTime;
             }
         }

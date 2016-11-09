@@ -59,7 +59,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkClickedEventHandler OnTextBoxLinkClicked;
+        public event DevExpress.XtraRichEdit.HyperlinkClickEventHandler OnContentLinkClicked;
 
         /// <summary>
         /// 
@@ -89,8 +89,8 @@
 
             this.richtxtContent.GotFocus += RichtxtContent_GotFocus;
             this.richtxtContent.SizeChanged += RichtxtContent_SizeChanged;
-
             this.richtxtContent.PopupMenuShowing += RichtxtContent_PopupMenuShowing;
+            this.richtxtContent.HyperlinkClick += RichtxtContent_HyperlinkClick;
 
             ///Used to get image stream.
             IUriStreamService uriStreamService = this.richtxtContent.GetService<IUriStreamService>();
@@ -177,36 +177,6 @@
         /// <summary>
         /// 
         /// </summary>
-        private static string _staticNewlineToken = "_TOKEN_";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private static Regex _staticThreadContentIPRegex = new Regex(@"(--)?<br />(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)<br />)?FROM (\d+\.){3}(\*|\d+)(<br />)?");
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private static Regex _staticThreadContentMobileModifyRegex = new Regex(@"※ 修改:·[a-zA-z][a-zA-Z0-9]{1,11} 于 [A-Z][a-z]{2}[^\d]+\d+ \d{2}:\d{2}:\d{2} \d{4} 修改本文·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>※ 来源:·水木社区 <a target=\W_blank\W href=\Whttp://m.newsmth.net\W>http://m.newsmth.net</a>·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>");
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private static Regex _staticThreadContentForumModifyRegex = new Regex(@"※ 修改:·[a-zA-z][a-zA-Z0-9]{1,11} 于 [A-Z][a-z]{2}[^\d]+\d+ \d{2}:\d{2}:\d{2} \d{4} 修改本文·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>※ 来源:·水木社区 <a target=\W_blank\W href=\Whttp://www.newsmth.net\W>http://www.newsmth.net</a>·\[FROM: (\d+\.){3}(\*|\d+)\]<br/>");
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private static Regex _staticThreadReplyPattern = new Regex(@"【 在 [a-zA-z][a-zA-Z0-9]{1,11} (\((.+)?\) )?的大作中提到: 】");
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private static Regex _staticIPRegexForColor = new Regex(_staticNewlineToken + @"\s*--\s*" + _staticNewlineToken + @"\s*(修改:[a-zA-z][a-zA-Z0-9]{1,11} FROM (\d+\.){3}(\*|\d+)\s*" + _staticNewlineToken + @"\s*)?FROM (\d+\.){3}(\*|\d+)");
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="thread"></param>
         public override void Initialize(Thread thread)
         {
@@ -250,153 +220,9 @@
                 this.InitializeLinkLabel(this.linklblDelete, thread.DeleteUrl);
                 this.InitializeLinkLabel(this.linklblID, thread.User, thread.User);
 
-                ///Add content.
+                ///
                 this.richtxtContent.ReadOnly = false;
-                this.richtxtContent.BeginUpdate();
-                Document doc = this.richtxtContent.Document;                
-                try
-                {
-                    ///Trim ip.
-                    if (Configuration.ShowIPinTopic == false)
-                    {
-                        string contentHtml = _staticThreadContentIPRegex.Replace(thread.ContentHtml, "");
-                        contentHtml = _staticThreadContentMobileModifyRegex.Replace(contentHtml, "");
-                        contentHtml = _staticThreadContentForumModifyRegex.Replace(contentHtml, "");
-                        thread.ContentHtml = contentHtml;
-                    }
-
-                    
-                    this.richtxtContent.HtmlText = thread.ContentHtml.Replace("<br>", _staticNewlineToken).Replace("<br />", _staticNewlineToken).Replace("<br/>", _staticNewlineToken);
-                    {
-                        ///Set default font.                        
-                        {
-                            doc.BeginUpdate();
-                            CharacterProperties cp = doc.BeginUpdateCharacters(0, doc.Length);
-                            cp.FontName = "宋体";
-                            cp.FontSize = 10.5F;
-                            doc.EndUpdateCharacters(cp);
-                            doc.EndUpdate();
-                        }
-
-                        ///Colored the replied thread content.
-                        {
-                            doc.BeginUpdate();
-
-                            ///Find the reply head.
-                            DocumentRange drReplyHeader = null;
-                            {
-                                DocumentRange[] drs = doc.FindAll(_staticThreadReplyPattern);
-                                foreach (DocumentRange dr in drs)
-                                {
-                                    CharacterProperties cp = doc.BeginUpdateCharacters(dr);
-                                    cp.FontName = "宋体";
-                                    cp.FontSize = 9;
-                                    cp.ForeColor = Color.FromArgb(96, 96, 96);
-                                    doc.EndUpdateCharacters(cp);
-
-                                    drReplyHeader = dr;
-                                    break;
-                                }
-                            }
-
-                            ///Find the reply content.
-                            {
-                                if (drReplyHeader != null)
-                                {
-                                    DocumentRange[] drs = doc.FindAll(_staticNewlineToken, SearchOptions.None);
-                                    DocumentRange drPrev = drReplyHeader;
-                                    foreach (DocumentRange dr in drs)
-                                    {
-                                        if (dr.Start > drReplyHeader.End)
-                                        {
-                                            DocumentRange targetRange = doc.CreateRange(drPrev.End, dr.End.ToInt() - drPrev.End.ToInt());
-                                            string content = doc.GetText(targetRange);
-                                            {
-                                                content = content.Replace(_staticNewlineToken, "");
-                                                if (content.StartsWith(":"))
-                                                {
-                                                    CharacterProperties cp = doc.BeginUpdateCharacters(targetRange);
-                                                    cp.FontName = "宋体";
-                                                    cp.FontSize = 9;
-                                                    cp.ForeColor = Color.FromArgb(96, 96, 96);
-                                                    doc.EndUpdateCharacters(cp);                                                    
-                                                }
-                                            }
-                                        }
-
-                                        drPrev = dr;
-                                    }
-                                }
-                            }
-
-                            doc.EndUpdate();
-                        }
-
-                        ///Colored the From IP.
-                        if (Configuration.ShowIPinTopic)
-                        {
-                            doc.BeginUpdate();
-                            DocumentRange[] drsa = doc.FindAll(_staticIPRegexForColor);
-                            foreach (DocumentRange dr in drsa)
-                            {
-#if (DEBUG)
-                                System.Diagnostics.Debug.WriteLine(this.Data.ID + "\t" + dr.Length + "\t" + doc.GetText(dr));
-#endif
-                                CharacterProperties cp = doc.BeginUpdateCharacters(dr);
-                                cp.FontName = "宋体";
-                                cp.FontSize = 9;
-                                cp.ForeColor = Color.FromArgb(160, 160, 160);
-                                doc.EndUpdateCharacters(cp);
-                            }
-
-                            doc.EndUpdate();
-                        }
-
-                        ///Colored the reply tail.
-                        {
-                            doc.BeginUpdate();
-                            string repleyContent = SmthUtil.GetReplyText().Replace(@"\s+", _staticNewlineToken);
-                            DocumentRange[] drs = doc.FindAll(repleyContent, SearchOptions.None);
-                            foreach (DocumentRange dr in drs)
-                            {
-#if (DEBUG)
-                                System.Diagnostics.Debug.WriteLine(this.Data.ID + "\t" + dr.Length + "\t" + doc.GetText(dr));
-#endif
-
-                                CharacterProperties cp = doc.BeginUpdateCharacters(dr);
-                                cp.FontName = "宋体";
-                                cp.FontSize = 9;
-                                doc.EndUpdateCharacters(cp);
-                            }
-
-                            doc.EndUpdate();
-                        }
-
-                        ///Replace by newline
-                        {
-                            doc.BeginUpdate();
-                            DocumentRange[] drs = doc.FindAll(_staticNewlineToken, SearchOptions.None);
-                            for (int i = drs.Length - 1; i >= 0; i--)
-                            {
-                                doc.Replace(drs[i], Environment.NewLine);
-                            }
-
-                            doc.EndUpdate();
-                        }
-
-                        this.richtxtContent.DeselectAll();
-                    }
-                }
-                catch
-                {
-
-                }
-                finally
-                {
-                    doc.EndUpdate();
-                    this.richtxtContent.EndUpdate();
-                }
-                
+                this.richtxtContent.ApplyContent(thread.ContentHtml);                
                 this.richtxtContent.ReadOnly = true;
                 this.richtxtContent.Enabled = this.richtxtContent.Document.Images.Count > 0 || 
                                               this.richtxtContent.Document.Hyperlinks.Count > 0;
@@ -559,20 +385,7 @@
                 this.OnTextBoxMouseWheel(sender, e);
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void richtxtContent_LinkClicked(object sender, LinkClickedEventArgs e)
-        {
-            if (this.OnTextBoxLinkClicked != null)
-            {
-                this.OnTextBoxLinkClicked(sender, e);
-            }
-        }
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -581,6 +394,19 @@
         private void richtxtContent_Enter(object sender, EventArgs e)
         {
             //this.panel.Focus();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RichtxtContent_HyperlinkClick(object sender, DevExpress.XtraRichEdit.HyperlinkClickEventArgs e)
+        {
+            if (this.OnContentLinkClicked != null)
+            {
+                this.OnContentLinkClicked(sender, e);
+            }
         }
 
         /// <summary>

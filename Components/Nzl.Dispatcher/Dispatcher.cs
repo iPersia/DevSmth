@@ -144,7 +144,11 @@
         {
             while (!this.mDispose)
             {
-                this.OnRun();
+                try
+                {
+                    this.OnRun();
+                }
+                catch { };
             }
         }
     }

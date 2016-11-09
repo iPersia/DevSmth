@@ -179,6 +179,10 @@
 	   
 
     48、去掉SetParent方法，无用的。
+
+	    暂时保留，有些情况，并非包含关系。
+49、PostControl与ThreadControl同步。
+
 	     
 
 

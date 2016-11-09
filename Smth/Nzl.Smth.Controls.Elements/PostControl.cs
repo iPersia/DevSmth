@@ -101,7 +101,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public event LinkClickedEventHandler OnTextBoxLinkClicked;
+        public event DevExpress.XtraRichEdit.HyperlinkClickEventHandler OnTextBoxLinkClicked;
 
         /// <summary>
         /// 
@@ -127,8 +127,16 @@
             ///Used to get image stream.
             IUriStreamService uriStreamService = this.richtxtContent.GetService<IUriStreamService>();
             uriStreamService.RegisterProvider(new ImageStreamProvider());
+
+            ///
+            this.richtxtContent.HyperlinkClick += richtxtContent_LinkClicked;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RichtxtContent_SizeChanged(object sender, EventArgs e)
         {
             this.Height = this.richtxtContent.Top
@@ -222,28 +230,8 @@
                 this.linklblSubjectExpand.Tag = refer.Subject.Replace("主题:Re: ", "");
 
                 ///Add content.
-                ///Add content.
                 this.richtxtContent.ReadOnly = false;
-                Document doc = this.richtxtContent.Document;
-                doc.BeginUpdate();
-                try
-                {
-                    this.richtxtContent.HtmlText = refer.Content;
-                    CharacterProperties cp = doc.BeginUpdateCharacters(0, doc.HtmlText.Length);
-                    cp.FontName = "宋体";
-                    cp.FontSize = 9;
-                    doc.EndUpdateCharacters(cp);
-                }
-                catch
-                {
-
-                }
-                finally
-                {
-                    doc.EndUpdate();
-                }
-
-
+                this.richtxtContent.ApplyContent(refer.Data.ContentHtml);
                 this.richtxtContent.ReadOnly = true;
             }
         }
@@ -509,7 +497,7 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void richtxtContent_LinkClicked(object sender, LinkClickedEventArgs e)
+        private void richtxtContent_LinkClicked(object sender, DevExpress.XtraRichEdit.HyperlinkClickEventArgs e)
         {
             if (this.OnTextBoxLinkClicked != null)
             {

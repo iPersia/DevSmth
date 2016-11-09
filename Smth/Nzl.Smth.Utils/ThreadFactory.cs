@@ -297,6 +297,8 @@
                 {
                     thread = new Thread();
                 }
+
+                thread.ContentHtml = content;
                 content = TrimHtmlTag(content);
                 thread.Content = content;
                 thread.Tag = thread.Content;

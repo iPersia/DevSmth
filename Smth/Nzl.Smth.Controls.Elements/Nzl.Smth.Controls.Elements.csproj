@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RichEditControlExtensions.cs" />
     <Compile Include="TransferControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -74,7 +75,6 @@
     <Compile Include="AtControl.Designer.cs">
       <DependentUpon>AtControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlUtil.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

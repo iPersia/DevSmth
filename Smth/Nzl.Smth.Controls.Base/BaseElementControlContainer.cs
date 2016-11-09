@@ -1177,7 +1177,7 @@
                 }
                 else
                 {
-                    //if (this.IsWorking)
+                    if (this.IsWorking)
                     {
 #if (DEBUG)
                         this.ShowInformation("Page loading is already in progess!");

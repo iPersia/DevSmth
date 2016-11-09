@@ -270,7 +270,7 @@
                 this.linklblPrevious.Text = "Previous";
                 if (string.IsNullOrEmpty(url) == false)
                 {
-                    this.linklblPrevious.Text = ControlUtil.GetHyperlinkText(this.linklblPrevious.Text, Configuration.BaseUrl + url);
+                    this.linklblPrevious.Text = MiscUtil.GetHyperlinkText(this.linklblPrevious.Text, Configuration.BaseUrl + url);
                 }
 
                 ///Section name.

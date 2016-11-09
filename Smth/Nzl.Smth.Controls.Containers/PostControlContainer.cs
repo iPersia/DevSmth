@@ -80,7 +80,7 @@ namespace Nzl.Smth.Controls.Containers
         /// <summary>
         /// 
         /// </summary>
-        public event LinkClickedEventHandler OnContentLinkClicked;
+        public event DevExpress.XtraRichEdit.HyperlinkClickEventHandler OnContentLinkClicked;
 
         /// <summary>
         /// 
@@ -398,7 +398,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ReferDetailControl_OnTextBoxLinkClicked(object sender, LinkClickedEventArgs e)
+        private void ReferDetailControl_OnTextBoxLinkClicked(object sender, DevExpress.XtraRichEdit.HyperlinkClickEventArgs e)
         {
             if (this.OnContentLinkClicked != null)
             {

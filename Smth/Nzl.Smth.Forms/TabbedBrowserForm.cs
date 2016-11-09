@@ -914,7 +914,9 @@
         /// <param name="e"></param>
         private void bbiMails_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            MailBoxForm.Instance.SetParent(this);            
+            MailBoxForm.Instance.SetParent(this);
+            MailBoxForm.Instance.OnTransferLinkClicked -= Common_OnThreadTransferLinkClicked;
+            MailBoxForm.Instance.OnTransferLinkClicked += Common_OnThreadTransferLinkClicked;
             this.ShowFormOnCenterParent(MailBoxForm.Instance);
         }
 
@@ -1262,25 +1264,16 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Common_OnRichTextBoxContentLinkClicked(object sender, LinkClickedEventArgs e)
+        private void Common_OnRichTextBoxContentLinkClicked(object sender, DevExpress.XtraRichEdit.HyperlinkClickEventArgs e)
         {
-            int index = e.LinkText.LastIndexOf("http:");
-            if (index < 0)
+            string url = e.Hyperlink.NavigateUri;
+            if (url.Contains(@"att.newsmth.net"))
             {
-                index = e.LinkText.LastIndexOf("https:");
+                ShowFormOnCenterParent((new WebBrowserForm(url)));
             }
-
-            if (index > 0)
+            else
             {
-                string url = e.LinkText.Substring(index);
-                if (url.Contains(@"att.newsmth.net"))
-                {
-                    ShowFormOnCenterParent((new WebBrowserForm(url)));
-                }
-                else
-                {
-                    CommonUtil.OpenUrl(url);
-                }
+                CommonUtil.OpenUrl(url);
             }
         }
 
@@ -1330,7 +1323,6 @@
                     if (mailForm.ShowDialog(this) == DialogResult.OK)
                     {
                         hlc.Tag = mailForm.GetPostString();
-                        //e.Link.Visited = true;
                     }
                 }
             }
@@ -1379,7 +1371,6 @@
                 if (dlgResult == DialogResult.OK)
                 {
                     hlc.Tag = "Yes";
-                    //e.Link.Visited = true;
                 }
             }
         }
@@ -1459,8 +1450,6 @@
                             this.bsiWelcome.Caption = welcomeStr + " <href=" + LogStatus.Instance.UserID + ">" + LogStatus.Instance.UserID + "</href>" + "!";
                             this.bsiWelcome.HyperlinkClick -= new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
                             this.bsiWelcome.HyperlinkClick += new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
-                            MailBoxForm.Instance.OnTransferLinkClicked -= Common_OnThreadTransferLinkClicked;
-                            MailBoxForm.Instance.OnTransferLinkClicked += Common_OnThreadTransferLinkClicked;
                             this.bbiLogin.Caption = "Log Out";
                         }
                         else
@@ -1468,7 +1457,6 @@
                             this.bsiWelcome.Caption = "Welcome!";
                             this.bbiLogin.Caption = "Log In";
                             this.bsiWelcome.HyperlinkClick -= new HyperlinkClickEventHandler(Common_OnUserLinkClicked);
-                            MailBoxForm.Instance.OnTransferLinkClicked -= Common_OnThreadTransferLinkClicked;
                         }
 
                         this._checkNewInforTimer.Stop();
@@ -1516,15 +1504,11 @@
                         {
                             this.bbiMails.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
                             this.bbiMails.Caption = "New mail!";
-                            //this._mailToolTip.ShowAlways = true;
-                            //this._mailToolTip.SetToolTip(this.bbiMails, "You have " + newMailCount + " new mail" + (newMailCount == 1 ? "!" : "s!"));
                         }
                         else
                         {
                             this.bbiMails.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Black;
                             this.bbiMails.Caption = "Mails";
-                            ///this._mailToolTip.ShowAlways = false;
-                            ///this._mailToolTip.SetToolTip(this.bbiMails, "You have no new mail!");
                         }
                     }
                 }
@@ -1561,15 +1545,11 @@
                         {
                             this.bbiRefers.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
                             this.bbiRefers.Caption = "New refer!";
-                            ///this._referToolTip.ShowAlways = true;
-                            ///this._referToolTip.SetToolTip(this.bbiRefers, "You have " + newCount + " new refer" + (newCount == 1 ? "!" : "s!"));
                         }
                         else
                         {
                             this.bbiRefers.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Black;
                             this.bbiRefers.Caption = "Refers";
-                            ///this._referToolTip.ShowAlways = false;
-                            ///this._referToolTip.SetToolTip(this.bbiRefers, "You have no new refer!");
                         }
                     }
                 }

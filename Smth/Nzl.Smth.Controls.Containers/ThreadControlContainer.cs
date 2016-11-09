@@ -86,7 +86,7 @@ namespace Nzl.Smth.Controls.Containers
         /// <summary>
         /// 
         /// </summary>
-        public event LinkClickedEventHandler OnThreadContentLinkClicked;
+        public event DevExpress.XtraRichEdit.HyperlinkClickEventHandler OnThreadContentLinkClicked;
 
         /// <summary>
         /// 
@@ -338,7 +338,7 @@ namespace Nzl.Smth.Controls.Containers
                 ctl.OnReplyLinkClicked += new HyperlinkClickEventHandler(ThreadControl_OnReplyLinkClicked);
                 ctl.OnMailLinkClicked += new HyperlinkClickEventHandler(ThreadControl_OnMailLinkClicked);
                 ctl.OnTransferLinkClicked += new HyperlinkClickEventHandler(ThreadControl_OnTransferLinkClicked);
-                ctl.OnTextBoxLinkClicked += ThreadControl_OnTextBoxLinkClicked;
+                ctl.OnContentLinkClicked += ThreadControl_OnTextBoxLinkClicked;
                 ctl.OnTextBoxMouseWheel += this.Container_MouseWheel;
                 if (string.IsNullOrEmpty(this._targetUserID) == false)
                 {
@@ -363,7 +363,7 @@ namespace Nzl.Smth.Controls.Containers
                 ctl.OnReplyLinkClicked -= new HyperlinkClickEventHandler(ThreadControl_OnReplyLinkClicked);
                 ctl.OnMailLinkClicked -= new HyperlinkClickEventHandler(ThreadControl_OnMailLinkClicked);
                 ctl.OnTransferLinkClicked -= new HyperlinkClickEventHandler(ThreadControl_OnTransferLinkClicked);
-                ctl.OnTextBoxLinkClicked -= ThreadControl_OnTextBoxLinkClicked;
+                ctl.OnContentLinkClicked -= ThreadControl_OnTextBoxLinkClicked;
                 ctl.OnTextBoxMouseWheel -= this.Container_MouseWheel;
             }
         }
@@ -989,7 +989,7 @@ namespace Nzl.Smth.Controls.Containers
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ThreadControl_OnTextBoxLinkClicked(object sender, LinkClickedEventArgs e)
+        private void ThreadControl_OnTextBoxLinkClicked(object sender, DevExpress.XtraRichEdit.HyperlinkClickEventArgs e)
         {
             if (this.OnThreadContentLinkClicked != null)
             {
@@ -1028,7 +1028,7 @@ namespace Nzl.Smth.Controls.Containers
                 this._postUrl = Configuration.BaseUrl + this._postUrl;
 
                 this.bbiReply.Visibility = string.IsNullOrEmpty(this._targetUserID) ? BarItemVisibility.Always : BarItemVisibility.Never;
-                this.bbiReply.Caption = ControlUtil.GetHyperlinkText(this.bbiReply.Caption, this._postUrl);
+                this.bbiReply.Caption = MiscUtil.GetHyperlinkText(this.bbiReply.Caption, this._postUrl);
             }
             
             string board = SmthUtil.GetBoard(wp);
@@ -1038,7 +1038,7 @@ namespace Nzl.Smth.Controls.Containers
                 string engBoardName = CommonUtil.GetMatch(@"\((?'Board'.+)\)", board, "Board");
                 string chnBoardName = board.Replace("(" + engBoardName + ")", "");
                 this.bbiBoard.Caption = chnBoardName;
-                this.bbiBoard.Caption = ControlUtil.GetHyperlinkText(this.bbiBoard.Caption, engBoardName);
+                this.bbiBoard.Caption = MiscUtil.GetHyperlinkText(this.bbiBoard.Caption, engBoardName);
             }
 
             this.bbiReply.Visibility = LogStatus.Instance.IsLogin && string.IsNullOrEmpty(this._targetUserID) ? BarItemVisibility.Always : BarItemVisibility.Never;

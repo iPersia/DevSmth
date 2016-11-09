@@ -52,9 +52,8 @@
             base.Initialize(board);
             if (board != null)
             {
-                this.linklblBoard.Text = ControlUtil.GetHyperlinkText(board.Name, board.Code);
+                this.InitializeLinkLabel(this.linklblBoard, board.Name, board.Code);
                 this.linklblBoard.Tag = "Board";
-                this.linklblBoard.LinkVisited = ControlCenter.IsVisitedUrl(board.Code);
             }
         }
 

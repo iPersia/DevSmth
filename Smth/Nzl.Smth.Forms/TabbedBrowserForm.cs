@@ -1314,6 +1314,7 @@
             if (hlc != null && hlc.Tag != null)
             {
                 string replyContent = hlc.Tag.ToString();
+                hlc.Tag = null;
                 if (replyContent != null)
                 {
                     NewMailForm mailForm = new NewMailForm(replyContent.Substring(0, replyContent.IndexOf("<User>")),

@@ -275,7 +275,6 @@ namespace Nzl.Smth.Controls.Containers
             HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (this.OnEditClicked != null && hlc != null)
             {
-                hlc.Tag = null;
                 this.OnEditClicked(sender, e);
                 if (hlc.Tag != null)
                 {
@@ -289,8 +288,6 @@ namespace Nzl.Smth.Controls.Containers
                         pl.Start();
                     }
                 }
-
-                hlc.Tag = null;
             }
         }
 
@@ -465,7 +462,6 @@ namespace Nzl.Smth.Controls.Containers
             HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (this.OnReplyClicked != null && hlc != null)
             {
-                hlc.Tag = null;
                 this.OnReplyClicked(sender, e);
                 if (hlc.Tag != null)
                 {
@@ -479,8 +475,6 @@ namespace Nzl.Smth.Controls.Containers
                         pl.Start();
                     }
                 }
-
-                hlc.Tag = null;
             }
         }
 
@@ -579,7 +573,6 @@ namespace Nzl.Smth.Controls.Containers
             HyperlinkLabelControl hlc = sender as HyperlinkLabelControl;
             if (this.OnMailClicked != null && hlc != null)
             {
-                hlc.Tag = null;
                 this.OnMailClicked(sender, e);
                 if (hlc.Tag != null)
                 {
@@ -593,8 +586,6 @@ namespace Nzl.Smth.Controls.Containers
                         pl.Start();
                     }
                 }
-
-                hlc.Tag = null;
             }
         }
 

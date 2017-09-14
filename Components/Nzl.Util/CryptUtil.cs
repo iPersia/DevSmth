@@ -8,7 +8,7 @@
     /// <summary>
     /// Encrypt utils.
     /// </summary>
-    public static class EncryptUtil
+    public static class CryptUtil
     {
         /// <summary>   
         /// 使用缺省密钥字符串加密   
@@ -148,7 +148,7 @@
         /// <returns></returns>
         private static string GetKey()
         {
-            object key = ConfigurationUtil.GetConfigurationValue(typeof(EncryptUtil), "Key");
+            object key = ConfigurationUtil.GetConfigurationValue(typeof(CryptUtil), "Key");
             return key != null ? key.ToString() : Guid.NewGuid().ToString();
         }
     }

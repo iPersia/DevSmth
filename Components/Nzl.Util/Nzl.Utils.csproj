@@ -53,7 +53,7 @@
     <Compile Include="ConfigurationUtil.cs" />
     <Compile Include="DateTimeUtil.cs" />
     <Compile Include="EmailUtil.cs" />
-    <Compile Include="EncryptUtil.cs" />
+    <Compile Include="CryptUtil.cs" />
     <Compile Include="FileUtil.cs" />
     <Compile Include="HardwareUtil.cs" />
     <Compile Include="MiscUtil.cs" />

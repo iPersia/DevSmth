@@ -505,10 +505,10 @@
             try
             {
                 UserInformation ui = new UserInformation();
-                ui.UserName = Nzl.Utils.EncryptUtil.Encrypt(this.txtUserID.Text, LoginControl._staticKey);
-                ui.Password = Nzl.Utils.EncryptUtil.Encrypt(this.txtPassword.Text, LoginControl._staticKey);
+                ui.UserName = Nzl.Utils.CryptUtil.Encrypt(this.txtUserID.Text, LoginControl._staticKey);
+                ui.Password = Nzl.Utils.CryptUtil.Encrypt(this.txtPassword.Text, LoginControl._staticKey);
                 byte[] datas = BufferHelper.Serialize(ui);
-                byte[] eDatas = Nzl.Utils.EncryptUtil.Encrypt(datas, System.Text.Encoding.Default.GetBytes(LoginControl._staticFilename));
+                byte[] eDatas = Nzl.Utils.CryptUtil.Encrypt(datas, System.Text.Encoding.Default.GetBytes(LoginControl._staticFilename));
                 using (Stream fStream = new FileStream(LoginControl._staticFilename, FileMode.Create, FileAccess.ReadWrite))
                 {
                     fStream.Write(eDatas, 0, eDatas.Length);
@@ -541,12 +541,12 @@
                         {                            
                             byte[] edatas = new byte[fStream.Length];
                             fStream.Read(edatas, 0, (int)fStream.Length);
-                            byte[] datas = EncryptUtil.Decrypt(edatas, System.Text.Encoding.Default.GetBytes(LoginControl._staticFilename));
+                            byte[] datas = CryptUtil.Decrypt(edatas, System.Text.Encoding.Default.GetBytes(LoginControl._staticFilename));
                             UserInformation ui = (UserInformation)BufferHelper.Deserialize(datas, 0);
                             if (ui != null)
                             {
-                                this.txtUserID.Text = EncryptUtil.Decrypt(ui.UserName, LoginControl._staticKey);
-                                this.txtPassword.Text = EncryptUtil.Decrypt(ui.Password, LoginControl._staticKey);
+                                this.txtUserID.Text = CryptUtil.Decrypt(ui.UserName, LoginControl._staticKey);
+                                this.txtPassword.Text = CryptUtil.Decrypt(ui.Password, LoginControl._staticKey);
                             }
                         }
                     }
